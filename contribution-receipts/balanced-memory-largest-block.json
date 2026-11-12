@@ -1,0 +1,65 @@
+{
+  "repository": "huggingface/accelerate",
+  "stars": 9941,
+  "title": "Reserve balanced memory for the largest instance of each no-split class",
+  "base": "f47439c1fb24721ea71ab98f9b512726b5a97828",
+  "branch": "fix/balanced-memory-largest-block-20261112",
+  "commit": "c100d247a46ab16429e58ff654fa641a4addc8f2",
+  "tree": "fdd1944ec7012e9483cc34ec3aba533104ef2668",
+  "commit_url": "https://github.com/Afloat16/accelerate/commit/c100d247a46ab16429e58ff654fa641a4addc8f2",
+  "body": "## Problem\n\n`get_balanced_memory` records only the first instance of each `no_split_module_classes` class and stops once every class name has appeared. Instances of the same residual-block class can have different parameter sizes. A later, larger instance is then omitted from the buffer calculation, making the planned memory cap depend on module order and causing unnecessary CPU offload.\n\n## Change\n\nKeep the maximum size seen for each requested no-split class and inspect all instances. The existing mean-layer buffer, multiplier, memory ceilings, dtype accounting and low-zero policy remain in place.\n\nA native regression uses four residual blocks of 64, 1,024, 1,024 and 64 bytes. With device budgets of 2,112 and 1,500 bytes, the original balanced cap is 1,428 bytes on the first device and the actual device-map planner offloads a block to CPU. The corrected cap allows the planner to place all four blocks on the two specified devices, with every parameter accounted for and both physical budgets respected.\n\n## Validation\n\nExact source commit: `c100d247a46ab16429e58ff654fa641a4addc8f2`; original main: `f47439c1fb24721ea71ab98f9b512726b5a97828`.\n\n[Successful native CPU/meta validation](https://github.com/Afloat16/accelerate/actions/runs/43308308588), Python 3.12.16 / PyTorch 2.9.1+cpu:\n\n- Same 30 new regressions on unchanged main: **22 failed, 8 passed**.\n- Fixed source: **30 new tests passed**.\n- The entire existing `tests/test_modeling_utils.py` file: **38 passed, 10 skipped, 4 subtests passed** on both base and fixed source.\n- New cases cover differently sized instances in multiple orders, multiple no-split classes, list/set/string inputs, planned FP16 and special FP64 dtypes, equal-sized and absent-class controls, low-zero budgets, non-contiguous device IDs, and the real `infer_auto_device_map` result.\n- The mapping regression verifies complete parameter coverage, no split within residual blocks, no CPU/disk allocation and exact per-device parameter byte totals.\n- Project-pinned Ruff 0.13.1 lint/format and `git diff --check` passed.\n\nThe planner is executed with actual CPU/meta modules and explicit accelerator memory budgets; no accelerator availability is mocked. Actual GPU loading/execution, GPU peak memory and the full repository suite were not tested. Computing the buffer now visits all relevant size entries during planning.\n\n## Prior work checked\n\nI catalogued the complete 175-commit history of `modeling.py`, read the relevant original and later patches including #534, #583, #3244, #3776 and #4048, searched all-state balanced/no-split/buffer PRs, and checked all existing author PRs and fork branches. The largest-leaf proposal in #3244 changes a different part of the budget calculation and does not inspect later same-class no-split blocks.\n",
+  "pr_created": false,
+  "pr_url": null,
+  "merged_at": null,
+  "status": "validated_fork_commit_upstream_pr_creation_blocked",
+  "validation": {
+    "run_url": "https://github.com/Afloat16/accelerate/actions/runs/43308308588",
+    "run_id": 43308308588,
+    "job_id": 131497332391,
+    "conclusion": "success",
+    "environment": "Python 3.12.16, PyTorch 2.9.1+cpu",
+    "before": {
+      "new_failed": 22,
+      "new_passed": 8,
+      "new_errors": 0,
+      "new_skipped": 0,
+      "existing_passed": 38,
+      "existing_skipped": 10,
+      "existing_subtests_passed": 4
+    },
+    "after": {
+      "new_passed": 30,
+      "existing_passed": 38,
+      "existing_skipped": 10,
+      "existing_subtests_passed": 4
+    },
+    "style": "Project-pinned Ruff 0.13.1 lint and format; git diff --check",
+    "limits": [
+      "CPU/meta native planning with explicit accelerator memory budgets",
+      "No GPU loading/execution or GPU peak-memory measurement",
+      "Full repository suite not run"
+    ]
+  },
+  "peer_review": "Independent read-only review approved; final mapping fixture cap reduced from total model size 2176 to 2112 bytes to force actual splitting while retaining 1024 bytes reserved for the largest pending block.",
+  "deduplication": {
+    "file_history_commits_catalogued": 175,
+    "actual_related_patches_read": [
+      534,
+      583,
+      777,
+      1798,
+      3244,
+      3776,
+      4048
+    ],
+    "all_author_prs": 4,
+    "preexisting_fork_branches": 5,
+    "issue3041_distinction": "General conservative largest-layer reservation, not first-instance class buffering",
+    "new_contribution": true
+  },
+  "prefilled_url": "https://github.com/huggingface/accelerate/compare/main...Afloat16:fix/balanced-memory-largest-block-20261112?expand=1&title=Reserve%20balanced%20memory%20for%20the%20largest%20instance%20of%20each%20no-split%20class&body=%23%23%20Problem%0A%0A%60get_balanced_memory%60%20records%20only%20the%20first%20instance%20of%20each%20%60no_split_module_classes%60%20class%20and%20stops%20once%20every%20class%20name%20has%20appeared.%20Instances%20of%20the%20same%20residual-block%20class%20can%20have%20different%20parameter%20sizes.%20A%20later%2C%20larger%20instance%20is%20then%20omitted%20from%20the%20buffer%20calculation%2C%20making%20the%20planned%20memory%20cap%20depend%20on%20module%20order%20and%20causing%20unnecessary%20CPU%20offload.%0A%0A%23%23%20Change%0A%0AKeep%20the%20maximum%20size%20seen%20for%20each%20requested%20no-split%20class%20and%20inspect%20all%20instances.%20The%20existing%20mean-layer%20buffer%2C%20multiplier%2C%20memory%20ceilings%2C%20dtype%20accounting%20and%20low-zero%20policy%20remain%20in%20place.%0A%0AA%20native%20regression%20uses%20four%20residual%20blocks%20of%2064%2C%201%2C024%2C%201%2C024%20and%2064%20bytes.%20With%20device%20budgets%20of%202%2C112%20and%201%2C500%20bytes%2C%20the%20original%20balanced%20cap%20is%201%2C428%20bytes%20on%20the%20first%20device%20and%20the%20actual%20device-map%20planner%20offloads%20a%20block%20to%20CPU.%20The%20corrected%20cap%20allows%20the%20planner%20to%20place%20all%20four%20blocks%20on%20the%20two%20specified%20devices%2C%20with%20every%20parameter%20accounted%20for%20and%20both%20physical%20budgets%20respected.%0A%0A%23%23%20Validation%0A%0AExact%20source%20commit%3A%20%60c100d247a46ab16429e58ff654fa641a4addc8f2%60%3B%20original%20main%3A%20%60f47439c1fb24721ea71ab98f9b512726b5a97828%60.%0A%0A%5BSuccessful%20native%20CPU%2Fmeta%20validation%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2Faccelerate%2Factions%2Fruns%2F43308308588)%2C%20Python%203.12.16%20%2F%20PyTorch%202.9.1%2Bcpu%3A%0A%0A-%20Same%2030%20new%20regressions%20on%20unchanged%20main%3A%20**22%20failed%2C%208%20passed**.%0A-%20Fixed%20source%3A%20**30%20new%20tests%20passed**.%0A-%20The%20entire%20existing%20%60tests%2Ftest_modeling_utils.py%60%20file%3A%20**38%20passed%2C%2010%20skipped%2C%204%20subtests%20passed**%20on%20both%20base%20and%20fixed%20source.%0A-%20New%20cases%20cover%20differently%20sized%20instances%20in%20multiple%20orders%2C%20multiple%20no-split%20classes%2C%20list%2Fset%2Fstring%20inputs%2C%20planned%20FP16%20and%20special%20FP64%20dtypes%2C%20equal-sized%20and%20absent-class%20controls%2C%20low-zero%20budgets%2C%20non-contiguous%20device%20IDs%2C%20and%20the%20real%20%60infer_auto_device_map%60%20result.%0A-%20The%20mapping%20regression%20verifies%20complete%20parameter%20coverage%2C%20no%20split%20within%20residual%20blocks%2C%20no%20CPU%2Fdisk%20allocation%20and%20exact%20per-device%20parameter%20byte%20totals.%0A-%20Project-pinned%20Ruff%200.13.1%20lint%2Fformat%20and%20%60git%20diff%20--check%60%20passed.%0A%0AThe%20planner%20is%20executed%20with%20actual%20CPU%2Fmeta%20modules%20and%20explicit%20accelerator%20memory%20budgets%3B%20no%20accelerator%20availability%20is%20mocked.%20Actual%20GPU%20loading%2Fexecution%2C%20GPU%20peak%20memory%20and%20the%20full%20repository%20suite%20were%20not%20tested.%20Computing%20the%20buffer%20now%20visits%20all%20relevant%20size%20entries%20during%20planning.%0A%0A%23%23%20Prior%20work%20checked%0A%0AI%20catalogued%20the%20complete%20175-commit%20history%20of%20%60modeling.py%60%2C%20read%20the%20relevant%20original%20and%20later%20patches%20including%20%23534%2C%20%23583%2C%20%233244%2C%20%233776%20and%20%234048%2C%20searched%20all-state%20balanced%2Fno-split%2Fbuffer%20PRs%2C%20and%20checked%20all%20existing%20author%20PRs%20and%20fork%20branches.%20The%20largest-leaf%20proposal%20in%20%233244%20changes%20a%20different%20part%20of%20the%20budget%20calculation%20and%20does%20not%20inspect%20later%20same-class%20no-split%20blocks.%0A",
+  "pr_creation_error": {
+    "status": 403,
+    "message": "Resource not accessible by integration"
+  }
+}
