@@ -1,0 +1,89 @@
+name: Validate largest no-split block memory
+on:
+  push:
+    branches: [validation/balanced-memory-largest-block-20261112]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 2141819f2da23011d2707950c01c0c6bbef4ab27
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install native CPU dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[test_prod,quality]" torch==2.9.1
+      - name: Verify the unchanged baseline
+        run: |
+          test "$(git rev-parse HEAD)" = "2141819f2da23011d2707950c01c0c6bbef4ab27"
+          git show f47439c1fb24721ea71ab98f9b512726b5a97828:src/accelerate/utils/modeling.py > src/accelerate/utils/modeling.py
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          def run(path, output):
+              result = subprocess.run([sys.executable, "-m", "pytest", "-q", path, "--junitxml=" + output], text=True, capture_output=True)
+              print(result.stdout, flush=True)
+              print(result.stderr, flush=True)
+              assert result.returncode in (0, 1), result.returncode
+              cases = list(ET.parse(output).getroot().iter("testcase"))
+              assert not any(case.find("error") is not None for case in cases)
+              return cases
+
+          new = run("tests/test_balanced_memory_block_sizes.py", "baseline-new.xml")
+          failures = sum(case.find("failure") is not None for case in new)
+          skipped = sum(case.find("skipped") is not None for case in new)
+          assert len(new) == 30 and failures > 0 and skipped == 0
+          old = run("tests/test_modeling_utils.py", "baseline-existing.xml")
+          print(json.dumps({"baseline_new": {"total": len(new), "failed": failures, "skipped": skipped}}, indent=2))
+          Path("baseline-existing-failures.json").write_text(json.dumps(sorted(
+              case.attrib["classname"] + "::" + case.attrib["name"]
+              for case in old if case.find("failure") is not None
+          )))
+          PY
+      - name: Verify fixed native planners and existing modeling tests
+        run: |
+          git restore --source=2141819f2da23011d2707950c01c0c6bbef4ab27 src/accelerate/utils/modeling.py
+          python -m pytest -q tests/test_balanced_memory_block_sizes.py --junitxml=fixed-new.xml
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          result = subprocess.run([sys.executable, "-m", "pytest", "-q", "tests/test_modeling_utils.py", "--junitxml=fixed-existing.xml"], text=True, capture_output=True)
+          print(result.stdout, flush=True)
+          print(result.stderr, flush=True)
+          assert result.returncode in (0, 1)
+          cases = list(ET.parse("fixed-existing.xml").getroot().iter("testcase"))
+          assert not any(case.find("error") is not None for case in cases)
+          actual = sorted(case.attrib["classname"] + "::" + case.attrib["name"] for case in cases if case.find("failure") is not None)
+          assert actual == json.loads(Path("baseline-existing-failures.json").read_text()), actual
+          print("Existing failure identities match unchanged base:", actual)
+          PY
+      - name: Check project Python style
+        run: |
+          ruff check src/accelerate/utils/modeling.py tests/test_balanced_memory_block_sizes.py
+          ruff format --check src/accelerate/utils/modeling.py tests/test_balanced_memory_block_sizes.py
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-planner-before-after
+          path: |
+            *.xml
+            baseline-existing-failures.json
