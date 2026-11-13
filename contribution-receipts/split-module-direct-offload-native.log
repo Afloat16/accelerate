@@ -1,0 +1,1740 @@
+﻿2026-11-13T11:17:42.3621464Z Current runner version: '2.338.2'
+2026-11-13T11:17:42.3646481Z ##[group]Runner Image Provisioner
+2026-11-13T11:17:42.3647463Z Hosted Compute Agent
+2026-11-13T11:17:42.3648088Z Version: 20261028.624
+2026-11-13T11:17:42.3648720Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-13T11:17:42.3649538Z Build Date: 2026-10-28T21:51:42Z
+2026-11-13T11:17:42.3650248Z Worker ID: {a112cd77-328e-4a78-9448-2a9edd117bc2}
+2026-11-13T11:17:42.3651032Z Region: centralus
+2026-11-13T11:17:42.3651626Z Cloud: Azure
+2026-11-13T11:17:42.3652177Z ##[endgroup]
+2026-11-13T11:17:42.3653763Z ##[group]Operating System
+2026-11-13T11:17:42.3654464Z Ubuntu
+2026-11-13T11:17:42.3655072Z 24.04.5
+2026-11-13T11:17:42.3655627Z LTS
+2026-11-13T11:17:42.3656367Z ##[endgroup]
+2026-11-13T11:17:42.3657274Z ##[group]Runner Image
+2026-11-13T11:17:42.3657914Z Image: ubuntu-24.04
+2026-11-13T11:17:42.3658514Z Version: 20261101.360.1
+2026-11-13T11:17:42.3659895Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T11:17:42.3661926Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-13T11:17:42.3662952Z ##[endgroup]
+2026-11-13T11:17:42.3664125Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:17:42.3666551Z Contents: read
+2026-11-13T11:17:42.3667375Z Metadata: read
+2026-11-13T11:17:42.3668053Z ##[endgroup]
+2026-11-13T11:17:42.3670677Z Secret source: Actions
+2026-11-13T11:17:42.3671711Z Cache mode: write
+2026-11-13T11:17:42.3672631Z Prepare workflow directory
+2026-11-13T11:17:42.4084484Z Prepare all required actions
+2026-11-13T11:17:42.4157249Z Getting action download info
+2026-11-13T11:17:42.7451055Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:17:42.8275810Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:17:42.9077678Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-11-13T11:17:43.3316769Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:17:43.5592409Z Complete job name: native-cpu
+2026-11-13T11:17:43.6463324Z ##[group]Run actions/checkout@v4
+2026-11-13T11:17:43.6464227Z with:
+2026-11-13T11:17:43.6464662Z   fetch-depth: 0
+2026-11-13T11:17:43.6465137Z   repository: Afloat16/accelerate
+2026-11-13T11:17:43.6469114Z   token: ***
+2026-11-13T11:17:43.6469703Z   ssh-strict: true
+2026-11-13T11:17:43.6470162Z   ssh-user: git
+2026-11-13T11:17:43.6470939Z   persist-credentials: true
+2026-11-13T11:17:43.6471447Z   clean: true
+2026-11-13T11:17:43.6471902Z   sparse-checkout-cone-mode: true
+2026-11-13T11:17:43.6472457Z   fetch-tags: false
+2026-11-13T11:17:43.6472937Z   show-progress: true
+2026-11-13T11:17:43.6473448Z   lfs: false
+2026-11-13T11:17:43.6473871Z   submodules: false
+2026-11-13T11:17:43.6474327Z   set-safe-directory: true
+2026-11-13T11:17:43.6474853Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:17:43.6475928Z env:
+2026-11-13T11:17:43.6476699Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:43.6477187Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:43.6477653Z   PYTHONPATH: src
+2026-11-13T11:17:43.6478136Z ##[endgroup]
+2026-11-13T11:17:43.9013865Z Syncing repository: Afloat16/accelerate
+2026-11-13T11:17:43.9015945Z ##[group]Getting Git version info
+2026-11-13T11:17:43.9017301Z Working directory is '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:17:43.9018892Z [command]/usr/bin/git version
+2026-11-13T11:17:43.9128829Z git version 2.56.0
+2026-11-13T11:17:43.9154402Z ##[endgroup]
+2026-11-13T11:17:43.9170307Z Temporarily overriding HOME='/home/runner/work/_temp/05a1c595-dbbe-48fd-9c98-c320a41c5767' before making global git config changes
+2026-11-13T11:17:43.9172528Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:17:43.9175509Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:17:43.9231718Z Deleting the contents of '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:17:43.9237294Z ##[group]Initializing the repository
+2026-11-13T11:17:43.9249067Z [command]/usr/bin/git init /home/runner/work/accelerate/accelerate
+2026-11-13T11:17:43.9381113Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:17:43.9382519Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:17:43.9383802Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:17:43.9384736Z hint: call:
+2026-11-13T11:17:43.9385318Z hint:
+2026-11-13T11:17:43.9386453Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:17:43.9387538Z hint:
+2026-11-13T11:17:43.9388409Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:17:43.9389554Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:17:43.9390463Z hint:
+2026-11-13T11:17:43.9391096Z hint: 	git branch -m <name>
+2026-11-13T11:17:43.9391836Z hint:
+2026-11-13T11:17:43.9392677Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:17:43.9405933Z Initialized empty Git repository in /home/runner/work/accelerate/accelerate/.git/
+2026-11-13T11:17:43.9428458Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/accelerate
+2026-11-13T11:17:43.9469086Z ##[endgroup]
+2026-11-13T11:17:43.9470050Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:17:43.9473643Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:17:43.9509990Z ##[endgroup]
+2026-11-13T11:17:43.9510914Z ##[group]Setting up auth
+2026-11-13T11:17:43.9518799Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:17:43.9560535Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:17:43.9997935Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:17:44.0047135Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:17:44.0295878Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:17:44.0340823Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:17:44.0587271Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:17:44.0637561Z ##[endgroup]
+2026-11-13T11:17:44.0639561Z ##[group]Fetching the repository
+2026-11-13T11:17:44.0651181Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-13T11:17:45.5114330Z From https://github.com/Afloat16/accelerate
+2026-11-13T11:17:45.5116544Z  * [new branch]        audit/balanced-memory-largest-block-20261112 -> origin/audit/balanced-memory-largest-block-20261112
+2026-11-13T11:17:45.5118726Z  * [new branch]        audit/multiple-model-parameter-mapping-20261113 -> origin/audit/multiple-model-parameter-mapping-20261113
+2026-11-13T11:17:45.5120728Z  * [new branch]        fix-empty-disk-offload-20261008 -> origin/fix-empty-disk-offload-20261008
+2026-11-13T11:17:45.5122862Z  * [new branch]        fix/balanced-memory-largest-block-20261112 -> origin/fix/balanced-memory-largest-block-20261112
+2026-11-13T11:17:45.5124646Z  * [new branch]        fix/cpu-ddp-uneven-inputs-20261113 -> origin/fix/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:17:45.5127020Z  * [new branch]        fix/cuda-unindexed-device-current-context-20261112 -> origin/fix/cuda-unindexed-device-current-context-20261112
+2026-11-13T11:17:45.5129415Z  * [new branch]        fix/maximum-layer-direct-parameters-20261112 -> origin/fix/maximum-layer-direct-parameters-20261112
+2026-11-13T11:17:45.5132018Z  * [new branch]        fix/multiple-model-parameter-mapping-20261113 -> origin/fix/multiple-model-parameter-mapping-20261113
+2026-11-13T11:17:45.5134442Z  * [new branch]        fix/optimizer-hook-delegation-20261112 -> origin/fix/optimizer-hook-delegation-20261112
+2026-11-13T11:17:45.5136964Z  * [new branch]        fix/split-module-direct-offload-20261113 -> origin/fix/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5138901Z  * [new branch]        main       -> origin/main
+2026-11-13T11:17:45.5140658Z  * [new branch]        perf/safetensors-fallback-membership-20261113 -> origin/perf/safetensors-fallback-membership-20261113
+2026-11-13T11:17:45.5142847Z  * [new branch]        validation/balanced-memory-largest-block-20261112 -> origin/validation/balanced-memory-largest-block-20261112
+2026-11-13T11:17:45.5145200Z  * [new branch]        validation/cpu-ddp-uneven-inputs-20261113 -> origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:17:45.5147708Z  * [new branch]        validation/multiple-model-parameter-mapping-20261113 -> origin/validation/multiple-model-parameter-mapping-20261113
+2026-11-13T11:17:45.5150084Z  * [new branch]        validation/probe-multiple-model-parameters-20261113 -> origin/validation/probe-multiple-model-parameters-20261113
+2026-11-13T11:17:45.5152342Z  * [new branch]        validation/safetensors-fallback-membership-20261113 -> origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:17:45.5154841Z  * [new branch]        validation/split-module-direct-offload-20261113 -> origin/validation/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5156896Z  * [new branch]        validation/xla-multiple-optimizer-probe-20261113 -> origin/validation/xla-multiple-optimizer-probe-20261113
+2026-11-13T11:17:45.5159349Z [command]/usr/bin/git branch --list --remote origin/validation/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5180320Z   origin/validation/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5190609Z [command]/usr/bin/git rev-parse refs/remotes/origin/validation/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5225659Z 61082f558e970286e3bf0f748ac932a718e6611d
+2026-11-13T11:17:45.5298840Z ##[endgroup]
+2026-11-13T11:17:45.5299709Z ##[group]Determining the checkout info
+2026-11-13T11:17:45.5300528Z ##[endgroup]
+2026-11-13T11:17:45.5301085Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:17:45.5302377Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:17:45.5337791Z ##[group]Checking out the ref
+2026-11-13T11:17:45.5341837Z [command]/usr/bin/git checkout --progress --force -B validation/split-module-direct-offload-20261113 refs/remotes/origin/validation/split-module-direct-offload-20261113
+2026-11-13T11:17:45.5723671Z Switched to a new branch 'validation/split-module-direct-offload-20261113'
+2026-11-13T11:17:45.5741010Z branch 'validation/split-module-direct-offload-20261113' set up to track 'origin/validation/split-module-direct-offload-20261113'.
+2026-11-13T11:17:45.5750125Z ##[endgroup]
+2026-11-13T11:17:45.5801957Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:17:45.5837327Z 61082f558e970286e3bf0f748ac932a718e6611d
+2026-11-13T11:17:45.6127864Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:17:45.6128392Z with:
+2026-11-13T11:17:45.6128764Z   python-version: 3.12
+2026-11-13T11:17:45.6129196Z   check-latest: false
+2026-11-13T11:17:45.6132210Z   token: ***
+2026-11-13T11:17:45.6132604Z   update-environment: true
+2026-11-13T11:17:45.6133037Z   allow-prereleases: false
+2026-11-13T11:17:45.6133450Z   freethreaded: false
+2026-11-13T11:17:45.6133824Z env:
+2026-11-13T11:17:45.6134176Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:45.6134552Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:45.6134918Z   PYTHONPATH: src
+2026-11-13T11:17:45.6135279Z ##[endgroup]
+2026-11-13T11:17:45.7624261Z ##[group]Installed versions
+2026-11-13T11:17:45.7773406Z (node:2334) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:17:45.7776008Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:17:45.7777398Z Successfully set up CPython (3.12.16)
+2026-11-13T11:17:45.7779148Z ##[endgroup]
+2026-11-13T11:17:45.8143467Z ##[group]Run astral-sh/setup-uv@v6
+2026-11-13T11:17:45.8145072Z with:
+2026-11-13T11:17:45.8146473Z   activate-environment: false
+2026-11-13T11:17:45.8147486Z   working-directory: /home/runner/work/accelerate/accelerate
+2026-11-13T11:17:45.8148528Z   server-url: https://github.com
+2026-11-13T11:17:45.8155382Z   github-token: ***
+2026-11-13T11:17:45.8156099Z   enable-cache: auto
+2026-11-13T11:17:45.8157764Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-13T11:17:45.8159288Z   restore-cache: true
+2026-11-13T11:17:45.8159971Z   save-cache: true
+2026-11-13T11:17:45.8160662Z   prune-cache: true
+2026-11-13T11:17:45.8161407Z   ignore-nothing-to-cache: false
+2026-11-13T11:17:45.8162448Z   ignore-empty-workdir: false
+2026-11-13T11:17:45.8163262Z   add-problem-matchers: true
+2026-11-13T11:17:45.8163957Z env:
+2026-11-13T11:17:45.8164523Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:45.8165284Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:45.8165932Z   PYTHONPATH: src
+2026-11-13T11:17:45.8167277Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:45.8168987Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:17:45.8170579Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:45.8171640Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:45.8172670Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:45.8173714Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:17:45.8174575Z ##[endgroup]
+2026-11-13T11:17:46.0357755Z (node:2346) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:17:46.0360290Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:17:46.0486520Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:17:46.0488127Z Could not find file: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:17:46.0489590Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:17:46.0517512Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-13T11:17:46.0518933Z Getting latest version from GitHub API...
+2026-11-13T11:17:46.3543874Z manifest-file not provided, reading from local file.
+2026-11-13T11:17:46.3577962Z manifest-file does not contain version 0.13.8, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+2026-11-13T11:17:46.3580125Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-13T11:17:46.7198484Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/e3400355-aa49-487d-b74c-1d5577d49fe1 -f /home/runner/work/_temp/f8a0bc8c-77dd-4a96-9958-39148f1f0684
+2026-11-13T11:17:47.0202366Z Added /home/runner/.local/bin to the path
+2026-11-13T11:17:47.0206095Z Added /opt/hostedtoolcache/uv/0.13.8/x86_64 to the path
+2026-11-13T11:17:47.0218245Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:47.0219062Z Successfully installed uv version 0.13.8
+2026-11-13T11:17:47.0222349Z Searching files using cache dependency glob: /home/runner/work/accelerate/accelerate/**/*requirements*.txt,/home/runner/work/accelerate/accelerate/**/*requirements*.in,/home/runner/work/accelerate/accelerate/**/*constraints*.txt,/home/runner/work/accelerate/accelerate/**/*constraints*.in,/home/runner/work/accelerate/accelerate/**/pyproject.toml,/home/runner/work/accelerate/accelerate/**/uv.lock,/home/runner/work/accelerate/accelerate/**/*.py.lock
+2026-11-13T11:17:47.0713657Z /home/runner/work/accelerate/accelerate/examples/requirements.txt
+2026-11-13T11:17:47.0783556Z /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:17:47.0972785Z Found 2 files to hash.
+2026-11-13T11:17:47.2190551Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:17:47.3467724Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:17:47.3631028Z ##[group]Run uv venv .venv
+2026-11-13T11:17:47.3631397Z [36;1muv venv .venv[0m
+2026-11-13T11:17:47.3631952Z [36;1muv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:17:47.3632703Z [36;1muv pip install --python .venv/bin/python -e '.[test_prod,quality]' torchdata transformers[0m
+2026-11-13T11:17:47.3658597Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:17:47.3658873Z env:
+2026-11-13T11:17:47.3659080Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:47.3659304Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:47.3659517Z   PYTHONPATH: src
+2026-11-13T11:17:47.3659818Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:47.3660272Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:17:47.3660717Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:47.3661119Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:47.3662185Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:47.3662667Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:17:47.3663072Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:47.3663420Z ##[endgroup]
+2026-11-13T11:17:47.3809988Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-13T11:17:47.3810772Z Creating virtual environment at: .venv
+2026-11-13T11:17:47.3816146Z Activate with: .venv/bin/activate
+2026-11-13T11:17:47.6644661Z Resolved 10 packages in 228ms
+2026-11-13T11:17:47.6792361Z Downloading setuptools (1.2MiB)
+2026-11-13T11:17:47.6821714Z Downloading torch (175.8MiB)
+2026-11-13T11:17:47.6858828Z Downloading networkx (2.0MiB)
+2026-11-13T11:17:47.6860648Z Downloading sympy (6.0MiB)
+2026-11-13T11:17:47.7625953Z  Downloaded setuptools
+2026-11-13T11:17:47.8404647Z  Downloaded networkx
+2026-11-13T11:17:47.9137297Z  Downloaded sympy
+2026-11-13T11:17:49.5980275Z  Downloaded torch
+2026-11-13T11:17:49.5983593Z Prepared 10 packages in 1.93s
+2026-11-13T11:17:49.8293781Z Installed 10 packages in 230ms
+2026-11-13T11:17:49.8294302Z  + filelock==4.2.4
+2026-11-13T11:17:49.8294723Z  + fsspec==2026.9.0
+2026-11-13T11:17:49.8295076Z  + jinja2==3.1.6
+2026-11-13T11:17:49.8318522Z  + markupsafe==3.0.3
+2026-11-13T11:17:49.8346987Z  + mpmath==1.3.0
+2026-11-13T11:17:49.8357282Z  + networkx==3.7
+2026-11-13T11:17:49.8357834Z  + setuptools==78.1.0
+2026-11-13T11:17:49.8358364Z  + sympy==1.14.0
+2026-11-13T11:17:49.8358850Z  + torch==2.9.0+cpu
+2026-11-13T11:17:49.8359366Z  + typing-extensions==4.16.0
+2026-11-13T11:17:51.3889131Z Resolved 55 packages in 1.49s
+2026-11-13T11:17:51.3926591Z    Building accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:17:51.4147181Z Downloading numpy (16.0MiB)
+2026-11-13T11:17:51.4176796Z Downloading pydantic-core (2.2MiB)
+2026-11-13T11:17:51.4220982Z Downloading hf-xet (4.1MiB)
+2026-11-13T11:17:51.4276855Z Downloading tokenizers (3.2MiB)
+2026-11-13T11:17:51.4281556Z Downloading transformers (12.4MiB)
+2026-11-13T11:17:51.4283948Z Downloading pygments (1.2MiB)
+2026-11-13T11:17:51.4290080Z Downloading ruff (12.6MiB)
+2026-11-13T11:17:51.5505803Z  Downloaded pygments
+2026-11-13T11:17:51.5770764Z  Downloaded pydantic-core
+2026-11-13T11:17:51.6038273Z  Downloaded tokenizers
+2026-11-13T11:17:51.6290423Z  Downloaded hf-xet
+2026-11-13T11:17:51.7318092Z  Downloaded ruff
+2026-11-13T11:17:51.7828057Z       Built accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:17:51.8200847Z  Downloaded numpy
+2026-11-13T11:17:51.8595521Z  Downloaded transformers
+2026-11-13T11:17:51.8598264Z Prepared 45 packages in 470ms
+2026-11-13T11:17:51.9440307Z Installed 45 packages in 84ms
+2026-11-13T11:17:51.9441450Z  + accelerate==1.16.0.dev0 (from file:///home/runner/work/accelerate/accelerate)
+2026-11-13T11:17:51.9442151Z  + annotated-doc==0.0.6
+2026-11-13T11:17:51.9442560Z  + annotated-types==0.8.0
+2026-11-13T11:17:51.9442954Z  + anyio==4.16.0
+2026-11-13T11:17:51.9443823Z  + attrs==26.1.0
+2026-11-13T11:17:51.9444243Z  + certifi==2026.10.23
+2026-11-13T11:17:51.9444998Z  + charset-normalizer==3.5.2
+2026-11-13T11:17:51.9445626Z  + click==8.5.1
+2026-11-13T11:17:51.9447257Z  + execnet==2.1.2
+2026-11-13T11:17:51.9447605Z  + h11==0.16.0
+2026-11-13T11:17:51.9447855Z  + hf-xet==1.8.0
+2026-11-13T11:17:51.9448066Z  + httpcore2==2.16.0
+2026-11-13T11:17:51.9448558Z  + httpx2==2.16.0
+2026-11-13T11:17:51.9449069Z  + huggingface-hub==2.4.0
+2026-11-13T11:17:51.9449564Z  + idna==3.20
+2026-11-13T11:17:51.9450022Z  + iniconfig==2.3.1
+2026-11-13T11:17:51.9450520Z  + markdown-it-py==4.3.0
+2026-11-13T11:17:51.9451005Z  + mdurl==0.1.2
+2026-11-13T11:17:51.9451461Z  + numpy==2.5.4
+2026-11-13T11:17:51.9451917Z  + packaging==26.3
+2026-11-13T11:17:51.9452388Z  + parameterized==0.9.0
+2026-11-13T11:17:51.9452852Z  + pluggy==1.7.0
+2026-11-13T11:17:51.9453309Z  + psutil==7.2.2
+2026-11-13T11:17:51.9453764Z  + pydantic==2.14.3
+2026-11-13T11:17:51.9454270Z  + pydantic-core==2.50.4
+2026-11-13T11:17:51.9454784Z  + pygments==2.21.0
+2026-11-13T11:17:51.9455257Z  + pytest==9.2.0
+2026-11-13T11:17:51.9455715Z  + pytest-order==1.5.0
+2026-11-13T11:17:51.9456415Z  + pytest-subtests==0.15.0
+2026-11-13T11:17:51.9456950Z  + pytest-xdist==3.8.0
+2026-11-13T11:17:51.9457411Z  + pyyaml==6.0.3
+2026-11-13T11:17:51.9457868Z  + regex==2026.11.9
+2026-11-13T11:17:51.9458327Z  + requests==2.34.2
+2026-11-13T11:17:51.9458797Z  + rich==15.0.0
+2026-11-13T11:17:51.9459303Z  + ruff==0.13.1
+2026-11-13T11:17:51.9459800Z  + safetensors==0.8.0
+2026-11-13T11:17:51.9460194Z  + shellingham==1.5.4
+2026-11-13T11:17:51.9460569Z  + tokenizers==0.23.3
+2026-11-13T11:17:51.9460938Z  + torchdata==0.11.0
+2026-11-13T11:17:51.9461291Z  + tqdm==4.70.1
+2026-11-13T11:17:51.9461633Z  + transformers==5.22.2
+2026-11-13T11:17:51.9462008Z  + truststore==0.10.5
+2026-11-13T11:17:51.9462363Z  + typer==0.29.1
+2026-11-13T11:17:51.9462731Z  + typing-inspection==0.4.5
+2026-11-13T11:17:51.9463129Z  + urllib3==2.8.0
+2026-11-13T11:17:51.9690544Z ##[group]Run .venv/bin/python validation/run_direct_offload.py
+2026-11-13T11:17:51.9691015Z [36;1m.venv/bin/python validation/run_direct_offload.py[0m
+2026-11-13T11:17:51.9712358Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:17:51.9712611Z env:
+2026-11-13T11:17:51.9712804Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:51.9713016Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:51.9713237Z   PYTHONPATH: src
+2026-11-13T11:17:51.9713532Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:51.9713974Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:17:51.9714403Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:51.9714797Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:51.9715188Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:51.9715604Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:17:51.9716654Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:51.9737041Z ##[endgroup]
+2026-11-13T11:18:01.7701367Z FFFFFFFFFFFFFFFFF.F..F                                                   [100%]
+2026-11-13T11:18:01.7702102Z =================================== FAILURES ===================================
+2026-11-13T11:18:01.7702846Z _______ test_direct_tensor_dispatch_roundtrip[False-False-dtype0-False] ________
+2026-11-13T11:18:01.7703733Z 
+2026-11-13T11:18:01.7704116Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro0')
+2026-11-13T11:18:01.7705059Z nested = False, dtype = torch.float32, checkpoint = False
+2026-11-13T11:18:01.7705756Z offload_buffers = False
+2026-11-13T11:18:01.7706046Z 
+2026-11-13T11:18:01.7706584Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7707445Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7708268Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7709052Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7710075Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7711305Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7711956Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7712400Z         original = model_type(dtype)
+2026-11-13T11:18:01.7713114Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7713793Z     
+2026-11-13T11:18:01.7714139Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7714651Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7715446Z         for _ in range(3):
+2026-11-13T11:18:01.7715721Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7716054Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7716662Z             optimizer.step()
+2026-11-13T11:18:01.7716980Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7717337Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7717705Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7718070Z             if checkpoint:
+2026-11-13T11:18:01.7718487Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7719019Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7719764Z                 with init_empty_weights():
+2026-11-13T11:18:01.7720072Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7720401Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7720690Z                     model,
+2026-11-13T11:18:01.7721078Z                     str(path),
+2026-11-13T11:18:01.7721324Z                     device_map=device_map,
+2026-11-13T11:18:01.7721624Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7722188Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7722471Z                 )
+2026-11-13T11:18:01.7722658Z             else:
+2026-11-13T11:18:01.7722860Z                 model = dispatch_model(
+2026-11-13T11:18:01.7723116Z                     original,
+2026-11-13T11:18:01.7723358Z                     device_map=device_map,
+2026-11-13T11:18:01.7723644Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7723961Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7724227Z                 )
+2026-11-13T11:18:01.7724535Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7724914Z E       assert not True
+2026-11-13T11:18:01.7725410Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa054f40820>)
+2026-11-13T11:18:01.7725871Z 
+2026-11-13T11:18:01.7726023Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7726734Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7727451Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7728173Z ________ test_direct_tensor_dispatch_roundtrip[False-False-dtype0-True] ________
+2026-11-13T11:18:01.7728483Z 
+2026-11-13T11:18:01.7728730Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro1')
+2026-11-13T11:18:01.7729372Z nested = True, dtype = torch.float32, checkpoint = False
+2026-11-13T11:18:01.7729690Z offload_buffers = False
+2026-11-13T11:18:01.7729833Z 
+2026-11-13T11:18:01.7729970Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7730377Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7730799Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7731184Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7731714Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7732270Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7732629Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7732881Z         original = model_type(dtype)
+2026-11-13T11:18:01.7733258Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7733639Z     
+2026-11-13T11:18:01.7733931Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7734397Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7734833Z         for _ in range(3):
+2026-11-13T11:18:01.7735068Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7735355Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7735657Z             optimizer.step()
+2026-11-13T11:18:01.7735932Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7736536Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7736879Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7737201Z             if checkpoint:
+2026-11-13T11:18:01.7737462Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7737776Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7738085Z                 with init_empty_weights():
+2026-11-13T11:18:01.7738372Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7738670Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7738953Z                     model,
+2026-11-13T11:18:01.7739496Z                     str(path),
+2026-11-13T11:18:01.7739918Z                     device_map=device_map,
+2026-11-13T11:18:01.7740482Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7741076Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7741593Z                 )
+2026-11-13T11:18:01.7742045Z             else:
+2026-11-13T11:18:01.7742273Z                 model = dispatch_model(
+2026-11-13T11:18:01.7742543Z                     original,
+2026-11-13T11:18:01.7742782Z                     device_map=device_map,
+2026-11-13T11:18:01.7743077Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7743403Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7743673Z                 )
+2026-11-13T11:18:01.7743983Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7744362Z E       assert not True
+2026-11-13T11:18:01.7744844Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa052823e60>)
+2026-11-13T11:18:01.7745290Z 
+2026-11-13T11:18:01.7745437Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7745854Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7746874Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7747600Z _______ test_direct_tensor_dispatch_roundtrip[False-False-dtype1-False] ________
+2026-11-13T11:18:01.7747916Z 
+2026-11-13T11:18:01.7748156Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro2')
+2026-11-13T11:18:01.7748778Z nested = False, dtype = torch.float64, checkpoint = False
+2026-11-13T11:18:01.7749101Z offload_buffers = False
+2026-11-13T11:18:01.7749242Z 
+2026-11-13T11:18:01.7749394Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7749800Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7750222Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7750607Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7751132Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7751691Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7752050Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7752300Z         original = model_type(dtype)
+2026-11-13T11:18:01.7752681Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7753054Z     
+2026-11-13T11:18:01.7753343Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7753791Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7754133Z         for _ in range(3):
+2026-11-13T11:18:01.7754363Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7754642Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7754939Z             optimizer.step()
+2026-11-13T11:18:01.7755206Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7755519Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7755840Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7756404Z             if checkpoint:
+2026-11-13T11:18:01.7756670Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7756984Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7757293Z                 with init_empty_weights():
+2026-11-13T11:18:01.7757571Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7757871Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7758153Z                     model,
+2026-11-13T11:18:01.7758373Z                     str(path),
+2026-11-13T11:18:01.7758620Z                     device_map=device_map,
+2026-11-13T11:18:01.7758921Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7759246Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7759516Z                 )
+2026-11-13T11:18:01.7759708Z             else:
+2026-11-13T11:18:01.7760040Z                 model = dispatch_model(
+2026-11-13T11:18:01.7760307Z                     original,
+2026-11-13T11:18:01.7760544Z                     device_map=device_map,
+2026-11-13T11:18:01.7760833Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7761184Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7761460Z                 )
+2026-11-13T11:18:01.7761771Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7762158Z E       assert not True
+2026-11-13T11:18:01.7762637Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0550475a0>)
+2026-11-13T11:18:01.7763086Z 
+2026-11-13T11:18:01.7763231Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7763639Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7764333Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7765058Z ________ test_direct_tensor_dispatch_roundtrip[False-False-dtype1-True] ________
+2026-11-13T11:18:01.7765364Z 
+2026-11-13T11:18:01.7765607Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro3')
+2026-11-13T11:18:01.7766105Z nested = True, dtype = torch.float64, checkpoint = False
+2026-11-13T11:18:01.7767033Z offload_buffers = False
+2026-11-13T11:18:01.7767278Z 
+2026-11-13T11:18:01.7767499Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7767910Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7768341Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7768731Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7769262Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7769823Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7770184Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7770431Z         original = model_type(dtype)
+2026-11-13T11:18:01.7770807Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7771176Z     
+2026-11-13T11:18:01.7771458Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7771914Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7772266Z         for _ in range(3):
+2026-11-13T11:18:01.7772508Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7772788Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7773091Z             optimizer.step()
+2026-11-13T11:18:01.7773357Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7773659Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7773978Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7774295Z             if checkpoint:
+2026-11-13T11:18:01.7774534Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7774841Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7775148Z                 with init_empty_weights():
+2026-11-13T11:18:01.7775427Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7775722Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7776006Z                     model,
+2026-11-13T11:18:01.7776480Z                     str(path),
+2026-11-13T11:18:01.7776733Z                     device_map=device_map,
+2026-11-13T11:18:01.7777030Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7777352Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7777619Z                 )
+2026-11-13T11:18:01.7777809Z             else:
+2026-11-13T11:18:01.7778019Z                 model = dispatch_model(
+2026-11-13T11:18:01.7778412Z                     original,
+2026-11-13T11:18:01.7778661Z                     device_map=device_map,
+2026-11-13T11:18:01.7778951Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7779263Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7779530Z                 )
+2026-11-13T11:18:01.7779838Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7780221Z E       assert not True
+2026-11-13T11:18:01.7780690Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253a7a0>)
+2026-11-13T11:18:01.7781133Z 
+2026-11-13T11:18:01.7781282Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7781688Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7782868Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7784247Z ________ test_direct_tensor_dispatch_roundtrip[False-True-dtype0-False] ________
+2026-11-13T11:18:01.7784828Z 
+2026-11-13T11:18:01.7785286Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro4')
+2026-11-13T11:18:01.7786422Z nested = False, dtype = torch.float32, checkpoint = True
+2026-11-13T11:18:01.7786786Z offload_buffers = False
+2026-11-13T11:18:01.7787129Z 
+2026-11-13T11:18:01.7787266Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7787668Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7788083Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7788468Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7788996Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7789553Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7789927Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7790181Z         original = model_type(dtype)
+2026-11-13T11:18:01.7790558Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7790928Z     
+2026-11-13T11:18:01.7791213Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7791667Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7792020Z         for _ in range(3):
+2026-11-13T11:18:01.7792260Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7792540Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7792839Z             optimizer.step()
+2026-11-13T11:18:01.7793110Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7793418Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7793737Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7794064Z             if checkpoint:
+2026-11-13T11:18:01.7794304Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7794605Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7794918Z                 with init_empty_weights():
+2026-11-13T11:18:01.7795196Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7795493Z >               model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7795772Z                     model,
+2026-11-13T11:18:01.7796001Z                     str(path),
+2026-11-13T11:18:01.7796492Z                     device_map=device_map,
+2026-11-13T11:18:01.7796812Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7797140Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7797408Z                 )
+2026-11-13T11:18:01.7797528Z 
+2026-11-13T11:18:01.7797635Z tests/test_direct_tensor_dispatch.py:90: 
+2026-11-13T11:18:01.7797970Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.7798548Z src/accelerate/big_modeling.py:654: in load_checkpoint_and_dispatch
+2026-11-13T11:18:01.7798928Z     return dispatch_model(
+2026-11-13T11:18:01.7799203Z src/accelerate/big_modeling.py:434: in dispatch_model
+2026-11-13T11:18:01.7799525Z     attach_align_device_hook_on_blocks(
+2026-11-13T11:18:01.7799893Z src/accelerate/hooks.py:710: in attach_align_device_hook_on_blocks
+2026-11-13T11:18:01.7800257Z     add_hook_to_module(module, hook)
+2026-11-13T11:18:01.7800552Z src/accelerate/hooks.py:183: in add_hook_to_module
+2026-11-13T11:18:01.7800858Z     module = hook.init_hook(module)
+2026-11-13T11:18:01.7801106Z              ^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:18:01.7801360Z src/accelerate/hooks.py:305: in init_hook
+2026-11-13T11:18:01.7801840Z     set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+2026-11-13T11:18:01.7802367Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.7802607Z 
+2026-11-13T11:18:01.7802701Z module = _DirectWeights(
+2026-11-13T11:18:01.7802987Z   (child): Linear(in_features=1, out_features=1, bias=True)
+2026-11-13T11:18:01.7803305Z )
+2026-11-13T11:18:01.7803570Z tensor_name = 'weight', device = 'cpu', value = None, dtype = None
+2026-11-13T11:18:01.7804000Z fp16_statistics = None, tied_params_map = {}, non_blocking = False
+2026-11-13T11:18:01.7804342Z clear_cache = True
+2026-11-13T11:18:01.7804581Z 
+2026-11-13T11:18:01.7804681Z     def set_module_tensor_to_device(
+2026-11-13T11:18:01.7804939Z         module: nn.Module,
+2026-11-13T11:18:01.7805165Z         tensor_name: str,
+2026-11-13T11:18:01.7805409Z         device: Union[int, str, torch.device],
+2026-11-13T11:18:01.7805710Z         value: Optional[torch.Tensor] = None,
+2026-11-13T11:18:01.7806026Z         dtype: Optional[Union[str, torch.dtype]] = None,
+2026-11-13T11:18:01.7806650Z         fp16_statistics: Optional[torch.HalfTensor] = None,
+2026-11-13T11:18:01.7807108Z         tied_params_map: Optional[dict[int, dict[torch.device, torch.Tensor]]] = None,
+2026-11-13T11:18:01.7807519Z         non_blocking: bool = False,
+2026-11-13T11:18:01.7807776Z         clear_cache: bool = True,
+2026-11-13T11:18:01.7808008Z     ):
+2026-11-13T11:18:01.7808185Z         """
+2026-11-13T11:18:01.7808627Z         A helper function to set a given tensor (parameter of buffer) of a module on a specific device (note that doing
+2026-11-13T11:18:01.7809353Z         `param.to(device)` creates a new tensor not linked to the parameter, which is why we need this function).
+2026-11-13T11:18:01.7809835Z     
+2026-11-13T11:18:01.7810013Z         Args:
+2026-11-13T11:18:01.7810221Z             module (`torch.nn.Module`):
+2026-11-13T11:18:01.7810558Z                 The module in which the tensor we want to move lives.
+2026-11-13T11:18:01.7810888Z             tensor_name (`str`):
+2026-11-13T11:18:01.7811158Z                 The full name of the parameter/buffer.
+2026-11-13T11:18:01.7811472Z             device (`int`, `str` or `torch.device`):
+2026-11-13T11:18:01.7811788Z                 The device on which to set the tensor.
+2026-11-13T11:18:01.7812090Z             value (`torch.Tensor`, *optional*):
+2026-11-13T11:18:01.7812528Z                 The value of the tensor (useful when going from the meta device to any other device).
+2026-11-13T11:18:01.7812973Z             dtype (`torch.dtype`, *optional*):
+2026-11-13T11:18:01.7813486Z                 If passed along the value of the parameter will be cast to this `dtype`. Otherwise, `value` will be cast to
+2026-11-13T11:18:01.7814043Z                 the dtype of the existing parameter in the model.
+2026-11-13T11:18:01.7814415Z             fp16_statistics (`torch.HalfTensor`, *optional*):
+2026-11-13T11:18:01.7814879Z                 The list of fp16 statistics to set on the module, used for 8 bit model serialization.
+2026-11-13T11:18:01.7815488Z             tied_params_map (Dict[int, Dict[torch.device, torch.Tensor]], *optional*, defaults to `None`):
+2026-11-13T11:18:01.7816644Z                 A map of current data pointers to dictionaries of devices to already dispatched tied weights. For a given
+2026-11-13T11:18:01.7817444Z                 execution device, this parameter is useful to reuse the first available pointer of a shared weight on the
+2026-11-13T11:18:01.7818022Z                 device for all others, instead of duplicating memory.
+2026-11-13T11:18:01.7818414Z             non_blocking (`bool`, *optional*, defaults to `False`):
+2026-11-13T11:18:01.7818917Z                 If `True`, the device transfer will be asynchronous with respect to the host, if possible.
+2026-11-13T11:18:01.7819419Z             clear_cache (`bool`, *optional*, defaults to `True`):
+2026-11-13T11:18:01.7819875Z                 Whether or not to clear the device cache after setting the tensor on the device.
+2026-11-13T11:18:01.7820270Z         """
+2026-11-13T11:18:01.7820465Z         # Recurse if needed
+2026-11-13T11:18:01.7820701Z         if "." in tensor_name:
+2026-11-13T11:18:01.7820954Z             splits = tensor_name.split(".")
+2026-11-13T11:18:01.7821251Z             for split in splits[:-1]:
+2026-11-13T11:18:01.7821532Z                 new_module = getattr(module, split)
+2026-11-13T11:18:01.7821822Z                 if new_module is None:
+2026-11-13T11:18:01.7822153Z                     raise ValueError(f"{module} has no attribute {split}.")
+2026-11-13T11:18:01.7822501Z                 module = new_module
+2026-11-13T11:18:01.7822769Z             tensor_name = splits[-1]
+2026-11-13T11:18:01.7823522Z     
+2026-11-13T11:18:01.7824137Z         if tensor_name not in module._parameters and tensor_name not in module._buffers:
+2026-11-13T11:18:01.7825015Z             raise ValueError(f"{module} does not have a parameter or a buffer named {tensor_name}.")
+2026-11-13T11:18:01.7825499Z         is_buffer = tensor_name in module._buffers
+2026-11-13T11:18:01.7825811Z         old_value = getattr(module, tensor_name)
+2026-11-13T11:18:01.7826078Z     
+2026-11-13T11:18:01.7826929Z         # Treat the case where old_value (or a custom `value`, typically offloaded to RAM/disk) belongs to a tied group, and one of the weight
+2026-11-13T11:18:01.7827834Z         # in the tied group has already been dispatched to the device, by avoiding reallocating memory on the device and just copying the pointer.
+2026-11-13T11:18:01.7828434Z         if (
+2026-11-13T11:18:01.7828633Z             value is not None
+2026-11-13T11:18:01.7828888Z             and tied_params_map is not None
+2026-11-13T11:18:01.7829201Z             and value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.7829550Z             and device in tied_params_map[value.data_ptr()]
+2026-11-13T11:18:01.7829850Z         ):
+2026-11-13T11:18:01.7830171Z             module._parameters[tensor_name] = tied_params_map[value.data_ptr()][device]
+2026-11-13T11:18:01.7830572Z             return
+2026-11-13T11:18:01.7830766Z         elif (
+2026-11-13T11:18:01.7830967Z             tied_params_map is not None
+2026-11-13T11:18:01.7831260Z             and old_value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.7831611Z             and device in tied_params_map[old_value.data_ptr()]
+2026-11-13T11:18:01.7831916Z         ):
+2026-11-13T11:18:01.7832245Z             module._parameters[tensor_name] = tied_params_map[old_value.data_ptr()][device]
+2026-11-13T11:18:01.7832643Z             return
+2026-11-13T11:18:01.7832829Z     
+2026-11-13T11:18:01.7833236Z         if old_value.device == torch.device("meta") and device not in ["meta", torch.device("meta")] and value is None:
+2026-11-13T11:18:01.7833938Z >           raise ValueError(f"{tensor_name} is on the meta device, we need a `value` to put in on {device}.")
+2026-11-13T11:18:01.7834523Z E           ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.7834844Z 
+2026-11-13T11:18:01.7834965Z src/accelerate/utils/modeling.py:282: ValueError
+2026-11-13T11:18:01.7835383Z ________ test_direct_tensor_dispatch_roundtrip[False-True-dtype0-True] _________
+2026-11-13T11:18:01.7835692Z 
+2026-11-13T11:18:01.7836494Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro5')
+2026-11-13T11:18:01.7837131Z nested = True, dtype = torch.float32, checkpoint = True, offload_buffers = False
+2026-11-13T11:18:01.7837452Z 
+2026-11-13T11:18:01.7837600Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7838012Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7838432Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7838843Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7839366Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7839930Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7840292Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7840541Z         original = model_type(dtype)
+2026-11-13T11:18:01.7840923Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7841300Z     
+2026-11-13T11:18:01.7841585Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7842035Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7842378Z         for _ in range(3):
+2026-11-13T11:18:01.7842613Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7842910Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7843347Z             optimizer.step()
+2026-11-13T11:18:01.7843610Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7843908Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7844222Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7844537Z             if checkpoint:
+2026-11-13T11:18:01.7844772Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7845075Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7845377Z                 with init_empty_weights():
+2026-11-13T11:18:01.7845669Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7845971Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7846533Z                     model,
+2026-11-13T11:18:01.7846762Z                     str(path),
+2026-11-13T11:18:01.7847010Z                     device_map=device_map,
+2026-11-13T11:18:01.7847314Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7847642Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7847906Z                 )
+2026-11-13T11:18:01.7848089Z             else:
+2026-11-13T11:18:01.7848290Z                 model = dispatch_model(
+2026-11-13T11:18:01.7848546Z                     original,
+2026-11-13T11:18:01.7848789Z                     device_map=device_map,
+2026-11-13T11:18:01.7849089Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7849408Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7849674Z                 )
+2026-11-13T11:18:01.7849988Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7850365Z E       assert not True
+2026-11-13T11:18:01.7850845Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa055046f80>)
+2026-11-13T11:18:01.7851296Z 
+2026-11-13T11:18:01.7851445Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7851865Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7852558Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7853276Z ________ test_direct_tensor_dispatch_roundtrip[False-True-dtype1-False] ________
+2026-11-13T11:18:01.7853579Z 
+2026-11-13T11:18:01.7853823Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro6')
+2026-11-13T11:18:01.7854431Z nested = False, dtype = torch.float64, checkpoint = True
+2026-11-13T11:18:01.7854756Z offload_buffers = False
+2026-11-13T11:18:01.7854896Z 
+2026-11-13T11:18:01.7855030Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7855431Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7855853Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7856526Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7857067Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7857641Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7858001Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7858246Z         original = model_type(dtype)
+2026-11-13T11:18:01.7858623Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7859002Z     
+2026-11-13T11:18:01.7859291Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7859746Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7860093Z         for _ in range(3):
+2026-11-13T11:18:01.7860324Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7860607Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7860909Z             optimizer.step()
+2026-11-13T11:18:01.7861362Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7861669Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7861987Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7862308Z             if checkpoint:
+2026-11-13T11:18:01.7862555Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7862854Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7863149Z                 with init_empty_weights():
+2026-11-13T11:18:01.7863430Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7863726Z >               model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7864004Z                     model,
+2026-11-13T11:18:01.7864215Z                     str(path),
+2026-11-13T11:18:01.7864451Z                     device_map=device_map,
+2026-11-13T11:18:01.7864744Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7865072Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7865350Z                 )
+2026-11-13T11:18:01.7865464Z 
+2026-11-13T11:18:01.7865576Z tests/test_direct_tensor_dispatch.py:90: 
+2026-11-13T11:18:01.7865898Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.7866465Z src/accelerate/big_modeling.py:654: in load_checkpoint_and_dispatch
+2026-11-13T11:18:01.7866831Z     return dispatch_model(
+2026-11-13T11:18:01.7867100Z src/accelerate/big_modeling.py:434: in dispatch_model
+2026-11-13T11:18:01.7867418Z     attach_align_device_hook_on_blocks(
+2026-11-13T11:18:01.7867770Z src/accelerate/hooks.py:710: in attach_align_device_hook_on_blocks
+2026-11-13T11:18:01.7868139Z     add_hook_to_module(module, hook)
+2026-11-13T11:18:01.7868427Z src/accelerate/hooks.py:183: in add_hook_to_module
+2026-11-13T11:18:01.7868731Z     module = hook.init_hook(module)
+2026-11-13T11:18:01.7868977Z              ^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:18:01.7869233Z src/accelerate/hooks.py:305: in init_hook
+2026-11-13T11:18:01.7869725Z     set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+2026-11-13T11:18:01.7870254Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.7870493Z 
+2026-11-13T11:18:01.7870584Z module = _DirectWeights(
+2026-11-13T11:18:01.7870870Z   (child): Linear(in_features=1, out_features=1, bias=True)
+2026-11-13T11:18:01.7871178Z )
+2026-11-13T11:18:01.7871435Z tensor_name = 'weight', device = 'cpu', value = None, dtype = None
+2026-11-13T11:18:01.7871988Z fp16_statistics = None, tied_params_map = {}, non_blocking = False
+2026-11-13T11:18:01.7872333Z clear_cache = True
+2026-11-13T11:18:01.7872455Z 
+2026-11-13T11:18:01.7872557Z     def set_module_tensor_to_device(
+2026-11-13T11:18:01.7872817Z         module: nn.Module,
+2026-11-13T11:18:01.7873043Z         tensor_name: str,
+2026-11-13T11:18:01.7873290Z         device: Union[int, str, torch.device],
+2026-11-13T11:18:01.7873593Z         value: Optional[torch.Tensor] = None,
+2026-11-13T11:18:01.7873932Z         dtype: Optional[Union[str, torch.dtype]] = None,
+2026-11-13T11:18:01.7874292Z         fp16_statistics: Optional[torch.HalfTensor] = None,
+2026-11-13T11:18:01.7874741Z         tied_params_map: Optional[dict[int, dict[torch.device, torch.Tensor]]] = None,
+2026-11-13T11:18:01.7875153Z         non_blocking: bool = False,
+2026-11-13T11:18:01.7875417Z         clear_cache: bool = True,
+2026-11-13T11:18:01.7875649Z     ):
+2026-11-13T11:18:01.7875820Z         """
+2026-11-13T11:18:01.7876390Z         A helper function to set a given tensor (parameter of buffer) of a module on a specific device (note that doing
+2026-11-13T11:18:01.7877122Z         `param.to(device)` creates a new tensor not linked to the parameter, which is why we need this function).
+2026-11-13T11:18:01.7877600Z     
+2026-11-13T11:18:01.7877767Z         Args:
+2026-11-13T11:18:01.7877974Z             module (`torch.nn.Module`):
+2026-11-13T11:18:01.7878296Z                 The module in which the tensor we want to move lives.
+2026-11-13T11:18:01.7878744Z             tensor_name (`str`):
+2026-11-13T11:18:01.7879014Z                 The full name of the parameter/buffer.
+2026-11-13T11:18:01.7879325Z             device (`int`, `str` or `torch.device`):
+2026-11-13T11:18:01.7879631Z                 The device on which to set the tensor.
+2026-11-13T11:18:01.7879934Z             value (`torch.Tensor`, *optional*):
+2026-11-13T11:18:01.7880456Z                 The value of the tensor (useful when going from the meta device to any other device).
+2026-11-13T11:18:01.7880910Z             dtype (`torch.dtype`, *optional*):
+2026-11-13T11:18:01.7881419Z                 If passed along the value of the parameter will be cast to this `dtype`. Otherwise, `value` will be cast to
+2026-11-13T11:18:01.7881969Z                 the dtype of the existing parameter in the model.
+2026-11-13T11:18:01.7882351Z             fp16_statistics (`torch.HalfTensor`, *optional*):
+2026-11-13T11:18:01.7882817Z                 The list of fp16 statistics to set on the module, used for 8 bit model serialization.
+2026-11-13T11:18:01.7883439Z             tied_params_map (Dict[int, Dict[torch.device, torch.Tensor]], *optional*, defaults to `None`):
+2026-11-13T11:18:01.7884135Z                 A map of current data pointers to dictionaries of devices to already dispatched tied weights. For a given
+2026-11-13T11:18:01.7884860Z                 execution device, this parameter is useful to reuse the first available pointer of a shared weight on the
+2026-11-13T11:18:01.7885423Z                 device for all others, instead of duplicating memory.
+2026-11-13T11:18:01.7885808Z             non_blocking (`bool`, *optional*, defaults to `False`):
+2026-11-13T11:18:01.7886427Z                 If `True`, the device transfer will be asynchronous with respect to the host, if possible.
+2026-11-13T11:18:01.7886921Z             clear_cache (`bool`, *optional*, defaults to `True`):
+2026-11-13T11:18:01.7887376Z                 Whether or not to clear the device cache after setting the tensor on the device.
+2026-11-13T11:18:01.7887776Z         """
+2026-11-13T11:18:01.7887973Z         # Recurse if needed
+2026-11-13T11:18:01.7888209Z         if "." in tensor_name:
+2026-11-13T11:18:01.7888461Z             splits = tensor_name.split(".")
+2026-11-13T11:18:01.7888744Z             for split in splits[:-1]:
+2026-11-13T11:18:01.7889025Z                 new_module = getattr(module, split)
+2026-11-13T11:18:01.7889317Z                 if new_module is None:
+2026-11-13T11:18:01.7889654Z                     raise ValueError(f"{module} has no attribute {split}.")
+2026-11-13T11:18:01.7890122Z                 module = new_module
+2026-11-13T11:18:01.7890380Z             tensor_name = splits[-1]
+2026-11-13T11:18:01.7890620Z     
+2026-11-13T11:18:01.7890935Z         if tensor_name not in module._parameters and tensor_name not in module._buffers:
+2026-11-13T11:18:01.7891500Z             raise ValueError(f"{module} does not have a parameter or a buffer named {tensor_name}.")
+2026-11-13T11:18:01.7892137Z         is_buffer = tensor_name in module._buffers
+2026-11-13T11:18:01.7892620Z         old_value = getattr(module, tensor_name)
+2026-11-13T11:18:01.7893069Z     
+2026-11-13T11:18:01.7893851Z         # Treat the case where old_value (or a custom `value`, typically offloaded to RAM/disk) belongs to a tied group, and one of the weight
+2026-11-13T11:18:01.7895360Z         # in the tied group has already been dispatched to the device, by avoiding reallocating memory on the device and just copying the pointer.
+2026-11-13T11:18:01.7896662Z         if (
+2026-11-13T11:18:01.7897080Z             value is not None
+2026-11-13T11:18:01.7897392Z             and tied_params_map is not None
+2026-11-13T11:18:01.7897701Z             and value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.7898040Z             and device in tied_params_map[value.data_ptr()]
+2026-11-13T11:18:01.7898337Z         ):
+2026-11-13T11:18:01.7898651Z             module._parameters[tensor_name] = tied_params_map[value.data_ptr()][device]
+2026-11-13T11:18:01.7899225Z             return
+2026-11-13T11:18:01.7899421Z         elif (
+2026-11-13T11:18:01.7899624Z             tied_params_map is not None
+2026-11-13T11:18:01.7899926Z             and old_value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.7900280Z             and device in tied_params_map[old_value.data_ptr()]
+2026-11-13T11:18:01.7900660Z         ):
+2026-11-13T11:18:01.7901215Z             module._parameters[tensor_name] = tied_params_map[old_value.data_ptr()][device]
+2026-11-13T11:18:01.7901919Z             return
+2026-11-13T11:18:01.7902160Z     
+2026-11-13T11:18:01.7902588Z         if old_value.device == torch.device("meta") and device not in ["meta", torch.device("meta")] and value is None:
+2026-11-13T11:18:01.7903287Z >           raise ValueError(f"{tensor_name} is on the meta device, we need a `value` to put in on {device}.")
+2026-11-13T11:18:01.7903896Z E           ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.7904225Z 
+2026-11-13T11:18:01.7904363Z src/accelerate/utils/modeling.py:282: ValueError
+2026-11-13T11:18:01.7904782Z ________ test_direct_tensor_dispatch_roundtrip[False-True-dtype1-True] _________
+2026-11-13T11:18:01.7905091Z 
+2026-11-13T11:18:01.7905343Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro7')
+2026-11-13T11:18:01.7905887Z nested = True, dtype = torch.float64, checkpoint = True, offload_buffers = False
+2026-11-13T11:18:01.7906512Z 
+2026-11-13T11:18:01.7906683Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7907105Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7907535Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7907932Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7908459Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7909014Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7909523Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7909986Z         original = model_type(dtype)
+2026-11-13T11:18:01.7910631Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7911320Z     
+2026-11-13T11:18:01.7911851Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7912651Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7913256Z         for _ in range(3):
+2026-11-13T11:18:01.7913946Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7914513Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7915070Z             optimizer.step()
+2026-11-13T11:18:01.7915571Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7916096Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7917003Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7917647Z             if checkpoint:
+2026-11-13T11:18:01.7918134Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7918508Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7918825Z                 with init_empty_weights():
+2026-11-13T11:18:01.7919108Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7919511Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7919803Z                     model,
+2026-11-13T11:18:01.7920029Z                     str(path),
+2026-11-13T11:18:01.7920282Z                     device_map=device_map,
+2026-11-13T11:18:01.7920585Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7920911Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7921185Z                 )
+2026-11-13T11:18:01.7921382Z             else:
+2026-11-13T11:18:01.7921591Z                 model = dispatch_model(
+2026-11-13T11:18:01.7921965Z                     original,
+2026-11-13T11:18:01.7922698Z                     device_map=device_map,
+2026-11-13T11:18:01.7923114Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7923441Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7923714Z                 )
+2026-11-13T11:18:01.7924032Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7924419Z E       assert not True
+2026-11-13T11:18:01.7924901Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa055047920>)
+2026-11-13T11:18:01.7925354Z 
+2026-11-13T11:18:01.7925512Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7925935Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7926940Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7927663Z ________ test_direct_tensor_dispatch_roundtrip[True-False-dtype0-False] ________
+2026-11-13T11:18:01.7927988Z 
+2026-11-13T11:18:01.7928233Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro8')
+2026-11-13T11:18:01.7928711Z nested = False, dtype = torch.float32, checkpoint = False
+2026-11-13T11:18:01.7929037Z offload_buffers = True
+2026-11-13T11:18:01.7929171Z 
+2026-11-13T11:18:01.7929312Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7929718Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7930142Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7930528Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7931052Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7931611Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7931988Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7932248Z         original = model_type(dtype)
+2026-11-13T11:18:01.7932621Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7932992Z     
+2026-11-13T11:18:01.7933275Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7933725Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7934070Z         for _ in range(3):
+2026-11-13T11:18:01.7934303Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7934753Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7935067Z             optimizer.step()
+2026-11-13T11:18:01.7935335Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7935642Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7935957Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7936530Z             if checkpoint:
+2026-11-13T11:18:01.7936776Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7937100Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7937407Z                 with init_empty_weights():
+2026-11-13T11:18:01.7937683Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7937978Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7938258Z                     model,
+2026-11-13T11:18:01.7938484Z                     str(path),
+2026-11-13T11:18:01.7938724Z                     device_map=device_map,
+2026-11-13T11:18:01.7939030Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7939352Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7939620Z                 )
+2026-11-13T11:18:01.7939810Z             else:
+2026-11-13T11:18:01.7940016Z                 model = dispatch_model(
+2026-11-13T11:18:01.7940274Z                     original,
+2026-11-13T11:18:01.7940516Z                     device_map=device_map,
+2026-11-13T11:18:01.7940950Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7941369Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7941775Z                 )
+2026-11-13T11:18:01.7942145Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7942771Z E       assert not True
+2026-11-13T11:18:01.7943385Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa052538d60>)
+2026-11-13T11:18:01.7943839Z 
+2026-11-13T11:18:01.7944128Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7944678Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7945452Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7946621Z ________ test_direct_tensor_dispatch_roundtrip[True-False-dtype0-True] _________
+2026-11-13T11:18:01.7947036Z 
+2026-11-13T11:18:01.7947315Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro9')
+2026-11-13T11:18:01.7959739Z nested = True, dtype = torch.float32, checkpoint = False, offload_buffers = True
+2026-11-13T11:18:01.7960088Z 
+2026-11-13T11:18:01.7960251Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7960686Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7961155Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7961553Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7962114Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7962689Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7963058Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7963307Z         original = model_type(dtype)
+2026-11-13T11:18:01.7963693Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7964064Z     
+2026-11-13T11:18:01.7964351Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7964809Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7965159Z         for _ in range(3):
+2026-11-13T11:18:01.7965399Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7965683Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7965987Z             optimizer.step()
+2026-11-13T11:18:01.7966710Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7967040Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7967361Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7967681Z             if checkpoint:
+2026-11-13T11:18:01.7967937Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7968246Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7968558Z                 with init_empty_weights():
+2026-11-13T11:18:01.7968833Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7969127Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7969404Z                     model,
+2026-11-13T11:18:01.7969710Z                     str(path),
+2026-11-13T11:18:01.7970170Z                     device_map=device_map,
+2026-11-13T11:18:01.7970742Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7971375Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7971869Z                 )
+2026-11-13T11:18:01.7972328Z             else:
+2026-11-13T11:18:01.7972701Z                 model = dispatch_model(
+2026-11-13T11:18:01.7973175Z                     original,
+2026-11-13T11:18:01.7973580Z                     device_map=device_map,
+2026-11-13T11:18:01.7974097Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7974965Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7975476Z                 )
+2026-11-13T11:18:01.7976068Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.7976919Z E       assert not True
+2026-11-13T11:18:01.7977420Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253a880>)
+2026-11-13T11:18:01.7977868Z 
+2026-11-13T11:18:01.7978127Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.7978561Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.7979454Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.7980587Z ________ test_direct_tensor_dispatch_roundtrip[True-False-dtype1-False] ________
+2026-11-13T11:18:01.7980914Z 
+2026-11-13T11:18:01.7981159Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro10')
+2026-11-13T11:18:01.7981651Z nested = False, dtype = torch.float64, checkpoint = False
+2026-11-13T11:18:01.7981968Z offload_buffers = True
+2026-11-13T11:18:01.7982098Z 
+2026-11-13T11:18:01.7982230Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.7982624Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.7983035Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.7983410Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.7984362Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.7985447Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.7986140Z         torch.manual_seed(29)
+2026-11-13T11:18:01.7986873Z         original = model_type(dtype)
+2026-11-13T11:18:01.7987615Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.7988214Z     
+2026-11-13T11:18:01.7988509Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.7989063Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.7989423Z         for _ in range(3):
+2026-11-13T11:18:01.7990241Z             optimizer.zero_grad()
+2026-11-13T11:18:01.7990834Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.7991404Z             optimizer.step()
+2026-11-13T11:18:01.7991911Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.7992250Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.7992580Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.7992906Z             if checkpoint:
+2026-11-13T11:18:01.7993156Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.7993467Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.7993777Z                 with init_empty_weights():
+2026-11-13T11:18:01.7994066Z                     model = model_type(dtype)
+2026-11-13T11:18:01.7994363Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.7994646Z                     model,
+2026-11-13T11:18:01.7994875Z                     str(path),
+2026-11-13T11:18:01.7995462Z                     device_map=device_map,
+2026-11-13T11:18:01.7996054Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.7996936Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.7997462Z                 )
+2026-11-13T11:18:01.7997841Z             else:
+2026-11-13T11:18:01.7998460Z                 model = dispatch_model(
+2026-11-13T11:18:01.7999111Z                     original,
+2026-11-13T11:18:01.7999560Z                     device_map=device_map,
+2026-11-13T11:18:01.8000098Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8000611Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8001536Z                 )
+2026-11-13T11:18:01.8002077Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.8002745Z E       assert not True
+2026-11-13T11:18:01.8003616Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253b920>)
+2026-11-13T11:18:01.8004443Z 
+2026-11-13T11:18:01.8004711Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.8005406Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8007057Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.8008373Z ________ test_direct_tensor_dispatch_roundtrip[True-False-dtype1-True] _________
+2026-11-13T11:18:01.8008927Z 
+2026-11-13T11:18:01.8009360Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro11')
+2026-11-13T11:18:01.8010334Z nested = True, dtype = torch.float64, checkpoint = False, offload_buffers = True
+2026-11-13T11:18:01.8010879Z 
+2026-11-13T11:18:01.8011119Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.8011837Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.8012587Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.8013269Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.8014184Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.8015075Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.8015638Z         torch.manual_seed(29)
+2026-11-13T11:18:01.8016039Z         original = model_type(dtype)
+2026-11-13T11:18:01.8016839Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.8017430Z     
+2026-11-13T11:18:01.8017869Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.8018583Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.8019128Z         for _ in range(3):
+2026-11-13T11:18:01.8019495Z             optimizer.zero_grad()
+2026-11-13T11:18:01.8019965Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.8020478Z             optimizer.step()
+2026-11-13T11:18:01.8020908Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.8021400Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.8022192Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8022710Z             if checkpoint:
+2026-11-13T11:18:01.8023104Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.8023639Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.8024164Z                 with init_empty_weights():
+2026-11-13T11:18:01.8024656Z                     model = model_type(dtype)
+2026-11-13T11:18:01.8025187Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.8025684Z                     model,
+2026-11-13T11:18:01.8026066Z                     str(path),
+2026-11-13T11:18:01.8026678Z                     device_map=device_map,
+2026-11-13T11:18:01.8027207Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8027781Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8028257Z                 )
+2026-11-13T11:18:01.8028583Z             else:
+2026-11-13T11:18:01.8028968Z                 model = dispatch_model(
+2026-11-13T11:18:01.8029419Z                     original,
+2026-11-13T11:18:01.8029835Z                     device_map=device_map,
+2026-11-13T11:18:01.8030335Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8030852Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8031317Z                 )
+2026-11-13T11:18:01.8031849Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.8032673Z E       assert not True
+2026-11-13T11:18:01.8033483Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0524d5540>)
+2026-11-13T11:18:01.8034283Z 
+2026-11-13T11:18:01.8034548Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.8035277Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8036713Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.8037944Z ________ test_direct_tensor_dispatch_roundtrip[True-True-dtype0-False] _________
+2026-11-13T11:18:01.8038488Z 
+2026-11-13T11:18:01.8038904Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro12')
+2026-11-13T11:18:01.8039852Z nested = False, dtype = torch.float32, checkpoint = True, offload_buffers = True
+2026-11-13T11:18:01.8040229Z 
+2026-11-13T11:18:01.8040376Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.8040775Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.8041189Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.8041569Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.8042091Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.8042652Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.8043010Z         torch.manual_seed(29)
+2026-11-13T11:18:01.8043252Z         original = model_type(dtype)
+2026-11-13T11:18:01.8043632Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.8043994Z     
+2026-11-13T11:18:01.8044273Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.8044716Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.8045064Z         for _ in range(3):
+2026-11-13T11:18:01.8045293Z             optimizer.zero_grad()
+2026-11-13T11:18:01.8045568Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.8045866Z             optimizer.step()
+2026-11-13T11:18:01.8046132Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.8046752Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.8047078Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8047559Z             if checkpoint:
+2026-11-13T11:18:01.8047810Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.8048115Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.8048416Z                 with init_empty_weights():
+2026-11-13T11:18:01.8048689Z                     model = model_type(dtype)
+2026-11-13T11:18:01.8048982Z >               model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.8049268Z                     model,
+2026-11-13T11:18:01.8049483Z                     str(path),
+2026-11-13T11:18:01.8049725Z                     device_map=device_map,
+2026-11-13T11:18:01.8050020Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8050339Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8050603Z                 )
+2026-11-13T11:18:01.8050713Z 
+2026-11-13T11:18:01.8050827Z tests/test_direct_tensor_dispatch.py:90: 
+2026-11-13T11:18:01.8051157Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.8051581Z src/accelerate/big_modeling.py:654: in load_checkpoint_and_dispatch
+2026-11-13T11:18:01.8051945Z     return dispatch_model(
+2026-11-13T11:18:01.8052216Z src/accelerate/big_modeling.py:434: in dispatch_model
+2026-11-13T11:18:01.8052549Z     attach_align_device_hook_on_blocks(
+2026-11-13T11:18:01.8052901Z src/accelerate/hooks.py:710: in attach_align_device_hook_on_blocks
+2026-11-13T11:18:01.8053380Z     add_hook_to_module(module, hook)
+2026-11-13T11:18:01.8053672Z src/accelerate/hooks.py:183: in add_hook_to_module
+2026-11-13T11:18:01.8053981Z     module = hook.init_hook(module)
+2026-11-13T11:18:01.8054230Z              ^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:18:01.8054479Z src/accelerate/hooks.py:305: in init_hook
+2026-11-13T11:18:01.8054957Z     set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+2026-11-13T11:18:01.8055480Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.8055730Z 
+2026-11-13T11:18:01.8055827Z module = _DirectWeights(
+2026-11-13T11:18:01.8056113Z   (child): Linear(in_features=1, out_features=1, bias=True)
+2026-11-13T11:18:01.8056702Z )
+2026-11-13T11:18:01.8056969Z tensor_name = 'weight', device = 'cpu', value = None, dtype = None
+2026-11-13T11:18:01.8057392Z fp16_statistics = None, tied_params_map = {}, non_blocking = False
+2026-11-13T11:18:01.8057723Z clear_cache = True
+2026-11-13T11:18:01.8057858Z 
+2026-11-13T11:18:01.8057951Z     def set_module_tensor_to_device(
+2026-11-13T11:18:01.8058206Z         module: nn.Module,
+2026-11-13T11:18:01.8058432Z         tensor_name: str,
+2026-11-13T11:18:01.8058674Z         device: Union[int, str, torch.device],
+2026-11-13T11:18:01.8058966Z         value: Optional[torch.Tensor] = None,
+2026-11-13T11:18:01.8059278Z         dtype: Optional[Union[str, torch.dtype]] = None,
+2026-11-13T11:18:01.8059629Z         fp16_statistics: Optional[torch.HalfTensor] = None,
+2026-11-13T11:18:01.8060068Z         tied_params_map: Optional[dict[int, dict[torch.device, torch.Tensor]]] = None,
+2026-11-13T11:18:01.8060477Z         non_blocking: bool = False,
+2026-11-13T11:18:01.8060728Z         clear_cache: bool = True,
+2026-11-13T11:18:01.8060957Z     ):
+2026-11-13T11:18:01.8061162Z         """
+2026-11-13T11:18:01.8061588Z         A helper function to set a given tensor (parameter of buffer) of a module on a specific device (note that doing
+2026-11-13T11:18:01.8062313Z         `param.to(device)` creates a new tensor not linked to the parameter, which is why we need this function).
+2026-11-13T11:18:01.8062771Z     
+2026-11-13T11:18:01.8062938Z         Args:
+2026-11-13T11:18:01.8063142Z             module (`torch.nn.Module`):
+2026-11-13T11:18:01.8063458Z                 The module in which the tensor we want to move lives.
+2026-11-13T11:18:01.8063782Z             tensor_name (`str`):
+2026-11-13T11:18:01.8064046Z                 The full name of the parameter/buffer.
+2026-11-13T11:18:01.8064354Z             device (`int`, `str` or `torch.device`):
+2026-11-13T11:18:01.8064795Z                 The device on which to set the tensor.
+2026-11-13T11:18:01.8065101Z             value (`torch.Tensor`, *optional*):
+2026-11-13T11:18:01.8065527Z                 The value of the tensor (useful when going from the meta device to any other device).
+2026-11-13T11:18:01.8065966Z             dtype (`torch.dtype`, *optional*):
+2026-11-13T11:18:01.8066719Z                 If passed along the value of the parameter will be cast to this `dtype`. Otherwise, `value` will be cast to
+2026-11-13T11:18:01.8067282Z                 the dtype of the existing parameter in the model.
+2026-11-13T11:18:01.8067648Z             fp16_statistics (`torch.HalfTensor`, *optional*):
+2026-11-13T11:18:01.8068112Z                 The list of fp16 statistics to set on the module, used for 8 bit model serialization.
+2026-11-13T11:18:01.8068725Z             tied_params_map (Dict[int, Dict[torch.device, torch.Tensor]], *optional*, defaults to `None`):
+2026-11-13T11:18:01.8069406Z                 A map of current data pointers to dictionaries of devices to already dispatched tied weights. For a given
+2026-11-13T11:18:01.8070123Z                 execution device, this parameter is useful to reuse the first available pointer of a shared weight on the
+2026-11-13T11:18:01.8070674Z                 device for all others, instead of duplicating memory.
+2026-11-13T11:18:01.8071054Z             non_blocking (`bool`, *optional*, defaults to `False`):
+2026-11-13T11:18:01.8071671Z                 If `True`, the device transfer will be asynchronous with respect to the host, if possible.
+2026-11-13T11:18:01.8072154Z             clear_cache (`bool`, *optional*, defaults to `True`):
+2026-11-13T11:18:01.8072608Z                 Whether or not to clear the device cache after setting the tensor on the device.
+2026-11-13T11:18:01.8073001Z         """
+2026-11-13T11:18:01.8073189Z         # Recurse if needed
+2026-11-13T11:18:01.8073417Z         if "." in tensor_name:
+2026-11-13T11:18:01.8073665Z             splits = tensor_name.split(".")
+2026-11-13T11:18:01.8073945Z             for split in splits[:-1]:
+2026-11-13T11:18:01.8074221Z                 new_module = getattr(module, split)
+2026-11-13T11:18:01.8074509Z                 if new_module is None:
+2026-11-13T11:18:01.8074830Z                     raise ValueError(f"{module} has no attribute {split}.")
+2026-11-13T11:18:01.8075174Z                 module = new_module
+2026-11-13T11:18:01.8075428Z             tensor_name = splits[-1]
+2026-11-13T11:18:01.8075664Z     
+2026-11-13T11:18:01.8075968Z         if tensor_name not in module._parameters and tensor_name not in module._buffers:
+2026-11-13T11:18:01.8076806Z             raise ValueError(f"{module} does not have a parameter or a buffer named {tensor_name}.")
+2026-11-13T11:18:01.8077267Z         is_buffer = tensor_name in module._buffers
+2026-11-13T11:18:01.8077569Z         old_value = getattr(module, tensor_name)
+2026-11-13T11:18:01.8077831Z     
+2026-11-13T11:18:01.8078320Z         # Treat the case where old_value (or a custom `value`, typically offloaded to RAM/disk) belongs to a tied group, and one of the weight
+2026-11-13T11:18:01.8079221Z         # in the tied group has already been dispatched to the device, by avoiding reallocating memory on the device and just copying the pointer.
+2026-11-13T11:18:01.8079794Z         if (
+2026-11-13T11:18:01.8079985Z             value is not None
+2026-11-13T11:18:01.8080239Z             and tied_params_map is not None
+2026-11-13T11:18:01.8080537Z             and value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.8080862Z             and device in tied_params_map[value.data_ptr()]
+2026-11-13T11:18:01.8081152Z         ):
+2026-11-13T11:18:01.8081458Z             module._parameters[tensor_name] = tied_params_map[value.data_ptr()][device]
+2026-11-13T11:18:01.8081841Z             return
+2026-11-13T11:18:01.8082032Z         elif (
+2026-11-13T11:18:01.8082236Z             tied_params_map is not None
+2026-11-13T11:18:01.8082524Z             and old_value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.8082992Z             and device in tied_params_map[old_value.data_ptr()]
+2026-11-13T11:18:01.8083298Z         ):
+2026-11-13T11:18:01.8083621Z             module._parameters[tensor_name] = tied_params_map[old_value.data_ptr()][device]
+2026-11-13T11:18:01.8084014Z             return
+2026-11-13T11:18:01.8084193Z     
+2026-11-13T11:18:01.8084587Z         if old_value.device == torch.device("meta") and device not in ["meta", torch.device("meta")] and value is None:
+2026-11-13T11:18:01.8085271Z >           raise ValueError(f"{tensor_name} is on the meta device, we need a `value` to put in on {device}.")
+2026-11-13T11:18:01.8085854Z E           ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8086439Z 
+2026-11-13T11:18:01.8086576Z src/accelerate/utils/modeling.py:282: ValueError
+2026-11-13T11:18:01.8086990Z _________ test_direct_tensor_dispatch_roundtrip[True-True-dtype0-True] _________
+2026-11-13T11:18:01.8087301Z 
+2026-11-13T11:18:01.8087545Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro13')
+2026-11-13T11:18:01.8088088Z nested = True, dtype = torch.float32, checkpoint = True, offload_buffers = True
+2026-11-13T11:18:01.8088392Z 
+2026-11-13T11:18:01.8088527Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.8088935Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.8089345Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.8089865Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.8090388Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.8090933Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.8091289Z         torch.manual_seed(29)
+2026-11-13T11:18:01.8091527Z         original = model_type(dtype)
+2026-11-13T11:18:01.8091903Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.8092268Z     
+2026-11-13T11:18:01.8092551Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.8092998Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.8093338Z         for _ in range(3):
+2026-11-13T11:18:01.8093568Z             optimizer.zero_grad()
+2026-11-13T11:18:01.8093842Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.8094139Z             optimizer.step()
+2026-11-13T11:18:01.8094397Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.8094690Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.8094999Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8095310Z             if checkpoint:
+2026-11-13T11:18:01.8095552Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.8095853Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.8096381Z                 with init_empty_weights():
+2026-11-13T11:18:01.8096725Z                     model = model_type(dtype)
+2026-11-13T11:18:01.8097019Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.8097297Z                     model,
+2026-11-13T11:18:01.8097515Z                     str(path),
+2026-11-13T11:18:01.8097750Z                     device_map=device_map,
+2026-11-13T11:18:01.8098046Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8098376Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8098643Z                 )
+2026-11-13T11:18:01.8098826Z             else:
+2026-11-13T11:18:01.8099026Z                 model = dispatch_model(
+2026-11-13T11:18:01.8099286Z                     original,
+2026-11-13T11:18:01.8099521Z                     device_map=device_map,
+2026-11-13T11:18:01.8099807Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8100126Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8100530Z                 )
+2026-11-13T11:18:01.8100842Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.8101225Z E       assert not True
+2026-11-13T11:18:01.8101699Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0575b9540>)
+2026-11-13T11:18:01.8102136Z 
+2026-11-13T11:18:01.8102287Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.8102695Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8103379Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.8104093Z ________ test_direct_tensor_dispatch_roundtrip[True-True-dtype1-False] _________
+2026-11-13T11:18:01.8104402Z 
+2026-11-13T11:18:01.8104643Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro14')
+2026-11-13T11:18:01.8105194Z nested = False, dtype = torch.float64, checkpoint = True, offload_buffers = True
+2026-11-13T11:18:01.8105498Z 
+2026-11-13T11:18:01.8105633Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.8106043Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.8106620Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.8107005Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.8107645Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.8108194Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.8108554Z         torch.manual_seed(29)
+2026-11-13T11:18:01.8108797Z         original = model_type(dtype)
+2026-11-13T11:18:01.8109168Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.8109535Z     
+2026-11-13T11:18:01.8109820Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.8110264Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.8110605Z         for _ in range(3):
+2026-11-13T11:18:01.8110834Z             optimizer.zero_grad()
+2026-11-13T11:18:01.8111112Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.8111413Z             optimizer.step()
+2026-11-13T11:18:01.8111687Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.8111988Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.8112301Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8112614Z             if checkpoint:
+2026-11-13T11:18:01.8112854Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.8113157Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.8113456Z                 with init_empty_weights():
+2026-11-13T11:18:01.8113729Z                     model = model_type(dtype)
+2026-11-13T11:18:01.8114029Z >               model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.8114313Z                     model,
+2026-11-13T11:18:01.8114526Z                     str(path),
+2026-11-13T11:18:01.8114764Z                     device_map=device_map,
+2026-11-13T11:18:01.8115059Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8115377Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8115650Z                 )
+2026-11-13T11:18:01.8115768Z 
+2026-11-13T11:18:01.8115874Z tests/test_direct_tensor_dispatch.py:90: 
+2026-11-13T11:18:01.8116324Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.8116745Z src/accelerate/big_modeling.py:654: in load_checkpoint_and_dispatch
+2026-11-13T11:18:01.8117111Z     return dispatch_model(
+2026-11-13T11:18:01.8117381Z src/accelerate/big_modeling.py:434: in dispatch_model
+2026-11-13T11:18:01.8117695Z     attach_align_device_hook_on_blocks(
+2026-11-13T11:18:01.8118161Z src/accelerate/hooks.py:710: in attach_align_device_hook_on_blocks
+2026-11-13T11:18:01.8118523Z     add_hook_to_module(module, hook)
+2026-11-13T11:18:01.8118809Z src/accelerate/hooks.py:183: in add_hook_to_module
+2026-11-13T11:18:01.8119109Z     module = hook.init_hook(module)
+2026-11-13T11:18:01.8119354Z              ^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:18:01.8119599Z src/accelerate/hooks.py:305: in init_hook
+2026-11-13T11:18:01.8120084Z     set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+2026-11-13T11:18:01.8120676Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:18:01.8120918Z 
+2026-11-13T11:18:01.8121014Z module = _DirectWeights(
+2026-11-13T11:18:01.8121302Z   (child): Linear(in_features=1, out_features=1, bias=True)
+2026-11-13T11:18:01.8121604Z )
+2026-11-13T11:18:01.8121859Z tensor_name = 'weight', device = 'cpu', value = None, dtype = None
+2026-11-13T11:18:01.8122284Z fp16_statistics = None, tied_params_map = {}, non_blocking = False
+2026-11-13T11:18:01.8122622Z clear_cache = True
+2026-11-13T11:18:01.8122747Z 
+2026-11-13T11:18:01.8122840Z     def set_module_tensor_to_device(
+2026-11-13T11:18:01.8123096Z         module: nn.Module,
+2026-11-13T11:18:01.8123317Z         tensor_name: str,
+2026-11-13T11:18:01.8123559Z         device: Union[int, str, torch.device],
+2026-11-13T11:18:01.8123856Z         value: Optional[torch.Tensor] = None,
+2026-11-13T11:18:01.8124292Z         dtype: Optional[Union[str, torch.dtype]] = None,
+2026-11-13T11:18:01.8124643Z         fp16_statistics: Optional[torch.HalfTensor] = None,
+2026-11-13T11:18:01.8125077Z         tied_params_map: Optional[dict[int, dict[torch.device, torch.Tensor]]] = None,
+2026-11-13T11:18:01.8125478Z         non_blocking: bool = False,
+2026-11-13T11:18:01.8125732Z         clear_cache: bool = True,
+2026-11-13T11:18:01.8125969Z     ):
+2026-11-13T11:18:01.8126368Z         """
+2026-11-13T11:18:01.8126867Z         A helper function to set a given tensor (parameter of buffer) of a module on a specific device (note that doing
+2026-11-13T11:18:01.8127592Z         `param.to(device)` creates a new tensor not linked to the parameter, which is why we need this function).
+2026-11-13T11:18:01.8128053Z     
+2026-11-13T11:18:01.8128220Z         Args:
+2026-11-13T11:18:01.8128420Z             module (`torch.nn.Module`):
+2026-11-13T11:18:01.8128739Z                 The module in which the tensor we want to move lives.
+2026-11-13T11:18:01.8129071Z             tensor_name (`str`):
+2026-11-13T11:18:01.8129343Z                 The full name of the parameter/buffer.
+2026-11-13T11:18:01.8129652Z             device (`int`, `str` or `torch.device`):
+2026-11-13T11:18:01.8129953Z                 The device on which to set the tensor.
+2026-11-13T11:18:01.8130254Z             value (`torch.Tensor`, *optional*):
+2026-11-13T11:18:01.8130679Z                 The value of the tensor (useful when going from the meta device to any other device).
+2026-11-13T11:18:01.8131126Z             dtype (`torch.dtype`, *optional*):
+2026-11-13T11:18:01.8131632Z                 If passed along the value of the parameter will be cast to this `dtype`. Otherwise, `value` will be cast to
+2026-11-13T11:18:01.8132176Z                 the dtype of the existing parameter in the model.
+2026-11-13T11:18:01.8132545Z             fp16_statistics (`torch.HalfTensor`, *optional*):
+2026-11-13T11:18:01.8133008Z                 The list of fp16 statistics to set on the module, used for 8 bit model serialization.
+2026-11-13T11:18:01.8133624Z             tied_params_map (Dict[int, Dict[torch.device, torch.Tensor]], *optional*, defaults to `None`):
+2026-11-13T11:18:01.8134301Z                 A map of current data pointers to dictionaries of devices to already dispatched tied weights. For a given
+2026-11-13T11:18:01.8135017Z                 execution device, this parameter is useful to reuse the first available pointer of a shared weight on the
+2026-11-13T11:18:01.8135567Z                 device for all others, instead of duplicating memory.
+2026-11-13T11:18:01.8136072Z             non_blocking (`bool`, *optional*, defaults to `False`):
+2026-11-13T11:18:01.8136862Z                 If `True`, the device transfer will be asynchronous with respect to the host, if possible.
+2026-11-13T11:18:01.8137379Z             clear_cache (`bool`, *optional*, defaults to `True`):
+2026-11-13T11:18:01.8137842Z                 Whether or not to clear the device cache after setting the tensor on the device.
+2026-11-13T11:18:01.8138242Z         """
+2026-11-13T11:18:01.8138432Z         # Recurse if needed
+2026-11-13T11:18:01.8138662Z         if "." in tensor_name:
+2026-11-13T11:18:01.8138910Z             splits = tensor_name.split(".")
+2026-11-13T11:18:01.8139193Z             for split in splits[:-1]:
+2026-11-13T11:18:01.8139466Z                 new_module = getattr(module, split)
+2026-11-13T11:18:01.8139759Z                 if new_module is None:
+2026-11-13T11:18:01.8140092Z                     raise ValueError(f"{module} has no attribute {split}.")
+2026-11-13T11:18:01.8140453Z                 module = new_module
+2026-11-13T11:18:01.8140704Z             tensor_name = splits[-1]
+2026-11-13T11:18:01.8140941Z     
+2026-11-13T11:18:01.8141252Z         if tensor_name not in module._parameters and tensor_name not in module._buffers:
+2026-11-13T11:18:01.8141818Z             raise ValueError(f"{module} does not have a parameter or a buffer named {tensor_name}.")
+2026-11-13T11:18:01.8142285Z         is_buffer = tensor_name in module._buffers
+2026-11-13T11:18:01.8142912Z         old_value = getattr(module, tensor_name)
+2026-11-13T11:18:01.8143183Z     
+2026-11-13T11:18:01.8143676Z         # Treat the case where old_value (or a custom `value`, typically offloaded to RAM/disk) belongs to a tied group, and one of the weight
+2026-11-13T11:18:01.8144564Z         # in the tied group has already been dispatched to the device, by avoiding reallocating memory on the device and just copying the pointer.
+2026-11-13T11:18:01.8145139Z         if (
+2026-11-13T11:18:01.8145336Z             value is not None
+2026-11-13T11:18:01.8145440Z             and tied_params_map is not None
+2026-11-13T11:18:01.8145550Z             and value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.8145686Z             and device in tied_params_map[value.data_ptr()]
+2026-11-13T11:18:01.8145765Z         ):
+2026-11-13T11:18:01.8145983Z             module._parameters[tensor_name] = tied_params_map[value.data_ptr()][device]
+2026-11-13T11:18:01.8146062Z             return
+2026-11-13T11:18:01.8146144Z         elif (
+2026-11-13T11:18:01.8146387Z             tied_params_map is not None
+2026-11-13T11:18:01.8146506Z             and old_value.data_ptr() in tied_params_map
+2026-11-13T11:18:01.8146652Z             and device in tied_params_map[old_value.data_ptr()]
+2026-11-13T11:18:01.8146724Z         ):
+2026-11-13T11:18:01.8146950Z             module._parameters[tensor_name] = tied_params_map[old_value.data_ptr()][device]
+2026-11-13T11:18:01.8147025Z             return
+2026-11-13T11:18:01.8147103Z     
+2026-11-13T11:18:01.8147424Z         if old_value.device == torch.device("meta") and device not in ["meta", torch.device("meta")] and value is None:
+2026-11-13T11:18:01.8147704Z >           raise ValueError(f"{tensor_name} is on the meta device, we need a `value` to put in on {device}.")
+2026-11-13T11:18:01.8147926Z E           ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8147932Z 
+2026-11-13T11:18:01.8148058Z src/accelerate/utils/modeling.py:282: ValueError
+2026-11-13T11:18:01.8148268Z _________ test_direct_tensor_dispatch_roundtrip[True-True-dtype1-True] _________
+2026-11-13T11:18:01.8148273Z 
+2026-11-13T11:18:01.8148516Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ro15')
+2026-11-13T11:18:01.8148721Z nested = True, dtype = torch.float64, checkpoint = True, offload_buffers = True
+2026-11-13T11:18:01.8148726Z 
+2026-11-13T11:18:01.8148863Z     @pytest.mark.parametrize("nested", [False, True])
+2026-11-13T11:18:01.8149159Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:18:01.8149313Z     @pytest.mark.parametrize("checkpoint", [False, True])
+2026-11-13T11:18:01.8149473Z     @pytest.mark.parametrize("offload_buffers", [False, True])
+2026-11-13T11:18:01.8149752Z     def test_direct_tensor_dispatch_roundtrip(tmp_path, nested, dtype, checkpoint, offload_buffers):
+2026-11-13T11:18:01.8149935Z         model_type = _NestedDirectWeights if nested else _DirectWeights
+2026-11-13T11:18:01.8150027Z         torch.manual_seed(29)
+2026-11-13T11:18:01.8150128Z         original = model_type(dtype)
+2026-11-13T11:18:01.8150328Z         inputs = torch.arange(8 if nested else 2, dtype=dtype).reshape(2, -1) / 10
+2026-11-13T11:18:01.8150408Z     
+2026-11-13T11:18:01.8150598Z         # Exercise learned weights rather than only factory initialization.
+2026-11-13T11:18:01.8150765Z         optimizer = torch.optim.SGD(original.parameters(), lr=0.001)
+2026-11-13T11:18:01.8150855Z         for _ in range(3):
+2026-11-13T11:18:01.8150951Z             optimizer.zero_grad()
+2026-11-13T11:18:01.8151076Z             original(inputs).square().mean().backward()
+2026-11-13T11:18:01.8151166Z             optimizer.step()
+2026-11-13T11:18:01.8151287Z         reference = copy.deepcopy(original).eval()
+2026-11-13T11:18:01.8151389Z         device_map = _device_map(nested)
+2026-11-13T11:18:01.8151529Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8151765Z             if checkpoint:
+2026-11-13T11:18:01.8151869Z                 path = tmp_path / "model.bin"
+2026-11-13T11:18:01.8151990Z                 torch.save(original.state_dict(), path)
+2026-11-13T11:18:01.8152086Z                 with init_empty_weights():
+2026-11-13T11:18:01.8152189Z                     model = model_type(dtype)
+2026-11-13T11:18:01.8152307Z                 model = load_checkpoint_and_dispatch(
+2026-11-13T11:18:01.8152387Z                     model,
+2026-11-13T11:18:01.8152476Z                     str(path),
+2026-11-13T11:18:01.8152572Z                     device_map=device_map,
+2026-11-13T11:18:01.8152699Z                     offload_folder=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8152805Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8152883Z                 )
+2026-11-13T11:18:01.8152965Z             else:
+2026-11-13T11:18:01.8153058Z                 model = dispatch_model(
+2026-11-13T11:18:01.8153145Z                     original,
+2026-11-13T11:18:01.8153240Z                     device_map=device_map,
+2026-11-13T11:18:01.8153360Z                     offload_dir=str(tmp_path / "weights"),
+2026-11-13T11:18:01.8153466Z                     offload_buffers=offload_buffers,
+2026-11-13T11:18:01.8153544Z                 )
+2026-11-13T11:18:01.8153748Z >       assert not any("device_map keys" in str(item.message) for item in caught)
+2026-11-13T11:18:01.8153831Z E       assert not True
+2026-11-13T11:18:01.8154178Z E        +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa054f40200>)
+2026-11-13T11:18:01.8154187Z 
+2026-11-13T11:18:01.8154331Z tests/test_direct_tensor_dispatch.py:104: AssertionError
+2026-11-13T11:18:01.8154508Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8154929Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.8155124Z __________ test_split_parent_direct_weight_obeys_live_storage_budget ___________
+2026-11-13T11:18:01.8155133Z 
+2026-11-13T11:18:01.8155374Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_split_parent_direct_weigh0')
+2026-11-13T11:18:01.8155379Z 
+2026-11-13T11:18:01.8155571Z     def test_split_parent_direct_weight_obeys_live_storage_budget(tmp_path):
+2026-11-13T11:18:01.8155673Z         model = _BudgetModel().eval()
+2026-11-13T11:18:01.8155779Z         reference = copy.deepcopy(model)
+2026-11-13T11:18:01.8156060Z         # This is the split map produced by the planner for the 850-byte CPU budget.
+2026-11-13T11:18:01.8156396Z         device_map = {"parent.child": "cpu", "first": "disk", "parent.weight": "disk"}
+2026-11-13T11:18:01.8156611Z         model = dispatch_model(model, device_map=device_map, offload_dir=str(tmp_path))
+2026-11-13T11:18:01.8156708Z         live_bytes = []
+2026-11-13T11:18:01.8156780Z     
+2026-11-13T11:18:01.8156870Z         def observe():
+2026-11-13T11:18:01.8156966Z             live_bytes.append(
+2026-11-13T11:18:01.8157285Z                 sum(param.numel() * param.element_size() for param in model.parameters() if param.device.type == "cpu")
+2026-11-13T11:18:01.8157365Z             )
+2026-11-13T11:18:01.8157435Z     
+2026-11-13T11:18:01.8157542Z         model.first.observer = observe
+2026-11-13T11:18:01.8157643Z         model.parent.observer = observe
+2026-11-13T11:18:01.8157741Z         with torch.no_grad():
+2026-11-13T11:18:01.8157980Z             for inputs in (torch.ones(2, 4), torch.arange(8, dtype=torch.float32).reshape(2, 4)):
+2026-11-13T11:18:01.8158160Z                 torch.testing.assert_close(model(inputs), reference(inputs))
+2026-11-13T11:18:01.8158270Z >       assert live_bytes == [108, 808, 108, 808]
+2026-11-13T11:18:01.8158389Z E       assert [908, 808, 908, 808] == [108, 808, 108, 808]
+2026-11-13T11:18:01.8158472Z E         
+2026-11-13T11:18:01.8158565Z E         At index 0 diff: 908 != 108
+2026-11-13T11:18:01.8158648Z E         
+2026-11-13T11:18:01.8158831Z E         Full diff: (-: missing in left side, +: extra in left side)
+2026-11-13T11:18:01.8159026Z E           [
+2026-11-13T11:18:01.8159118Z E         -     108,
+2026-11-13T11:18:01.8159193Z E         ?     ^
+2026-11-13T11:18:01.8159273Z E         +     908,
+2026-11-13T11:18:01.8159346Z E         ?     ^
+2026-11-13T11:18:01.8159429Z E               808,
+2026-11-13T11:18:01.8159505Z E         -     108,
+2026-11-13T11:18:01.8159584Z E         ?     ^
+2026-11-13T11:18:01.8159666Z E         +     908,
+2026-11-13T11:18:01.8159739Z E         ?     ^
+2026-11-13T11:18:01.8159818Z E               808,
+2026-11-13T11:18:01.8159896Z E           ]
+2026-11-13T11:18:01.8159901Z 
+2026-11-13T11:18:01.8160059Z tests/test_direct_tensor_dispatch.py:178: AssertionError
+2026-11-13T11:18:01.8160236Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8160655Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the cpu and disk.
+2026-11-13T11:18:01.8160847Z ___________________ test_direct_tensor_dispatch_tied_weights ___________________
+2026-11-13T11:18:01.8160853Z 
+2026-11-13T11:18:01.8161121Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_direct_tensor_dispatch_ti0')
+2026-11-13T11:18:01.8161127Z 
+2026-11-13T11:18:01.8161273Z     def test_direct_tensor_dispatch_tied_weights(tmp_path):
+2026-11-13T11:18:01.8161379Z         model = _TiedDirectWeights().eval()
+2026-11-13T11:18:01.8161484Z         reference = copy.deepcopy(model)
+2026-11-13T11:18:01.8161766Z         device_map = {"left.weight": "disk", "left.bias": "cpu", "right.weight": "disk", "right.bias": "cpu"}
+2026-11-13T11:18:01.8161947Z         model = dispatch_model(model, device_map, offload_dir=str(tmp_path))
+2026-11-13T11:18:01.8162190Z >       assert model.left.weight.device.type == model.right.weight.device.type == "meta"
+2026-11-13T11:18:01.8162301Z E       AssertionError: assert 'cpu' == 'meta'
+2026-11-13T11:18:01.8162382Z E         
+2026-11-13T11:18:01.8162474Z E         - meta
+2026-11-13T11:18:01.8162550Z E         + cpu
+2026-11-13T11:18:01.8162555Z 
+2026-11-13T11:18:01.8162706Z tests/test_direct_tensor_dispatch.py:214: AssertionError
+2026-11-13T11:18:01.8162875Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:18:01.8163295Z WARNING  accelerate.big_modeling:big_modeling.py:450 Some parameters are on the meta device because they were offloaded to the disk and cpu.
+2026-11-13T11:18:01.8163496Z ____ test_device_map_accepts_registered_tensors_and_warns_on_unknown_names _____
+2026-11-13T11:18:01.8163507Z 
+2026-11-13T11:18:01.8163810Z     def test_device_map_accepts_registered_tensors_and_warns_on_unknown_names():
+2026-11-13T11:18:01.8163914Z         model = _DirectWeights()
+2026-11-13T11:18:01.8164058Z         with warnings.catch_warnings(record=True) as caught:
+2026-11-13T11:18:01.8164182Z             check_device_map(model, _device_map(False))
+2026-11-13T11:18:01.8164266Z >       assert not caught
+2026-11-13T11:18:01.8164449Z E       assert not [<warnings.WarningMessage object at 0x7fa05274a6c0>]
+2026-11-13T11:18:01.8164455Z 
+2026-11-13T11:18:01.8164599Z tests/test_direct_tensor_dispatch.py:244: AssertionError
+2026-11-13T11:18:01.8164730Z =============================== warnings summary ===============================
+2026-11-13T11:18:01.8165032Z tests/test_direct_tensor_dispatch.py::test_split_parent_direct_weight_obeys_live_storage_budget
+2026-11-13T11:18:01.8165615Z   /home/runner/work/accelerate/accelerate/src/accelerate/utils/modeling.py:1639: UserWarning: The following device_map keys do not match any submodules in the model: ['parent.weight']
+2026-11-13T11:18:01.8165703Z     warnings.warn(
+2026-11-13T11:18:01.8165708Z 
+2026-11-13T11:18:01.8165967Z tests/test_direct_tensor_dispatch.py::test_direct_tensor_hook_removal_after_forward_failure
+2026-11-13T11:18:01.8166692Z   /home/runner/work/accelerate/accelerate/src/accelerate/utils/modeling.py:1639: UserWarning: The following device_map keys do not match any submodules in the model: ['weight', 'bias', 'scale']
+2026-11-13T11:18:01.8166900Z     warnings.warn(
+2026-11-13T11:18:01.8166906Z 
+2026-11-13T11:18:01.8167127Z tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_tied_weights
+2026-11-13T11:18:01.8167822Z   /home/runner/work/accelerate/accelerate/src/accelerate/utils/modeling.py:1639: UserWarning: The following device_map keys do not match any submodules in the model: ['left.weight', 'left.bias', 'right.weight', 'right.bias']
+2026-11-13T11:18:01.8167909Z     warnings.warn(
+2026-11-13T11:18:01.8167914Z 
+2026-11-13T11:18:01.8168126Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T11:18:01.8168280Z =========================== short test summary info ============================
+2026-11-13T11:18:01.8168669Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-False-dtype0-False] - assert not True
+2026-11-13T11:18:01.8169002Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa054f40820>)
+2026-11-13T11:18:01.8169389Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-False-dtype0-True] - assert not True
+2026-11-13T11:18:01.8169699Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa052823e60>)
+2026-11-13T11:18:01.8170079Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-False-dtype1-False] - assert not True
+2026-11-13T11:18:01.8170392Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0550475a0>)
+2026-11-13T11:18:01.8170762Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-False-dtype1-True] - assert not True
+2026-11-13T11:18:01.8171075Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253a7a0>)
+2026-11-13T11:18:01.8171665Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-True-dtype0-False] - ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8172046Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-True-dtype0-True] - assert not True
+2026-11-13T11:18:01.8172361Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa055046f80>)
+2026-11-13T11:18:01.8173043Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-True-dtype1-False] - ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8173416Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[False-True-dtype1-True] - assert not True
+2026-11-13T11:18:01.8173723Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa055047920>)
+2026-11-13T11:18:01.8174094Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-False-dtype0-False] - assert not True
+2026-11-13T11:18:01.8174412Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa052538d60>)
+2026-11-13T11:18:01.8174774Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-False-dtype0-True] - assert not True
+2026-11-13T11:18:01.8175085Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253a880>)
+2026-11-13T11:18:01.8175452Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-False-dtype1-False] - assert not True
+2026-11-13T11:18:01.8175766Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa05253b920>)
+2026-11-13T11:18:01.8176352Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-False-dtype1-True] - assert not True
+2026-11-13T11:18:01.8176732Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0524d5540>)
+2026-11-13T11:18:01.8177479Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-True-dtype0-False] - ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8177854Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-True-dtype0-True] - assert not True
+2026-11-13T11:18:01.8178171Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa0575b9540>)
+2026-11-13T11:18:01.8178752Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-True-dtype1-False] - ValueError: weight is on the meta device, we need a `value` to put in on cpu.
+2026-11-13T11:18:01.8179109Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_roundtrip[True-True-dtype1-True] - assert not True
+2026-11-13T11:18:01.8179426Z  +  where True = any(<generator object test_direct_tensor_dispatch_roundtrip.<locals>.<genexpr> at 0x7fa054f40200>)
+2026-11-13T11:18:01.8179892Z FAILED tests/test_direct_tensor_dispatch.py::test_split_parent_direct_weight_obeys_live_storage_budget - assert [908, 808, 908, 808] == [108, 808, 108, 808]
+2026-11-13T11:18:01.8179968Z   
+2026-11-13T11:18:01.8180065Z   At index 0 diff: 908 != 108
+2026-11-13T11:18:01.8180136Z   
+2026-11-13T11:18:01.8180293Z   Full diff: (-: missing in left side, +: extra in left side)
+2026-11-13T11:18:01.8180365Z     [
+2026-11-13T11:18:01.8180452Z   -     108,
+2026-11-13T11:18:01.8180534Z   ?     ^
+2026-11-13T11:18:01.8180607Z   +     908,
+2026-11-13T11:18:01.8180686Z   ?     ^
+2026-11-13T11:18:01.8180757Z         808,
+2026-11-13T11:18:01.8180836Z   -     108,
+2026-11-13T11:18:01.8180907Z   ?     ^
+2026-11-13T11:18:01.8180984Z   +     908,
+2026-11-13T11:18:01.8181055Z   ?     ^
+2026-11-13T11:18:01.8181133Z         808,
+2026-11-13T11:18:01.8181214Z     ]
+2026-11-13T11:18:01.8181593Z FAILED tests/test_direct_tensor_dispatch.py::test_direct_tensor_dispatch_tied_weights - AssertionError: assert 'cpu' == 'meta'
+2026-11-13T11:18:01.8181683Z   
+2026-11-13T11:18:01.8181759Z   - meta
+2026-11-13T11:18:01.8181839Z   + cpu
+2026-11-13T11:18:01.8182393Z FAILED tests/test_direct_tensor_dispatch.py::test_device_map_accepts_registered_tensors_and_warns_on_unknown_names - assert not [<warnings.WarningMessage object at 0x7fa05274a6c0>]
+2026-11-13T11:18:01.8182506Z 19 failed, 3 passed, 3 warnings in 8.16s
+2026-11-13T11:18:01.8182512Z 
+2026-11-13T11:18:01.8182832Z before {'tests': 22, 'failures': 19, 'errors': 0, 'skipped': 0, 'returncode': 1}
+2026-11-13T11:18:05.9293993Z ......................                                                   [100%]
+2026-11-13T11:18:05.9294637Z 22 passed in 3.34s
+2026-11-13T11:18:05.9294869Z 
+2026-11-13T11:18:05.9295222Z after {'tests': 22, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0}
+2026-11-13T11:18:11.2740425Z .....s.....s...ss......                                                  [100%]
+2026-11-13T11:18:11.2741543Z 19 passed, 4 skipped in 4.39s
+2026-11-13T11:18:11.2741981Z 
+2026-11-13T11:18:11.2742708Z existing {'tests': 23, 'failures': 0, 'errors': 0, 'skipped': 4, 'returncode': 0}
+2026-11-13T11:18:11.2763900Z {
+2026-11-13T11:18:11.2764457Z   "base": "3bd795f7cfb763b994b4ba8ba59e5a305a7c528a",
+2026-11-13T11:18:11.2765308Z   "source_head": "61082f558e970286e3bf0f748ac932a718e6611d",
+2026-11-13T11:18:11.2765804Z   "before": {
+2026-11-13T11:18:11.2766080Z     "tests": 22,
+2026-11-13T11:18:11.2766641Z     "failures": 19,
+2026-11-13T11:18:11.2766950Z     "errors": 0,
+2026-11-13T11:18:11.2767235Z     "skipped": 0,
+2026-11-13T11:18:11.2767526Z     "returncode": 1
+2026-11-13T11:18:11.2767827Z   },
+2026-11-13T11:18:11.2768079Z   "after": {
+2026-11-13T11:18:11.2768346Z     "tests": 22,
+2026-11-13T11:18:11.2768627Z     "failures": 0,
+2026-11-13T11:18:11.2768914Z     "errors": 0,
+2026-11-13T11:18:11.2769193Z     "skipped": 0,
+2026-11-13T11:18:11.2769477Z     "returncode": 0
+2026-11-13T11:18:11.2769972Z   },
+2026-11-13T11:18:11.2770223Z   "existing": {
+2026-11-13T11:18:11.2770496Z     "tests": 23,
+2026-11-13T11:18:11.2770774Z     "failures": 0,
+2026-11-13T11:18:11.2771052Z     "errors": 0,
+2026-11-13T11:18:11.2771339Z     "skipped": 4,
+2026-11-13T11:18:11.2771620Z     "returncode": 0
+2026-11-13T11:18:11.2771896Z   }
+2026-11-13T11:18:11.2772139Z }
+2026-11-13T11:18:11.2875903Z ##[group]Run .venv/bin/ruff check src/accelerate/hooks.py src/accelerate/utils/modeling.py tests/test_direct_tensor_dispatch.py
+2026-11-13T11:18:11.2877138Z [36;1m.venv/bin/ruff check src/accelerate/hooks.py src/accelerate/utils/modeling.py tests/test_direct_tensor_dispatch.py[0m
+2026-11-13T11:18:11.2877997Z [36;1m.venv/bin/ruff format --check src/accelerate/hooks.py src/accelerate/utils/modeling.py tests/test_direct_tensor_dispatch.py[0m
+2026-11-13T11:18:11.2899048Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:18:11.2899294Z env:
+2026-11-13T11:18:11.2899485Z   OMP_NUM_THREADS: 1
+2026-11-13T11:18:11.2899694Z   MKL_NUM_THREADS: 1
+2026-11-13T11:18:11.2899919Z   PYTHONPATH: src
+2026-11-13T11:18:11.2900202Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.2900663Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:18:11.2901088Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.2901501Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.2901880Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.2902263Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:18:11.2902631Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:18:11.2902925Z ##[endgroup]
+2026-11-13T11:18:11.3096528Z All checks passed!
+2026-11-13T11:18:11.3231292Z 3 files already formatted
+2026-11-13T11:18:11.3305827Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T11:18:11.3306121Z with:
+2026-11-13T11:18:11.3306691Z   name: direct-offload-native-evidence
+2026-11-13T11:18:11.3307180Z   path: before.log
+before.xml
+after.log
+after.xml
+existing.log
+existing.xml
+native-report.json
+
+2026-11-13T11:18:11.3307647Z   if-no-files-found: warn
+2026-11-13T11:18:11.3307885Z   compression-level: 6
+2026-11-13T11:18:11.3308105Z   overwrite: false
+2026-11-13T11:18:11.3308324Z   include-hidden-files: false
+2026-11-13T11:18:11.3308560Z env:
+2026-11-13T11:18:11.3308746Z   OMP_NUM_THREADS: 1
+2026-11-13T11:18:11.3308959Z   MKL_NUM_THREADS: 1
+2026-11-13T11:18:11.3309173Z   PYTHONPATH: src
+2026-11-13T11:18:11.3309457Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.3309886Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:18:11.3310306Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.3310724Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.3311107Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:18:11.3311492Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:18:11.3311870Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:18:11.3312169Z ##[endgroup]
+2026-11-13T11:18:11.5000229Z (node:2509) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:18:11.5001503Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:18:11.5115835Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T11:18:11.5129506Z The least common ancestor is /home/runner/work/accelerate/accelerate. This will be the root directory of the artifact
+2026-11-13T11:18:11.5130833Z With the provided path, there will be 7 files uploaded
+2026-11-13T11:18:11.5132072Z Artifact name is valid!
+2026-11-13T11:18:11.5132721Z Root directory input is valid!
+2026-11-13T11:18:11.8023158Z Beginning upload of artifact content to blob storage
+2026-11-13T11:18:11.8362899Z (node:2509) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:18:11.9824123Z Uploaded bytes 11266
+2026-11-13T11:18:12.0268418Z Finished uploading artifact content to blob storage!
+2026-11-13T11:18:12.0269517Z SHA256 digest of uploaded artifact zip is be8061d92f46b865795d82ae26adde54e8853015d65c137315f786cddcc17320
+2026-11-13T11:18:12.0271427Z Finalizing artifact upload
+2026-11-13T11:18:12.4177200Z Artifact direct-offload-native-evidence.zip successfully finalized. Artifact ID 14031373610
+2026-11-13T11:18:12.4179014Z Artifact direct-offload-native-evidence has been successfully uploaded! Final size is 11266 bytes. Artifact ID is 14031373610
+2026-11-13T11:18:12.4185263Z Artifact download URL: https://github.com/Afloat16/accelerate/actions/runs/43415810211/artifacts/14031373610
+2026-11-13T11:18:12.4400785Z Post job cleanup.
+2026-11-13T11:18:12.5731196Z Pruning cache...
+2026-11-13T11:18:12.5744667Z (node:2521) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:18:12.5746084Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:18:12.5788712Z [command]/opt/hostedtoolcache/uv/0.13.8/x86_64/uv cache prune --ci
+2026-11-13T11:18:12.5894638Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:18:12.9304295Z Removed 20616 files (6.3MiB)
+2026-11-13T11:18:12.9341324Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:18:12.9556635Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/accelerate/accelerate --files-from manifest.txt --use-compress-program zstdmt
+2026-11-13T11:18:13.1984759Z (node:2521) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:18:13.6311344Z Sent 6184015 of 6184015 (100.0%), 13.4 MBs/sec
+2026-11-13T11:18:13.7180901Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:18:13.7313794Z Post job cleanup.
+2026-11-13T11:18:13.8620606Z (node:2544) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:18:13.8621754Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:18:13.8791723Z Post job cleanup.
+2026-11-13T11:18:13.9777083Z [command]/usr/bin/git version
+2026-11-13T11:18:13.9847395Z git version 2.56.0
+2026-11-13T11:18:13.9916718Z Temporarily overriding HOME='/home/runner/work/_temp/8618195b-a21e-43ed-aaf5-40a8158672c4' before making global git config changes
+2026-11-13T11:18:13.9984813Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:18:13.9988900Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:18:14.0008301Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:18:14.0049235Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:18:14.0323158Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:18:14.0354750Z http.https://github.com/.extraheader
+2026-11-13T11:18:14.0367846Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T11:18:14.0405199Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:18:14.0699196Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:18:14.0750448Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:18:14.1171770Z Cleaning up orphan processes
+2026-11-13T11:18:14.1554044Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

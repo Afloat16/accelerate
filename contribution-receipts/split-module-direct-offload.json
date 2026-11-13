@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "repository": "huggingface/accelerate",
+  "title": "Honor direct tensor offload entries on split modules",
+  "pr": "https://github.com/huggingface/accelerate/pull/4543",
+  "number": 4543,
+  "head": "dc6600f6dc7fbc2b9536072ff802663df6ce74e3",
+  "base": "3bd795f7cfb763b994b4ba8ba59e5a305a7c528a",
+  "branch": "fix/split-module-direct-offload-20261113",
+  "created_at": "2026-11-13T11:25:38Z",
+  "verified_at": "2026-11-13T11:26:00Z",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "validation": {
+    "head": "61082f558e970286e3bf0f748ac932a718e6611d",
+    "run": "https://github.com/Afloat16/accelerate/actions/runs/43415810211",
+    "job": 131853286930,
+    "conclusion": "success",
+    "before": {
+      "failed": 19,
+      "passed": 3
+    },
+    "after": {
+      "passed": 22
+    },
+    "existing": {
+      "passed": 19,
+      "skipped": 4
+    },
+    "runtime": "Python 3.12, official PyTorch 2.9.0 CPU",
+    "style": "Ruff check and format passed"
+  },
+  "review": {
+    "status": "peer review passed",
+    "scope": "CPU/disk dispatch with a common execution device; individual tensor hooks, state restoration, tied weights and whole-module controls"
+  },
+  "deduplication": {
+    "search_scope": "All-state upstream and Afloat16 pull requests; related patches read",
+    "related": [
+      1043,
+      2214,
+      4208,
+      4404,
+      4531
+    ]
+  },
+  "body": "# What does this PR do?\n\nHonor direct parameter and buffer entries in split-module device maps during CPU/disk dispatch.\n\nA map such as `{\"parent.child\": \"cpu\", \"first\": \"disk\", \"parent.weight\": \"disk\"}` is accepted for coverage, but hook installation only visits module names. The direct `parent.weight` entry therefore receives no offload hook and stays resident. This is the runtime limitation reproduced in the [follow-up on #4531](https://github.com/huggingface/accelerate/pull/4531#issuecomment-6834185084).\n\nAdd a tensor-name filter to `AlignDevicesHook`, and attach filtered hooks to a split parent's direct tensors when it has individual tensor entries instead of a module-level entry. Group direct tensors by execution device and offload policy while leaving separately placed children to their own hooks. Accept registered parameter/buffer names in device-map validation.\n\nOrdinary module-level maps keep the existing path. The verified case is CPU/disk offload with a common execution device; this does not claim support for running one operation with its weight and bias on different accelerators.\n\n## Validation\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43415810211), Python 3.12 and official PyTorch 2.9.0 CPU:\n\n- Original source: 19 failures and 3 passing controls.\n- Patched source: all 22 new cases pass.\n- Existing hooks, offload, and map-validation tests: 19 pass, 4 skips.\n- Ruff checks and formatting pass.\n\nFor the 908-byte model in the linked report, live CPU parameter storage during repeated forwards changes from 908 bytes to **108 bytes in the first layer and 808 bytes in the parent**, within the 850-byte budget, with matching outputs. These are live tensor-storage measurements, not RSS or GPU memory measurements.\n\nThe tests also train small models with real SGD before checkpointing, load them into meta-initialized models, and compare repeated inference against the trained reference. Coverage includes root/nested direct tensors, float32/float64, resident bias alongside offloaded weights, optional buffer offload, tied weights, unchanged whole-module maps, hook removal, and recovery by removing hooks after a forward exception.\n\n## Before submitting\n\n- [x] Read the contributor guideline.\n- [x] Documented the hook's optional tensor filter.\n- [x] Added native disk/checkpoint and live-storage regressions.\n- [x] Verified relevant existing tests.\n"
+}
