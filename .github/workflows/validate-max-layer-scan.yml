@@ -1,0 +1,62 @@
+name: Validate maximum-layer traversal cost
+on:
+  push:
+    branches: [validation/linear-maximum-layer-scan-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      HF_HUB_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official native CPU environment
+        run: |
+          python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[test_prod,quality]"
+          python -c "import sys, torch; print(sys.version); print('torch', torch.__version__)"
+      - name: Unchanged upstream semantics and native timing
+        run: |
+          git checkout f5cc53877677eb7fa0ef7091fe41536a777fee6a -- src/accelerate/utils/modeling.py
+          python -m pytest -q tests/test_max_layer_scan.py tests/test_modeling_utils.py --junitxml=layer-scan-baseline.xml
+          python contribution-validation/benchmark_max_layer_scan.py baseline layer-scan-baseline.json
+      - name: Changed source semantics and native timing
+        run: |
+          git checkout 6994b501f631c4e3ca522625ea003ece6be76f46 -- src/accelerate/utils/modeling.py
+          python -m pytest -q tests/test_max_layer_scan.py tests/test_modeling_utils.py --junitxml=layer-scan-fixed.xml
+          python contribution-validation/benchmark_max_layer_scan.py fixed layer-scan-fixed.json
+      - name: Compare outputs and report measured cost
+        run: |
+          python - <<'PY'
+          import json
+          before = json.load(open("layer-scan-baseline.json"))["results"]
+          after = json.load(open("layer-scan-fixed.json"))["results"]
+          for original, fixed in zip(before, after):
+              assert original["layer_count"] == fixed["layer_count"]
+              assert original["operation"] == fixed["operation"]
+              assert original["output_sha256"] == fixed["output_sha256"]
+              print({"layers": original["layer_count"], "operation": original["operation"], "baseline_seconds": original["median_seconds"], "fixed_seconds": fixed["median_seconds"], "speedup": original["median_seconds"] / fixed["median_seconds"], "baseline_python_peak_bytes": original["python_peak_bytes"], "fixed_python_peak_bytes": fixed["python_peak_bytes"]})
+          PY
+      - name: Project style and whitespace
+        run: |
+          ruff --version
+          ruff check src/accelerate/utils/modeling.py tests/test_max_layer_scan.py contribution-validation/benchmark_max_layer_scan.py
+          ruff format --check src/accelerate/utils/modeling.py tests/test_max_layer_scan.py contribution-validation/benchmark_max_layer_scan.py
+          git diff --check f5cc53877677eb7fa0ef7091fe41536a777fee6a -- src/accelerate/utils/modeling.py tests/test_max_layer_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maximum-layer-scan-native
+          path: |
+            layer-scan-*.json
+            layer-scan-*.xml
