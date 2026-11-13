@@ -1,0 +1,303 @@
+[
+  {
+    "repository": "EleutherAI/lm-evaluation-harness",
+    "url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "stars": 14464,
+    "description": "A framework for few-shot evaluation of language models.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "FlagOpen/FlagEmbedding",
+    "url": "https://github.com/FlagOpen/FlagEmbedding",
+    "stars": 12317,
+    "description": "Retrieval and Retrieval-augmented LLMs",
+    "default_branch": "master",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "HumanSignal/label-studio",
+    "url": "https://github.com/HumanSignal/label-studio",
+    "stars": 28688,
+    "description": "Label Studio is a multi-type data labeling and annotation tool with standardized output format",
+    "default_branch": "develop",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "Lightning-AI/pytorch-lightning",
+    "url": "https://github.com/Lightning-AI/pytorch-lightning",
+    "stars": 31449,
+    "description": "Pretrain, finetune ANY AI model of ANY size on 1 or 10,000+ GPUs with zero code changes.",
+    "default_branch": "master",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "Unstructured-IO/unstructured",
+    "url": "https://github.com/Unstructured-IO/unstructured",
+    "stars": 15730,
+    "description": "Convert documents to structured data effortlessly. Unstructured is open-source ETL solution for transforming complex documents into clean, structured formats for language models.  Visit our website to learn more about our enterprise grade Platform product for production grade workflows, partitioning, enrichments, chunking and embedding.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "bitsandbytes-foundation/bitsandbytes",
+    "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+    "stars": 8538,
+    "description": "Accessible large language models via k-bit quantization for PyTorch.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "cleanlab/cleanlab",
+    "url": "https://github.com/cleanlab/cleanlab",
+    "stars": 11741,
+    "description": "Cleanlab's open-source library is the standard data-centric AI package for data quality and machine learning with messy, real-world data and labels.",
+    "default_branch": "master",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "cvat-ai/cvat",
+    "url": "https://github.com/cvat-ai/cvat",
+    "stars": 17134,
+    "description": "CVAT is a leading data annotation platform for image, video, audio, and 3D datasets. It offers open-source, cloud, and enterprise products, as well as labeling services, with AI-assisted labeling, quality assurance, team collaboration, analytics, and developer APIs.",
+    "default_branch": "develop",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "ddbourgin/numpy-ml",
+    "url": "https://github.com/ddbourgin/numpy-ml",
+    "stars": 16323,
+    "description": "Machine learning, in numpy",
+    "default_branch": "master",
+    "archived": false,
+    "license": "GPL-3.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "evidentlyai/evidently",
+    "url": "https://github.com/evidentlyai/evidently",
+    "stars": 8062,
+    "description": "Evidently is ​​an open-source ML and LLM observability framework. Evaluate, test, and monitor any AI-powered system or data pipeline. From tabular data to Gen AI. 100+ metrics.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "huggingface/accelerate",
+    "url": "https://github.com/huggingface/accelerate",
+    "stars": 9942,
+    "description": "🚀 A simple way to launch, train, and use PyTorch models on almost any device and distributed configuration, automatic mixed precision (including fp8), and easy-to-configure FSDP and DeepSpeed support",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "huggingface/datasets",
+    "url": "https://github.com/huggingface/datasets",
+    "stars": 22136,
+    "description": "🤗 The largest hub of ready-to-use datasets for AI models with fast, easy-to-use and efficient data manipulation tools",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "huggingface/tokenizers",
+    "url": "https://github.com/huggingface/tokenizers",
+    "stars": 11260,
+    "description": "💥 Fast State-of-the-Art Tokenizers optimized for Research and Production",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "huggingface/transformers",
+    "url": "https://github.com/huggingface/transformers",
+    "stars": 168943,
+    "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "hyperopt/hyperopt",
+    "url": "https://github.com/hyperopt/hyperopt",
+    "stars": 7599,
+    "description": "Distributed Asynchronous Hyperparameter Optimization in Python",
+    "default_branch": "master",
+    "archived": false,
+    "license": "NOASSERTION",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "lucidrains/denoising-diffusion-pytorch",
+    "url": "https://github.com/lucidrains/denoising-diffusion-pytorch",
+    "stars": 10727,
+    "description": "Implementation of Denoising Diffusion Probabilistic Model in Pytorch",
+    "default_branch": "main",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "lucidrains/vector-quantize-pytorch",
+    "url": "https://github.com/lucidrains/vector-quantize-pytorch",
+    "stars": 4028,
+    "description": "Vector (and Scalar) Quantization, in Pytorch",
+    "default_branch": "master",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "lucidrains/x-transformers",
+    "url": "https://github.com/lucidrains/x-transformers",
+    "stars": 5963,
+    "description": "A concise but complete full-attention transformer with a set of promising experimental features from various papers",
+    "default_branch": "main",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "microsoft/onnxruntime",
+    "url": "https://github.com/microsoft/onnxruntime",
+    "stars": 22299,
+    "description": "ONNX Runtime: cross-platform, high performance ML inferencing and training accelerator",
+    "default_branch": "main",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "mlflow/mlflow",
+    "url": "https://github.com/mlflow/mlflow",
+    "stars": 28791,
+    "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
+    "default_branch": "master",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "pytorch/ao",
+    "url": "https://github.com/pytorch/ao",
+    "stars": 3027,
+    "description": "PyTorch native quantization for training and inference",
+    "default_branch": "main",
+    "archived": false,
+    "license": "NOASSERTION",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "rasbt/mlxtend",
+    "url": "https://github.com/rasbt/mlxtend",
+    "stars": 5192,
+    "description": "A library of extension and helper modules for Python's data analysis and machine learning libraries.",
+    "default_branch": "master",
+    "archived": false,
+    "license": "NOASSERTION",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "sgl-project/sglang",
+    "url": "https://github.com/sgl-project/sglang",
+    "stars": 38811,
+    "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "sloria/TextBlob",
+    "url": "https://github.com/sloria/TextBlob",
+    "stars": 9554,
+    "description": "Simple, Pythonic, text processing--Sentiment analysis, part-of-speech tagging, noun phrase extraction, translation, and more.",
+    "default_branch": "dev",
+    "archived": false,
+    "license": "MIT",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "vllm-project/vllm",
+    "url": "https://github.com/vllm-project/vllm",
+    "stars": 96868,
+    "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T11:52:15Z"
+  },
+  {
+    "repository": "Lightning-AI/litgpt",
+    "url": "https://github.com/Lightning-AI/litgpt",
+    "stars": 13747,
+    "description": "20+ high-performance LLMs with recipes to pretrain, finetune and deploy at scale.",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T12:00:00Z"
+  },
+  {
+    "repository": "OpenRLHF/OpenRLHF",
+    "url": "https://github.com/OpenRLHF/OpenRLHF",
+    "stars": 10151,
+    "description": "An Easy-to-use, Scalable and High-performance Agentic RL Framework based on Ray (PPO & DAPO & REINFORCE++ &  VLM & TIS & vLLM & Ray & Async  RL)",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T12:00:00Z"
+  },
+  {
+    "repository": "hiyouga/LlamaFactory",
+    "url": "https://github.com/hiyouga/LlamaFactory",
+    "stars": 76027,
+    "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T12:00:00Z"
+  },
+  {
+    "repository": "hpcaitech/ColossalAI",
+    "url": "https://github.com/hpcaitech/ColossalAI",
+    "stars": 41424,
+    "description": "Making large AI models cheaper, faster and more accessible",
+    "default_branch": "main",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T12:00:00Z"
+  },
+  {
+    "repository": "jettify/pytorch-optimizer",
+    "url": "https://github.com/jettify/pytorch-optimizer",
+    "stars": 3172,
+    "description": "torch-optimizer -- collection of optimizers for Pytorch",
+    "default_branch": "master",
+    "archived": false,
+    "license": "Apache-2.0",
+    "queried_at": "2026-11-13T12:00:00Z"
+  }
+]
+
