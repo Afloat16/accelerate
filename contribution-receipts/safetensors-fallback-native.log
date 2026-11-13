@@ -1,0 +1,550 @@
+﻿2026-11-13T11:13:00.1992804Z Current runner version: '2.338.2'
+2026-11-13T11:13:00.2013257Z ##[group]Runner Image Provisioner
+2026-11-13T11:13:00.2013945Z Hosted Compute Agent
+2026-11-13T11:13:00.2014521Z Version: 20261028.624
+2026-11-13T11:13:00.2015064Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-13T11:13:00.2015673Z Build Date: 2026-10-28T21:51:42Z
+2026-11-13T11:13:00.2016243Z Worker ID: {5d1a4cc5-6f70-426e-8368-94c7c85761b5}
+2026-11-13T11:13:00.2016808Z Region: westus2
+2026-11-13T11:13:00.2017326Z Cloud: Azure
+2026-11-13T11:13:00.2017798Z ##[endgroup]
+2026-11-13T11:13:00.2018855Z ##[group]Operating System
+2026-11-13T11:13:00.2019373Z Ubuntu
+2026-11-13T11:13:00.2019905Z 26.04.1
+2026-11-13T11:13:00.2020374Z LTS
+2026-11-13T11:13:00.2020838Z ##[endgroup]
+2026-11-13T11:13:00.2021274Z ##[group]Runner Image
+2026-11-13T11:13:00.2021819Z Image: ubuntu-26.04
+2026-11-13T11:13:00.2022593Z Version: 20261101.186.1
+2026-11-13T11:13:00.2023990Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-13T11:13:00.2025227Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-13T11:13:00.2026090Z ##[endgroup]
+2026-11-13T11:13:00.2026992Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:13:00.2028612Z Contents: read
+2026-11-13T11:13:00.2029099Z Metadata: read
+2026-11-13T11:13:00.2029635Z ##[endgroup]
+2026-11-13T11:13:00.2031293Z Secret source: Actions
+2026-11-13T11:13:00.2032363Z Cache mode: write
+2026-11-13T11:13:00.2033020Z Prepare workflow directory
+2026-11-13T11:13:00.2336022Z Prepare all required actions
+2026-11-13T11:13:00.2375785Z Getting action download info
+2026-11-13T11:13:00.5686649Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:13:00.6604988Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:13:00.7420421Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:13:00.9536187Z Complete job name: native-cpu
+2026-11-13T11:13:01.0226713Z ##[group]Run actions/checkout@v4
+2026-11-13T11:13:01.0227419Z with:
+2026-11-13T11:13:01.0227773Z   fetch-depth: 0
+2026-11-13T11:13:01.0228152Z   repository: Afloat16/accelerate
+2026-11-13T11:13:01.0231219Z   token: ***
+2026-11-13T11:13:01.0231590Z   ssh-strict: true
+2026-11-13T11:13:01.0231949Z   ssh-user: git
+2026-11-13T11:13:01.0232465Z   persist-credentials: true
+2026-11-13T11:13:01.0232868Z   clean: true
+2026-11-13T11:13:01.0233232Z   sparse-checkout-cone-mode: true
+2026-11-13T11:13:01.0233658Z   fetch-tags: false
+2026-11-13T11:13:01.0234018Z   show-progress: true
+2026-11-13T11:13:01.0234376Z   lfs: false
+2026-11-13T11:13:01.0234718Z   submodules: false
+2026-11-13T11:13:01.0235084Z   set-safe-directory: true
+2026-11-13T11:13:01.0235502Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:13:01.0236077Z env:
+2026-11-13T11:13:01.0236415Z   PYTHONPATH: src
+2026-11-13T11:13:01.0236772Z   OMP_NUM_THREADS: 1
+2026-11-13T11:13:01.0237158Z   MKL_NUM_THREADS: 1
+2026-11-13T11:13:01.0237547Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:13:01.0237945Z ##[endgroup]
+2026-11-13T11:13:01.3488702Z Syncing repository: Afloat16/accelerate
+2026-11-13T11:13:01.3490292Z ##[group]Getting Git version info
+2026-11-13T11:13:01.3490941Z Working directory is '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:13:01.3491848Z [command]/usr/bin/git version
+2026-11-13T11:13:01.3510955Z git version 2.56.0
+2026-11-13T11:13:01.3526639Z ##[endgroup]
+2026-11-13T11:13:01.3539769Z Temporarily overriding HOME='/home/runner/work/_temp/910bd926-cad4-4ef6-8d6c-2ccb79a80f0a' before making global git config changes
+2026-11-13T11:13:01.3542224Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:13:01.3544631Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:13:01.3611139Z Deleting the contents of '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:13:01.3615904Z ##[group]Initializing the repository
+2026-11-13T11:13:01.3619358Z [command]/usr/bin/git init /home/runner/work/accelerate/accelerate
+2026-11-13T11:13:01.3723716Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:13:01.3726135Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:13:01.3727496Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:13:01.3728611Z hint: call:
+2026-11-13T11:13:01.3729212Z hint:
+2026-11-13T11:13:01.3729964Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:13:01.3730865Z hint:
+2026-11-13T11:13:01.3731718Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:13:01.3733218Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:13:01.3734357Z hint:
+2026-11-13T11:13:01.3734971Z hint: 	git branch -m <name>
+2026-11-13T11:13:01.3735673Z hint:
+2026-11-13T11:13:01.3736645Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:13:01.3738124Z Initialized empty Git repository in /home/runner/work/accelerate/accelerate/.git/
+2026-11-13T11:13:01.3745304Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/accelerate
+2026-11-13T11:13:01.3803552Z ##[endgroup]
+2026-11-13T11:13:01.3804673Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:13:01.3807095Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:13:01.3838203Z ##[endgroup]
+2026-11-13T11:13:01.3839232Z ##[group]Setting up auth
+2026-11-13T11:13:01.3843826Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:13:01.3874550Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:13:01.4296057Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:13:01.4326965Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:13:01.4565118Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:13:01.4598286Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:13:01.4841739Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:13:01.4878966Z ##[endgroup]
+2026-11-13T11:13:01.4879659Z ##[group]Fetching the repository
+2026-11-13T11:13:01.4886694Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-13T11:13:02.7765450Z From https://github.com/Afloat16/accelerate
+2026-11-13T11:13:02.7768944Z  * [new branch]        audit/balanced-memory-largest-block-20261112 -> origin/audit/balanced-memory-largest-block-20261112
+2026-11-13T11:13:02.7770740Z  * [new branch]        audit/multiple-model-parameter-mapping-20261113 -> origin/audit/multiple-model-parameter-mapping-20261113
+2026-11-13T11:13:02.7772835Z  * [new branch]        fix-empty-disk-offload-20261008 -> origin/fix-empty-disk-offload-20261008
+2026-11-13T11:13:02.7775164Z  * [new branch]        fix/balanced-memory-largest-block-20261112 -> origin/fix/balanced-memory-largest-block-20261112
+2026-11-13T11:13:02.7777646Z  * [new branch]        fix/cpu-ddp-uneven-inputs-20261113 -> origin/fix/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:13:02.7779924Z  * [new branch]        fix/cuda-unindexed-device-current-context-20261112 -> origin/fix/cuda-unindexed-device-current-context-20261112
+2026-11-13T11:13:02.7782837Z  * [new branch]        fix/maximum-layer-direct-parameters-20261112 -> origin/fix/maximum-layer-direct-parameters-20261112
+2026-11-13T11:13:02.7786119Z  * [new branch]        fix/multiple-model-parameter-mapping-20261113 -> origin/fix/multiple-model-parameter-mapping-20261113
+2026-11-13T11:13:02.7788655Z  * [new branch]        fix/optimizer-hook-delegation-20261112 -> origin/fix/optimizer-hook-delegation-20261112
+2026-11-13T11:13:02.7790631Z  * [new branch]        main       -> origin/main
+2026-11-13T11:13:02.7792848Z  * [new branch]        perf/safetensors-fallback-membership-20261113 -> origin/perf/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.7795949Z  * [new branch]        validation/balanced-memory-largest-block-20261112 -> origin/validation/balanced-memory-largest-block-20261112
+2026-11-13T11:13:02.7798977Z  * [new branch]        validation/cpu-ddp-uneven-inputs-20261113 -> origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:13:02.7802281Z  * [new branch]        validation/multiple-model-parameter-mapping-20261113 -> origin/validation/multiple-model-parameter-mapping-20261113
+2026-11-13T11:13:02.7806383Z  * [new branch]        validation/probe-multiple-model-parameters-20261113 -> origin/validation/probe-multiple-model-parameters-20261113
+2026-11-13T11:13:02.7809791Z  * [new branch]        validation/safetensors-fallback-membership-20261113 -> origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.7813720Z  * [new branch]        validation/xla-multiple-optimizer-probe-20261113 -> origin/validation/xla-multiple-optimizer-probe-20261113
+2026-11-13T11:13:02.7817839Z [command]/usr/bin/git branch --list --remote origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.7819743Z   origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.7823020Z [command]/usr/bin/git rev-parse refs/remotes/origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.7835685Z 31a106e3402665d49be1f7e03896088adb70fd89
+2026-11-13T11:13:02.7839815Z ##[endgroup]
+2026-11-13T11:13:02.7841445Z ##[group]Determining the checkout info
+2026-11-13T11:13:02.7844283Z ##[endgroup]
+2026-11-13T11:13:02.7846014Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:13:02.7889758Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:13:02.7917247Z ##[group]Checking out the ref
+2026-11-13T11:13:02.7921319Z [command]/usr/bin/git checkout --progress --force -B validation/safetensors-fallback-membership-20261113 refs/remotes/origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:13:02.8262669Z Switched to a new branch 'validation/safetensors-fallback-membership-20261113'
+2026-11-13T11:13:02.8268978Z branch 'validation/safetensors-fallback-membership-20261113' set up to track 'origin/validation/safetensors-fallback-membership-20261113'.
+2026-11-13T11:13:02.8277627Z ##[endgroup]
+2026-11-13T11:13:02.8318314Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:13:02.8341982Z 31a106e3402665d49be1f7e03896088adb70fd89
+2026-11-13T11:13:02.8725051Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:13:02.8726016Z with:
+2026-11-13T11:13:02.8726719Z   python-version: 3.12
+2026-11-13T11:13:02.8727522Z   check-latest: false
+2026-11-13T11:13:02.8734859Z   token: ***
+2026-11-13T11:13:02.8735636Z   update-environment: true
+2026-11-13T11:13:02.8736537Z   allow-prereleases: false
+2026-11-13T11:13:02.8737401Z   freethreaded: false
+2026-11-13T11:13:02.8738179Z env:
+2026-11-13T11:13:02.8738867Z   PYTHONPATH: src
+2026-11-13T11:13:02.8739635Z   OMP_NUM_THREADS: 1
+2026-11-13T11:13:02.8740421Z   MKL_NUM_THREADS: 1
+2026-11-13T11:13:02.8741204Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:13:02.8741946Z ##[endgroup]
+2026-11-13T11:13:02.9844568Z ##[group]Installed versions
+2026-11-13T11:13:02.9940099Z (node:2194) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:13:02.9943423Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:13:02.9945570Z Successfully set up CPython (3.12.16)
+2026-11-13T11:13:02.9947711Z ##[endgroup]
+2026-11-13T11:13:03.0146358Z ##[group]Run python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+2026-11-13T11:13:03.0149643Z [36;1mpython -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:13:03.0151757Z [36;1mpython -m pip install -e ".[test_prod,quality]"[0m
+2026-11-13T11:13:03.0154201Z [36;1mpython -c "import sys, torch, safetensors; print(sys.version); print('torch', torch.__version__, 'safetensors', safetensors.__version__)"[0m
+2026-11-13T11:13:03.0235343Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:13:03.0236279Z env:
+2026-11-13T11:13:03.0237007Z   PYTHONPATH: src
+2026-11-13T11:13:03.0237874Z   OMP_NUM_THREADS: 1
+2026-11-13T11:13:03.0238753Z   MKL_NUM_THREADS: 1
+2026-11-13T11:13:03.0239536Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:13:03.0240499Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:03.0241995Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:13:03.0243687Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:03.0245025Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:03.0246346Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:03.0247681Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:13:03.0248849Z ##[endgroup]
+2026-11-13T11:13:04.1303125Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-11-13T11:13:04.2552838Z Collecting torch==2.9.0
+2026-11-13T11:13:04.4434981Z   Downloading torch-2.9.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-11-13T11:13:04.4764628Z Collecting filelock (from torch==2.9.0)
+2026-11-13T11:13:04.5222274Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-11-13T11:13:04.5436731Z Collecting typing-extensions>=4.10.0 (from torch==2.9.0)
+2026-11-13T11:13:04.5500111Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T11:13:04.5653631Z Collecting setuptools (from torch==2.9.0)
+2026-11-13T11:13:04.5751641Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-13T11:13:04.5985986Z Collecting sympy>=1.13.3 (from torch==2.9.0)
+2026-11-13T11:13:04.6048786Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-13T11:13:04.6470002Z Collecting networkx>=2.5.1 (from torch==2.9.0)
+2026-11-13T11:13:04.6533038Z   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+2026-11-13T11:13:04.6806786Z Collecting jinja2 (from torch==2.9.0)
+2026-11-13T11:13:04.6940238Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T11:13:04.7185438Z Collecting fsspec>=0.8.5 (from torch==2.9.0)
+2026-11-13T11:13:04.7248995Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T11:13:04.7581061Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.0)
+2026-11-13T11:13:04.7643272Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-11-13T11:13:04.7868432Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.0)
+2026-11-13T11:13:04.7974453Z   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-13T11:13:04.8145851Z Downloading torch-2.9.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (184.4 MB)
+2026-11-13T11:13:06.4707603Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.4/184.4 MB 111.9 MB/s  0:00:01
+2026-11-13T11:13:06.4776117Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-11-13T11:13:06.4965594Z Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+2026-11-13T11:13:06.5215720Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 103.5 MB/s  0:00:00
+2026-11-13T11:13:06.5278816Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-11-13T11:13:06.5735105Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 140.3 MB/s  0:00:00
+2026-11-13T11:13:06.5799358Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-11-13T11:13:06.5839818Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 120.0 MB/s  0:00:00
+2026-11-13T11:13:06.5902370Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-13T11:13:06.5982916Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-11-13T11:13:06.6107174Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-13T11:13:06.6236338Z Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-13T11:13:06.6379223Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-11-13T11:13:06.6619277Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 48.6 MB/s  0:00:00
+2026-11-13T11:13:06.9674130Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-11-13T11:13:22.1834360Z 
+2026-11-13T11:13:22.1848539Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 setuptools-78.1.0 sympy-1.14.0 torch-2.9.0+cpu typing-extensions-4.16.0
+2026-11-13T11:13:22.5975441Z Obtaining file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:13:22.5988249Z   Installing build dependencies: started
+2026-11-13T11:13:23.3496948Z   Installing build dependencies: finished with status 'done'
+2026-11-13T11:13:23.3502527Z   Checking if build backend supports build_editable: started
+2026-11-13T11:13:23.7230567Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-11-13T11:13:23.7236817Z   Getting requirements to build editable: started
+2026-11-13T11:13:23.9030818Z   Getting requirements to build editable: finished with status 'done'
+2026-11-13T11:13:23.9037706Z   Preparing editable metadata (pyproject.toml): started
+2026-11-13T11:13:24.0600085Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-11-13T11:13:24.2616525Z Collecting numpy>=1.17 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.2918938Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-13T11:13:24.3076954Z Collecting packaging>=20.0 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.3138446Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T11:13:24.3625171Z Collecting psutil (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.3689979Z   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2026-11-13T11:13:24.4013826Z Collecting pyyaml (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.4083354Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T11:13:24.4141543Z Requirement already satisfied: torch>=2.6.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from accelerate==1.16.0.dev0) (2.9.0+cpu)
+2026-11-13T11:13:24.4469154Z Collecting huggingface_hub>=0.21.0 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.4536373Z   Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+2026-11-13T11:13:24.5537463Z Collecting safetensors>=0.4.3 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.5603661Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2026-11-13T11:13:24.8156430Z Collecting ruff==0.13.1 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.8243643Z   Downloading ruff-0.13.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+2026-11-13T11:13:24.8485115Z Collecting pytest>=7.2.0 (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.8548451Z   Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-13T11:13:24.8820439Z Collecting pytest-xdist (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.8885289Z   Downloading pytest_xdist-3.8.0-py3-none-any.whl.metadata (3.0 kB)
+2026-11-13T11:13:24.9028135Z Collecting pytest-subtests (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.9089207Z   Downloading pytest_subtests-0.15.0-py3-none-any.whl.metadata (6.0 kB)
+2026-11-13T11:13:24.9225804Z Collecting parameterized (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.9304148Z   Downloading parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+2026-11-13T11:13:24.9459435Z Collecting pytest-order (from accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.9521531Z   Downloading pytest_order-1.5.0-py3-none-any.whl.metadata (8.0 kB)
+2026-11-13T11:13:24.9685534Z Collecting click<9.0.0,>=8.4.2 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:24.9744981Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T11:13:24.9772926Z Requirement already satisfied: filelock>=3.10.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (4.2.4)
+2026-11-13T11:13:24.9776213Z Requirement already satisfied: fsspec>=2023.5.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (2026.9.0)
+2026-11-13T11:13:25.0094560Z Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.0156678Z   Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-13T11:13:25.0298275Z Collecting httpx2<3,>=2.0.0 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.0357921Z   Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T11:13:25.0610099Z Collecting tqdm>=4.42.1 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.0675214Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-13T11:13:25.0880006Z Requirement already satisfied: typing-extensions>=4.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (4.16.0)
+2026-11-13T11:13:25.1027726Z Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.1092903Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-13T11:13:25.1226459Z Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.1285294Z   Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+2026-11-13T11:13:25.1430519Z Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.1490313Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-13T11:13:25.1772001Z Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.1831097Z   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+2026-11-13T11:13:25.1953012Z Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.2013194Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-13T11:13:25.2196924Z Collecting iniconfig>=2 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.2258963Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-13T11:13:25.2400719Z Collecting pluggy<2,>=1.6 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.2462595Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-13T11:13:25.2784180Z Collecting pygments>=2.15 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.2846389Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T11:13:25.2902541Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (78.1.0)
+2026-11-13T11:13:25.2905996Z Requirement already satisfied: sympy>=1.13.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (1.14.0)
+2026-11-13T11:13:25.2909627Z Requirement already satisfied: networkx>=2.5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (3.7)
+2026-11-13T11:13:25.2912316Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (3.1.6)
+2026-11-13T11:13:25.2943738Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from sympy>=1.13.3->torch>=2.6.0->accelerate==1.16.0.dev0) (1.3.0)
+2026-11-13T11:13:25.2972764Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jinja2->torch>=2.6.0->accelerate==1.16.0.dev0) (3.0.3)
+2026-11-13T11:13:25.3125044Z Collecting attrs>=19.2.0 (from pytest-subtests->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.3186103Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-13T11:13:25.3343246Z Collecting execnet>=2.1 (from pytest-xdist->accelerate==1.16.0.dev0)
+2026-11-13T11:13:25.3408374Z   Downloading execnet-2.1.2-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T11:13:25.3589265Z Downloading ruff-0.13.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.2 MB)
+2026-11-13T11:13:25.5059580Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 92.8 MB/s  0:00:00
+2026-11-13T11:13:25.5124470Z Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+2026-11-13T11:13:25.5170903Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 211.7 MB/s  0:00:00
+2026-11-13T11:13:25.5231365Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-13T11:13:25.5317908Z Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-13T11:13:25.5643737Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 131.8 MB/s  0:00:00
+2026-11-13T11:13:25.5707142Z Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+2026-11-13T11:13:25.5785877Z Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+2026-11-13T11:13:25.5865180Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-13T11:13:25.5942242Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-13T11:13:25.6016721Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-13T11:13:25.6093284Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-13T11:13:25.7585820Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 111.9 MB/s  0:00:00
+2026-11-13T11:13:25.7649832Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T11:13:25.7727835Z Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-13T11:13:25.7815879Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-13T11:13:25.7891065Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-13T11:13:25.7968272Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-13T11:13:25.8024971Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 267.5 MB/s  0:00:00
+2026-11-13T11:13:25.8086505Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T11:13:25.8133662Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 186.7 MB/s  0:00:00
+2026-11-13T11:13:25.8195915Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+2026-11-13T11:13:25.8282391Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-13T11:13:25.8361574Z Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+2026-11-13T11:13:25.8434535Z Downloading parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+2026-11-13T11:13:25.8510239Z Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+2026-11-13T11:13:25.8589216Z Downloading pytest_order-1.5.0-py3-none-any.whl (16 kB)
+2026-11-13T11:13:25.8664041Z Downloading pytest_subtests-0.15.0-py3-none-any.whl (9.2 kB)
+2026-11-13T11:13:25.8739781Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-13T11:13:25.8814893Z Downloading pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+2026-11-13T11:13:25.8962942Z Downloading execnet-2.1.2-py3-none-any.whl (40 kB)
+2026-11-13T11:13:25.9780895Z Building wheels for collected packages: accelerate
+2026-11-13T11:13:25.9787532Z   Building editable for accelerate (pyproject.toml): started
+2026-11-13T11:13:26.1568753Z   Building editable for accelerate (pyproject.toml): finished with status 'done'
+2026-11-13T11:13:26.1593393Z   Created wheel for accelerate: filename=accelerate-1.16.0.dev0-0.editable-py3-none-any.whl size=12332 sha256=f79254ae39e7e227d92ece0542d17aea3caef690b83f5745346b30d4a73f9466
+2026-11-13T11:13:26.1594521Z   Stored in directory: /tmp/pip-ephem-wheel-cache-r16y88o0/wheels/1a/88/f6/72d6a28891928a24b3b5dd1bd5d942a79fa62cf45538803955
+2026-11-13T11:13:26.1608151Z Successfully built accelerate
+2026-11-13T11:13:26.2128769Z Installing collected packages: truststore, tqdm, safetensors, ruff, pyyaml, pygments, psutil, pluggy, parameterized, packaging, numpy, iniconfig, idna, hf-xet, h11, execnet, click, attrs, pytest, httpcore2, anyio, pytest-xdist, pytest-subtests, pytest-order, httpx2, huggingface_hub, accelerate
+2026-11-13T11:13:29.8900281Z 
+2026-11-13T11:13:29.8925633Z Successfully installed accelerate-1.16.0.dev0 anyio-4.16.0 attrs-26.1.0 click-8.5.1 execnet-2.1.2 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface_hub-2.4.0 idna-3.20 iniconfig-2.3.1 numpy-2.5.4 packaging-26.3 parameterized-0.9.0 pluggy-1.7.0 psutil-7.2.2 pygments-2.21.0 pytest-9.2.0 pytest-order-1.5.0 pytest-subtests-0.15.0 pytest-xdist-3.8.0 pyyaml-6.0.3 ruff-0.13.1 safetensors-0.8.0 tqdm-4.70.1 truststore-0.10.5
+2026-11-13T11:13:29.8933751Z 
+2026-11-13T11:13:29.8934335Z [notice] A new release of pip is available: 26.2.2 -> 26.3
+2026-11-13T11:13:29.8934682Z [notice] To update, run: pip install --upgrade pip
+2026-11-13T11:13:31.1703130Z 3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]
+2026-11-13T11:13:31.1703559Z torch 2.9.0+cpu safetensors 0.8.0
+2026-11-13T11:13:31.3839854Z ##[group]Run git checkout 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a -- src/accelerate/utils/modeling.py
+2026-11-13T11:13:31.3840459Z [36;1mgit checkout 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a -- src/accelerate/utils/modeling.py[0m
+2026-11-13T11:13:31.3841064Z [36;1mpython -m pytest -q tests/test_safetensors_cpu_fallback.py tests/test_modeling_utils.py --junitxml=fallback-baseline.xml[0m
+2026-11-13T11:13:31.3841682Z [36;1mpython contribution-validation/benchmark_safetensors_fallback.py baseline fallback-baseline.json[0m
+2026-11-13T11:13:31.3888683Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:13:31.3888898Z env:
+2026-11-13T11:13:31.3889067Z   PYTHONPATH: src
+2026-11-13T11:13:31.3889246Z   OMP_NUM_THREADS: 1
+2026-11-13T11:13:31.3889424Z   MKL_NUM_THREADS: 1
+2026-11-13T11:13:31.3889595Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:13:31.3889822Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:31.3890204Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:13:31.3890540Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:31.3890839Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:31.3891127Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:13:31.3891429Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:13:31.3891698Z ##[endgroup]
+2026-11-13T11:13:37.8771301Z ......................................ss.....s...........s..ss..s...s..s [ 97%]
+2026-11-13T11:13:38.2174142Z .s                                                                   [100%]
+2026-11-13T11:13:38.2174639Z 64 passed, 10 skipped, 4 subtests passed in 6.12s
+2026-11-13T11:14:20.0600079Z {
+2026-11-13T11:14:20.0600396Z   "label": "baseline",
+2026-11-13T11:14:20.0600683Z   "torch": "2.9.0+cpu",
+2026-11-13T11:14:20.0600923Z   "results": [
+2026-11-13T11:14:20.0601132Z     {
+2026-11-13T11:14:20.0601342Z       "weight_count": 64,
+2026-11-13T11:14:20.0601631Z       "file_bytes": 5208,
+2026-11-13T11:14:20.0601867Z       "seconds": [
+2026-11-13T11:14:20.0602264Z         0.005670958999999698,
+2026-11-13T11:14:20.0602510Z         0.005876157000002991,
+2026-11-13T11:14:20.0602761Z         0.0059255299999989575
+2026-11-13T11:14:20.0603377Z       ],
+2026-11-13T11:14:20.0603600Z       "median_seconds": 0.005876157000002991,
+2026-11-13T11:14:20.0603917Z       "python_peak_bytes": 607352,
+2026-11-13T11:14:20.0604385Z       "output_sha256": "fea0037c85b847307e2dad397bebbbd081d75ad269a9cde7dc0831f67debf194"
+2026-11-13T11:14:20.0604848Z     },
+2026-11-13T11:14:20.0605053Z     {
+2026-11-13T11:14:20.0605255Z       "weight_count": 4096,
+2026-11-13T11:14:20.0605502Z       "file_bytes": 344696,
+2026-11-13T11:14:20.0605741Z       "seconds": [
+2026-11-13T11:14:20.0605966Z         0.24335393999999155,
+2026-11-13T11:14:20.0606205Z         0.23972458100000438,
+2026-11-13T11:14:20.0606433Z         0.24219367199999908
+2026-11-13T11:14:20.0606658Z       ],
+2026-11-13T11:14:20.0606891Z       "median_seconds": 0.24219367199999908,
+2026-11-13T11:14:20.0607188Z       "python_peak_bytes": 1651845,
+2026-11-13T11:14:20.0607618Z       "output_sha256": "32133220f6c562f136b66f55bb069fd3021aa46a1b4d21cd99d4fc4e7954326f"
+2026-11-13T11:14:20.0608069Z     },
+2026-11-13T11:14:20.0608256Z     {
+2026-11-13T11:14:20.0608461Z       "weight_count": 32768,
+2026-11-13T11:14:20.0608735Z       "file_bytes": 2811696,
+2026-11-13T11:14:20.0608973Z       "seconds": [
+2026-11-13T11:14:20.0609192Z         5.444209896999993,
+2026-11-13T11:14:20.0609426Z         5.849591670999999,
+2026-11-13T11:14:20.0609650Z         5.852641347999992
+2026-11-13T11:14:20.0609875Z       ],
+2026-11-13T11:14:20.0610082Z       "median_seconds": 5.849591670999999,
+2026-11-13T11:14:20.0610375Z       "python_peak_bytes": 13015107,
+2026-11-13T11:14:20.0610807Z       "output_sha256": "262b0c8a162bf479f223a948cf3817b38422fc3b8160284f3e2a28ccbdf549a4"
+2026-11-13T11:14:20.0611252Z     }
+2026-11-13T11:14:20.0611434Z   ]
+2026-11-13T11:14:20.0611624Z }
+2026-11-13T11:14:20.3351495Z ##[group]Run git checkout d31250bad01c8fb0d3b0357a976721daa5dd63dd -- src/accelerate/utils/modeling.py
+2026-11-13T11:14:20.3352244Z [36;1mgit checkout d31250bad01c8fb0d3b0357a976721daa5dd63dd -- src/accelerate/utils/modeling.py[0m
+2026-11-13T11:14:20.3352852Z [36;1mpython -m pytest -q tests/test_safetensors_cpu_fallback.py tests/test_modeling_utils.py --junitxml=fallback-fixed.xml[0m
+2026-11-13T11:14:20.3353438Z [36;1mpython contribution-validation/benchmark_safetensors_fallback.py fixed fallback-fixed.json[0m
+2026-11-13T11:14:20.3397558Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:14:20.3397767Z env:
+2026-11-13T11:14:20.3397933Z   PYTHONPATH: src
+2026-11-13T11:14:20.3398110Z   OMP_NUM_THREADS: 1
+2026-11-13T11:14:20.3398285Z   MKL_NUM_THREADS: 1
+2026-11-13T11:14:20.3398449Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:14:20.3398677Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:20.3399059Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:14:20.3399395Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:20.3399699Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:20.3399990Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:20.3400298Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:14:20.3400555Z ##[endgroup]
+2026-11-13T11:14:26.2584480Z ......................................ss.....s...........s..ss..s...s..s [ 97%]
+2026-11-13T11:14:26.5973951Z .s                                                                   [100%]
+2026-11-13T11:14:26.5974340Z 64 passed, 10 skipped, 4 subtests passed in 5.70s
+2026-11-13T11:14:46.7656045Z {
+2026-11-13T11:14:46.7656292Z   "label": "fixed",
+2026-11-13T11:14:46.7656622Z   "torch": "2.9.0+cpu",
+2026-11-13T11:14:46.7656837Z   "results": [
+2026-11-13T11:14:46.7657010Z     {
+2026-11-13T11:14:46.7657278Z       "weight_count": 64,
+2026-11-13T11:14:46.7657490Z       "file_bytes": 5208,
+2026-11-13T11:14:46.7657743Z       "seconds": [
+2026-11-13T11:14:46.7657924Z         0.0057873629999960485,
+2026-11-13T11:14:46.7658164Z         0.005583857000004855,
+2026-11-13T11:14:46.7658365Z         0.005827924000001872
+2026-11-13T11:14:46.7658589Z       ],
+2026-11-13T11:14:46.7676382Z       "median_seconds": 0.0057873629999960485,
+2026-11-13T11:14:46.7677107Z       "python_peak_bytes": 607344,
+2026-11-13T11:14:46.7677569Z       "output_sha256": "fea0037c85b847307e2dad397bebbbd081d75ad269a9cde7dc0831f67debf194"
+2026-11-13T11:14:46.7678017Z     },
+2026-11-13T11:14:46.7678219Z     {
+2026-11-13T11:14:46.7678446Z       "weight_count": 4096,
+2026-11-13T11:14:46.7678767Z       "file_bytes": 344696,
+2026-11-13T11:14:46.7679019Z       "seconds": [
+2026-11-13T11:14:46.7679251Z         0.17730282499999817,
+2026-11-13T11:14:46.7679502Z         0.17745371299999135,
+2026-11-13T11:14:46.7679754Z         0.18275069599999938
+2026-11-13T11:14:46.7679991Z       ],
+2026-11-13T11:14:46.7680233Z       "median_seconds": 0.17745371299999135,
+2026-11-13T11:14:46.7680554Z       "python_peak_bytes": 1658992,
+2026-11-13T11:14:46.7681009Z       "output_sha256": "32133220f6c562f136b66f55bb069fd3021aa46a1b4d21cd99d4fc4e7954326f"
+2026-11-13T11:14:46.7681500Z     },
+2026-11-13T11:14:46.7681737Z     {
+2026-11-13T11:14:46.7681985Z       "weight_count": 32768,
+2026-11-13T11:14:46.7682440Z       "file_bytes": 2811696,
+2026-11-13T11:14:46.7682708Z       "seconds": [
+2026-11-13T11:14:46.7683008Z         1.4815522049999998,
+2026-11-13T11:14:46.7683255Z         1.4850674249999969,
+2026-11-13T11:14:46.7683434Z         1.4952502269999997
+2026-11-13T11:14:46.7683607Z       ],
+2026-11-13T11:14:46.7683780Z       "median_seconds": 1.4850674249999969,
+2026-11-13T11:14:46.7684007Z       "python_peak_bytes": 13043563,
+2026-11-13T11:14:46.7684329Z       "output_sha256": "262b0c8a162bf479f223a948cf3817b38422fc3b8160284f3e2a28ccbdf549a4"
+2026-11-13T11:14:46.7684659Z     }
+2026-11-13T11:14:46.7684811Z   ]
+2026-11-13T11:14:46.7684961Z }
+2026-11-13T11:14:47.1015949Z ##[group]Run python - <<'PY'
+2026-11-13T11:14:47.1016232Z [36;1mpython - <<'PY'[0m
+2026-11-13T11:14:47.1016429Z [36;1mimport json[0m
+2026-11-13T11:14:47.1016692Z [36;1mbefore = json.load(open("fallback-baseline.json"))["results"][0m
+2026-11-13T11:14:47.1017070Z [36;1mafter = json.load(open("fallback-fixed.json"))["results"][0m
+2026-11-13T11:14:47.1017376Z [36;1mfor original, fixed in zip(before, after):[0m
+2026-11-13T11:14:47.1017683Z [36;1m    assert original["weight_count"] == fixed["weight_count"][0m
+2026-11-13T11:14:47.1018021Z [36;1m    assert original["output_sha256"] == fixed["output_sha256"][0m
+2026-11-13T11:14:47.1018962Z [36;1m    print({"weights": original["weight_count"], "baseline_seconds": original["median_seconds"], "fixed_seconds": fixed["median_seconds"], "speedup": original["median_seconds"] / fixed["median_seconds"], "baseline_python_peak_bytes": original["python_peak_bytes"], "fixed_python_peak_bytes": fixed["python_peak_bytes"]})[0m
+2026-11-13T11:14:47.1019843Z [36;1mPY[0m
+2026-11-13T11:14:47.1066301Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:14:47.1066518Z env:
+2026-11-13T11:14:47.1066692Z   PYTHONPATH: src
+2026-11-13T11:14:47.1066875Z   OMP_NUM_THREADS: 1
+2026-11-13T11:14:47.1067062Z   MKL_NUM_THREADS: 1
+2026-11-13T11:14:47.1067242Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:14:47.1067466Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1067811Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:14:47.1068164Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1068472Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1068773Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1069065Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:14:47.1069328Z ##[endgroup]
+2026-11-13T11:14:47.1296771Z {'weights': 64, 'baseline_seconds': 0.005876157000002991, 'fixed_seconds': 0.0057873629999960485, 'speedup': 1.015342738999956, 'baseline_python_peak_bytes': 607352, 'fixed_python_peak_bytes': 607344}
+2026-11-13T11:14:47.1298494Z {'weights': 4096, 'baseline_seconds': 0.24219367199999908, 'fixed_seconds': 0.17745371299999135, 'speedup': 1.3648273000633742, 'baseline_python_peak_bytes': 1651845, 'fixed_python_peak_bytes': 1658992}
+2026-11-13T11:14:47.1300442Z {'weights': 32768, 'baseline_seconds': 5.849591670999999, 'fixed_seconds': 1.4850674249999969, 'speedup': 3.938940126573722, 'baseline_python_peak_bytes': 13015107, 'fixed_python_peak_bytes': 13043563}
+2026-11-13T11:14:47.1351116Z ##[group]Run ruff --version
+2026-11-13T11:14:47.1351362Z [36;1mruff --version[0m
+2026-11-13T11:14:47.1351857Z [36;1mruff check src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py contribution-validation/benchmark_safetensors_fallback.py[0m
+2026-11-13T11:14:47.1352926Z [36;1mruff format --check src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py contribution-validation/benchmark_safetensors_fallback.py[0m
+2026-11-13T11:14:47.1353698Z [36;1mgit diff --check 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a -- src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py[0m
+2026-11-13T11:14:47.1395483Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:14:47.1395702Z env:
+2026-11-13T11:14:47.1395874Z   PYTHONPATH: src
+2026-11-13T11:14:47.1396050Z   OMP_NUM_THREADS: 1
+2026-11-13T11:14:47.1396227Z   MKL_NUM_THREADS: 1
+2026-11-13T11:14:47.1396400Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:14:47.1396667Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1397026Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:14:47.1397376Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1397673Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1397967Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1398270Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:14:47.1398534Z ##[endgroup]
+2026-11-13T11:14:47.1479941Z ruff 0.13.1
+2026-11-13T11:14:47.1598034Z All checks passed!
+2026-11-13T11:14:47.1713039Z 3 files already formatted
+2026-11-13T11:14:47.1804347Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T11:14:47.1804601Z with:
+2026-11-13T11:14:47.1804791Z   name: safetensors-fallback-native
+2026-11-13T11:14:47.1805023Z   path: fallback-*.json
+fallback-*.xml
+
+2026-11-13T11:14:47.1805254Z   if-no-files-found: warn
+2026-11-13T11:14:47.1805453Z   compression-level: 6
+2026-11-13T11:14:47.1805634Z   overwrite: false
+2026-11-13T11:14:47.1805814Z   include-hidden-files: false
+2026-11-13T11:14:47.1806003Z env:
+2026-11-13T11:14:47.1806161Z   PYTHONPATH: src
+2026-11-13T11:14:47.1806334Z   OMP_NUM_THREADS: 1
+2026-11-13T11:14:47.1806518Z   MKL_NUM_THREADS: 1
+2026-11-13T11:14:47.1806696Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:14:47.1806928Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1807275Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:14:47.1807604Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1807930Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1808226Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:14:47.1808553Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:14:47.1808863Z ##[endgroup]
+2026-11-13T11:14:47.3201146Z (node:2363) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:14:47.3202217Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:14:47.3382991Z With the provided path, there will be 4 files uploaded
+2026-11-13T11:14:47.3413011Z Artifact name is valid!
+2026-11-13T11:14:47.3413356Z Root directory input is valid!
+2026-11-13T11:14:47.7041238Z Beginning upload of artifact content to blob storage
+2026-11-13T11:14:47.7273766Z (node:2363) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:14:48.0288792Z Uploaded bytes 3782
+2026-11-13T11:14:48.1067803Z Finished uploading artifact content to blob storage!
+2026-11-13T11:14:48.1068598Z SHA256 digest of uploaded artifact zip is 087ce6bb3900dd0c21560ec297b446aa451e59eb4653b7bd4471a03896d54636
+2026-11-13T11:14:48.1069737Z Finalizing artifact upload
+2026-11-13T11:14:48.5229741Z Artifact safetensors-fallback-native.zip successfully finalized. Artifact ID 14031318386
+2026-11-13T11:14:48.5230718Z Artifact safetensors-fallback-native has been successfully uploaded! Final size is 3782 bytes. Artifact ID is 14031318386
+2026-11-13T11:14:48.5235490Z Artifact download URL: https://github.com/Afloat16/accelerate/actions/runs/43415172502/artifacts/14031318386
+2026-11-13T11:14:48.5408267Z Post job cleanup.
+2026-11-13T11:14:48.6377066Z (node:2376) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:14:48.6377632Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:14:48.6525174Z Post job cleanup.
+2026-11-13T11:14:48.7253094Z [command]/usr/bin/git version
+2026-11-13T11:14:48.7292770Z git version 2.56.0
+2026-11-13T11:14:48.7327076Z Temporarily overriding HOME='/home/runner/work/_temp/eddef7cb-5e45-426e-a082-427c99e431f4' before making global git config changes
+2026-11-13T11:14:48.7328030Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:14:48.7331903Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:14:48.7374825Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:14:48.7412922Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:14:48.7742524Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:14:48.7767343Z http.https://github.com/.extraheader
+2026-11-13T11:14:48.7803495Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T11:14:48.7814705Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:14:48.8176839Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:14:48.8211148Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:14:48.8607696Z Cleaning up orphan processes
+2026-11-13T11:14:48.8911531Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
