@@ -8,10 +8,10 @@
   "tree": "fdd1944ec7012e9483cc34ec3aba533104ef2668",
   "commit_url": "https://github.com/Afloat16/accelerate/commit/c100d247a46ab16429e58ff654fa641a4addc8f2",
   "body": "## Problem\n\n`get_balanced_memory` records only the first instance of each `no_split_module_classes` class and stops once every class name has appeared. Instances of the same residual-block class can have different parameter sizes. A later, larger instance is then omitted from the buffer calculation, making the planned memory cap depend on module order and causing unnecessary CPU offload.\n\n## Change\n\nKeep the maximum size seen for each requested no-split class and inspect all instances. The existing mean-layer buffer, multiplier, memory ceilings, dtype accounting and low-zero policy remain in place.\n\nA native regression uses four residual blocks of 64, 1,024, 1,024 and 64 bytes. With device budgets of 2,112 and 1,500 bytes, the original balanced cap is 1,428 bytes on the first device and the actual device-map planner offloads a block to CPU. The corrected cap allows the planner to place all four blocks on the two specified devices, with every parameter accounted for and both physical budgets respected.\n\n## Validation\n\nExact source commit: `c100d247a46ab16429e58ff654fa641a4addc8f2`; original main: `f47439c1fb24721ea71ab98f9b512726b5a97828`.\n\n[Successful native CPU/meta validation](https://github.com/Afloat16/accelerate/actions/runs/43308308588), Python 3.12.16 / PyTorch 2.9.1+cpu:\n\n- Same 30 new regressions on unchanged main: **22 failed, 8 passed**.\n- Fixed source: **30 new tests passed**.\n- The entire existing `tests/test_modeling_utils.py` file: **38 passed, 10 skipped, 4 subtests passed** on both base and fixed source.\n- New cases cover differently sized instances in multiple orders, multiple no-split classes, list/set/string inputs, planned FP16 and special FP64 dtypes, equal-sized and absent-class controls, low-zero budgets, non-contiguous device IDs, and the real `infer_auto_device_map` result.\n- The mapping regression verifies complete parameter coverage, no split within residual blocks, no CPU/disk allocation and exact per-device parameter byte totals.\n- Project-pinned Ruff 0.13.1 lint/format and `git diff --check` passed.\n\nThe planner is executed with actual CPU/meta modules and explicit accelerator memory budgets; no accelerator availability is mocked. Actual GPU loading/execution, GPU peak memory and the full repository suite were not tested. Computing the buffer now visits all relevant size entries during planning.\n\n## Prior work checked\n\nI catalogued the complete 175-commit history of `modeling.py`, read the relevant original and later patches including #534, #583, #3244, #3776 and #4048, searched all-state balanced/no-split/buffer PRs, and checked all existing author PRs and fork branches. The largest-leaf proposal in #3244 changes a different part of the budget calculation and does not inspect later same-class no-split blocks.\n",
-  "pr_created": false,
-  "pr_url": null,
+  "pr_created": true,
+  "pr_url": "https://github.com/huggingface/accelerate/pull/4539",
   "merged_at": null,
-  "status": "validated_fork_commit_upstream_pr_creation_blocked",
+  "status": "upstream_pr_open",
   "validation": {
     "run_url": "https://github.com/Afloat16/accelerate/actions/runs/43308308588",
     "run_id": 43308308588,
@@ -61,5 +61,10 @@
   "pr_creation_error": {
     "status": 403,
     "message": "Resource not accessible by integration"
-  }
+  },
+  "pr_number": 4539,
+  "pr_state": "open",
+  "draft": false,
+  "maintainer_can_modify": false,
+  "pr_verified_at": "2026-11-13T09:10:53.431Z"
 }
