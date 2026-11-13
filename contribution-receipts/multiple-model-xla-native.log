@@ -1,0 +1,1775 @@
+﻿2026-11-13T10:31:43.9040845Z Current runner version: '2.338.2'
+2026-11-13T10:31:43.9066518Z ##[group]Runner Image Provisioner
+2026-11-13T10:31:43.9067353Z Hosted Compute Agent
+2026-11-13T10:31:43.9068198Z Version: 20261103.629
+2026-11-13T10:31:43.9068945Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T10:31:43.9069652Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T10:31:43.9070289Z Worker ID: {413c21bf-9479-4825-96e4-460047296255}
+2026-11-13T10:31:43.9071055Z Region: us-east-1
+2026-11-13T10:31:43.9071585Z Cloud: AWS
+2026-11-13T10:31:43.9072145Z ##[endgroup]
+2026-11-13T10:31:43.9073524Z ##[group]Operating System
+2026-11-13T10:31:43.9074104Z Ubuntu
+2026-11-13T10:31:43.9074745Z 26.04.1
+2026-11-13T10:31:43.9075241Z LTS
+2026-11-13T10:31:43.9076086Z ##[endgroup]
+2026-11-13T10:31:43.9076612Z ##[group]Runner Image
+2026-11-13T10:31:43.9077195Z Image: ubuntu-26.04
+2026-11-13T10:31:43.9077735Z Version: 20261111.82.6
+2026-11-13T10:31:43.9079214Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.82/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-13T10:31:43.9080700Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.82
+2026-11-13T10:31:43.9081569Z ##[endgroup]
+2026-11-13T10:31:43.9082703Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T10:31:43.9084975Z Contents: read
+2026-11-13T10:31:43.9085547Z Metadata: read
+2026-11-13T10:31:43.9086061Z ##[endgroup]
+2026-11-13T10:31:43.9088352Z Secret source: Actions
+2026-11-13T10:31:43.9089233Z Cache mode: write
+2026-11-13T10:31:43.9089967Z Prepare workflow directory
+2026-11-13T10:31:44.0390010Z Prepare all required actions
+2026-11-13T10:31:44.0429129Z Getting action download info
+2026-11-13T10:31:44.1944839Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T10:31:46.6175074Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T10:31:46.7968882Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T10:31:47.1851555Z Complete job name: native (xla-cpu)
+2026-11-13T10:31:47.3691945Z ##[group]Run actions/checkout@v4
+2026-11-13T10:31:47.3693064Z with:
+2026-11-13T10:31:47.3693869Z   ref: 04023a70f672c058cf0f3a9128550e38b80780a9
+2026-11-13T10:31:47.3694791Z   fetch-depth: 2
+2026-11-13T10:31:47.3695527Z   repository: Afloat16/accelerate
+2026-11-13T10:31:47.3702057Z   token: ***
+2026-11-13T10:31:47.3702731Z   ssh-strict: true
+2026-11-13T10:31:47.3703461Z   ssh-user: git
+2026-11-13T10:31:47.3704167Z   persist-credentials: true
+2026-11-13T10:31:47.3704969Z   clean: true
+2026-11-13T10:31:47.3705691Z   sparse-checkout-cone-mode: true
+2026-11-13T10:31:47.3706501Z   fetch-tags: false
+2026-11-13T10:31:47.3707243Z   show-progress: true
+2026-11-13T10:31:47.3708092Z   lfs: false
+2026-11-13T10:31:47.3708966Z   submodules: false
+2026-11-13T10:31:47.3709708Z   set-safe-directory: true
+2026-11-13T10:31:47.3710502Z   allow-unsafe-pr-checkout: false
+2026-11-13T10:31:47.3711531Z env:
+2026-11-13T10:31:47.3712249Z   PJRT_DEVICE: CPU
+2026-11-13T10:31:47.3712976Z   OMP_NUM_THREADS: 1
+2026-11-13T10:31:47.3713772Z   MKL_NUM_THREADS: 1
+2026-11-13T10:31:47.3714527Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:31:47.3715319Z ##[endgroup]
+2026-11-13T10:31:50.7995382Z Syncing repository: Afloat16/accelerate
+2026-11-13T10:31:50.7996993Z ##[group]Getting Git version info
+2026-11-13T10:31:50.7997725Z Working directory is '/home/runner/work/accelerate/accelerate'
+2026-11-13T10:31:50.7998910Z [command]/usr/bin/git version
+2026-11-13T10:31:50.8006702Z git version 2.56.1
+2026-11-13T10:31:50.8019869Z ##[endgroup]
+2026-11-13T10:31:50.8030800Z Temporarily overriding HOME='/home/runner/work/_temp/da96c63f-a157-4838-9097-bc00560f19ac' before making global git config changes
+2026-11-13T10:31:50.8031846Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T10:31:50.8034338Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T10:31:50.8428995Z Deleting the contents of '/home/runner/work/accelerate/accelerate'
+2026-11-13T10:31:50.8433164Z ##[group]Initializing the repository
+2026-11-13T10:31:50.8436271Z [command]/usr/bin/git init /home/runner/work/accelerate/accelerate
+2026-11-13T10:31:50.8938535Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T10:31:50.8939186Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T10:31:50.8939904Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T10:31:50.8940306Z hint: call:
+2026-11-13T10:31:50.8940594Z hint:
+2026-11-13T10:31:50.8941014Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T10:31:50.8941339Z hint:
+2026-11-13T10:31:50.8941675Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T10:31:50.8942199Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T10:31:50.8942563Z hint:
+2026-11-13T10:31:50.8942913Z hint: 	git branch -m <name>
+2026-11-13T10:31:50.8943191Z hint:
+2026-11-13T10:31:50.8943573Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T10:31:50.8955263Z Initialized empty Git repository in /home/runner/work/accelerate/accelerate/.git/
+2026-11-13T10:31:50.8964863Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/accelerate
+2026-11-13T10:31:50.9021334Z ##[endgroup]
+2026-11-13T10:31:50.9021853Z ##[group]Disabling automatic garbage collection
+2026-11-13T10:31:50.9024339Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T10:31:50.9046434Z ##[endgroup]
+2026-11-13T10:31:50.9047001Z ##[group]Setting up auth
+2026-11-13T10:31:50.9051472Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T10:31:50.9073320Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T10:31:51.1356552Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T10:31:51.1383983Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T10:31:51.1554696Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T10:31:51.1576791Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T10:31:51.1745590Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T10:31:51.1771360Z ##[endgroup]
+2026-11-13T10:31:51.1772076Z ##[group]Fetching the repository
+2026-11-13T10:31:51.1777648Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=2 origin 04023a70f672c058cf0f3a9128550e38b80780a9
+2026-11-13T10:31:51.7190428Z From https://github.com/Afloat16/accelerate
+2026-11-13T10:31:51.7191102Z  * branch            04023a70f672c058cf0f3a9128550e38b80780a9 -> FETCH_HEAD
+2026-11-13T10:31:51.7211391Z ##[endgroup]
+2026-11-13T10:31:51.7218597Z ##[group]Determining the checkout info
+2026-11-13T10:31:51.7226268Z ##[endgroup]
+2026-11-13T10:31:51.7227329Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T10:31:51.7249061Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T10:31:51.7391421Z ##[group]Checking out the ref
+2026-11-13T10:31:51.7392296Z [command]/usr/bin/git checkout --progress --force 04023a70f672c058cf0f3a9128550e38b80780a9
+2026-11-13T10:31:51.7521851Z Note: switching to '04023a70f672c058cf0f3a9128550e38b80780a9'.
+2026-11-13T10:31:51.7522090Z 
+2026-11-13T10:31:51.7522242Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-13T10:31:51.7522626Z changes and commit them, and you can discard any commits you make in this
+2026-11-13T10:31:51.7523213Z state without impacting any branches by switching back to a branch.
+2026-11-13T10:31:51.7523407Z 
+2026-11-13T10:31:51.7523550Z If you want to create a new branch to retain commits you create, you may
+2026-11-13T10:31:51.7523868Z do so (now or later) by using -c with the switch command. Example:
+2026-11-13T10:31:51.7524055Z 
+2026-11-13T10:31:51.7524184Z   git switch -c <new-branch-name>
+2026-11-13T10:31:51.7524314Z 
+2026-11-13T10:31:51.7524391Z Or undo this operation with:
+2026-11-13T10:31:51.7524514Z 
+2026-11-13T10:31:51.7524580Z   git switch -
+2026-11-13T10:31:51.7524691Z 
+2026-11-13T10:31:51.7524862Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-13T10:31:51.7525070Z 
+2026-11-13T10:31:51.7525243Z HEAD is now at 04023a7 Preserve each model's parameters during XLA optimizer transfer
+2026-11-13T10:31:51.7533917Z ##[endgroup]
+2026-11-13T10:31:51.7576963Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T10:31:51.7595445Z 04023a70f672c058cf0f3a9128550e38b80780a9
+2026-11-13T10:31:51.8514869Z ##[group]Run actions/setup-python@v5
+2026-11-13T10:31:51.8515145Z with:
+2026-11-13T10:31:51.8515309Z   python-version: 3.12
+2026-11-13T10:31:51.8515489Z   check-latest: false
+2026-11-13T10:31:51.8517375Z   token: ***
+2026-11-13T10:31:51.8517542Z   update-environment: true
+2026-11-13T10:31:51.8517732Z   allow-prereleases: false
+2026-11-13T10:31:51.8518142Z   freethreaded: false
+2026-11-13T10:31:51.8518313Z env:
+2026-11-13T10:31:51.8518460Z   PJRT_DEVICE: CPU
+2026-11-13T10:31:51.8518745Z   OMP_NUM_THREADS: 1
+2026-11-13T10:31:51.8518933Z   MKL_NUM_THREADS: 1
+2026-11-13T10:31:51.8519101Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:31:51.8519285Z ##[endgroup]
+2026-11-13T10:31:51.9539390Z ##[group]Installed versions
+2026-11-13T10:31:52.5314597Z (node:2356) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:31:52.5315342Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:31:52.5316070Z Successfully set up CPython (3.12.16)
+2026-11-13T10:31:52.5316710Z ##[endgroup]
+2026-11-13T10:31:52.5470679Z ##[group]Run python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+2026-11-13T10:31:52.5471226Z [36;1mpython -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T10:31:52.5471582Z [36;1mpython -m pip install -e ".[test_prod,quality]"[0m
+2026-11-13T10:31:52.5471830Z [36;1mif [ "xla-cpu" = "xla-cpu" ]; then[0m
+2026-11-13T10:31:52.5472061Z [36;1m  python -m pip install torch_xla==2.9.0[0m
+2026-11-13T10:31:52.5472278Z [36;1mfi[0m
+2026-11-13T10:31:52.5472483Z [36;1mpython -m pip freeze > installed-dependencies.txt[0m
+2026-11-13T10:31:52.6332911Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:31:52.6333176Z env:
+2026-11-13T10:31:52.6333362Z   PJRT_DEVICE: CPU
+2026-11-13T10:31:52.6333523Z   OMP_NUM_THREADS: 1
+2026-11-13T10:31:52.6333682Z   MKL_NUM_THREADS: 1
+2026-11-13T10:31:52.6333874Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:31:52.6334115Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:31:52.6334538Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:31:52.6334849Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:31:52.6335134Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:31:52.6335411Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:31:52.6335692Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:31:52.6335937Z ##[endgroup]
+2026-11-13T10:31:57.7195180Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-11-13T10:31:57.7893537Z Collecting torch==2.9.0
+2026-11-13T10:31:57.8251372Z   Downloading torch-2.9.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-11-13T10:31:57.8451553Z Collecting filelock (from torch==2.9.0)
+2026-11-13T10:31:57.8642273Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-11-13T10:31:57.8757819Z Collecting typing-extensions>=4.10.0 (from torch==2.9.0)
+2026-11-13T10:31:57.8791229Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T10:31:57.8864043Z Collecting setuptools (from torch==2.9.0)
+2026-11-13T10:31:57.8895805Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-13T10:31:57.9032281Z Collecting sympy>=1.13.3 (from torch==2.9.0)
+2026-11-13T10:31:57.9063139Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-13T10:31:57.9337873Z Collecting networkx>=2.5.1 (from torch==2.9.0)
+2026-11-13T10:31:57.9368478Z   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+2026-11-13T10:31:57.9458669Z Collecting jinja2 (from torch==2.9.0)
+2026-11-13T10:31:57.9488542Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T10:31:57.9632725Z Collecting fsspec>=0.8.5 (from torch==2.9.0)
+2026-11-13T10:31:57.9669351Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T10:31:57.9894402Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.0)
+2026-11-13T10:31:57.9928211Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-11-13T10:31:58.0064470Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.0)
+2026-11-13T10:31:58.0093615Z   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-13T10:31:58.0220473Z Downloading torch-2.9.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (184.4 MB)
+2026-11-13T10:31:58.6226734Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.4/184.4 MB 313.0 MB/s  0:00:00
+2026-11-13T10:31:58.6266167Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-11-13T10:31:58.6361478Z Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+2026-11-13T10:31:58.6471321Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 240.5 MB/s  0:00:00
+2026-11-13T10:31:58.6502425Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-11-13T10:31:58.6712623Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 311.7 MB/s  0:00:00
+2026-11-13T10:31:58.6763370Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-11-13T10:31:58.6799821Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 141.7 MB/s  0:00:00
+2026-11-13T10:31:58.6833184Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-13T10:31:58.6877358Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-11-13T10:31:58.6925835Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-13T10:31:58.6970534Z Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-13T10:31:58.7024748Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-11-13T10:31:58.7083420Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 220.1 MB/s  0:00:00
+2026-11-13T10:31:59.2881994Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-11-13T10:32:11.7918384Z 
+2026-11-13T10:32:11.7930651Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 setuptools-78.1.0 sympy-1.14.0 torch-2.9.0+cpu typing-extensions-4.16.0
+2026-11-13T10:32:12.6635905Z Obtaining file:///home/runner/work/accelerate/accelerate
+2026-11-13T10:32:12.6646893Z   Installing build dependencies: started
+2026-11-13T10:32:13.6646691Z   Installing build dependencies: finished with status 'done'
+2026-11-13T10:32:13.6651486Z   Checking if build backend supports build_editable: started
+2026-11-13T10:32:14.2062692Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-11-13T10:32:14.2068225Z   Getting requirements to build editable: started
+2026-11-13T10:32:14.3528861Z   Getting requirements to build editable: finished with status 'done'
+2026-11-13T10:32:14.3535205Z   /tmp/pip-build-env-lje5j1i2/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+2026-11-13T10:32:14.3536060Z   !!
+2026-11-13T10:32:14.3536237Z   
+2026-11-13T10:32:14.3536488Z           ********************************************************************************
+2026-11-13T10:32:14.3536863Z           Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-11-13T10:32:14.3537185Z   
+2026-11-13T10:32:14.3537495Z           License :: OSI Approved :: Apache Software License
+2026-11-13T10:32:14.3537714Z   
+2026-11-13T10:32:14.3538184Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-13T10:32:14.3538612Z           ********************************************************************************
+2026-11-13T10:32:14.3538835Z   
+2026-11-13T10:32:14.3538969Z   !!
+2026-11-13T10:32:14.3539134Z     self._finalize_license_expression()
+2026-11-13T10:32:14.3542111Z   Preparing editable metadata (pyproject.toml): started
+2026-11-13T10:32:14.4904653Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-11-13T10:32:14.4907612Z   /tmp/pip-build-env-lje5j1i2/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+2026-11-13T10:32:14.4908357Z   !!
+2026-11-13T10:32:14.4908510Z   
+2026-11-13T10:32:14.4908696Z           ********************************************************************************
+2026-11-13T10:32:14.4909089Z           Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-11-13T10:32:14.4909509Z   
+2026-11-13T10:32:14.4909805Z           License :: OSI Approved :: Apache Software License
+2026-11-13T10:32:14.4910066Z   
+2026-11-13T10:32:14.4910461Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-13T10:32:14.4910936Z           ********************************************************************************
+2026-11-13T10:32:14.4911211Z   
+2026-11-13T10:32:14.4911375Z   !!
+2026-11-13T10:32:14.4911542Z     self._finalize_license_expression()
+2026-11-13T10:32:14.6409322Z Collecting numpy>=1.17 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.6589001Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-13T10:32:14.6700186Z Collecting packaging>=20.0 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.6730524Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T10:32:14.7092357Z Collecting psutil (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.7125963Z   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2026-11-13T10:32:14.7352200Z Collecting pyyaml (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.7379103Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T10:32:14.7401508Z Requirement already satisfied: torch>=2.6.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from accelerate==1.16.0.dev0) (2.9.0+cpu)
+2026-11-13T10:32:14.7648708Z Collecting huggingface_hub>=0.21.0 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.7679074Z   Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+2026-11-13T10:32:14.8399327Z Collecting safetensors>=0.4.3 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:14.8433857Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2026-11-13T10:32:15.0461991Z Collecting ruff==0.13.1 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.0512049Z   Downloading ruff-0.13.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+2026-11-13T10:32:15.0689065Z Collecting pytest>=7.2.0 (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.0718928Z   Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-13T10:32:15.0833848Z Collecting pytest-xdist (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.0866461Z   Downloading pytest_xdist-3.8.0-py3-none-any.whl.metadata (3.0 kB)
+2026-11-13T10:32:15.0956348Z Collecting pytest-subtests (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.0987076Z   Downloading pytest_subtests-0.15.0-py3-none-any.whl.metadata (6.0 kB)
+2026-11-13T10:32:15.1071801Z Collecting parameterized (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.1100544Z   Downloading parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+2026-11-13T10:32:15.1192490Z Collecting pytest-order (from accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.1223167Z   Downloading pytest_order-1.5.0-py3-none-any.whl.metadata (8.0 kB)
+2026-11-13T10:32:15.1330944Z Collecting click<9.0.0,>=8.4.2 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.1363751Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T10:32:15.1385083Z Requirement already satisfied: filelock>=3.10.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (4.2.4)
+2026-11-13T10:32:15.1388212Z Requirement already satisfied: fsspec>=2023.5.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (2026.9.0)
+2026-11-13T10:32:15.1633845Z Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.1662840Z   Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-13T10:32:15.1750905Z Collecting httpx2<3,>=2.0.0 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.1782070Z   Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T10:32:15.1968977Z Collecting tqdm>=4.42.1 (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2012499Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-13T10:32:15.2063375Z Requirement already satisfied: typing-extensions>=4.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from huggingface_hub>=0.21.0->accelerate==1.16.0.dev0) (4.16.0)
+2026-11-13T10:32:15.2159108Z Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2190953Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-13T10:32:15.2274936Z Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2306082Z   Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+2026-11-13T10:32:15.2406888Z Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2435836Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-13T10:32:15.2535192Z Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2563975Z   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+2026-11-13T10:32:15.2649045Z Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface_hub>=0.21.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2679539Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-13T10:32:15.2830254Z Collecting iniconfig>=2 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2858717Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-13T10:32:15.2945765Z Collecting pluggy<2,>=1.6 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.2975352Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-13T10:32:15.3086956Z Collecting pygments>=2.15 (from pytest>=7.2.0->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.3117205Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T10:32:15.3162329Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (78.1.0)
+2026-11-13T10:32:15.3163607Z Requirement already satisfied: sympy>=1.13.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (1.14.0)
+2026-11-13T10:32:15.3168264Z Requirement already satisfied: networkx>=2.5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (3.7)
+2026-11-13T10:32:15.3169144Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch>=2.6.0->accelerate==1.16.0.dev0) (3.1.6)
+2026-11-13T10:32:15.3196908Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from sympy>=1.13.3->torch>=2.6.0->accelerate==1.16.0.dev0) (1.3.0)
+2026-11-13T10:32:15.3220859Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jinja2->torch>=2.6.0->accelerate==1.16.0.dev0) (3.0.3)
+2026-11-13T10:32:15.3327144Z Collecting attrs>=19.2.0 (from pytest-subtests->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.3356115Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-13T10:32:15.3456375Z Collecting execnet>=2.1 (from pytest-xdist->accelerate==1.16.0.dev0)
+2026-11-13T10:32:15.3489244Z   Downloading execnet-2.1.2-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T10:32:15.3618982Z Downloading ruff-0.13.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.2 MB)
+2026-11-13T10:32:15.4503763Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 157.1 MB/s  0:00:00
+2026-11-13T10:32:15.4539799Z Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+2026-11-13T10:32:15.4584469Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 240.0 MB/s  0:00:00
+2026-11-13T10:32:15.4613914Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-13T10:32:15.4658400Z Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-13T10:32:15.4823761Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 269.6 MB/s  0:00:00
+2026-11-13T10:32:15.4861914Z Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+2026-11-13T10:32:15.4903979Z Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+2026-11-13T10:32:15.4946482Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-13T10:32:15.4988207Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-13T10:32:15.5028704Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-13T10:32:15.5069435Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-13T10:32:15.5599621Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 322.2 MB/s  0:00:00
+2026-11-13T10:32:15.5634781Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T10:32:15.5678906Z Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-13T10:32:15.5735680Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-13T10:32:15.5777598Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-13T10:32:15.5819193Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-13T10:32:15.5875134Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 244.1 MB/s  0:00:00
+2026-11-13T10:32:15.5909054Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T10:32:15.5948112Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 213.2 MB/s  0:00:00
+2026-11-13T10:32:15.5979968Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+2026-11-13T10:32:15.6034619Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-13T10:32:15.6079818Z Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+2026-11-13T10:32:15.6121621Z Downloading parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+2026-11-13T10:32:15.6164261Z Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+2026-11-13T10:32:15.6207050Z Downloading pytest_order-1.5.0-py3-none-any.whl (16 kB)
+2026-11-13T10:32:15.6249320Z Downloading pytest_subtests-0.15.0-py3-none-any.whl (9.2 kB)
+2026-11-13T10:32:15.6290371Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-13T10:32:15.6336303Z Downloading pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+2026-11-13T10:32:15.6382975Z Downloading execnet-2.1.2-py3-none-any.whl (40 kB)
+2026-11-13T10:32:15.7154261Z Building wheels for collected packages: accelerate
+2026-11-13T10:32:15.7158819Z   Building editable for accelerate (pyproject.toml): started
+2026-11-13T10:32:15.8726821Z   Building editable for accelerate (pyproject.toml): finished with status 'done'
+2026-11-13T10:32:15.8731091Z   /tmp/pip-build-env-lje5j1i2/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+2026-11-13T10:32:15.8731883Z   !!
+2026-11-13T10:32:15.8732080Z   
+2026-11-13T10:32:15.8732322Z           ********************************************************************************
+2026-11-13T10:32:15.8732864Z           Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-11-13T10:32:15.8733380Z   
+2026-11-13T10:32:15.8733727Z           License :: OSI Approved :: Apache Software License
+2026-11-13T10:32:15.8734114Z   
+2026-11-13T10:32:15.8734583Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-13T10:32:15.8735154Z           ********************************************************************************
+2026-11-13T10:32:15.8735459Z   
+2026-11-13T10:32:15.8735624Z   !!
+2026-11-13T10:32:15.8735825Z     self._finalize_license_expression()
+2026-11-13T10:32:15.8736570Z   Created wheel for accelerate: filename=accelerate-1.16.0.dev0-0.editable-py3-none-any.whl size=12332 sha256=742a9e4d217b754218ab8280ffb36e3fd4a4d82f5e5e37651be51d7c2207ea66
+2026-11-13T10:32:15.8737665Z   Stored in directory: /tmp/pip-ephem-wheel-cache-gkxxh9x8/wheels/1a/88/f6/72d6a28891928a24b3b5dd1bd5d942a79fa62cf45538803955
+2026-11-13T10:32:15.8758737Z Successfully built accelerate
+2026-11-13T10:32:15.9222982Z Installing collected packages: truststore, tqdm, safetensors, ruff, pyyaml, pygments, psutil, pluggy, parameterized, packaging, numpy, iniconfig, idna, hf-xet, h11, execnet, click, attrs, pytest, httpcore2, anyio, pytest-xdist, pytest-subtests, pytest-order, httpx2, huggingface_hub, accelerate
+2026-11-13T10:32:18.8947015Z 
+2026-11-13T10:32:18.8969322Z Successfully installed accelerate-1.16.0.dev0 anyio-4.16.0 attrs-26.1.0 click-8.5.1 execnet-2.1.2 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface_hub-2.4.0 idna-3.20 iniconfig-2.3.1 numpy-2.5.4 packaging-26.3 parameterized-0.9.0 pluggy-1.7.0 psutil-7.2.2 pygments-2.21.0 pytest-9.2.0 pytest-order-1.5.0 pytest-subtests-0.15.0 pytest-xdist-3.8.0 pyyaml-6.0.3 ruff-0.13.1 safetensors-0.8.0 tqdm-4.70.1 truststore-0.10.5
+2026-11-13T10:32:19.7246614Z Collecting torch_xla==2.9.0
+2026-11-13T10:32:19.7436662Z   Downloading torch_xla-2.9.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (18 kB)
+2026-11-13T10:32:19.7584591Z Collecting absl-py>=1.0.0 (from torch_xla==2.9.0)
+2026-11-13T10:32:19.7621592Z   Downloading absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T10:32:19.7644037Z Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch_xla==2.9.0) (2.5.4)
+2026-11-13T10:32:19.7646727Z Requirement already satisfied: pyyaml in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch_xla==2.9.0) (6.0.3)
+2026-11-13T10:32:19.7844458Z Collecting requests (from torch_xla==2.9.0)
+2026-11-13T10:32:19.7872621Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-13T10:32:19.8748101Z Collecting charset_normalizer<4,>=2 (from requests->torch_xla==2.9.0)
+2026-11-13T10:32:19.8777380Z   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-11-13T10:32:19.8838347Z Requirement already satisfied: idna<4,>=2.5 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from requests->torch_xla==2.9.0) (3.20)
+2026-11-13T10:32:19.8946885Z Collecting urllib3<3,>=1.26 (from requests->torch_xla==2.9.0)
+2026-11-13T10:32:19.8973845Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-13T10:32:19.9089888Z Collecting certifi>=2023.5.7 (from requests->torch_xla==2.9.0)
+2026-11-13T10:32:19.9117513Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T10:32:19.9194455Z Downloading torch_xla-2.9.0-cp312-cp312-manylinux_2_28_x86_64.whl (80.3 MB)
+2026-11-13T10:32:20.7971518Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.3/80.3 MB 91.9 MB/s  0:00:00
+2026-11-13T10:32:20.8002377Z Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
+2026-11-13T10:32:20.8049691Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-13T10:32:20.8140782Z Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+2026-11-13T10:32:20.8202834Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-13T10:32:20.8247178Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-13T10:32:20.9357316Z Installing collected packages: urllib3, charset_normalizer, certifi, absl-py, requests, torch_xla
+2026-11-13T10:32:22.1832709Z 
+2026-11-13T10:32:22.1854401Z Successfully installed absl-py-2.5.1 certifi-2026.10.23 charset_normalizer-3.5.2 requests-2.34.2 torch_xla-2.9.0 urllib3-2.8.0
+2026-11-13T10:32:22.4446442Z ##[group]Run git rev-parse HEAD
+2026-11-13T10:32:22.4446687Z [36;1mgit rev-parse HEAD[0m
+2026-11-13T10:32:22.4447032Z [36;1mpython -m pytest -q tests/test_multiple_model_parameters.py --junitxml=after.xml > after.log 2>&1[0m
+2026-11-13T10:32:22.4447381Z [36;1mcat after.log[0m
+2026-11-13T10:32:22.4447670Z [36;1mpython -m pytest -q tests/test_optimizer.py --junitxml=existing.xml > existing.log 2>&1[0m
+2026-11-13T10:32:22.4448242Z [36;1mcat existing.log[0m
+2026-11-13T10:32:22.4467612Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:32:22.4467860Z env:
+2026-11-13T10:32:22.4468164Z   PJRT_DEVICE: CPU
+2026-11-13T10:32:22.4468348Z   OMP_NUM_THREADS: 1
+2026-11-13T10:32:22.4468509Z   MKL_NUM_THREADS: 1
+2026-11-13T10:32:22.4468679Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:32:22.4468919Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:22.4469234Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:32:22.4469597Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:22.4469878Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:22.4470150Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:22.4470427Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:32:22.4470663Z ##[endgroup]
+2026-11-13T10:32:22.4518038Z 04023a70f672c058cf0f3a9128550e38b80780a9
+2026-11-13T10:32:32.2026091Z ............................                                             [100%]
+2026-11-13T10:32:32.2026557Z =============================== warnings summary ===============================
+2026-11-13T10:32:32.2026897Z tests/test_multiple_model_parameters.py: 28 warnings
+2026-11-13T10:32:32.2027322Z   /home/runner/work/accelerate/accelerate/src/accelerate/state.py:841: DeprecationWarning: Use torch_xla.device instead
+2026-11-13T10:32:32.2027720Z     self.device = xm.xla_device()
+2026-11-13T10:32:32.2027854Z 
+2026-11-13T10:32:32.2028244Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:32:32.2028588Z 28 passed, 28 warnings in 7.82s
+2026-11-13T10:32:35.5148074Z s.                                                                       [100%]
+2026-11-13T10:32:35.5148547Z =============================== warnings summary ===============================
+2026-11-13T10:32:35.5148985Z tests/test_optimizer.py::OptimizerTester::test_accelerated_optimizer_step_was_skipped
+2026-11-13T10:32:35.5149481Z   /home/runner/work/accelerate/accelerate/src/accelerate/state.py:841: DeprecationWarning: Use torch_xla.device instead
+2026-11-13T10:32:35.5149878Z     self.device = xm.xla_device()
+2026-11-13T10:32:35.5150316Z 
+2026-11-13T10:32:35.5150543Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:32:35.5151021Z 1 passed, 1 skipped, 1 warning in 2.48s
+2026-11-13T10:32:35.5219792Z ##[group]Run git show 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a:src/accelerate/accelerator.py > src/accelerate/accelerator.py
+2026-11-13T10:32:35.5220446Z [36;1mgit show 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a:src/accelerate/accelerator.py > src/accelerate/accelerator.py[0m
+2026-11-13T10:32:35.5220829Z [36;1mset +e[0m
+2026-11-13T10:32:35.5221148Z [36;1mpython -m pytest -q tests/test_multiple_model_parameters.py --junitxml=before.xml > before.log 2>&1[0m
+2026-11-13T10:32:35.5221492Z [36;1mresult=$?[0m
+2026-11-13T10:32:35.5221649Z [36;1mset -e[0m
+2026-11-13T10:32:35.5221808Z [36;1mcat before.log[0m
+2026-11-13T10:32:35.5221984Z [36;1mtest "$result" -eq 1[0m
+2026-11-13T10:32:35.5222177Z [36;1mpython - <<'PY'[0m
+2026-11-13T10:32:35.5222372Z [36;1mimport xml.etree.ElementTree as ET[0m
+2026-11-13T10:32:35.5222631Z [36;1mfor name in ("before", "after", "existing"):[0m
+2026-11-13T10:32:35.5222883Z [36;1m    root = ET.parse(name + ".xml").getroot()[0m
+2026-11-13T10:32:35.5223217Z [36;1m    suites = [root] if root.tag == "testsuite" else root.findall("testsuite")[0m
+2026-11-13T10:32:35.5223550Z [36;1m    print(name, {key: sum(int(s.get(key, 0)) for s in suites)[0m
+2026-11-13T10:32:35.5223853Z [36;1m                 for key in ("tests", "failures", "errors", "skipped")})[0m
+2026-11-13T10:32:35.5224144Z [36;1m    if any(int(s.get("errors", 0)) for s in suites):[0m
+2026-11-13T10:32:35.5224432Z [36;1m        raise SystemExit("Unexpected collection/runtime error")[0m
+2026-11-13T10:32:35.5224675Z [36;1mPY[0m
+2026-11-13T10:32:35.5243228Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:32:35.5243428Z env:
+2026-11-13T10:32:35.5243585Z   PJRT_DEVICE: CPU
+2026-11-13T10:32:35.5243747Z   OMP_NUM_THREADS: 1
+2026-11-13T10:32:35.5243905Z   MKL_NUM_THREADS: 1
+2026-11-13T10:32:35.5244076Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:32:35.5244320Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:35.5244635Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:32:35.5244941Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:35.5245222Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:35.5245493Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:35.5245770Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:32:35.5246007Z ##[endgroup]
+2026-11-13T10:32:41.1173547Z FF..FFFFFFFF.....FFFFF.FFFFF                                             [100%]
+2026-11-13T10:32:41.1174731Z =================================== FAILURES ===================================
+2026-11-13T10:32:41.1175212Z _ MultipleModelParameterTest.test_empty_models_do_not_hide_other_parameters_0 __
+2026-11-13T10:32:41.1175564Z 
+2026-11-13T10:32:41.1175963Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_empty_models_do_not_hide_other_parameters_0>,)
+2026-11-13T10:32:41.1176585Z kw = {}
+2026-11-13T10:32:41.1176682Z 
+2026-11-13T10:32:41.1176789Z     @wraps(func)
+2026-11-13T10:32:41.1177017Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1177323Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1177588Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1177744Z 
+2026-11-13T10:32:41.1178233Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1178729Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1179246Z tests/test_multiple_model_parameters.py:77: in test_empty_models_do_not_hide_other_parameters
+2026-11-13T10:32:41.1179744Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1180032Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1180394Z _ MultipleModelParameterTest.test_empty_models_do_not_hide_other_parameters_1 __
+2026-11-13T10:32:41.1181036Z 
+2026-11-13T10:32:41.1181697Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_empty_models_do_not_hide_other_parameters_1>,)
+2026-11-13T10:32:41.1182294Z kw = {}
+2026-11-13T10:32:41.1182422Z 
+2026-11-13T10:32:41.1182503Z     @wraps(func)
+2026-11-13T10:32:41.1182731Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1183050Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1183387Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1183598Z 
+2026-11-13T10:32:41.1183946Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1184523Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1185034Z tests/test_multiple_model_parameters.py:77: in test_empty_models_do_not_hide_other_parameters
+2026-11-13T10:32:41.1185558Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1185895Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1186324Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_0 _
+2026-11-13T10:32:41.1186670Z 
+2026-11-13T10:32:41.1187094Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_0>,)
+2026-11-13T10:32:41.1187701Z kw = {}
+2026-11-13T10:32:41.1187827Z 
+2026-11-13T10:32:41.1188162Z     @wraps(func)
+2026-11-13T10:32:41.1188498Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1188817Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1189147Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1189343Z 
+2026-11-13T10:32:41.1189681Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1190237Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1190776Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1191356Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1191697Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1192096Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_1 _
+2026-11-13T10:32:41.1192408Z 
+2026-11-13T10:32:41.1192805Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_1>,)
+2026-11-13T10:32:41.1193349Z kw = {}
+2026-11-13T10:32:41.1193456Z 
+2026-11-13T10:32:41.1193546Z     @wraps(func)
+2026-11-13T10:32:41.1193766Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1194049Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1194355Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1194528Z 
+2026-11-13T10:32:41.1194854Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1195378Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1195910Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1196408Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1196730Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1197154Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_2 _
+2026-11-13T10:32:41.1197530Z 
+2026-11-13T10:32:41.1198225Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_2>,)
+2026-11-13T10:32:41.1198888Z kw = {}
+2026-11-13T10:32:41.1199002Z 
+2026-11-13T10:32:41.1199094Z     @wraps(func)
+2026-11-13T10:32:41.1199333Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1199653Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1199986Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1200400Z 
+2026-11-13T10:32:41.1200839Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1201421Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1201977Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1202509Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1202809Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1203203Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_3 _
+2026-11-13T10:32:41.1203543Z 
+2026-11-13T10:32:41.1203982Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_3>,)
+2026-11-13T10:32:41.1204604Z kw = {}
+2026-11-13T10:32:41.1204899Z 
+2026-11-13T10:32:41.1204998Z     @wraps(func)
+2026-11-13T10:32:41.1205261Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1205578Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1205914Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1206117Z 
+2026-11-13T10:32:41.1206452Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1207028Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1207560Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1208334Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1208660Z E   AssertionError: 2 != 4
+2026-11-13T10:32:41.1209058Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_4 _
+2026-11-13T10:32:41.1209401Z 
+2026-11-13T10:32:41.1209845Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_4>,)
+2026-11-13T10:32:41.1210461Z kw = {}
+2026-11-13T10:32:41.1210578Z 
+2026-11-13T10:32:41.1210663Z     @wraps(func)
+2026-11-13T10:32:41.1210884Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1211194Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1211521Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1211706Z 
+2026-11-13T10:32:41.1212032Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1212574Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1213096Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1213761Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1214108Z E   AssertionError: 2 != 6
+2026-11-13T10:32:41.1214557Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_5 _
+2026-11-13T10:32:41.1214946Z 
+2026-11-13T10:32:41.1215402Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_5>,)
+2026-11-13T10:32:41.1216024Z kw = {}
+2026-11-13T10:32:41.1216141Z 
+2026-11-13T10:32:41.1216241Z     @wraps(func)
+2026-11-13T10:32:41.1216505Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1216808Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1217115Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1217313Z 
+2026-11-13T10:32:41.1217650Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1218408Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1218933Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1219433Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1219754Z E   AssertionError: 2 != 6
+2026-11-13T10:32:41.1220359Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_6 _
+2026-11-13T10:32:41.1220703Z 
+2026-11-13T10:32:41.1221242Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_6>,)
+2026-11-13T10:32:41.1221843Z kw = {}
+2026-11-13T10:32:41.1221964Z 
+2026-11-13T10:32:41.1222049Z     @wraps(func)
+2026-11-13T10:32:41.1222283Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1222595Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1222923Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1223109Z 
+2026-11-13T10:32:41.1223441Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1224013Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1224531Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1225038Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1225362Z E   AssertionError: 2 != 6
+2026-11-13T10:32:41.1225792Z _ MultipleModelParameterTest.test_same_names_in_multiple_models_are_preserved_7 _
+2026-11-13T10:32:41.1226155Z 
+2026-11-13T10:32:41.1226591Z a = (<tests.test_multiple_model_parameters.MultipleModelParameterTest testMethod=test_same_names_in_multiple_models_are_preserved_7>,)
+2026-11-13T10:32:41.1227192Z kw = {}
+2026-11-13T10:32:41.1227306Z 
+2026-11-13T10:32:41.1227402Z     @wraps(func)
+2026-11-13T10:32:41.1227633Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1228166Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1228501Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1228701Z 
+2026-11-13T10:32:41.1229031Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1229568Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1230107Z tests/test_multiple_model_parameters.py:59: in test_same_names_in_multiple_models_are_preserved
+2026-11-13T10:32:41.1230610Z     self.assertEqual(len(actual), len(expected))
+2026-11-13T10:32:41.1230940Z E   AssertionError: 2 != 6
+2026-11-13T10:32:41.1231426Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_01_sgd _
+2026-11-13T10:32:41.1231842Z 
+2026-11-13T10:32:41.1232346Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_01_sgd>,)
+2026-11-13T10:32:41.1232954Z kw = {}
+2026-11-13T10:32:41.1233078Z 
+2026-11-13T10:32:41.1233165Z     @wraps(func)
+2026-11-13T10:32:41.1233405Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1233716Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1234029Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1234232Z 
+2026-11-13T10:32:41.1234566Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1235147Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1235397Z 
+2026-11-13T10:32:41.1235922Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_01_sgd>
+2026-11-13T10:32:41.1236725Z optimizer_name = 'sgd', count = 2, joint = False, interleaved = False
+2026-11-13T10:32:41.1237054Z 
+2026-11-13T10:32:41.1237156Z     @parameterized.expand(
+2026-11-13T10:32:41.1237404Z         [
+2026-11-13T10:32:41.1237661Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1238782Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1239063Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1239286Z                 (1, False, False),
+2026-11-13T10:32:41.1239681Z                 (2, False, False),
+2026-11-13T10:32:41.1239869Z                 (2, False, True),
+2026-11-13T10:32:41.1240056Z                 (3, False, True),
+2026-11-13T10:32:41.1240286Z                 (2, True, False),
+2026-11-13T10:32:41.1240460Z                 (3, True, False),
+2026-11-13T10:32:41.1240634Z             )
+2026-11-13T10:32:41.1240783Z         ]
+2026-11-13T10:32:41.1240929Z     )
+2026-11-13T10:32:41.1241254Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1241625Z         import torch_xla
+2026-11-13T10:32:41.1241788Z     
+2026-11-13T10:32:41.1241963Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1242236Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1242538Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1242752Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1242935Z             models = [
+2026-11-13T10:32:41.1243221Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1243531Z                 for _ in range(count)
+2026-11-13T10:32:41.1243714Z             ]
+2026-11-13T10:32:41.1243959Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1244409Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1244741Z     
+2026-11-13T10:32:41.1244893Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1245091Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1245383Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1245780Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1246067Z     
+2026-11-13T10:32:41.1246339Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1246660Z         if joint:
+2026-11-13T10:32:41.1246941Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1247402Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1247743Z         else:
+2026-11-13T10:32:41.1248131Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1248532Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1248823Z     
+2026-11-13T10:32:41.1248968Z         if interleaved:
+2026-11-13T10:32:41.1249254Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1249664Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1249909Z         else:
+2026-11-13T10:32:41.1250112Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1250419Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1250673Z     
+2026-11-13T10:32:41.1250953Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1251317Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1251601Z         for step in range(3):
+2026-11-13T10:32:41.1251826Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1252074Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1252264Z             losses = [
+2026-11-13T10:32:41.1252527Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1252837Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1253034Z             ]
+2026-11-13T10:32:41.1253190Z             reference_losses = [
+2026-11-13T10:32:41.1253621Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1254009Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1254268Z             ]
+2026-11-13T10:32:41.1254443Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1254667Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1254861Z     
+2026-11-13T10:32:41.1255065Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1255399Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1255715Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1256053Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1256508Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1256839Z     
+2026-11-13T10:32:41.1257000Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1257203Z                 optimizer.step()
+2026-11-13T10:32:41.1257407Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1257622Z                 optimizer.step()
+2026-11-13T10:32:41.1257808Z             torch_xla.sync()
+2026-11-13T10:32:41.1258116Z     
+2026-11-13T10:32:41.1258297Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1258643Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1259079Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1259444Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1259669Z E                   
+2026-11-13T10:32:41.1259858Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1260148Z E                   Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1260479Z E                   Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1260679Z 
+2026-11-13T10:32:41.1260797Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1261182Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_02_sgd _
+2026-11-13T10:32:41.1261458Z 
+2026-11-13T10:32:41.1261859Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_02_sgd>,)
+2026-11-13T10:32:41.1262306Z kw = {}
+2026-11-13T10:32:41.1262384Z 
+2026-11-13T10:32:41.1262455Z     @wraps(func)
+2026-11-13T10:32:41.1262629Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1262842Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1263060Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1263202Z 
+2026-11-13T10:32:41.1263427Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1263811Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1263984Z 
+2026-11-13T10:32:41.1264319Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_02_sgd>
+2026-11-13T10:32:41.1264830Z optimizer_name = 'sgd', count = 2, joint = False, interleaved = True
+2026-11-13T10:32:41.1265013Z 
+2026-11-13T10:32:41.1265096Z     @parameterized.expand(
+2026-11-13T10:32:41.1265267Z         [
+2026-11-13T10:32:41.1265439Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1265665Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1265884Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1266090Z                 (1, False, False),
+2026-11-13T10:32:41.1266327Z                 (2, False, False),
+2026-11-13T10:32:41.1266503Z                 (2, False, True),
+2026-11-13T10:32:41.1266681Z                 (3, False, True),
+2026-11-13T10:32:41.1266886Z                 (2, True, False),
+2026-11-13T10:32:41.1267059Z                 (3, True, False),
+2026-11-13T10:32:41.1267228Z             )
+2026-11-13T10:32:41.1267368Z         ]
+2026-11-13T10:32:41.1267503Z     )
+2026-11-13T10:32:41.1267810Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1268315Z         import torch_xla
+2026-11-13T10:32:41.1268484Z     
+2026-11-13T10:32:41.1268641Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1268920Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1269215Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1269438Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1269623Z             models = [
+2026-11-13T10:32:41.1269894Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1270201Z                 for _ in range(count)
+2026-11-13T10:32:41.1270384Z             ]
+2026-11-13T10:32:41.1270626Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1271069Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1271399Z     
+2026-11-13T10:32:41.1271551Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1271751Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1272037Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1272424Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1272708Z     
+2026-11-13T10:32:41.1272975Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1273288Z         if joint:
+2026-11-13T10:32:41.1273567Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1274028Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1274366Z         else:
+2026-11-13T10:32:41.1274591Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1274960Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1275249Z     
+2026-11-13T10:32:41.1275389Z         if interleaved:
+2026-11-13T10:32:41.1275661Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1276041Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1276279Z         else:
+2026-11-13T10:32:41.1276476Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1276783Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1277039Z     
+2026-11-13T10:32:41.1277275Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1277639Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1278028Z         for step in range(3):
+2026-11-13T10:32:41.1278262Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1278511Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1278699Z             losses = [
+2026-11-13T10:32:41.1278960Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1279275Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1279477Z             ]
+2026-11-13T10:32:41.1279633Z             reference_losses = [
+2026-11-13T10:32:41.1279980Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1280333Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1280541Z             ]
+2026-11-13T10:32:41.1280718Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1280936Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1281129Z     
+2026-11-13T10:32:41.1281341Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1281677Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1281990Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1282329Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1282813Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1283164Z     
+2026-11-13T10:32:41.1283315Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1283519Z                 optimizer.step()
+2026-11-13T10:32:41.1283724Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1283940Z                 optimizer.step()
+2026-11-13T10:32:41.1284126Z             torch_xla.sync()
+2026-11-13T10:32:41.1284291Z     
+2026-11-13T10:32:41.1284460Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1284805Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1285239Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1285595Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1285820Z E                   
+2026-11-13T10:32:41.1285996Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1286280Z E                   Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1286609Z E                   Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1286807Z 
+2026-11-13T10:32:41.1286920Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1287302Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_03_sgd _
+2026-11-13T10:32:41.1287579Z 
+2026-11-13T10:32:41.1288025Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_03_sgd>,)
+2026-11-13T10:32:41.1288484Z kw = {}
+2026-11-13T10:32:41.1288560Z 
+2026-11-13T10:32:41.1288629Z     @wraps(func)
+2026-11-13T10:32:41.1288797Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1289009Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1289233Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1289376Z 
+2026-11-13T10:32:41.1289601Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1289992Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1290164Z 
+2026-11-13T10:32:41.1290506Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_03_sgd>
+2026-11-13T10:32:41.1291024Z optimizer_name = 'sgd', count = 3, joint = False, interleaved = True
+2026-11-13T10:32:41.1291208Z 
+2026-11-13T10:32:41.1291292Z     @parameterized.expand(
+2026-11-13T10:32:41.1291463Z         [
+2026-11-13T10:32:41.1291637Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1291867Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1292092Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1292299Z                 (1, False, False),
+2026-11-13T10:32:41.1292547Z                 (2, False, False),
+2026-11-13T10:32:41.1292727Z                 (2, False, True),
+2026-11-13T10:32:41.1292908Z                 (3, False, True),
+2026-11-13T10:32:41.1293117Z                 (2, True, False),
+2026-11-13T10:32:41.1293301Z                 (3, True, False),
+2026-11-13T10:32:41.1293551Z             )
+2026-11-13T10:32:41.1293750Z         ]
+2026-11-13T10:32:41.1293910Z     )
+2026-11-13T10:32:41.1294229Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1294602Z         import torch_xla
+2026-11-13T10:32:41.1294776Z     
+2026-11-13T10:32:41.1294927Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1295212Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1295526Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1295742Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1295925Z             models = [
+2026-11-13T10:32:41.1296201Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1296508Z                 for _ in range(count)
+2026-11-13T10:32:41.1296693Z             ]
+2026-11-13T10:32:41.1296935Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1297376Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1297714Z     
+2026-11-13T10:32:41.1297864Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1298217Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1298508Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1298906Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1299200Z     
+2026-11-13T10:32:41.1299472Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1299806Z         if joint:
+2026-11-13T10:32:41.1300088Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1300557Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1300897Z         else:
+2026-11-13T10:32:41.1301112Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1301482Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1301779Z     
+2026-11-13T10:32:41.1301947Z         if interleaved:
+2026-11-13T10:32:41.1302218Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1302592Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1302836Z         else:
+2026-11-13T10:32:41.1303035Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1303344Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1303601Z     
+2026-11-13T10:32:41.1303855Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1304220Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1304503Z         for step in range(3):
+2026-11-13T10:32:41.1304739Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1304988Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1305177Z             losses = [
+2026-11-13T10:32:41.1305439Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1305754Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1305958Z             ]
+2026-11-13T10:32:41.1306115Z             reference_losses = [
+2026-11-13T10:32:41.1306454Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1306804Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1307020Z             ]
+2026-11-13T10:32:41.1307183Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1307418Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1307614Z     
+2026-11-13T10:32:41.1307810Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1308259Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1308582Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1308927Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1309397Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1309741Z     
+2026-11-13T10:32:41.1309892Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1310098Z                 optimizer.step()
+2026-11-13T10:32:41.1310299Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1310509Z                 optimizer.step()
+2026-11-13T10:32:41.1310693Z             torch_xla.sync()
+2026-11-13T10:32:41.1310858Z     
+2026-11-13T10:32:41.1311030Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1311371Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1311813Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1312162Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1312384Z E                   
+2026-11-13T10:32:41.1312568Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1312850Z E                   Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1313181Z E                   Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1313378Z 
+2026-11-13T10:32:41.1313498Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1313885Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_04_sgd _
+2026-11-13T10:32:41.1314168Z 
+2026-11-13T10:32:41.1314510Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_04_sgd>,)
+2026-11-13T10:32:41.1314967Z kw = {}
+2026-11-13T10:32:41.1315042Z 
+2026-11-13T10:32:41.1315112Z     @wraps(func)
+2026-11-13T10:32:41.1315277Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1315490Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1315716Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1315855Z 
+2026-11-13T10:32:41.1316076Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1316467Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1316631Z 
+2026-11-13T10:32:41.1316967Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_04_sgd>
+2026-11-13T10:32:41.1317492Z optimizer_name = 'sgd', count = 2, joint = True, interleaved = False
+2026-11-13T10:32:41.1317679Z 
+2026-11-13T10:32:41.1317762Z     @parameterized.expand(
+2026-11-13T10:32:41.1318039Z         [
+2026-11-13T10:32:41.1318221Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1318455Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1318679Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1318895Z                 (1, False, False),
+2026-11-13T10:32:41.1319138Z                 (2, False, False),
+2026-11-13T10:32:41.1319318Z                 (2, False, True),
+2026-11-13T10:32:41.1319493Z                 (3, False, True),
+2026-11-13T10:32:41.1319711Z                 (2, True, False),
+2026-11-13T10:32:41.1319888Z                 (3, True, False),
+2026-11-13T10:32:41.1320057Z             )
+2026-11-13T10:32:41.1320198Z         ]
+2026-11-13T10:32:41.1320337Z     )
+2026-11-13T10:32:41.1320649Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1321020Z         import torch_xla
+2026-11-13T10:32:41.1321181Z     
+2026-11-13T10:32:41.1321327Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1321596Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1321889Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1322103Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1322286Z             models = [
+2026-11-13T10:32:41.1322557Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1322864Z                 for _ in range(count)
+2026-11-13T10:32:41.1323047Z             ]
+2026-11-13T10:32:41.1323292Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1323733Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1324072Z     
+2026-11-13T10:32:41.1324293Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1324496Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1324776Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1325164Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1325450Z     
+2026-11-13T10:32:41.1325727Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1326041Z         if joint:
+2026-11-13T10:32:41.1326319Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1326774Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1327097Z         else:
+2026-11-13T10:32:41.1327302Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1327681Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1328077Z     
+2026-11-13T10:32:41.1328225Z         if interleaved:
+2026-11-13T10:32:41.1328792Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1329173Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1329423Z         else:
+2026-11-13T10:32:41.1329630Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1329936Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1330194Z     
+2026-11-13T10:32:41.1330433Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1330805Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1331090Z         for step in range(3):
+2026-11-13T10:32:41.1331313Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1331558Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1331748Z             losses = [
+2026-11-13T10:32:41.1332006Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1332321Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1332521Z             ]
+2026-11-13T10:32:41.1332673Z             reference_losses = [
+2026-11-13T10:32:41.1333011Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1333375Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1333682Z             ]
+2026-11-13T10:32:41.1333856Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1334078Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1334280Z     
+2026-11-13T10:32:41.1334476Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1334823Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1335160Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1335539Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1336007Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1336345Z     
+2026-11-13T10:32:41.1336503Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1336715Z                 optimizer.step()
+2026-11-13T10:32:41.1336920Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1337138Z                 optimizer.step()
+2026-11-13T10:32:41.1337322Z             torch_xla.sync()
+2026-11-13T10:32:41.1337489Z     
+2026-11-13T10:32:41.1337661Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1338151Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1338633Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1338986Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1339213Z E                   
+2026-11-13T10:32:41.1339397Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1339685Z E                   Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1340018Z E                   Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1340219Z 
+2026-11-13T10:32:41.1340335Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1340726Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_05_sgd _
+2026-11-13T10:32:41.1340996Z 
+2026-11-13T10:32:41.1341328Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_05_sgd>,)
+2026-11-13T10:32:41.1341785Z kw = {}
+2026-11-13T10:32:41.1341861Z 
+2026-11-13T10:32:41.1341933Z     @wraps(func)
+2026-11-13T10:32:41.1342101Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1342317Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1342541Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1342681Z 
+2026-11-13T10:32:41.1342904Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1343296Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1343457Z 
+2026-11-13T10:32:41.1343798Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_05_sgd>
+2026-11-13T10:32:41.1344319Z optimizer_name = 'sgd', count = 3, joint = True, interleaved = False
+2026-11-13T10:32:41.1344509Z 
+2026-11-13T10:32:41.1344583Z     @parameterized.expand(
+2026-11-13T10:32:41.1344754Z         [
+2026-11-13T10:32:41.1344928Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1345161Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1345390Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1345595Z                 (1, False, False),
+2026-11-13T10:32:41.1345829Z                 (2, False, False),
+2026-11-13T10:32:41.1346013Z                 (2, False, True),
+2026-11-13T10:32:41.1346191Z                 (3, False, True),
+2026-11-13T10:32:41.1346409Z                 (2, True, False),
+2026-11-13T10:32:41.1346586Z                 (3, True, False),
+2026-11-13T10:32:41.1346754Z             )
+2026-11-13T10:32:41.1346897Z         ]
+2026-11-13T10:32:41.1347035Z     )
+2026-11-13T10:32:41.1347346Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1347749Z         import torch_xla
+2026-11-13T10:32:41.1348053Z     
+2026-11-13T10:32:41.1348247Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1348591Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1348968Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1349243Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1349434Z             models = [
+2026-11-13T10:32:41.1349719Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1350045Z                 for _ in range(count)
+2026-11-13T10:32:41.1350238Z             ]
+2026-11-13T10:32:41.1350493Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1350962Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1351309Z     
+2026-11-13T10:32:41.1351464Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1351672Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1351964Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1352361Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1352648Z     
+2026-11-13T10:32:41.1352923Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1353241Z         if joint:
+2026-11-13T10:32:41.1353522Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1353986Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1354324Z         else:
+2026-11-13T10:32:41.1354544Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1354917Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1355213Z     
+2026-11-13T10:32:41.1355365Z         if interleaved:
+2026-11-13T10:32:41.1355622Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1355989Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1356234Z         else:
+2026-11-13T10:32:41.1356433Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1356743Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1356996Z     
+2026-11-13T10:32:41.1357242Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1357614Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1358241Z         for step in range(3):
+2026-11-13T10:32:41.1358563Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1358822Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1359019Z             losses = [
+2026-11-13T10:32:41.1359285Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1359607Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1359812Z             ]
+2026-11-13T10:32:41.1360124Z             reference_losses = [
+2026-11-13T10:32:41.1360408Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1360796Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1361013Z             ]
+2026-11-13T10:32:41.1361181Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1361403Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1361596Z     
+2026-11-13T10:32:41.1361796Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1362137Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1362466Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1362817Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1363296Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1363639Z     
+2026-11-13T10:32:41.1363795Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1364002Z                 optimizer.step()
+2026-11-13T10:32:41.1364214Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1364434Z                 optimizer.step()
+2026-11-13T10:32:41.1364623Z             torch_xla.sync()
+2026-11-13T10:32:41.1364787Z     
+2026-11-13T10:32:41.1364958Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1365314Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1365764Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1366117Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1366344Z E                   
+2026-11-13T10:32:41.1366528Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1366811Z E                   Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1367147Z E                   Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1367350Z 
+2026-11-13T10:32:41.1367464Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1367865Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_07_adamw _
+2026-11-13T10:32:41.1368289Z 
+2026-11-13T10:32:41.1368636Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_07_adamw>,)
+2026-11-13T10:32:41.1369103Z kw = {}
+2026-11-13T10:32:41.1369190Z 
+2026-11-13T10:32:41.1369258Z     @wraps(func)
+2026-11-13T10:32:41.1369430Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1369652Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1369880Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1370024Z 
+2026-11-13T10:32:41.1370256Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1370643Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1370805Z 
+2026-11-13T10:32:41.1371153Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_07_adamw>
+2026-11-13T10:32:41.1371689Z optimizer_name = 'adamw', count = 2, joint = False, interleaved = False
+2026-11-13T10:32:41.1371891Z 
+2026-11-13T10:32:41.1371968Z     @parameterized.expand(
+2026-11-13T10:32:41.1372144Z         [
+2026-11-13T10:32:41.1372321Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1372557Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1372793Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1373004Z                 (1, False, False),
+2026-11-13T10:32:41.1373254Z                 (2, False, False),
+2026-11-13T10:32:41.1373513Z                 (2, False, True),
+2026-11-13T10:32:41.1373773Z                 (3, False, True),
+2026-11-13T10:32:41.1373963Z                 (2, True, False),
+2026-11-13T10:32:41.1374142Z                 (3, True, False),
+2026-11-13T10:32:41.1374334Z             )
+2026-11-13T10:32:41.1374480Z         ]
+2026-11-13T10:32:41.1374622Z     )
+2026-11-13T10:32:41.1374943Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1375316Z         import torch_xla
+2026-11-13T10:32:41.1375482Z     
+2026-11-13T10:32:41.1375633Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1375909Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1376206Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1376427Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1376657Z             models = [
+2026-11-13T10:32:41.1376984Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1377384Z                 for _ in range(count)
+2026-11-13T10:32:41.1377615Z             ]
+2026-11-13T10:32:41.1378054Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1378658Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1379099Z     
+2026-11-13T10:32:41.1379274Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1379704Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1380076Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1380481Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1380772Z     
+2026-11-13T10:32:41.1381042Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1381367Z         if joint:
+2026-11-13T10:32:41.1381647Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1382116Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1382456Z         else:
+2026-11-13T10:32:41.1382682Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1383052Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1383350Z     
+2026-11-13T10:32:41.1383496Z         if interleaved:
+2026-11-13T10:32:41.1383766Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1384148Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1384391Z         else:
+2026-11-13T10:32:41.1384580Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1384889Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1385147Z     
+2026-11-13T10:32:41.1385385Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1385761Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1386037Z         for step in range(3):
+2026-11-13T10:32:41.1386263Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1386511Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1386700Z             losses = [
+2026-11-13T10:32:41.1386960Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1387276Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1387505Z             ]
+2026-11-13T10:32:41.1387757Z             reference_losses = [
+2026-11-13T10:32:41.1388492Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1388868Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1389078Z             ]
+2026-11-13T10:32:41.1389246Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1389473Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1389673Z     
+2026-11-13T10:32:41.1389988Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1390340Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1390676Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1391049Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1391518Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1391861Z     
+2026-11-13T10:32:41.1392016Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1392222Z                 optimizer.step()
+2026-11-13T10:32:41.1392425Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1392643Z                 optimizer.step()
+2026-11-13T10:32:41.1392825Z             torch_xla.sync()
+2026-11-13T10:32:41.1392993Z     
+2026-11-13T10:32:41.1393172Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1393514Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1393954Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1394312Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1394539Z E                   
+2026-11-13T10:32:41.1394723Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1395009Z E                   Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1395347Z E                   Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1395551Z 
+2026-11-13T10:32:41.1395675Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1396068Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_08_adamw _
+2026-11-13T10:32:41.1396344Z 
+2026-11-13T10:32:41.1396687Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_08_adamw>,)
+2026-11-13T10:32:41.1397144Z kw = {}
+2026-11-13T10:32:41.1397227Z 
+2026-11-13T10:32:41.1397289Z     @wraps(func)
+2026-11-13T10:32:41.1397455Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1397672Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1398007Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1398169Z 
+2026-11-13T10:32:41.1398400Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1398787Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1398952Z 
+2026-11-13T10:32:41.1399285Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_08_adamw>
+2026-11-13T10:32:41.1399805Z optimizer_name = 'adamw', count = 2, joint = False, interleaved = True
+2026-11-13T10:32:41.1400000Z 
+2026-11-13T10:32:41.1400076Z     @parameterized.expand(
+2026-11-13T10:32:41.1400249Z         [
+2026-11-13T10:32:41.1400426Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1400667Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1400893Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1401098Z                 (1, False, False),
+2026-11-13T10:32:41.1401339Z                 (2, False, False),
+2026-11-13T10:32:41.1401520Z                 (2, False, True),
+2026-11-13T10:32:41.1401738Z                 (3, False, True),
+2026-11-13T10:32:41.1401916Z                 (2, True, False),
+2026-11-13T10:32:41.1402090Z                 (3, True, False),
+2026-11-13T10:32:41.1402257Z             )
+2026-11-13T10:32:41.1402400Z         ]
+2026-11-13T10:32:41.1402547Z     )
+2026-11-13T10:32:41.1402855Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1403212Z         import torch_xla
+2026-11-13T10:32:41.1403375Z     
+2026-11-13T10:32:41.1403523Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1403791Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1404078Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1404288Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1404469Z             models = [
+2026-11-13T10:32:41.1404750Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1405060Z                 for _ in range(count)
+2026-11-13T10:32:41.1405238Z             ]
+2026-11-13T10:32:41.1405479Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1405915Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1406265Z     
+2026-11-13T10:32:41.1406417Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1406620Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1406909Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1407290Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1407572Z     
+2026-11-13T10:32:41.1407841Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1408298Z         if joint:
+2026-11-13T10:32:41.1408583Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1409053Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1409397Z         else:
+2026-11-13T10:32:41.1409625Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1410130Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1410423Z     
+2026-11-13T10:32:41.1410559Z         if interleaved:
+2026-11-13T10:32:41.1410826Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1411199Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1411450Z         else:
+2026-11-13T10:32:41.1411654Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1411962Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1412220Z     
+2026-11-13T10:32:41.1412470Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1412839Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1413118Z         for step in range(3):
+2026-11-13T10:32:41.1413347Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1413685Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1413882Z             losses = [
+2026-11-13T10:32:41.1414151Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1414476Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1414689Z             ]
+2026-11-13T10:32:41.1414930Z             reference_losses = [
+2026-11-13T10:32:41.1415207Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1415567Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1415791Z             ]
+2026-11-13T10:32:41.1415956Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1416179Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1416372Z     
+2026-11-13T10:32:41.1416568Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1416911Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1417245Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1417593Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1418181Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1418524Z     
+2026-11-13T10:32:41.1418677Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1418892Z                 optimizer.step()
+2026-11-13T10:32:41.1419100Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1419322Z                 optimizer.step()
+2026-11-13T10:32:41.1419507Z             torch_xla.sync()
+2026-11-13T10:32:41.1419672Z     
+2026-11-13T10:32:41.1419852Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1420208Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1420646Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1420997Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1421217Z E                   
+2026-11-13T10:32:41.1421396Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1421672Z E                   Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1421997Z E                   Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1422194Z 
+2026-11-13T10:32:41.1422319Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1422789Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_09_adamw _
+2026-11-13T10:32:41.1423093Z 
+2026-11-13T10:32:41.1423449Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_09_adamw>,)
+2026-11-13T10:32:41.1423901Z kw = {}
+2026-11-13T10:32:41.1423988Z 
+2026-11-13T10:32:41.1424052Z     @wraps(func)
+2026-11-13T10:32:41.1424221Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1424436Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1424667Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1424800Z 
+2026-11-13T10:32:41.1425029Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1425412Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1425574Z 
+2026-11-13T10:32:41.1425908Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_09_adamw>
+2026-11-13T10:32:41.1426435Z optimizer_name = 'adamw', count = 3, joint = False, interleaved = True
+2026-11-13T10:32:41.1426629Z 
+2026-11-13T10:32:41.1426703Z     @parameterized.expand(
+2026-11-13T10:32:41.1426868Z         [
+2026-11-13T10:32:41.1427037Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1427264Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1427482Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1427690Z                 (1, False, False),
+2026-11-13T10:32:41.1428036Z                 (2, False, False),
+2026-11-13T10:32:41.1428235Z                 (2, False, True),
+2026-11-13T10:32:41.1428469Z                 (3, False, True),
+2026-11-13T10:32:41.1428646Z                 (2, True, False),
+2026-11-13T10:32:41.1428820Z                 (3, True, False),
+2026-11-13T10:32:41.1428986Z             )
+2026-11-13T10:32:41.1429136Z         ]
+2026-11-13T10:32:41.1429274Z     )
+2026-11-13T10:32:41.1429584Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1429941Z         import torch_xla
+2026-11-13T10:32:41.1430107Z     
+2026-11-13T10:32:41.1430252Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1430525Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1430819Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1431036Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1431221Z             models = [
+2026-11-13T10:32:41.1431498Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1431812Z                 for _ in range(count)
+2026-11-13T10:32:41.1431993Z             ]
+2026-11-13T10:32:41.1432236Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1432674Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1433009Z     
+2026-11-13T10:32:41.1433165Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1433369Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1433661Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1434059Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1434347Z     
+2026-11-13T10:32:41.1434618Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1434934Z         if joint:
+2026-11-13T10:32:41.1435209Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1435671Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1436012Z         else:
+2026-11-13T10:32:41.1436235Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1436604Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1436890Z     
+2026-11-13T10:32:41.1437026Z         if interleaved:
+2026-11-13T10:32:41.1437294Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1437654Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1437897Z         else:
+2026-11-13T10:32:41.1438223Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1438534Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1438785Z     
+2026-11-13T10:32:41.1439035Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1439399Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1439671Z         for step in range(3):
+2026-11-13T10:32:41.1439904Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1440148Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1440333Z             losses = [
+2026-11-13T10:32:41.1440598Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1440915Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1441123Z             ]
+2026-11-13T10:32:41.1441345Z             reference_losses = [
+2026-11-13T10:32:41.1441624Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1441985Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1442203Z             ]
+2026-11-13T10:32:41.1442367Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1442584Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1442777Z     
+2026-11-13T10:32:41.1442969Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1443305Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1443637Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1443978Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1444434Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1444765Z     
+2026-11-13T10:32:41.1444919Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1445120Z                 optimizer.step()
+2026-11-13T10:32:41.1445322Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1445538Z                 optimizer.step()
+2026-11-13T10:32:41.1445726Z             torch_xla.sync()
+2026-11-13T10:32:41.1445918Z     
+2026-11-13T10:32:41.1446092Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1446439Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1446880Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1447238Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1447462Z E                   
+2026-11-13T10:32:41.1447652Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1448064Z E                   Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1448415Z E                   Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1448609Z 
+2026-11-13T10:32:41.1448732Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1449119Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_10_adamw _
+2026-11-13T10:32:41.1449389Z 
+2026-11-13T10:32:41.1449721Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_10_adamw>,)
+2026-11-13T10:32:41.1450169Z kw = {}
+2026-11-13T10:32:41.1450253Z 
+2026-11-13T10:32:41.1450315Z     @wraps(func)
+2026-11-13T10:32:41.1450483Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1450701Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1450922Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1451051Z 
+2026-11-13T10:32:41.1451281Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1451665Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1451833Z 
+2026-11-13T10:32:41.1452163Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_10_adamw>
+2026-11-13T10:32:41.1452684Z optimizer_name = 'adamw', count = 2, joint = True, interleaved = False
+2026-11-13T10:32:41.1452879Z 
+2026-11-13T10:32:41.1452952Z     @parameterized.expand(
+2026-11-13T10:32:41.1453130Z         [
+2026-11-13T10:32:41.1453299Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1453631Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1453864Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1454077Z                 (1, False, False),
+2026-11-13T10:32:41.1454327Z                 (2, False, False),
+2026-11-13T10:32:41.1454516Z                 (2, False, True),
+2026-11-13T10:32:41.1454746Z                 (3, False, True),
+2026-11-13T10:32:41.1454928Z                 (2, True, False),
+2026-11-13T10:32:41.1455105Z                 (3, True, False),
+2026-11-13T10:32:41.1455285Z             )
+2026-11-13T10:32:41.1455441Z         ]
+2026-11-13T10:32:41.1455571Z     )
+2026-11-13T10:32:41.1455879Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1456229Z         import torch_xla
+2026-11-13T10:32:41.1456395Z     
+2026-11-13T10:32:41.1456546Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1456817Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1457110Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1457326Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1457520Z             models = [
+2026-11-13T10:32:41.1457790Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1458215Z                 for _ in range(count)
+2026-11-13T10:32:41.1458399Z             ]
+2026-11-13T10:32:41.1458639Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1459080Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1459415Z     
+2026-11-13T10:32:41.1459567Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1459769Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1460060Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1460450Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1460739Z     
+2026-11-13T10:32:41.1461009Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1461327Z         if joint:
+2026-11-13T10:32:41.1461604Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1462071Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1462413Z         else:
+2026-11-13T10:32:41.1462650Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1463021Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1463310Z     
+2026-11-13T10:32:41.1463453Z         if interleaved:
+2026-11-13T10:32:41.1463724Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1464094Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1464365Z         else:
+2026-11-13T10:32:41.1464561Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1464870Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1465138Z     
+2026-11-13T10:32:41.1465386Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1465754Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1466036Z         for step in range(3):
+2026-11-13T10:32:41.1466266Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1466512Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1466703Z             losses = [
+2026-11-13T10:32:41.1466968Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1467283Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1467489Z             ]
+2026-11-13T10:32:41.1467700Z             reference_losses = [
+2026-11-13T10:32:41.1468162Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1468492Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1468816Z             ]
+2026-11-13T10:32:41.1468986Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1469207Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1469401Z     
+2026-11-13T10:32:41.1469595Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1469945Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1470269Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1470612Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1471068Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1471397Z     
+2026-11-13T10:32:41.1471545Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1471748Z                 optimizer.step()
+2026-11-13T10:32:41.1471950Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1472163Z                 optimizer.step()
+2026-11-13T10:32:41.1472352Z             torch_xla.sync()
+2026-11-13T10:32:41.1472519Z     
+2026-11-13T10:32:41.1472686Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1473034Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1473468Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1473817Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1474044Z E                   
+2026-11-13T10:32:41.1474226Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1474507Z E                   Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1474848Z E                   Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1475042Z 
+2026-11-13T10:32:41.1475164Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1475556Z _ XLAMultipleModelOptimizerTest.test_prepare_preserves_each_optimizer_training_trajectory_11_adamw _
+2026-11-13T10:32:41.1475838Z 
+2026-11-13T10:32:41.1476169Z a = (<tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_11_adamw>,)
+2026-11-13T10:32:41.1476622Z kw = {}
+2026-11-13T10:32:41.1476703Z 
+2026-11-13T10:32:41.1476764Z     @wraps(func)
+2026-11-13T10:32:41.1476930Z     def standalone_func(*a, **kw):
+2026-11-13T10:32:41.1477157Z >       return func(*(a + p.args), **p.kwargs, **kw)
+2026-11-13T10:32:41.1477380Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T10:32:41.1477513Z 
+2026-11-13T10:32:41.1477742Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/parameterized/parameterized.py:620: 
+2026-11-13T10:32:41.1478251Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T10:32:41.1478426Z 
+2026-11-13T10:32:41.1478764Z self = <tests.test_multiple_model_parameters.XLAMultipleModelOptimizerTest testMethod=test_prepare_preserves_each_optimizer_training_trajectory_11_adamw>
+2026-11-13T10:32:41.1479300Z optimizer_name = 'adamw', count = 3, joint = True, interleaved = False
+2026-11-13T10:32:41.1479495Z 
+2026-11-13T10:32:41.1479580Z     @parameterized.expand(
+2026-11-13T10:32:41.1479753Z         [
+2026-11-13T10:32:41.1479949Z             (optimizer_name, count, joint, interleaved)
+2026-11-13T10:32:41.1480189Z             for optimizer_name in ("sgd", "adamw")
+2026-11-13T10:32:41.1480419Z             for count, joint, interleaved in (
+2026-11-13T10:32:41.1480687Z                 (1, False, False),
+2026-11-13T10:32:41.1480895Z                 (2, False, False),
+2026-11-13T10:32:41.1481080Z                 (2, False, True),
+2026-11-13T10:32:41.1481300Z                 (3, False, True),
+2026-11-13T10:32:41.1481480Z                 (2, True, False),
+2026-11-13T10:32:41.1481660Z                 (3, True, False),
+2026-11-13T10:32:41.1481823Z             )
+2026-11-13T10:32:41.1481962Z         ]
+2026-11-13T10:32:41.1482092Z     )
+2026-11-13T10:32:41.1482400Z     def test_prepare_preserves_each_optimizer_training_trajectory(self, optimizer_name, count, joint, interleaved):
+2026-11-13T10:32:41.1482759Z         import torch_xla
+2026-11-13T10:32:41.1482920Z     
+2026-11-13T10:32:41.1483066Z         accelerator = Accelerator()
+2026-11-13T10:32:41.1483342Z         self.assertEqual(accelerator.distributed_type, DistributedType.XLA)
+2026-11-13T10:32:41.1483635Z         with torch.random.fork_rng(devices=[]):
+2026-11-13T10:32:41.1483857Z             torch.manual_seed(123)
+2026-11-13T10:32:41.1484046Z             models = [
+2026-11-13T10:32:41.1484319Z                 torch.nn.Sequential(torch.nn.Linear(3, 4), torch.nn.Tanh(), torch.nn.Linear(4, 2))
+2026-11-13T10:32:41.1484635Z                 for _ in range(count)
+2026-11-13T10:32:41.1484817Z             ]
+2026-11-13T10:32:41.1485056Z         references = [copy.deepcopy(model).to(accelerator.device) for model in models]
+2026-11-13T10:32:41.1485495Z         initial_parameters = [[parameter.detach().clone() for parameter in model.parameters()] for model in models]
+2026-11-13T10:32:41.1485832Z     
+2026-11-13T10:32:41.1485920Z         def make_optimizer(parameters):
+2026-11-13T10:32:41.1485996Z             if optimizer_name == "sgd":
+2026-11-13T10:32:41.1486167Z                 return torch.optim.SGD(parameters, lr=0.05, momentum=0.8, weight_decay=0.01)
+2026-11-13T10:32:41.1486344Z             return torch.optim.AdamW(parameters, lr=0.02, betas=(0.8, 0.9), weight_decay=0.01)
+2026-11-13T10:32:41.1486400Z     
+2026-11-13T10:32:41.1486604Z         # The references follow native XLA's ordering: move the models before creating their optimizers.
+2026-11-13T10:32:41.1486666Z         if joint:
+2026-11-13T10:32:41.1486861Z             optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in models))]
+2026-11-13T10:32:41.1487086Z             reference_optimizers = [make_optimizer(chain.from_iterable(model.parameters() for model in references))]
+2026-11-13T10:32:41.1487145Z         else:
+2026-11-13T10:32:41.1487292Z             optimizers = [make_optimizer(model.parameters()) for model in models]
+2026-11-13T10:32:41.1487462Z             reference_optimizers = [make_optimizer(model.parameters()) for model in references]
+2026-11-13T10:32:41.1487528Z     
+2026-11-13T10:32:41.1487597Z         if interleaved:
+2026-11-13T10:32:41.1487766Z             prepared = accelerator.prepare(*chain.from_iterable(zip(models, optimizers)))
+2026-11-13T10:32:41.1488025Z             models, optimizers = list(prepared[::2]), list(prepared[1::2])
+2026-11-13T10:32:41.1488098Z         else:
+2026-11-13T10:32:41.1488223Z             prepared = accelerator.prepare(*models, *optimizers)
+2026-11-13T10:32:41.1488360Z             models, optimizers = list(prepared[:count]), list(prepared[count:])
+2026-11-13T10:32:41.1488428Z     
+2026-11-13T10:32:41.1488592Z         inputs = torch.tensor([[0.5, 1.0, -0.5], [1.0, -0.5, 0.25]], device=accelerator.device)
+2026-11-13T10:32:41.1488744Z         targets = torch.tensor([[0.25, -0.75], [1.0, 0.5]], device=accelerator.device)
+2026-11-13T10:32:41.1488824Z         for step in range(3):
+2026-11-13T10:32:41.1488936Z             for optimizer in [*optimizers, *reference_optimizers]:
+2026-11-13T10:32:41.1489020Z                 optimizer.zero_grad()
+2026-11-13T10:32:41.1489084Z             losses = [
+2026-11-13T10:32:41.1489257Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1489350Z                 for index, model in enumerate(models)
+2026-11-13T10:32:41.1489460Z             ]
+2026-11-13T10:32:41.1489539Z             reference_losses = [
+2026-11-13T10:32:41.1489771Z                 torch.nn.functional.mse_loss(model(inputs + 0.1 * step), targets + 0.2 * index)
+2026-11-13T10:32:41.1489871Z                 for index, model in enumerate(references)
+2026-11-13T10:32:41.1489929Z             ]
+2026-11-13T10:32:41.1490024Z             accelerator.backward(sum(losses))
+2026-11-13T10:32:41.1490106Z             sum(reference_losses).backward()
+2026-11-13T10:32:41.1490169Z     
+2026-11-13T10:32:41.1490294Z             for loss, reference_loss in zip(losses, reference_losses):
+2026-11-13T10:32:41.1490453Z                 torch.testing.assert_close(loss.cpu(), reference_loss.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1490561Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1490750Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1490972Z                     torch.testing.assert_close(parameter.grad.cpu(), reference_parameter.grad.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1491041Z     
+2026-11-13T10:32:41.1491119Z             for optimizer in optimizers:
+2026-11-13T10:32:41.1491206Z                 optimizer.step()
+2026-11-13T10:32:41.1491297Z             for optimizer in reference_optimizers:
+2026-11-13T10:32:41.1491379Z                 optimizer.step()
+2026-11-13T10:32:41.1491450Z             torch_xla.sync()
+2026-11-13T10:32:41.1491518Z     
+2026-11-13T10:32:41.1491623Z             for model, reference in zip(models, references):
+2026-11-13T10:32:41.1491809Z                 for parameter, reference_parameter in zip(model.parameters(), reference.parameters()):
+2026-11-13T10:32:41.1492005Z >                   torch.testing.assert_close(parameter.cpu(), reference_parameter.cpu(), rtol=0, atol=0)
+2026-11-13T10:32:41.1492110Z E                   AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1492179Z E                   
+2026-11-13T10:32:41.1492264Z E                   Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1492408Z E                   Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1492546Z E                   Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1492551Z 
+2026-11-13T10:32:41.1492667Z tests/test_multiple_model_parameters.py:165: AssertionError
+2026-11-13T10:32:41.1492779Z =============================== warnings summary ===============================
+2026-11-13T10:32:41.1492880Z tests/test_multiple_model_parameters.py: 28 warnings
+2026-11-13T10:32:41.1493142Z   /home/runner/work/accelerate/accelerate/src/accelerate/state.py:841: DeprecationWarning: Use torch_xla.device instead
+2026-11-13T10:32:41.1493226Z     self.device = xm.xla_device()
+2026-11-13T10:32:41.1493230Z 
+2026-11-13T10:32:41.1493407Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:32:41.1493604Z =========================== short test summary info ============================
+2026-11-13T10:32:41.1493958Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_empty_models_do_not_hide_other_parameters_0 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1494284Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_empty_models_do_not_hide_other_parameters_1 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1494615Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_0 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1494987Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_1 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1495324Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_2 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1495631Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_3 - AssertionError: 2 != 4
+2026-11-13T10:32:41.1496103Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_4 - AssertionError: 2 != 6
+2026-11-13T10:32:41.1496425Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_5 - AssertionError: 2 != 6
+2026-11-13T10:32:41.1496735Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_6 - AssertionError: 2 != 6
+2026-11-13T10:32:41.1497051Z FAILED tests/test_multiple_model_parameters.py::MultipleModelParameterTest::test_same_names_in_multiple_models_are_preserved_7 - AssertionError: 2 != 6
+2026-11-13T10:32:41.1497471Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_01_sgd - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1497478Z 
+2026-11-13T10:32:41.1497556Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1497687Z Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1497806Z Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1498336Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_02_sgd - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1498345Z 
+2026-11-13T10:32:41.1498430Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1498550Z Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1498670Z Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1499076Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_03_sgd - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1499090Z 
+2026-11-13T10:32:41.1499162Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1499289Z Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1499406Z Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1499819Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_04_sgd - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1499823Z 
+2026-11-13T10:32:41.1499905Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1500023Z Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1500149Z Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1500550Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_05_sgd - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1500556Z 
+2026-11-13T10:32:41.1500633Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1500762Z Greatest absolute difference: 0.007925048470497131 at index (1, 0)
+2026-11-13T10:32:41.1500875Z Greatest relative difference: 0.5358951091766357 at index (0, 1)
+2026-11-13T10:32:41.1501304Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_07_adamw - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1501308Z 
+2026-11-13T10:32:41.1501379Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1501506Z Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1501631Z Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1502037Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_08_adamw - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1502041Z 
+2026-11-13T10:32:41.1502171Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1502286Z Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1502444Z Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1502855Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_09_adamw - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1502859Z 
+2026-11-13T10:32:41.1502929Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1503049Z Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1503159Z Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1503562Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_10_adamw - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1503567Z 
+2026-11-13T10:32:41.1503648Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1503762Z Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1503882Z Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1504289Z FAILED tests/test_multiple_model_parameters.py::XLAMultipleModelOptimizerTest::test_prepare_preserves_each_optimizer_training_trajectory_11_adamw - AssertionError: Tensor-likes are not equal!
+2026-11-13T10:32:41.1504293Z 
+2026-11-13T10:32:41.1504370Z Mismatched elements: 12 / 12 (100.0%)
+2026-11-13T10:32:41.1504492Z Greatest absolute difference: 0.02007293701171875 at index (2, 2)
+2026-11-13T10:32:41.1504604Z Greatest relative difference: 22.74847984313965 at index (0, 1)
+2026-11-13T10:32:41.1504696Z 20 failed, 8 passed, 28 warnings in 4.69s
+2026-11-13T10:32:41.1504809Z before {'tests': 28, 'failures': 20, 'errors': 0, 'skipped': 0}
+2026-11-13T10:32:41.1504925Z after {'tests': 28, 'failures': 0, 'errors': 0, 'skipped': 0}
+2026-11-13T10:32:41.1505038Z existing {'tests': 2, 'failures': 0, 'errors': 0, 'skipped': 1}
+2026-11-13T10:32:41.1659665Z ##[group]Run git restore src/accelerate/accelerator.py
+2026-11-13T10:32:41.1659835Z [36;1mgit restore src/accelerate/accelerator.py[0m
+2026-11-13T10:32:41.1660036Z [36;1mruff check src/accelerate/accelerator.py tests/test_multiple_model_parameters.py[0m
+2026-11-13T10:32:41.1660244Z [36;1mruff format --check src/accelerate/accelerator.py tests/test_multiple_model_parameters.py[0m
+2026-11-13T10:32:41.1660333Z [36;1mgit diff --check HEAD^ HEAD[0m
+2026-11-13T10:32:41.1679052Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:32:41.1679121Z env:
+2026-11-13T10:32:41.1679204Z   PJRT_DEVICE: CPU
+2026-11-13T10:32:41.1679271Z   OMP_NUM_THREADS: 1
+2026-11-13T10:32:41.1679343Z   MKL_NUM_THREADS: 1
+2026-11-13T10:32:41.1679416Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:32:41.1679548Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.1679691Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:32:41.1679860Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.1679974Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.1680084Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.1680206Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:32:41.1680270Z ##[endgroup]
+2026-11-13T10:32:41.1948981Z All checks passed!
+2026-11-13T10:32:41.2078386Z 2 files already formatted
+2026-11-13T10:32:41.2266851Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T10:32:41.2267071Z with:
+2026-11-13T10:32:41.2267246Z   name: multi-model-xla-cpu-evidence
+2026-11-13T10:32:41.2267593Z   path: after.log
+after.xml
+before.log
+before.xml
+existing.log
+existing.xml
+installed-dependencies.txt
+
+2026-11-13T10:32:41.2268132Z   if-no-files-found: warn
+2026-11-13T10:32:41.2268328Z   compression-level: 6
+2026-11-13T10:32:41.2268494Z   overwrite: false
+2026-11-13T10:32:41.2268663Z   include-hidden-files: false
+2026-11-13T10:32:41.2268957Z env:
+2026-11-13T10:32:41.2269105Z   PJRT_DEVICE: CPU
+2026-11-13T10:32:41.2269264Z   OMP_NUM_THREADS: 1
+2026-11-13T10:32:41.2269421Z   MKL_NUM_THREADS: 1
+2026-11-13T10:32:41.2269588Z   TOKENIZERS_PARALLELISM: false
+2026-11-13T10:32:41.2269816Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.2270122Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:32:41.2270460Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.2270727Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.2270987Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:32:41.2271252Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:32:41.2271483Z ##[endgroup]
+2026-11-13T10:32:41.3473093Z (node:2591) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:32:41.3473947Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:32:41.3560538Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T10:32:41.3563162Z The least common ancestor is /home/runner/work/accelerate/accelerate. This will be the root directory of the artifact
+2026-11-13T10:32:41.3563751Z With the provided path, there will be 7 files uploaded
+2026-11-13T10:32:41.3564232Z Artifact name is valid!
+2026-11-13T10:32:41.3564510Z Root directory input is valid!
+2026-11-13T10:32:41.5834872Z Beginning upload of artifact content to blob storage
+2026-11-13T10:32:41.7711120Z (node:2591) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T10:32:41.8022074Z Uploaded bytes 8123
+2026-11-13T10:32:41.8156856Z Finished uploading artifact content to blob storage!
+2026-11-13T10:32:41.8158109Z SHA256 digest of uploaded artifact zip is b88bb4cbf44f06ea9691e1d24bf80fbe18a3031dce846b71feb17f926e064cc4
+2026-11-13T10:32:41.8158840Z Finalizing artifact upload
+2026-11-13T10:32:42.1300328Z Artifact multi-model-xla-cpu-evidence.zip successfully finalized. Artifact ID 14029156754
+2026-11-13T10:32:42.1300901Z Artifact multi-model-xla-cpu-evidence has been successfully uploaded! Final size is 8123 bytes. Artifact ID is 14029156754
+2026-11-13T10:32:42.1306146Z Artifact download URL: https://github.com/Afloat16/accelerate/actions/runs/43408741278/artifacts/14029156754
+2026-11-13T10:32:42.1579783Z Post job cleanup.
+2026-11-13T10:32:42.2470127Z (node:2603) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:32:42.2470664Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:32:42.2797840Z Post job cleanup.
+2026-11-13T10:32:42.3437763Z [command]/usr/bin/git version
+2026-11-13T10:32:42.3468224Z git version 2.56.1
+2026-11-13T10:32:42.3491806Z Temporarily overriding HOME='/home/runner/work/_temp/f5ee0220-fffc-4d96-b6ee-9c6de3f6b84a' before making global git config changes
+2026-11-13T10:32:42.3492658Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T10:32:42.3496006Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T10:32:42.3524098Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T10:32:42.3547800Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T10:32:42.3732411Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T10:32:42.3748662Z http.https://github.com/.extraheader
+2026-11-13T10:32:42.3755406Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T10:32:42.3776835Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T10:32:42.3970336Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T10:32:42.3993298Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T10:32:42.4266433Z Cleaning up orphan processes
+2026-11-13T10:32:42.4518737Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
