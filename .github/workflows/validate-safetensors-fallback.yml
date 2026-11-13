@@ -1,0 +1,61 @@
+name: Validate safetensors CPU fallback membership
+on:
+  push:
+    branches: [validation/safetensors-fallback-membership-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      HF_HUB_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official native CPU environment
+        run: |
+          python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[test_prod,quality]"
+          python -c "import sys, torch, safetensors; print(sys.version); print('torch', torch.__version__, 'safetensors', safetensors.__version__)"
+      - name: Unchanged upstream semantics and native timing
+        run: |
+          git checkout 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a -- src/accelerate/utils/modeling.py
+          python -m pytest -q tests/test_safetensors_cpu_fallback.py tests/test_modeling_utils.py --junitxml=fallback-baseline.xml
+          python contribution-validation/benchmark_safetensors_fallback.py baseline fallback-baseline.json
+      - name: Fixed source semantics and native timing
+        run: |
+          git checkout d31250bad01c8fb0d3b0357a976721daa5dd63dd -- src/accelerate/utils/modeling.py
+          python -m pytest -q tests/test_safetensors_cpu_fallback.py tests/test_modeling_utils.py --junitxml=fallback-fixed.xml
+          python contribution-validation/benchmark_safetensors_fallback.py fixed fallback-fixed.json
+      - name: Check benchmark outputs and report measured speed
+        run: |
+          python - <<'PY'
+          import json
+          before = json.load(open("fallback-baseline.json"))["results"]
+          after = json.load(open("fallback-fixed.json"))["results"]
+          for original, fixed in zip(before, after):
+              assert original["weight_count"] == fixed["weight_count"]
+              assert original["output_sha256"] == fixed["output_sha256"]
+              print({"weights": original["weight_count"], "baseline_seconds": original["median_seconds"], "fixed_seconds": fixed["median_seconds"], "speedup": original["median_seconds"] / fixed["median_seconds"], "baseline_python_peak_bytes": original["python_peak_bytes"], "fixed_python_peak_bytes": fixed["python_peak_bytes"]})
+          PY
+      - name: Project style and whitespace
+        run: |
+          ruff --version
+          ruff check src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py contribution-validation/benchmark_safetensors_fallback.py
+          ruff format --check src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py contribution-validation/benchmark_safetensors_fallback.py
+          git diff --check 3bd795f7cfb763b994b4ba8ba59e5a305a7c528a -- src/accelerate/utils/modeling.py tests/test_safetensors_cpu_fallback.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: safetensors-fallback-native
+          path: |
+            fallback-*.json
+            fallback-*.xml
