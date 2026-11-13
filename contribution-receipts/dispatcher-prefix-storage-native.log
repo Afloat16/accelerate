@@ -1,0 +1,857 @@
+﻿2026-11-13T11:59:20.5839447Z Current runner version: '2.338.2'
+2026-11-13T11:59:20.5857797Z ##[group]Runner Image Provisioner
+2026-11-13T11:59:20.5858460Z Hosted Compute Agent
+2026-11-13T11:59:20.5858838Z Version: 20261103.629
+2026-11-13T11:59:20.5859229Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T11:59:20.5859707Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T11:59:20.5860153Z Worker ID: {41c358db-ae49-4a5e-8109-0aaabda401b7}
+2026-11-13T11:59:20.5860573Z Region: centralus
+2026-11-13T11:59:20.5860960Z Cloud: Azure
+2026-11-13T11:59:20.5861297Z ##[endgroup]
+2026-11-13T11:59:20.5862112Z ##[group]Operating System
+2026-11-13T11:59:20.5862497Z Ubuntu
+2026-11-13T11:59:20.5862860Z 24.04.5
+2026-11-13T11:59:20.5863245Z LTS
+2026-11-13T11:59:20.5863572Z ##[endgroup]
+2026-11-13T11:59:20.5863937Z ##[group]Runner Image
+2026-11-13T11:59:20.5864351Z Image: ubuntu-24.04
+2026-11-13T11:59:20.5864705Z Version: 20261111.370.1
+2026-11-13T11:59:20.5865668Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T11:59:20.5866883Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-13T11:59:20.5867496Z ##[endgroup]
+2026-11-13T11:59:20.5868201Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:59:20.5869389Z Contents: read
+2026-11-13T11:59:20.5869747Z Metadata: read
+2026-11-13T11:59:20.5870150Z ##[endgroup]
+2026-11-13T11:59:20.5871548Z Secret source: Actions
+2026-11-13T11:59:20.5872176Z Cache mode: write
+2026-11-13T11:59:20.5872603Z Prepare workflow directory
+2026-11-13T11:59:20.6203640Z Prepare all required actions
+2026-11-13T11:59:20.6250836Z Getting action download info
+2026-11-13T11:59:20.8664023Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:59:20.9738859Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:59:21.0600588Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-11-13T11:59:21.5457028Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:59:21.7504523Z Complete job name: native-cpu
+2026-11-13T11:59:21.8096331Z ##[group]Run actions/checkout@v4
+2026-11-13T11:59:21.8096804Z with:
+2026-11-13T11:59:21.8097046Z   fetch-depth: 4
+2026-11-13T11:59:21.8097308Z   repository: Afloat16/accelerate
+2026-11-13T11:59:21.8099665Z   token: ***
+2026-11-13T11:59:21.8099902Z   ssh-strict: true
+2026-11-13T11:59:21.8100145Z   ssh-user: git
+2026-11-13T11:59:21.8100392Z   persist-credentials: true
+2026-11-13T11:59:21.8100665Z   clean: true
+2026-11-13T11:59:21.8100916Z   sparse-checkout-cone-mode: true
+2026-11-13T11:59:21.8101213Z   fetch-tags: false
+2026-11-13T11:59:21.8101466Z   show-progress: true
+2026-11-13T11:59:21.8101715Z   lfs: false
+2026-11-13T11:59:21.8101949Z   submodules: false
+2026-11-13T11:59:21.8102200Z   set-safe-directory: true
+2026-11-13T11:59:21.8102483Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:59:21.8102865Z env:
+2026-11-13T11:59:21.8103089Z   OMP_NUM_THREADS: 1
+2026-11-13T11:59:21.8103339Z   MKL_NUM_THREADS: 1
+2026-11-13T11:59:21.8103585Z   PYTHONPATH: src
+2026-11-13T11:59:21.8103855Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:59:21.8104097Z ##[endgroup]
+2026-11-13T11:59:22.0551805Z Syncing repository: Afloat16/accelerate
+2026-11-13T11:59:22.0554034Z ##[group]Getting Git version info
+2026-11-13T11:59:22.0554993Z Working directory is '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:59:22.0556075Z [command]/usr/bin/git version
+2026-11-13T11:59:22.0630276Z git version 2.56.1
+2026-11-13T11:59:22.0645570Z ##[endgroup]
+2026-11-13T11:59:22.0659780Z Temporarily overriding HOME='/home/runner/work/_temp/bb3e7426-43e0-45aa-8ada-33142d7679ea' before making global git config changes
+2026-11-13T11:59:22.0662206Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:59:22.0663803Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:59:22.0725086Z Deleting the contents of '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:59:22.0730784Z ##[group]Initializing the repository
+2026-11-13T11:59:22.0733925Z [command]/usr/bin/git init /home/runner/work/accelerate/accelerate
+2026-11-13T11:59:22.0835079Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:59:22.0836822Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:59:22.0838247Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:59:22.0839284Z hint: call:
+2026-11-13T11:59:22.0840147Z hint:
+2026-11-13T11:59:22.0840967Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:59:22.0841922Z hint:
+2026-11-13T11:59:22.0842707Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:59:22.0843910Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:59:22.0845217Z hint:
+2026-11-13T11:59:22.0846038Z hint: 	git branch -m <name>
+2026-11-13T11:59:22.0846801Z hint:
+2026-11-13T11:59:22.0847942Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:59:22.0850103Z Initialized empty Git repository in /home/runner/work/accelerate/accelerate/.git/
+2026-11-13T11:59:22.0858816Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/accelerate
+2026-11-13T11:59:22.0923736Z ##[endgroup]
+2026-11-13T11:59:22.0924779Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:59:22.0926612Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:59:22.0994169Z ##[endgroup]
+2026-11-13T11:59:22.0995235Z ##[group]Setting up auth
+2026-11-13T11:59:22.1000303Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:59:22.1043623Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:59:22.1414704Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:59:22.1459368Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:59:22.1665684Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:59:22.1706904Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:59:22.1912412Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:59:22.1957995Z ##[endgroup]
+2026-11-13T11:59:22.1958742Z ##[group]Fetching the repository
+2026-11-13T11:59:22.1968054Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=4 origin +6f7482b8c53411ca8c9dd87769c6ef7b66dc3ff5:refs/remotes/origin/validation/dispatcher-prefix-storage-20261113
+2026-11-13T11:59:22.7193460Z From https://github.com/Afloat16/accelerate
+2026-11-13T11:59:22.7195829Z  * [new ref]         6f7482b8c53411ca8c9dd87769c6ef7b66dc3ff5 -> origin/validation/dispatcher-prefix-storage-20261113
+2026-11-13T11:59:22.7200088Z ##[endgroup]
+2026-11-13T11:59:22.7201715Z ##[group]Determining the checkout info
+2026-11-13T11:59:22.7203400Z ##[endgroup]
+2026-11-13T11:59:22.7205954Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:59:22.7276404Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:59:22.7316436Z ##[group]Checking out the ref
+2026-11-13T11:59:22.7320479Z [command]/usr/bin/git checkout --progress --force -B validation/dispatcher-prefix-storage-20261113 refs/remotes/origin/validation/dispatcher-prefix-storage-20261113
+2026-11-13T11:59:22.7598370Z Switched to a new branch 'validation/dispatcher-prefix-storage-20261113'
+2026-11-13T11:59:22.7602061Z branch 'validation/dispatcher-prefix-storage-20261113' set up to track 'origin/validation/dispatcher-prefix-storage-20261113'.
+2026-11-13T11:59:22.7668583Z ##[endgroup]
+2026-11-13T11:59:22.7671987Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:59:22.7698300Z 6f7482b8c53411ca8c9dd87769c6ef7b66dc3ff5
+2026-11-13T11:59:22.7994065Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:59:22.7994826Z with:
+2026-11-13T11:59:22.7995454Z   python-version: 3.12
+2026-11-13T11:59:22.7996068Z   check-latest: false
+2026-11-13T11:59:22.8002401Z   token: ***
+2026-11-13T11:59:22.8002980Z   update-environment: true
+2026-11-13T11:59:22.8003650Z   allow-prereleases: false
+2026-11-13T11:59:22.8004294Z   freethreaded: false
+2026-11-13T11:59:22.8004865Z env:
+2026-11-13T11:59:22.8005573Z   OMP_NUM_THREADS: 1
+2026-11-13T11:59:22.8006163Z   MKL_NUM_THREADS: 1
+2026-11-13T11:59:22.8006726Z   PYTHONPATH: src
+2026-11-13T11:59:22.8007306Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:59:22.8007850Z ##[endgroup]
+2026-11-13T11:59:22.9031795Z ##[group]Installed versions
+2026-11-13T11:59:22.9117405Z (node:2127) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:59:22.9120041Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:59:22.9121412Z Successfully set up CPython (3.12.16)
+2026-11-13T11:59:22.9122730Z ##[endgroup]
+2026-11-13T11:59:22.9834110Z ##[group]Run astral-sh/setup-uv@v6
+2026-11-13T11:59:22.9834771Z with:
+2026-11-13T11:59:22.9835367Z   activate-environment: false
+2026-11-13T11:59:22.9836145Z   working-directory: /home/runner/work/accelerate/accelerate
+2026-11-13T11:59:22.9836993Z   server-url: https://github.com
+2026-11-13T11:59:22.9842487Z   github-token: ***
+2026-11-13T11:59:22.9843030Z   enable-cache: auto
+2026-11-13T11:59:22.9844324Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-13T11:59:22.9845822Z   restore-cache: true
+2026-11-13T11:59:22.9846369Z   save-cache: true
+2026-11-13T11:59:22.9846894Z   prune-cache: true
+2026-11-13T11:59:22.9847460Z   ignore-nothing-to-cache: false
+2026-11-13T11:59:22.9848117Z   ignore-empty-workdir: false
+2026-11-13T11:59:22.9848750Z   add-problem-matchers: true
+2026-11-13T11:59:22.9849335Z env:
+2026-11-13T11:59:22.9849819Z   OMP_NUM_THREADS: 1
+2026-11-13T11:59:22.9850426Z   MKL_NUM_THREADS: 1
+2026-11-13T11:59:22.9850972Z   PYTHONPATH: src
+2026-11-13T11:59:22.9851487Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:59:22.9852145Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:22.9853169Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:59:22.9854171Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:22.9855087Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:22.9856078Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:22.9857014Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:59:22.9857805Z ##[endgroup]
+2026-11-13T11:59:23.1270192Z (node:2135) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:59:23.1272931Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:59:23.1363608Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:59:23.1366703Z Could not find file: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:59:23.1369202Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:59:23.1378930Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-13T11:59:23.1382429Z Getting latest version from GitHub API...
+2026-11-13T11:59:23.4291128Z manifest-file not provided, reading from local file.
+2026-11-13T11:59:23.4321158Z manifest-file does not contain version 0.13.8, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+2026-11-13T11:59:23.4323963Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-13T11:59:23.7486204Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/5e084c98-d8e0-4b8e-812a-4cb4c0acb82c -f /home/runner/work/_temp/3c6368b9-6905-495d-bd5b-dde85d96aafc
+2026-11-13T11:59:24.1213323Z Added /home/runner/.local/bin to the path
+2026-11-13T11:59:24.1218985Z Added /opt/hostedtoolcache/uv/0.13.8/x86_64 to the path
+2026-11-13T11:59:24.1241071Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:59:24.1241326Z Successfully installed uv version 0.13.8
+2026-11-13T11:59:24.1243056Z Searching files using cache dependency glob: /home/runner/work/accelerate/accelerate/**/*requirements*.txt,/home/runner/work/accelerate/accelerate/**/*requirements*.in,/home/runner/work/accelerate/accelerate/**/*constraints*.txt,/home/runner/work/accelerate/accelerate/**/*constraints*.in,/home/runner/work/accelerate/accelerate/**/pyproject.toml,/home/runner/work/accelerate/accelerate/**/uv.lock,/home/runner/work/accelerate/accelerate/**/*.py.lock
+2026-11-13T11:59:24.1502770Z /home/runner/work/accelerate/accelerate/examples/requirements.txt
+2026-11-13T11:59:24.1542007Z /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:59:24.1645148Z Found 2 files to hash.
+2026-11-13T11:59:24.2645636Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:59:24.4022583Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:59:24.4169276Z ##[group]Run uv venv .venv
+2026-11-13T11:59:24.4169501Z [36;1muv venv .venv[0m
+2026-11-13T11:59:24.4169827Z [36;1muv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:59:24.4170220Z [36;1muv pip install --python .venv/bin/python -e '.[test_prod,quality]' torchdata transformers[0m
+2026-11-13T11:59:24.4170529Z [36;1muv pip freeze --python .venv/bin/python > installed-dependencies.txt[0m
+2026-11-13T11:59:24.4190957Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:59:24.4191108Z env:
+2026-11-13T11:59:24.4191217Z   OMP_NUM_THREADS: 1
+2026-11-13T11:59:24.4191337Z   MKL_NUM_THREADS: 1
+2026-11-13T11:59:24.4191456Z   PYTHONPATH: src
+2026-11-13T11:59:24.4191569Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:59:24.4191727Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:24.4191977Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:59:24.4192242Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:24.4192448Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:24.4192673Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:24.4192926Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:59:24.4193130Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:59:24.4193294Z ##[endgroup]
+2026-11-13T11:59:24.4307177Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-13T11:59:24.4307486Z Creating virtual environment at: .venv
+2026-11-13T11:59:24.4311504Z Activate with: .venv/bin/activate
+2026-11-13T11:59:24.8219884Z Resolved 10 packages in 352ms
+2026-11-13T11:59:24.8340929Z Downloading setuptools (1.2MiB)
+2026-11-13T11:59:24.8376105Z Downloading torch (175.8MiB)
+2026-11-13T11:59:24.8478553Z Downloading sympy (6.0MiB)
+2026-11-13T11:59:24.8481597Z Downloading networkx (2.0MiB)
+2026-11-13T11:59:24.8562597Z  Downloaded setuptools
+2026-11-13T11:59:24.9441173Z  Downloaded networkx
+2026-11-13T11:59:25.0113101Z  Downloaded sympy
+2026-11-13T11:59:26.3197665Z  Downloaded torch
+2026-11-13T11:59:26.3198622Z Prepared 10 packages in 1.49s
+2026-11-13T11:59:26.4870028Z Installed 10 packages in 166ms
+2026-11-13T11:59:26.4870347Z  + filelock==4.2.4
+2026-11-13T11:59:26.4870822Z  + fsspec==2026.9.0
+2026-11-13T11:59:26.4871022Z  + jinja2==3.1.6
+2026-11-13T11:59:26.4871208Z  + markupsafe==3.0.3
+2026-11-13T11:59:26.4871392Z  + mpmath==1.3.0
+2026-11-13T11:59:26.4871562Z  + networkx==3.7
+2026-11-13T11:59:26.4871745Z  + setuptools==78.1.0
+2026-11-13T11:59:26.4871933Z  + sympy==1.14.0
+2026-11-13T11:59:26.4872117Z  + torch==2.9.0+cpu
+2026-11-13T11:59:26.4872311Z  + typing-extensions==4.16.0
+2026-11-13T11:59:27.5117370Z Resolved 55 packages in 979ms
+2026-11-13T11:59:27.5142564Z    Building accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:59:27.5565018Z Downloading pygments (1.2MiB)
+2026-11-13T11:59:27.5566343Z Downloading hf-xet (4.1MiB)
+2026-11-13T11:59:27.5566694Z Downloading tokenizers (3.2MiB)
+2026-11-13T11:59:27.5566955Z Downloading pydantic-core (2.2MiB)
+2026-11-13T11:59:27.5567506Z Downloading transformers (12.4MiB)
+2026-11-13T11:59:27.5568651Z Downloading ruff (12.6MiB)
+2026-11-13T11:59:27.5568936Z Downloading numpy (16.0MiB)
+2026-11-13T11:59:27.6266938Z  Downloaded pygments
+2026-11-13T11:59:27.6419471Z  Downloaded pydantic-core
+2026-11-13T11:59:27.6602906Z  Downloaded tokenizers
+2026-11-13T11:59:27.6767993Z  Downloaded hf-xet
+2026-11-13T11:59:27.7384726Z       Built accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:59:27.7748947Z  Downloaded ruff
+2026-11-13T11:59:27.8100782Z  Downloaded numpy
+2026-11-13T11:59:27.8143884Z  Downloaded transformers
+2026-11-13T11:59:27.8145687Z Prepared 45 packages in 302ms
+2026-11-13T11:59:27.9650143Z Installed 45 packages in 150ms
+2026-11-13T11:59:27.9650716Z  + accelerate==1.16.0.dev0 (from file:///home/runner/work/accelerate/accelerate)
+2026-11-13T11:59:27.9651538Z  + annotated-doc==0.0.6
+2026-11-13T11:59:27.9651800Z  + annotated-types==0.8.0
+2026-11-13T11:59:27.9652046Z  + anyio==4.16.0
+2026-11-13T11:59:27.9652257Z  + attrs==26.1.0
+2026-11-13T11:59:27.9652491Z  + certifi==2026.10.23
+2026-11-13T11:59:27.9652743Z  + charset-normalizer==3.5.2
+2026-11-13T11:59:27.9653000Z  + click==8.5.1
+2026-11-13T11:59:27.9653223Z  + execnet==2.1.2
+2026-11-13T11:59:27.9653429Z  + h11==0.16.0
+2026-11-13T11:59:27.9653638Z  + hf-xet==1.8.0
+2026-11-13T11:59:27.9653939Z  + httpcore2==2.16.0
+2026-11-13T11:59:27.9654288Z  + httpx2==2.16.0
+2026-11-13T11:59:27.9654540Z  + huggingface-hub==2.4.0
+2026-11-13T11:59:27.9654803Z  + idna==3.20
+2026-11-13T11:59:27.9655092Z  + iniconfig==2.3.1
+2026-11-13T11:59:27.9655775Z  + markdown-it-py==4.3.0
+2026-11-13T11:59:27.9656193Z  + mdurl==0.1.2
+2026-11-13T11:59:27.9656665Z  + numpy==2.5.4
+2026-11-13T11:59:27.9656929Z  + packaging==26.3
+2026-11-13T11:59:27.9657160Z  + parameterized==0.9.0
+2026-11-13T11:59:27.9657383Z  + pluggy==1.7.0
+2026-11-13T11:59:27.9657613Z  + psutil==7.2.2
+2026-11-13T11:59:27.9657813Z  + pydantic==2.14.3
+2026-11-13T11:59:27.9658029Z  + pydantic-core==2.50.4
+2026-11-13T11:59:27.9658258Z  + pygments==2.21.0
+2026-11-13T11:59:27.9658459Z  + pytest==9.2.0
+2026-11-13T11:59:27.9658664Z  + pytest-order==1.5.0
+2026-11-13T11:59:27.9658901Z  + pytest-subtests==0.15.0
+2026-11-13T11:59:27.9659129Z  + pytest-xdist==3.8.0
+2026-11-13T11:59:27.9659344Z  + pyyaml==6.0.3
+2026-11-13T11:59:27.9659534Z  + regex==2026.11.9
+2026-11-13T11:59:27.9659761Z  + requests==2.34.2
+2026-11-13T11:59:27.9659952Z  + rich==15.0.0
+2026-11-13T11:59:27.9660364Z  + ruff==0.13.1
+2026-11-13T11:59:27.9660757Z  + safetensors==0.8.0
+2026-11-13T11:59:27.9660983Z  + shellingham==1.5.4
+2026-11-13T11:59:27.9661205Z  + tokenizers==0.23.3
+2026-11-13T11:59:27.9661422Z  + torchdata==0.11.0
+2026-11-13T11:59:27.9661578Z  + tqdm==4.70.1
+2026-11-13T11:59:27.9661709Z  + transformers==5.22.2
+2026-11-13T11:59:27.9661858Z  + truststore==0.10.5
+2026-11-13T11:59:27.9661999Z  + typer==0.29.1
+2026-11-13T11:59:27.9662153Z  + typing-inspection==0.4.5
+2026-11-13T11:59:27.9662318Z  + urllib3==2.8.0
+2026-11-13T11:59:27.9918680Z ##[group]Run .venv/bin/python validation/run_dispatcher_prefix_storage.py
+2026-11-13T11:59:27.9919142Z [36;1m.venv/bin/python validation/run_dispatcher_prefix_storage.py[0m
+2026-11-13T11:59:27.9936528Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:59:27.9936664Z env:
+2026-11-13T11:59:27.9936773Z   OMP_NUM_THREADS: 1
+2026-11-13T11:59:27.9936894Z   MKL_NUM_THREADS: 1
+2026-11-13T11:59:27.9937009Z   PYTHONPATH: src
+2026-11-13T11:59:27.9937120Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:59:27.9937272Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:27.9937511Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:59:27.9937745Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:27.9937962Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:27.9938169Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:59:27.9938401Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:59:27.9938606Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:59:27.9938777Z ##[endgroup]
+2026-11-13T11:59:58.1234158Z FFFFFFFFFFFF....................                                         [100%]
+2026-11-13T11:59:58.1235878Z =================================== FAILURES ===================================
+2026-11-13T11:59:58.1236221Z _____ test_dispatcher_releases_first_full_batch[False-False-dtype0-tensor] _____
+2026-11-13T11:59:58.1236400Z 
+2026-11-13T11:59:58.1236529Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3cc44d6cc0>
+2026-11-13T11:59:58.1236812Z structure = 'tensor', dtype = torch.float32, split_batches = False
+2026-11-13T11:59:58.1237009Z drop_last = False
+2026-11-13T11:59:58.1237089Z 
+2026-11-13T11:59:58.1237292Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1237710Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1238120Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1238434Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1238894Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1239317Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1239555Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1239797Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1240042Z             batch_size=16,
+2026-11-13T11:59:58.1240261Z             split_batches=split_batches,
+2026-11-13T11:59:58.1240504Z             drop_last=drop_last,
+2026-11-13T11:59:58.1240724Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1240948Z             slice_fn=tracker,
+2026-11-13T11:59:58.1241201Z         )
+2026-11-13T11:59:58.1241477Z         iterator = iter(loader)
+2026-11-13T11:59:58.1241690Z         first = next(iterator)
+2026-11-13T11:59:58.1241891Z         del first
+2026-11-13T11:59:58.1242085Z         second = next(iterator)
+2026-11-13T11:59:58.1242297Z         del second
+2026-11-13T11:59:58.1242484Z         gc.collect()
+2026-11-13T11:59:58.1242662Z         try:
+2026-11-13T11:59:58.1242971Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1243465Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1243923Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1244249Z E           assert False
+2026-11-13T11:59:58.1244911Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1245552Z 
+2026-11-13T11:59:58.1246266Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1246759Z ____ test_dispatcher_releases_first_full_batch[False-False-dtype0-mapping] _____
+2026-11-13T11:59:58.1247057Z 
+2026-11-13T11:59:58.1247608Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cd8a10>
+2026-11-13T11:59:58.1248299Z structure = 'mapping', dtype = torch.float32, split_batches = False
+2026-11-13T11:59:58.1248625Z drop_last = False
+2026-11-13T11:59:58.1248742Z 
+2026-11-13T11:59:58.1248943Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1249396Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1249786Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1250139Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1250622Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1251109Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1251379Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1251633Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1251887Z             batch_size=16,
+2026-11-13T11:59:58.1252122Z             split_batches=split_batches,
+2026-11-13T11:59:58.1252377Z             drop_last=drop_last,
+2026-11-13T11:59:58.1252609Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1252848Z             slice_fn=tracker,
+2026-11-13T11:59:58.1253057Z         )
+2026-11-13T11:59:58.1253238Z         iterator = iter(loader)
+2026-11-13T11:59:58.1253469Z         first = next(iterator)
+2026-11-13T11:59:58.1253693Z         del first
+2026-11-13T11:59:58.1253888Z         second = next(iterator)
+2026-11-13T11:59:58.1254101Z         del second
+2026-11-13T11:59:58.1254282Z         gc.collect()
+2026-11-13T11:59:58.1254471Z         try:
+2026-11-13T11:59:58.1254798Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1255494Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1255976Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1256321Z E           assert False
+2026-11-13T11:59:58.1256797Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1257224Z 
+2026-11-13T11:59:58.1257378Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1257823Z ___ test_dispatcher_releases_first_full_batch[False-False-dtype0-namedtuple] ___
+2026-11-13T11:59:58.1258151Z 
+2026-11-13T11:59:58.1258357Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cd9700>
+2026-11-13T11:59:58.1258893Z structure = 'namedtuple', dtype = torch.float32, split_batches = False
+2026-11-13T11:59:58.1259239Z drop_last = False
+2026-11-13T11:59:58.1259357Z 
+2026-11-13T11:59:58.1259556Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1260002Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1260402Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1260751Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1261257Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1261724Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1261976Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1262234Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1262477Z             batch_size=16,
+2026-11-13T11:59:58.1262700Z             split_batches=split_batches,
+2026-11-13T11:59:58.1262950Z             drop_last=drop_last,
+2026-11-13T11:59:58.1263180Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1263426Z             slice_fn=tracker,
+2026-11-13T11:59:58.1263631Z         )
+2026-11-13T11:59:58.1263810Z         iterator = iter(loader)
+2026-11-13T11:59:58.1264030Z         first = next(iterator)
+2026-11-13T11:59:58.1264243Z         del first
+2026-11-13T11:59:58.1264670Z         second = next(iterator)
+2026-11-13T11:59:58.1264884Z         del second
+2026-11-13T11:59:58.1265182Z         gc.collect()
+2026-11-13T11:59:58.1265534Z         try:
+2026-11-13T11:59:58.1265838Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1266349Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1266813Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1267171Z E           assert False
+2026-11-13T11:59:58.1267620Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1268052Z 
+2026-11-13T11:59:58.1268207Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1268639Z _____ test_dispatcher_releases_first_full_batch[False-False-dtype1-tensor] _____
+2026-11-13T11:59:58.1268927Z 
+2026-11-13T11:59:58.1269143Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cdba70>
+2026-11-13T11:59:58.1269594Z structure = 'tensor', dtype = torch.float64, split_batches = False
+2026-11-13T11:59:58.1269912Z drop_last = False
+2026-11-13T11:59:58.1270029Z 
+2026-11-13T11:59:58.1270224Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1270668Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1271051Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1271391Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1271869Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1272330Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1272584Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1272835Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1273102Z             batch_size=16,
+2026-11-13T11:59:58.1273252Z             split_batches=split_batches,
+2026-11-13T11:59:58.1273412Z             drop_last=drop_last,
+2026-11-13T11:59:58.1273556Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1273697Z             slice_fn=tracker,
+2026-11-13T11:59:58.1273830Z         )
+2026-11-13T11:59:58.1273941Z         iterator = iter(loader)
+2026-11-13T11:59:58.1274081Z         first = next(iterator)
+2026-11-13T11:59:58.1274212Z         del first
+2026-11-13T11:59:58.1274330Z         second = next(iterator)
+2026-11-13T11:59:58.1274461Z         del second
+2026-11-13T11:59:58.1274574Z         gc.collect()
+2026-11-13T11:59:58.1274691Z         try:
+2026-11-13T11:59:58.1274887Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1275197Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1275854Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1276062Z E           assert False
+2026-11-13T11:59:58.1276344Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1276596Z 
+2026-11-13T11:59:58.1276691Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1276956Z ____ test_dispatcher_releases_first_full_batch[False-False-dtype1-mapping] _____
+2026-11-13T11:59:58.1277134Z 
+2026-11-13T11:59:58.1277259Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cdb5c0>
+2026-11-13T11:59:58.1277536Z structure = 'mapping', dtype = torch.float64, split_batches = False
+2026-11-13T11:59:58.1277731Z drop_last = False
+2026-11-13T11:59:58.1277805Z 
+2026-11-13T11:59:58.1277926Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1278194Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1278722Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1278934Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1279321Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1279602Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1279760Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1279919Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1280072Z             batch_size=16,
+2026-11-13T11:59:58.1280208Z             split_batches=split_batches,
+2026-11-13T11:59:58.1280361Z             drop_last=drop_last,
+2026-11-13T11:59:58.1280505Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1280648Z             slice_fn=tracker,
+2026-11-13T11:59:58.1280778Z         )
+2026-11-13T11:59:58.1280887Z         iterator = iter(loader)
+2026-11-13T11:59:58.1281027Z         first = next(iterator)
+2026-11-13T11:59:58.1281155Z         del first
+2026-11-13T11:59:58.1281277Z         second = next(iterator)
+2026-11-13T11:59:58.1281407Z         del second
+2026-11-13T11:59:58.1281528Z         gc.collect()
+2026-11-13T11:59:58.1281641Z         try:
+2026-11-13T11:59:58.1281829Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1282133Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1282417Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1282621Z E           assert False
+2026-11-13T11:59:58.1282892Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1283144Z 
+2026-11-13T11:59:58.1283231Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1283493Z ___ test_dispatcher_releases_first_full_batch[False-False-dtype1-namedtuple] ___
+2026-11-13T11:59:58.1283668Z 
+2026-11-13T11:59:58.1283798Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cd8c20>
+2026-11-13T11:59:58.1284079Z structure = 'namedtuple', dtype = torch.float64, split_batches = False
+2026-11-13T11:59:58.1284280Z drop_last = False
+2026-11-13T11:59:58.1284351Z 
+2026-11-13T11:59:58.1284466Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1284729Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1284965Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1285177Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1285685Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1285964Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1286118Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1286273Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1286420Z             batch_size=16,
+2026-11-13T11:59:58.1286557Z             split_batches=split_batches,
+2026-11-13T11:59:58.1286713Z             drop_last=drop_last,
+2026-11-13T11:59:58.1286853Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1286995Z             slice_fn=tracker,
+2026-11-13T11:59:58.1287125Z         )
+2026-11-13T11:59:58.1287234Z         iterator = iter(loader)
+2026-11-13T11:59:58.1287373Z         first = next(iterator)
+2026-11-13T11:59:58.1287501Z         del first
+2026-11-13T11:59:58.1287616Z         second = next(iterator)
+2026-11-13T11:59:58.1287744Z         del second
+2026-11-13T11:59:58.1287855Z         gc.collect()
+2026-11-13T11:59:58.1287968Z         try:
+2026-11-13T11:59:58.1288154Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1288455Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1288740Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1289050Z E           assert False
+2026-11-13T11:59:58.1289326Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1289660Z 
+2026-11-13T11:59:58.1289753Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1290011Z _____ test_dispatcher_releases_first_full_batch[False-True-dtype0-tensor] ______
+2026-11-13T11:59:58.1290188Z 
+2026-11-13T11:59:58.1290312Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cda240>
+2026-11-13T11:59:58.1290585Z structure = 'tensor', dtype = torch.float32, split_batches = True
+2026-11-13T11:59:58.1290781Z drop_last = False
+2026-11-13T11:59:58.1290851Z 
+2026-11-13T11:59:58.1290972Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1291250Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1291490Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1291704Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1292006Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1292290Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1292446Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1292602Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1292751Z             batch_size=16,
+2026-11-13T11:59:58.1292887Z             split_batches=split_batches,
+2026-11-13T11:59:58.1293039Z             drop_last=drop_last,
+2026-11-13T11:59:58.1293181Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1293322Z             slice_fn=tracker,
+2026-11-13T11:59:58.1293448Z         )
+2026-11-13T11:59:58.1293557Z         iterator = iter(loader)
+2026-11-13T11:59:58.1293696Z         first = next(iterator)
+2026-11-13T11:59:58.1293825Z         del first
+2026-11-13T11:59:58.1293943Z         second = next(iterator)
+2026-11-13T11:59:58.1294072Z         del second
+2026-11-13T11:59:58.1294186Z         gc.collect()
+2026-11-13T11:59:58.1294299Z         try:
+2026-11-13T11:59:58.1294487Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1294789Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1295075Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1295413Z E           assert False
+2026-11-13T11:59:58.1295698Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1295945Z 
+2026-11-13T11:59:58.1296035Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1296295Z _____ test_dispatcher_releases_first_full_batch[False-True-dtype0-mapping] _____
+2026-11-13T11:59:58.1296471Z 
+2026-11-13T11:59:58.1296596Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cdaa50>
+2026-11-13T11:59:58.1296875Z structure = 'mapping', dtype = torch.float32, split_batches = True
+2026-11-13T11:59:58.1297074Z drop_last = False
+2026-11-13T11:59:58.1297143Z 
+2026-11-13T11:59:58.1297262Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1297528Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1297763Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1297974Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1298271Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1298551Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1298706Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1298864Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1299012Z             batch_size=16,
+2026-11-13T11:59:58.1299250Z             split_batches=split_batches,
+2026-11-13T11:59:58.1299484Z             drop_last=drop_last,
+2026-11-13T11:59:58.1299627Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1299768Z             slice_fn=tracker,
+2026-11-13T11:59:58.1299895Z         )
+2026-11-13T11:59:58.1300006Z         iterator = iter(loader)
+2026-11-13T11:59:58.1300145Z         first = next(iterator)
+2026-11-13T11:59:58.1300274Z         del first
+2026-11-13T11:59:58.1300391Z         second = next(iterator)
+2026-11-13T11:59:58.1300523Z         del second
+2026-11-13T11:59:58.1300635Z         gc.collect()
+2026-11-13T11:59:58.1300749Z         try:
+2026-11-13T11:59:58.1300936Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1301241Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1301524Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1301731Z E           assert False
+2026-11-13T11:59:58.1302003Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1302257Z 
+2026-11-13T11:59:58.1302348Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1302606Z ___ test_dispatcher_releases_first_full_batch[False-True-dtype0-namedtuple] ____
+2026-11-13T11:59:58.1302780Z 
+2026-11-13T11:59:58.1302907Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cd9c70>
+2026-11-13T11:59:58.1303183Z structure = 'namedtuple', dtype = torch.float32, split_batches = True
+2026-11-13T11:59:58.1303381Z drop_last = False
+2026-11-13T11:59:58.1303451Z 
+2026-11-13T11:59:58.1303568Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1303831Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1304070Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1304284Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1304587Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1304869Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1305022Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1305177Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1305450Z             batch_size=16,
+2026-11-13T11:59:58.1305588Z             split_batches=split_batches,
+2026-11-13T11:59:58.1305741Z             drop_last=drop_last,
+2026-11-13T11:59:58.1305882Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1306027Z             slice_fn=tracker,
+2026-11-13T11:59:58.1306156Z         )
+2026-11-13T11:59:58.1306265Z         iterator = iter(loader)
+2026-11-13T11:59:58.1306404Z         first = next(iterator)
+2026-11-13T11:59:58.1306538Z         del first
+2026-11-13T11:59:58.1306658Z         second = next(iterator)
+2026-11-13T11:59:58.1306787Z         del second
+2026-11-13T11:59:58.1306900Z         gc.collect()
+2026-11-13T11:59:58.1307018Z         try:
+2026-11-13T11:59:58.1307206Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1307511Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1307791Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1307994Z E           assert False
+2026-11-13T11:59:58.1308262Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1308510Z 
+2026-11-13T11:59:58.1308599Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1308853Z _____ test_dispatcher_releases_first_full_batch[False-True-dtype1-tensor] ______
+2026-11-13T11:59:58.1309028Z 
+2026-11-13T11:59:58.1309251Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3ce1cd9af0>
+2026-11-13T11:59:58.1309520Z structure = 'tensor', dtype = torch.float64, split_batches = True
+2026-11-13T11:59:58.1310023Z drop_last = False
+2026-11-13T11:59:58.1310127Z 
+2026-11-13T11:59:58.1310315Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1310750Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1311133Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1311359Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1311657Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1311937Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1312091Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1312247Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1312396Z             batch_size=16,
+2026-11-13T11:59:58.1312537Z             split_batches=split_batches,
+2026-11-13T11:59:58.1312687Z             drop_last=drop_last,
+2026-11-13T11:59:58.1312834Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1312975Z             slice_fn=tracker,
+2026-11-13T11:59:58.1313103Z         )
+2026-11-13T11:59:58.1313214Z         iterator = iter(loader)
+2026-11-13T11:59:58.1313352Z         first = next(iterator)
+2026-11-13T11:59:58.1313482Z         del first
+2026-11-13T11:59:58.1313601Z         second = next(iterator)
+2026-11-13T11:59:58.1313730Z         del second
+2026-11-13T11:59:58.1313840Z         gc.collect()
+2026-11-13T11:59:58.1313953Z         try:
+2026-11-13T11:59:58.1314141Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1314442Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1314724Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1314932Z E           assert False
+2026-11-13T11:59:58.1315202Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1315654Z 
+2026-11-13T11:59:58.1315746Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1316007Z _____ test_dispatcher_releases_first_full_batch[False-True-dtype1-mapping] _____
+2026-11-13T11:59:58.1316180Z 
+2026-11-13T11:59:58.1316306Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3cc443eab0>
+2026-11-13T11:59:58.1316577Z structure = 'mapping', dtype = torch.float64, split_batches = True
+2026-11-13T11:59:58.1316770Z drop_last = False
+2026-11-13T11:59:58.1316843Z 
+2026-11-13T11:59:58.1316960Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1317228Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1317467Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1317678Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1317977Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1318257Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1318411Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1318566Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1318714Z             batch_size=16,
+2026-11-13T11:59:58.1318851Z             split_batches=split_batches,
+2026-11-13T11:59:58.1319003Z             drop_last=drop_last,
+2026-11-13T11:59:58.1319144Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1319285Z             slice_fn=tracker,
+2026-11-13T11:59:58.1319413Z         )
+2026-11-13T11:59:58.1319521Z         iterator = iter(loader)
+2026-11-13T11:59:58.1319659Z         first = next(iterator)
+2026-11-13T11:59:58.1319786Z         del first
+2026-11-13T11:59:58.1319901Z         second = next(iterator)
+2026-11-13T11:59:58.1320374Z         del second
+2026-11-13T11:59:58.1320504Z         gc.collect()
+2026-11-13T11:59:58.1320703Z         try:
+2026-11-13T11:59:58.1320892Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1321196Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1321478Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1321683Z E           assert False
+2026-11-13T11:59:58.1321960Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1322209Z 
+2026-11-13T11:59:58.1322296Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1322558Z ___ test_dispatcher_releases_first_full_batch[False-True-dtype1-namedtuple] ____
+2026-11-13T11:59:58.1322739Z 
+2026-11-13T11:59:58.1322866Z cpu_accelerator = <accelerate.accelerator.Accelerator object at 0x7f3cc443e990>
+2026-11-13T11:59:58.1323143Z structure = 'namedtuple', dtype = torch.float64, split_batches = True
+2026-11-13T11:59:58.1323346Z drop_last = False
+2026-11-13T11:59:58.1323414Z 
+2026-11-13T11:59:58.1323531Z     @pytest.mark.parametrize("structure", ["tensor", "mapping", "namedtuple"])
+2026-11-13T11:59:58.1323794Z     @pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+2026-11-13T11:59:58.1324031Z     @pytest.mark.parametrize("split_batches", [False, True])
+2026-11-13T11:59:58.1324243Z     @pytest.mark.parametrize("drop_last", [False, True])
+2026-11-13T11:59:58.1324538Z     def test_dispatcher_releases_first_full_batch(cpu_accelerator, structure, dtype, split_batches, drop_last):
+2026-11-13T11:59:58.1324821Z         tracker = _TrackFirstBatch()
+2026-11-13T11:59:58.1324977Z         loader = DataLoaderDispatcher(
+2026-11-13T11:59:58.1325133Z             _Samples(structure, dtype),
+2026-11-13T11:59:58.1325402Z             batch_size=16,
+2026-11-13T11:59:58.1325566Z             split_batches=split_batches,
+2026-11-13T11:59:58.1325722Z             drop_last=drop_last,
+2026-11-13T11:59:58.1325869Z             _drop_last=drop_last,
+2026-11-13T11:59:58.1326009Z             slice_fn=tracker,
+2026-11-13T11:59:58.1326140Z         )
+2026-11-13T11:59:58.1326250Z         iterator = iter(loader)
+2026-11-13T11:59:58.1326388Z         first = next(iterator)
+2026-11-13T11:59:58.1326517Z         del first
+2026-11-13T11:59:58.1326635Z         second = next(iterator)
+2026-11-13T11:59:58.1326764Z         del second
+2026-11-13T11:59:58.1326877Z         gc.collect()
+2026-11-13T11:59:58.1326991Z         try:
+2026-11-13T11:59:58.1327179Z             # Only weak references are retained by the observer. The padding cache must not
+2026-11-13T11:59:58.1327482Z             # keep the original full-batch tensors alive after their consumer releases them.
+2026-11-13T11:59:58.1327764Z >           assert all(reference() is None for reference in tracker.references)
+2026-11-13T11:59:58.1327972Z E           assert False
+2026-11-13T11:59:58.1328242Z E            +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1328496Z 
+2026-11-13T11:59:58.1328587Z tests/test_dispatcher_prefix_storage.py:108: AssertionError
+2026-11-13T11:59:58.1328808Z =========================== short test summary info ============================
+2026-11-13T11:59:58.1329303Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype0-tensor] - assert False
+2026-11-13T11:59:58.1329769Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1330232Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype0-mapping] - assert False
+2026-11-13T11:59:58.1330790Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1331249Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype0-namedtuple] - assert False
+2026-11-13T11:59:58.1331795Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1332263Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype1-tensor] - assert False
+2026-11-13T11:59:58.1332706Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1333150Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype1-mapping] - assert False
+2026-11-13T11:59:58.1333594Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1334055Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-False-dtype1-namedtuple] - assert False
+2026-11-13T11:59:58.1334515Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1334958Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype0-tensor] - assert False
+2026-11-13T11:59:58.1335597Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1336080Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype0-mapping] - assert False
+2026-11-13T11:59:58.1336529Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1336986Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype0-namedtuple] - assert False
+2026-11-13T11:59:58.1337440Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1337893Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype1-tensor] - assert False
+2026-11-13T11:59:58.1338332Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc41935e0>)
+2026-11-13T11:59:58.1338776Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype1-mapping] - assert False
+2026-11-13T11:59:58.1339219Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3ce190ecf0>)
+2026-11-13T11:59:58.1339675Z FAILED tests/test_dispatcher_prefix_storage.py::test_dispatcher_releases_first_full_batch[False-True-dtype1-namedtuple] - assert False
+2026-11-13T11:59:58.1340124Z  +  where False = all(<generator object test_dispatcher_releases_first_full_batch.<locals>.<genexpr> at 0x7f3cc66745f0>)
+2026-11-13T11:59:58.1340417Z 12 failed, 20 passed in 27.52s
+2026-11-13T11:59:58.1340509Z 
+2026-11-13T11:59:58.1340627Z before {'tests': 32, 'failures': 12, 'errors': 0, 'skipped': 0, 'returncode': 1}
+2026-11-13T11:59:59.3415889Z before {"torch": "2.9.0+cpu", "batch_size": 256, "feature_width": 2048, "element_size": 4, "cached_samples": 1, "cached_logical_bytes": 8192, "cached_storage_bytes": 2097152}
+2026-11-13T11:59:59.3416257Z 
+2026-11-13T12:00:22.8625180Z ................................                                         [100%]
+2026-11-13T12:00:22.8625717Z 32 passed in 23.00s
+2026-11-13T12:00:22.8625842Z 
+2026-11-13T12:00:22.8626203Z after {'tests': 32, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0}
+2026-11-13T12:00:24.0114844Z after {"torch": "2.9.0+cpu", "batch_size": 256, "feature_width": 2048, "element_size": 4, "cached_samples": 1, "cached_logical_bytes": 8192, "cached_storage_bytes": 8192}
+2026-11-13T12:00:24.0115504Z 
+2026-11-13T12:00:26.6909809Z ...........s............................                                 [100%]
+2026-11-13T12:00:26.6910237Z =============================== warnings summary ===============================
+2026-11-13T12:00:26.6910450Z tests/test_data_loader.py: 44 warnings
+2026-11-13T12:00:26.6910949Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2421) is multi-threaded, use of fork() may lead to deadlocks in the child.
+2026-11-13T12:00:26.6911386Z     self.pid = os.fork()
+2026-11-13T12:00:26.6911477Z 
+2026-11-13T12:00:26.6911617Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T12:00:26.6911849Z 39 passed, 1 skipped, 44 warnings in 2.01s
+2026-11-13T12:00:26.6911959Z 
+2026-11-13T12:00:26.6912359Z existing {'tests': 40, 'failures': 0, 'errors': 0, 'skipped': 1, 'returncode': 0}
+2026-11-13T12:00:26.6955688Z {"base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a", "head": "a95ee5bdda6c74e93e59878a5e5e5db69d554950", "before": {"tests": 32, "failures": 12, "errors": 0, "skipped": 0, "returncode": 1}, "after": {"tests": 32, "failures": 0, "errors": 0, "skipped": 0, "returncode": 0}, "existing": {"tests": 40, "failures": 0, "errors": 0, "skipped": 1, "returncode": 0}, "before_storage": {"torch": "2.9.0+cpu", "batch_size": 256, "feature_width": 2048, "element_size": 4, "cached_samples": 1, "cached_logical_bytes": 8192, "cached_storage_bytes": 2097152}, "after_storage": {"torch": "2.9.0+cpu", "batch_size": 256, "feature_width": 2048, "element_size": 4, "cached_samples": 1, "cached_logical_bytes": 8192, "cached_storage_bytes": 8192}}
+2026-11-13T12:00:26.7048928Z ##[group]Run .venv/bin/ruff check src/accelerate/data_loader.py tests/test_dispatcher_prefix_storage.py
+2026-11-13T12:00:26.7049343Z [36;1m.venv/bin/ruff check src/accelerate/data_loader.py tests/test_dispatcher_prefix_storage.py[0m
+2026-11-13T12:00:26.7049722Z [36;1m.venv/bin/ruff format --check src/accelerate/data_loader.py tests/test_dispatcher_prefix_storage.py[0m
+2026-11-13T12:00:26.7050040Z [36;1mgit diff --check f5cc53877677eb7fa0ef7091fe41536a777fee6a[0m
+2026-11-13T12:00:26.7067472Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:00:26.7067616Z env:
+2026-11-13T12:00:26.7067730Z   OMP_NUM_THREADS: 1
+2026-11-13T12:00:26.7067850Z   MKL_NUM_THREADS: 1
+2026-11-13T12:00:26.7067966Z   PYTHONPATH: src
+2026-11-13T12:00:26.7068079Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:00:26.7068236Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7068481Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:00:26.7068743Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7068961Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7069176Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7069391Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:00:26.7069595Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T12:00:26.7069768Z ##[endgroup]
+2026-11-13T12:00:26.7197277Z All checks passed!
+2026-11-13T12:00:26.7282509Z 2 files already formatted
+2026-11-13T12:00:26.7453146Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T12:00:26.7453307Z with:
+2026-11-13T12:00:26.7453448Z   name: dispatcher-prefix-storage-native-evidence
+2026-11-13T12:00:26.7453695Z   path: *.log
+*.xml
+*-storage.json
+native-report.json
+installed-dependencies.txt
+
+2026-11-13T12:00:26.7453919Z   if-no-files-found: warn
+2026-11-13T12:00:26.7454054Z   compression-level: 6
+2026-11-13T12:00:26.7454174Z   overwrite: false
+2026-11-13T12:00:26.7454294Z   include-hidden-files: false
+2026-11-13T12:00:26.7454428Z env:
+2026-11-13T12:00:26.7454534Z   OMP_NUM_THREADS: 1
+2026-11-13T12:00:26.7454651Z   MKL_NUM_THREADS: 1
+2026-11-13T12:00:26.7454769Z   PYTHONPATH: src
+2026-11-13T12:00:26.7454880Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:00:26.7455032Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7455503Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:00:26.7455969Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7456421Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7456722Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:00:26.7457061Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:00:26.7457422Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T12:00:26.7457700Z ##[endgroup]
+2026-11-13T12:00:26.8661397Z (node:2668) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:00:26.8662067Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:00:26.8727690Z With the provided path, there will be 10 files uploaded
+2026-11-13T12:00:26.8735687Z Artifact name is valid!
+2026-11-13T12:00:26.8735901Z Root directory input is valid!
+2026-11-13T12:00:27.1856859Z Beginning upload of artifact content to blob storage
+2026-11-13T12:00:27.2088207Z (node:2668) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T12:00:27.3633259Z Uploaded bytes 6522
+2026-11-13T12:00:27.4061214Z Finished uploading artifact content to blob storage!
+2026-11-13T12:00:27.4061826Z SHA256 digest of uploaded artifact zip is 748edc7dd037fe82d9c9abf255d51172eb20aedce4f3ef3d15ac1db06269e667
+2026-11-13T12:00:27.4062553Z Finalizing artifact upload
+2026-11-13T12:00:27.7607833Z Artifact dispatcher-prefix-storage-native-evidence.zip successfully finalized. Artifact ID 14034825783
+2026-11-13T12:00:27.7608636Z Artifact dispatcher-prefix-storage-native-evidence has been successfully uploaded! Final size is 6522 bytes. Artifact ID is 14034825783
+2026-11-13T12:00:27.7612933Z Artifact download URL: https://github.com/Afloat16/accelerate/actions/runs/43421394225/artifacts/14034825783
+2026-11-13T12:00:27.7799165Z Post job cleanup.
+2026-11-13T12:00:27.8695622Z Pruning cache...
+2026-11-13T12:00:27.8697452Z (node:2682) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:00:27.8698716Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:00:27.8727888Z [command]/opt/hostedtoolcache/uv/0.13.8/x86_64/uv cache prune --ci
+2026-11-13T12:00:27.8820125Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T12:00:28.1968401Z Removed 20616 files (6.3MiB)
+2026-11-13T12:00:28.1990694Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T12:00:28.2108732Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/accelerate/accelerate --files-from manifest.txt --use-compress-program zstdmt
+2026-11-13T12:00:28.4285803Z (node:2682) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T12:00:28.9235848Z Sent 6196513 of 6196513 (100.0%), 11.7 MBs/sec
+2026-11-13T12:00:29.0219570Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T12:00:29.0348461Z Post job cleanup.
+2026-11-13T12:00:29.1209567Z (node:2705) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:00:29.1210268Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:00:29.1330344Z Post job cleanup.
+2026-11-13T12:00:29.1948387Z [command]/usr/bin/git version
+2026-11-13T12:00:29.1982951Z git version 2.56.1
+2026-11-13T12:00:29.2005825Z Temporarily overriding HOME='/home/runner/work/_temp/c3268d09-cd74-4508-abbd-c306f127a31a' before making global git config changes
+2026-11-13T12:00:29.2006786Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T12:00:29.2009207Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T12:00:29.2044102Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T12:00:29.2080746Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T12:00:29.2288859Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T12:00:29.2317752Z http.https://github.com/.extraheader
+2026-11-13T12:00:29.2347476Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T12:00:29.2399015Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T12:00:29.2623265Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T12:00:29.2662161Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T12:00:29.2985654Z Cleaning up orphan processes
+2026-11-13T12:00:29.3277272Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

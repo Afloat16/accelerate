@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "repository": "huggingface/accelerate",
+  "pr": 4544,
+  "url": "https://github.com/huggingface/accelerate/pull/4544",
+  "title": "Avoid retaining full batches in the dispatcher padding cache",
+  "branch": "perf/dispatcher-prefix-storage-20261113",
+  "base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a",
+  "head": "a95ee5bdda6c74e93e59878a5e5e5db69d554950",
+  "tree": "0e8f39777958702bb0da4686f09c51b9e28682aa",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "verified_at": "2026-11-13T12:06:45.086Z",
+  "native_run": "https://github.com/Afloat16/accelerate/actions/runs/43421394225",
+  "native_job": 131872008992,
+  "native_validation_commit": "6f7482b8c53411ca8c9dd87769c6ef7b66dc3ff5",
+  "before": {
+    "tests": 32,
+    "failures": 12,
+    "errors": 0,
+    "skipped": 0
+  },
+  "after": {
+    "tests": 32,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "existing": {
+    "tests": 40,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "environment": {
+    "torch": "2.9.0+cpu",
+    "python": "3.12",
+    "distributed": "two-process Gloo DDP"
+  },
+  "measured_storage": {
+    "before_bytes": 2097152,
+    "after_bytes": 8192,
+    "logical_prefix_bytes": 8192,
+    "fixture": "256 samples x 2048 FP32 features, one CPU process",
+    "metric": "actual untyped storage of the cached padding prefix after advancing to the second batch",
+    "tradeoff": "one prefix-sized clone per iterator when padding is enabled",
+    "scope": "Does not measure process RSS or GPU peak memory."
+  },
+  "scope": "Release first-batch tensor storage retained by padding-prefix views. Eight real two-process DDP training cases check gradients, parameters, optimizer state, gathered sample identity and rank agreement.",
+  "peer_review": "data_contributions reviewed the exact production diff and all 32 new regression/training cases; no blocker.",
+  "dedup_review": {
+    "all_states": true,
+    "file_commit_count": 126,
+    "matched_changes": [
+      {
+        "sha": "8931e5e48cea6a5c498965144d521bd1e9737bb4",
+        "title": "Remove `skip_first_batches` support for StatefulDataloader and fix all the tests (#3068)"
+      },
+      {
+        "sha": "c8682ae74c51953966c8b578a53afe78f2a917c0",
+        "title": "support custom slice function in DataLoaderDispatcher (#1846)"
+      },
+      {
+        "sha": "1d9bcdd39d9bfb243e2a5caa969ed1c935131c4b",
+        "title": "Efficiently skip batches in a dataloader (#1002)"
+      },
+      {
+        "sha": "7a5a96b7b2fc2ba5f63ba48ca68f5b755ccb2527",
+        "title": "Fix DispatchDataloader (#588)"
+      },
+      {
+        "sha": "c7526e9483d8a9a1a665edb5e5c836039a9fbc3f",
+        "title": "Make gradient accumulation work with dispatched dataloaders (#510)"
+      },
+      {
+        "sha": "18e5a56cbbca9c6a344853b5dce7675e2c5798ea",
+        "title": "Pass along drop_last in DispatchDataLoader (#212)"
+      },
+      {
+        "sha": "23b91b54b7532e4e498fae54434abdd46a04a724",
+        "title": "Support for iterable dataset"
+      }
+    ],
+    "related_prs": [
+      1846,
+      2123,
+      2895,
+      4374,
+      4507,
+      4509
+    ],
+    "rejected_duplicate_candidates": [
+      3618,
+      4374
+    ]
+  },
+  "files": [
+    "src/accelerate/data_loader.py",
+    "tests/test_dispatcher_prefix_storage.py"
+  ],
+  "body": "## What does this PR do?\n\n`DataLoaderDispatcher` keeps a prefix of the first dispatched batch to pad the last batch. The default tensor slicing returns views, so this small prefix retains the storage of the entire first global batch for the rest of the iterator's lifetime.\n\nClone the tensor leaves of that cached prefix after calling the configured slice function. This releases the full first batch once its consumer and the iterator have moved on. The usual yielded batches, custom slicing behavior, and `drop_last=True` path retain their existing behavior.\n\n## Measured storage reduction\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43421394225), exact source `a95ee5bdda6c74e93e59878a5e5e5db69d554950` on current upstream `f5cc53877677eb7fa0ef7091fe41536a777fee6a`:\n\nA real dispatcher with 256 samples per batch and 2,048 FP32 features per sample caches one sample on a single CPU process. After advancing to the second batch, the padding cache's actual tensor storage changes from **2,097,152 bytes to 8,192 bytes**, while its logical contents stay 8,192 bytes.\n\nThis measures the live cache's tensor storage, not process RSS or GPU peak memory. The change adds one prefix-sized clone per iterator when padding is enabled.\n\n## Correctness validation\n\nPython 3.12, official PyTorch 2.9.0+cpu:\n\n- Unchanged source: 12 storage-lifetime regressions fail; 20 controls/training cases pass.\n- Fixed source: all 32 new cases pass.\n- The entire existing `tests/test_data_loader.py`: 39 pass, 1 conditional skip.\n- Weak-reference tests check that the original first batch is released for tensor, nested mapping, and namedtuple batches, both split modes, and FP32/FP64. The no-padding controls pass before and after.\n- Eight real two-process Gloo DDP runs cover split/unsplit dispatch, SGD with momentum and AdamW, and FP32/FP64. All gradients, updated parameters, and optimizer state match an independent global-batch reference for three updates, including a padded tail and in-place input normalization. Gathered metric samples are exactly the nine original examples, and final parameters agree between ranks.\n- Ruff check, Ruff format, and diff whitespace checks pass.\n\n## Prior work checked\n\nAll-state issue/PR searches, all 126 commits touching `data_loader.py`, and the existing author PRs were checked. #1846 introduces custom dispatch slicing; #4374 handles empty/undersized dispatch; #4507 and #4509 address sampler-owned index-list mutation. Their actual patches do not release the dispatcher's cached tensor-view storage."
+}
