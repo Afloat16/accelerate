@@ -32,7 +32,7 @@ jobs:
           python contribution-validation/benchmark_max_layer_scan.py baseline layer-scan-baseline.json
       - name: Changed source semantics and native timing
         run: |
-          git checkout 6994b501f631c4e3ca522625ea003ece6be76f46 -- src/accelerate/utils/modeling.py
+          git checkout be20c6e91fa30f31b7546a163e5ff7e2f8e119fd -- src/accelerate/utils/modeling.py
           python -m pytest -q tests/test_max_layer_scan.py tests/test_modeling_utils.py --junitxml=layer-scan-fixed.xml
           python contribution-validation/benchmark_max_layer_scan.py fixed layer-scan-fixed.json
       - name: Compare outputs and report measured cost
