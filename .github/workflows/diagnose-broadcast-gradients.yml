@@ -1,0 +1,25 @@
+name: Diagnose broadcast state-update gradients
+on:
+  push:
+    branches: [validation/broadcast-autograd-diagnostic-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python -e .
+      - run: .venv/bin/python validation/diagnose_broadcast_gradients.py
