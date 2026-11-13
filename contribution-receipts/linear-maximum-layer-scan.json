@@ -1,0 +1,196 @@
+{
+  "repository": "huggingface/accelerate",
+  "stars": 9941,
+  "title": "Avoid quadratic traversal in maximum-layer scanning",
+  "base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a",
+  "branch": "perf/linear-maximum-layer-scan-20261113",
+  "commit": "be20c6e91fa30f31b7546a163e5ff7e2f8e119fd",
+  "commit_url": "https://github.com/Afloat16/accelerate/commit/be20c6e91fa30f31b7546a163e5ff7e2f8e119fd",
+  "body": "## Problem\n\nThe maximum-layer scan repeatedly removes the first item of a Python list and prepends each module's children to the remaining list. A wide model hierarchy therefore spends quadratic time moving list entries during device-map planning.\n\n## Change\n\nUse a reversed stack and append children in reverse order. The scan keeps the same depth-first order, maximum layer size, equal-size name ordering, and no-split behavior. This changes only traversal bookkeeping; layer selection and memory accounting remain unchanged.\n\n## Validation\n\nExact source: `be20c6e91fa30f31b7546a163e5ff7e2f8e119fd`, based on `f5cc53877677eb7fa0ef7091fe41536a777fee6a`.\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43421469673), Python 3.12 and official PyTorch 2.9.0+cpu:\n\n- The identical final tests pass on both sources: **79 passed, 10 skipped, 4 subtests passed**. This includes 41 new cases and the complete existing `test_modeling_utils.py` group. The skips are the existing hardware/slow-test gates.\n- New controls cover CPU/meta modules, FP32/FP64 sizes, reversed input order, no-split classes, equal maxima, zero sizes, tensor leaves, and input-list preservation.\n- Eight integration cases train a real model with SGD momentum, save weights and optimizer state, infer the device map for a fresh meta-initialized model, load it with `load_checkpoint_and_dispatch`, and compare two continuation steps' outputs, gradients, parameters, and momentum buffers.\n- Ruff 0.13.1 lint/format and whitespace checks pass.\n\n## Measured planning cost\n\nFive timed calls per case on one CPU thread; the benchmark constructs a real `ModuleList` of independent meta `Linear(2, 2)` modules. Construction and precomputed sizes are outside the helper timing. The device-map timing calls the complete `infer_auto_device_map` function, including its size computation. Returned layer names and device maps have identical hashes.\n\n| Leaf modules | Maximum-layer scan before / after | Complete device map before / after |\n| ---: | ---: | ---: |\n| 64 | 0.0792 / 0.0793 ms | 0.7132 / 0.7678 ms |\n| 8,192 | 17.4639 / 13.0148 ms | 95.1010 / 94.3681 ms |\n| 65,536 | 450.5455 / 111.0378 ms | 1121.1533 / 797.0523 ms |\n\nAt 65,536 leaves the helper is about **4.06x** faster and complete planning about **1.41x** faster. The helper's measured Python allocation peak decreases from 12,451,762 to 11,928,122 bytes; the complete planner's peak is unchanged at 27,635,863 bytes. Small cases show little benefit and the 64-leaf complete-planning measurement is slightly slower. These are model-planning measurements, not training-throughput or GPU-memory results.\n\nThe benchmark and raw results are retained in the separate validation branch/run artifacts; no workflow is added to this PR.\n\n## Before submitting\n\n- [x] Read contributor guidance and checked related history and all-state PRs.\n- [x] Added semantic and checkpoint-continuation controls.\n- [x] Ran related existing tests on both sources.\n\nRelated performance changes #2756 and #3776 optimize balanced-memory leaf bookkeeping, while #4531 changes which tensors count as layers. This patch keeps the existing layer semantics and removes front-of-list traversal costs.",
+  "prefilled_url": "https://github.com/huggingface/accelerate/compare/main...Afloat16:accelerate:perf/linear-maximum-layer-scan-20261113?expand=1&title=Avoid%20quadratic%20traversal%20in%20maximum-layer%20scanning&body=%23%23%20Problem%0A%0AThe%20maximum-layer%20scan%20repeatedly%20removes%20the%20first%20item%20of%20a%20Python%20list%20and%20prepends%20each%20module's%20children%20to%20the%20remaining%20list.%20A%20wide%20model%20hierarchy%20therefore%20spends%20quadratic%20time%20moving%20list%20entries%20during%20device-map%20planning.%0A%0A%23%23%20Change%0A%0AUse%20a%20reversed%20stack%20and%20append%20children%20in%20reverse%20order.%20The%20scan%20keeps%20the%20same%20depth-first%20order%2C%20maximum%20layer%20size%2C%20equal-size%20name%20ordering%2C%20and%20no-split%20behavior.%20This%20changes%20only%20traversal%20bookkeeping%3B%20layer%20selection%20and%20memory%20accounting%20remain%20unchanged.%0A%0A%23%23%20Validation%0A%0AExact%20source%3A%20%60be20c6e91fa30f31b7546a163e5ff7e2f8e119fd%60%2C%20based%20on%20%60f5cc53877677eb7fa0ef7091fe41536a777fee6a%60.%0A%0A%5BNative%20before%2Fafter%20run%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2Faccelerate%2Factions%2Fruns%2F43421469673)%2C%20Python%203.12%20and%20official%20PyTorch%202.9.0%2Bcpu%3A%0A%0A-%20The%20identical%20final%20tests%20pass%20on%20both%20sources%3A%20**79%20passed%2C%2010%20skipped%2C%204%20subtests%20passed**.%20This%20includes%2041%20new%20cases%20and%20the%20complete%20existing%20%60test_modeling_utils.py%60%20group.%20The%20skips%20are%20the%20existing%20hardware%2Fslow-test%20gates.%0A-%20New%20controls%20cover%20CPU%2Fmeta%20modules%2C%20FP32%2FFP64%20sizes%2C%20reversed%20input%20order%2C%20no-split%20classes%2C%20equal%20maxima%2C%20zero%20sizes%2C%20tensor%20leaves%2C%20and%20input-list%20preservation.%0A-%20Eight%20integration%20cases%20train%20a%20real%20model%20with%20SGD%20momentum%2C%20save%20weights%20and%20optimizer%20state%2C%20infer%20the%20device%20map%20for%20a%20fresh%20meta-initialized%20model%2C%20load%20it%20with%20%60load_checkpoint_and_dispatch%60%2C%20and%20compare%20two%20continuation%20steps'%20outputs%2C%20gradients%2C%20parameters%2C%20and%20momentum%20buffers.%0A-%20Ruff%200.13.1%20lint%2Fformat%20and%20whitespace%20checks%20pass.%0A%0A%23%23%20Measured%20planning%20cost%0A%0AFive%20timed%20calls%20per%20case%20on%20one%20CPU%20thread%3B%20the%20benchmark%20constructs%20a%20real%20%60ModuleList%60%20of%20independent%20meta%20%60Linear(2%2C%202)%60%20modules.%20Construction%20and%20precomputed%20sizes%20are%20outside%20the%20helper%20timing.%20The%20device-map%20timing%20calls%20the%20complete%20%60infer_auto_device_map%60%20function%2C%20including%20its%20size%20computation.%20Returned%20layer%20names%20and%20device%20maps%20have%20identical%20hashes.%0A%0A%7C%20Leaf%20modules%20%7C%20Maximum-layer%20scan%20before%20%2F%20after%20%7C%20Complete%20device%20map%20before%20%2F%20after%20%7C%0A%7C%20---%3A%20%7C%20---%3A%20%7C%20---%3A%20%7C%0A%7C%2064%20%7C%200.0792%20%2F%200.0793%20ms%20%7C%200.7132%20%2F%200.7678%20ms%20%7C%0A%7C%208%2C192%20%7C%2017.4639%20%2F%2013.0148%20ms%20%7C%2095.1010%20%2F%2094.3681%20ms%20%7C%0A%7C%2065%2C536%20%7C%20450.5455%20%2F%20111.0378%20ms%20%7C%201121.1533%20%2F%20797.0523%20ms%20%7C%0A%0AAt%2065%2C536%20leaves%20the%20helper%20is%20about%20**4.06x**%20faster%20and%20complete%20planning%20about%20**1.41x**%20faster.%20The%20helper's%20measured%20Python%20allocation%20peak%20decreases%20from%2012%2C451%2C762%20to%2011%2C928%2C122%20bytes%3B%20the%20complete%20planner's%20peak%20is%20unchanged%20at%2027%2C635%2C863%20bytes.%20Small%20cases%20show%20little%20benefit%20and%20the%2064-leaf%20complete-planning%20measurement%20is%20slightly%20slower.%20These%20are%20model-planning%20measurements%2C%20not%20training-throughput%20or%20GPU-memory%20results.%0A%0AThe%20benchmark%20and%20raw%20results%20are%20retained%20in%20the%20separate%20validation%20branch%2Frun%20artifacts%3B%20no%20workflow%20is%20added%20to%20this%20PR.%0A%0A%23%23%20Before%20submitting%0A%0A-%20%5Bx%5D%20Read%20contributor%20guidance%20and%20checked%20related%20history%20and%20all-state%20PRs.%0A-%20%5Bx%5D%20Added%20semantic%20and%20checkpoint-continuation%20controls.%0A-%20%5Bx%5D%20Ran%20related%20existing%20tests%20on%20both%20sources.%0A%0ARelated%20performance%20changes%20%232756%20and%20%233776%20optimize%20balanced-memory%20leaf%20bookkeeping%2C%20while%20%234531%20changes%20which%20tensors%20count%20as%20layers.%20This%20patch%20keeps%20the%20existing%20layer%20semantics%20and%20removes%20front-of-list%20traversal%20costs.%0A",
+  "pr_created": true,
+  "pr_url": "https://github.com/huggingface/accelerate/pull/4545",
+  "status": "open",
+  "native_run_url": "https://github.com/Afloat16/accelerate/actions/runs/43421469673",
+  "native_job_id": 131872264986,
+  "validation_head": "343ec353428a8c49654cb5bd642a632022382f8c",
+  "validation_before": {
+    "new_passed": 41,
+    "new_failed": 0,
+    "existing_passed": 38,
+    "existing_skipped": 10,
+    "subtests_passed": 4
+  },
+  "validation_after": {
+    "new_passed": 41,
+    "new_failed": 0,
+    "existing_passed": 38,
+    "existing_skipped": 10,
+    "subtests_passed": 4
+  },
+  "validation_limitations": [
+    "CPU/meta model planning and CPU checkpoint continuation only; no GPU execution or training-throughput claim.",
+    "The initial fixture run failed because a defaultdict legitimately inserted an unparameterized layer and the checkpoint API requires a string path; final identical controls were corrected and rerun on both versions."
+  ],
+  "benchmark": [
+    {
+      "layer_count": 64,
+      "operation": "maximum_layer",
+      "median_seconds": 0.00007915999999852374,
+      "python_peak_bytes": 15350,
+      "output_sha256": "60f35bb0fe9f73241b72201b0fd96e09277e23492d801a30f8f7c245c455f573"
+    },
+    {
+      "layer_count": 64,
+      "operation": "device_map",
+      "median_seconds": 0.0007131710000010116,
+      "python_peak_bytes": 28444,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    },
+    {
+      "layer_count": 8192,
+      "operation": "maximum_layer",
+      "median_seconds": 0.01746391199999664,
+      "python_peak_bytes": 1542530,
+      "output_sha256": "8fe5db84f0c9d135339d1027ca56fbb9a146e4d15ad0cacd34997ad493b6cc62"
+    },
+    {
+      "layer_count": 8192,
+      "operation": "device_map",
+      "median_seconds": 0.09510100800000032,
+      "python_peak_bytes": 3883559,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    },
+    {
+      "layer_count": 65536,
+      "operation": "maximum_layer",
+      "median_seconds": 0.45054547300000536,
+      "python_peak_bytes": 12451762,
+      "output_sha256": "06e6b635ba289e19e17220ca816ce2d96cc834c35d558ec971ff55c150e5c5eb"
+    },
+    {
+      "layer_count": 65536,
+      "operation": "device_map",
+      "median_seconds": 1.1211533190000011,
+      "python_peak_bytes": 27635863,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    },
+    {
+      "layer_count": 64,
+      "operation": "maximum_layer",
+      "median_seconds": 0.00007929899999226109,
+      "python_peak_bytes": 15326,
+      "output_sha256": "60f35bb0fe9f73241b72201b0fd96e09277e23492d801a30f8f7c245c455f573"
+    },
+    {
+      "layer_count": 64,
+      "operation": "device_map",
+      "median_seconds": 0.0007677739999962796,
+      "python_peak_bytes": 28444,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    },
+    {
+      "layer_count": 8192,
+      "operation": "maximum_layer",
+      "median_seconds": 0.013014761999997404,
+      "python_peak_bytes": 1477642,
+      "output_sha256": "8fe5db84f0c9d135339d1027ca56fbb9a146e4d15ad0cacd34997ad493b6cc62"
+    },
+    {
+      "layer_count": 8192,
+      "operation": "device_map",
+      "median_seconds": 0.09436808799999596,
+      "python_peak_bytes": 3883559,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    },
+    {
+      "layer_count": 65536,
+      "operation": "maximum_layer",
+      "median_seconds": 0.11103781100001697,
+      "python_peak_bytes": 11928122,
+      "output_sha256": "06e6b635ba289e19e17220ca816ce2d96cc834c35d558ec971ff55c150e5c5eb"
+    },
+    {
+      "layer_count": 65536,
+      "operation": "device_map",
+      "median_seconds": 0.7970522780000238,
+      "python_peak_bytes": 27635863,
+      "output_sha256": "6b2ae1775a6200629fbd46255d0d5af80a82b6cd51a7c48f8a187ec691f33eaa"
+    }
+  ],
+  "peer_review": "data_contributions read exact production and all 41 new cases; no blocking issue.",
+  "deduplication": {
+    "upstream_path_history_entries": 175,
+    "actual_related_patches": [
+      2756,
+      3776,
+      583,
+      747,
+      4531
+    ],
+    "all_state_queries": [
+      "get_max_layer_size",
+      "deque",
+      "maximum layer performance"
+    ],
+    "fork_production_and_old_heads": [
+      {
+        "ref": "refs/heads/fix-empty-disk-offload-20261008",
+        "sha": "5060b4884756556a4e0b7fc2bbb039728f0a7eaf",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/balanced-memory-largest-block-20261112",
+        "sha": "c100d247a46ab16429e58ff654fa641a4addc8f2",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/cpu-ddp-uneven-inputs-20261113",
+        "sha": "3a2f7b6b5679d34c41f3ff56a3ccde7ca436425d",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/cuda-unindexed-device-current-context-20261112",
+        "sha": "58d33c39ec7e7407127fce7fa9ae262056dafa34",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/maximum-layer-direct-parameters-20261112",
+        "sha": "afff12fe664b31fea12a049a4580ed7d9aecd583",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/multiple-model-parameter-mapping-20261113",
+        "sha": "04023a70f672c058cf0f3a9128550e38b80780a9",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/optimizer-hook-delegation-20261112",
+        "sha": "53946e5cd4b5615ab9c9f8a10a141939f90dcd89",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/fix/split-module-direct-offload-20261113",
+        "sha": "dc6600f6dc7fbc2b9536072ff802663df6ce74e3",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/main",
+        "sha": "419d0e0c871f6dfd028787fd0eb8011511d9e512",
+        "still_front_pop": true
+      },
+      {
+        "ref": "refs/heads/perf/safetensors-fallback-membership-20261113",
+        "sha": "d31250bad01c8fb0d3b0357a976721daa5dd63dd",
+        "still_front_pop": true
+      }
+    ]
+  },
+  "pr_number": 4545,
+  "draft": false,
+  "merged_at": null,
+  "head_verified": "be20c6e91fa30f31b7546a163e5ff7e2f8e119fd",
+  "maintainer_can_modify": false,
+  "created_at": "2026-11-13T12:11:03Z",
+  "api_verified": true
+}
