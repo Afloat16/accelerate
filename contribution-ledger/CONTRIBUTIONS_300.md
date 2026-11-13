@@ -1,11 +1,13 @@
 # Model training lifecycle contribution ledger
 
-Generated: 2026-11-13T12:22:52.847303+00:00
+Generated: 2026-11-13T12:55:16.994210+00:00
 
-Target: 30 projects, 10 distinct contributions each, all projects above 3,000 stars at the recorded metadata check.
+User target: **300 actual upstream merges**, across 30 projects with 10 distinct contributions each. All projects were above 3,000 stars at the recorded metadata check.
 
-Created upstream PRs: **296 / 300**. Remaining to create: **4**.
-Actual upstream merges: **3**. Ordinary Open: **271**. Draft Open: **12**. Closed without merging: **10**.
+Created upstream PRs: **300 / 300**. Remaining to create: **0**.
+Actual upstream merges: **3 / 300**. Remaining to merge: **297**.
+Ordinary Open: **273**. Draft Open: **14**. Closed without merging: **10**. Created PRs and drafts record submission progress toward the merge target.
+Every project has 10 submitted PRs: **yes**. Every project has 10 merged PRs: **no**.
 
 Only a non-null current upstream merged_at counts as merged. PRs, drafts, commits, tests and closed-unmerged work are not merges.
 
@@ -15,38 +17,38 @@ Project stars and PR states are snapshots, with timestamps retained in the accom
 
 ## Projects
 
-| Stage | Project | Stars | Created | Actual merged | Open | Draft | Closed unmerged |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Data preparation | [huggingface/datasets](https://github.com/huggingface/datasets) | 22,136 | 10/10 | 0 | 10 | 0 | 0 |
-| Data preparation | [Unstructured-IO/unstructured](https://github.com/Unstructured-IO/unstructured) | 15,730 | 10/10 | 3 | 7 | 0 | 0 |
-| Data preparation | [sloria/TextBlob](https://github.com/sloria/TextBlob) | 9,554 | 10/10 | 0 | 0 | 0 | 10 |
-| Data quality and annotation | [cleanlab/cleanlab](https://github.com/cleanlab/cleanlab) | 11,741 | 10/10 | 0 | 10 | 0 | 0 |
-| Data quality and annotation | [HumanSignal/label-studio](https://github.com/HumanSignal/label-studio) | 28,688 | 10/10 | 0 | 10 | 0 | 0 |
-| Data quality and annotation | [cvat-ai/cvat](https://github.com/cvat-ai/cvat) | 17,134 | 10/10 | 0 | 10 | 0 | 0 |
-| Tokenization and feature encoding | [huggingface/tokenizers](https://github.com/huggingface/tokenizers) | 11,260 | 10/10 | 0 | 10 | 0 | 0 |
-| Tokenization and feature encoding | [FlagOpen/FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding) | 12,317 | 10/10 | 0 | 10 | 0 | 0 |
-| Tokenization and feature encoding | [ddbourgin/numpy-ml](https://github.com/ddbourgin/numpy-ml) | 16,323 | 10/10 | 0 | 10 | 0 | 0 |
-| Model architecture | [lucidrains/x-transformers](https://github.com/lucidrains/x-transformers) | 5,963 | 10/10 | 0 | 10 | 0 | 0 |
-| Model architecture | [lucidrains/vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch) | 4,028 | 10/10 | 0 | 10 | 0 | 0 |
-| Model architecture | [lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch) | 10,727 | 10/10 | 0 | 10 | 0 | 0 |
-| Distributed training | [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31,449 | 10/10 | 0 | 10 | 0 | 0 |
-| Distributed training | [huggingface/accelerate](https://github.com/huggingface/accelerate) | 9,942 | 9/10 | 0 | 9 | 0 | 0 |
-| Distributed training | [hpcaitech/ColossalAI](https://github.com/hpcaitech/ColossalAI) | 41,424 | 10/10 | 0 | 10 | 0 | 0 |
-| Pretraining and fine-tuning | [huggingface/transformers](https://github.com/huggingface/transformers) | 168,943 | 10/10 | 0 | 10 | 0 | 0 |
-| Pretraining and fine-tuning | [Lightning-AI/litgpt](https://github.com/Lightning-AI/litgpt) | 13,747 | 10/10 | 0 | 10 | 0 | 0 |
-| Pretraining and fine-tuning | [hiyouga/LlamaFactory](https://github.com/hiyouga/LlamaFactory) | 76,027 | 10/10 | 0 | 10 | 0 | 0 |
-| Optimization and compression | [jettify/pytorch-optimizer](https://github.com/jettify/pytorch-optimizer) | 3,172 | 10/10 | 0 | 10 | 0 | 0 |
-| Optimization and compression | [bitsandbytes-foundation/bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes) | 8,538 | 10/10 | 0 | 5 | 5 | 0 |
-| Optimization and compression | [pytorch/ao](https://github.com/pytorch/ao) | 3,027 | 10/10 | 0 | 10 | 0 | 0 |
-| Training policy and experiment management | [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) | 10,151 | 10/10 | 0 | 10 | 0 | 0 |
-| Training policy and experiment management | [hyperopt/hyperopt](https://github.com/hyperopt/hyperopt) | 7,599 | 10/10 | 0 | 10 | 0 | 0 |
-| Training policy and experiment management | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 28,791 | 10/10 | 0 | 3 | 7 | 0 |
-| Evaluation and monitoring | [EleutherAI/lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | 14,464 | 10/10 | 0 | 10 | 0 | 0 |
-| Evaluation and monitoring | [evidentlyai/evidently](https://github.com/evidentlyai/evidently) | 8,062 | 10/10 | 0 | 10 | 0 | 0 |
-| Evaluation and monitoring | [rasbt/mlxtend](https://github.com/rasbt/mlxtend) | 5,192 | 10/10 | 0 | 10 | 0 | 0 |
-| Inference and deployment | [vllm-project/vllm](https://github.com/vllm-project/vllm) | 96,868 | 7/10 | 0 | 7 | 0 | 0 |
-| Inference and deployment | [sgl-project/sglang](https://github.com/sgl-project/sglang) | 38,811 | 10/10 | 0 | 10 | 0 | 0 |
-| Inference and deployment | [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime) | 22,299 | 10/10 | 0 | 10 | 0 | 0 |
+| Stage | Project | Stars | Created | Actual merged | Remaining merges | Open | Draft | Closed unmerged |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Data preparation | [huggingface/datasets](https://github.com/huggingface/datasets) | 22,136 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Data preparation | [Unstructured-IO/unstructured](https://github.com/Unstructured-IO/unstructured) | 15,730 | 10/10 | 3 | 7 | 7 | 0 | 0 |
+| Data preparation | [sloria/TextBlob](https://github.com/sloria/TextBlob) | 9,554 | 10/10 | 0 | 10 | 0 | 0 | 10 |
+| Data quality and annotation | [cleanlab/cleanlab](https://github.com/cleanlab/cleanlab) | 11,741 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Data quality and annotation | [HumanSignal/label-studio](https://github.com/HumanSignal/label-studio) | 28,688 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Data quality and annotation | [cvat-ai/cvat](https://github.com/cvat-ai/cvat) | 17,134 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Tokenization and feature encoding | [huggingface/tokenizers](https://github.com/huggingface/tokenizers) | 11,260 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Tokenization and feature encoding | [FlagOpen/FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding) | 12,317 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Tokenization and feature encoding | [ddbourgin/numpy-ml](https://github.com/ddbourgin/numpy-ml) | 16,323 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Model architecture | [lucidrains/x-transformers](https://github.com/lucidrains/x-transformers) | 5,963 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Model architecture | [lucidrains/vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch) | 4,028 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Model architecture | [lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch) | 10,727 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Distributed training | [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31,449 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Distributed training | [huggingface/accelerate](https://github.com/huggingface/accelerate) | 9,942 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Distributed training | [hpcaitech/ColossalAI](https://github.com/hpcaitech/ColossalAI) | 41,424 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Pretraining and fine-tuning | [huggingface/transformers](https://github.com/huggingface/transformers) | 168,943 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Pretraining and fine-tuning | [Lightning-AI/litgpt](https://github.com/Lightning-AI/litgpt) | 13,747 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Pretraining and fine-tuning | [hiyouga/LlamaFactory](https://github.com/hiyouga/LlamaFactory) | 76,027 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Optimization and compression | [jettify/pytorch-optimizer](https://github.com/jettify/pytorch-optimizer) | 3,172 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Optimization and compression | [bitsandbytes-foundation/bitsandbytes](https://github.com/bitsandbytes-foundation/bitsandbytes) | 8,538 | 10/10 | 0 | 10 | 5 | 5 | 0 |
+| Optimization and compression | [pytorch/ao](https://github.com/pytorch/ao) | 3,027 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Training policy and experiment management | [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) | 10,151 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Training policy and experiment management | [hyperopt/hyperopt](https://github.com/hyperopt/hyperopt) | 7,599 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Training policy and experiment management | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 28,791 | 10/10 | 0 | 10 | 3 | 7 | 0 |
+| Evaluation and monitoring | [EleutherAI/lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | 14,464 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Evaluation and monitoring | [evidentlyai/evidently](https://github.com/evidentlyai/evidently) | 8,062 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Evaluation and monitoring | [rasbt/mlxtend](https://github.com/rasbt/mlxtend) | 5,192 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Inference and deployment | [vllm-project/vllm](https://github.com/vllm-project/vllm) | 96,869 | 10/10 | 0 | 10 | 8 | 2 | 0 |
+| Inference and deployment | [sgl-project/sglang](https://github.com/sgl-project/sglang) | 38,813 | 10/10 | 0 | 10 | 10 | 0 | 0 |
+| Inference and deployment | [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime) | 22,299 | 10/10 | 0 | 10 | 10 | 0 | 0 |
 
 ## Actual merges
 
@@ -204,6 +206,7 @@ Project stars and PR states are snapshots, with timestamps retained in the accom
 | [#4543](https://github.com/huggingface/accelerate/pull/4543) | Honor direct tensor offload entries on split modules | ordinary_open | `dc6600f6dc7fbc2b9536072ff802663df6ce74e3` | [run 43415810211](https://github.com/Afloat16/accelerate/actions/runs/43415810211) |
 | [#4544](https://github.com/huggingface/accelerate/pull/4544) | Avoid retaining full batches in the dispatcher padding cache | ordinary_open | `a95ee5bdda6c74e93e59878a5e5e5db69d554950` | [run 43421394225](https://github.com/Afloat16/accelerate/actions/runs/43421394225) |
 | [#4545](https://github.com/huggingface/accelerate/pull/4545) | Avoid quadratic traversal in maximum-layer scanning | ordinary_open | `be20c6e91fa30f31b7546a163e5ff7e2f8e119fd` | [run 43421469673](https://github.com/Afloat16/accelerate/actions/runs/43421469673) |
+| [#4546](https://github.com/huggingface/accelerate/pull/4546) | Preserve logical tensor values when broadcasting noncontiguous views | ordinary_open | `133b0409368afe8dc1751094d462efb4823176e6` | [run 43425059757](https://github.com/Afloat16/accelerate/actions/runs/43425059757) [run 43425632071](https://github.com/Afloat16/accelerate/actions/runs/43425632071) |
 
 ### huggingface/datasets
 
@@ -500,14 +503,17 @@ Project stars and PR states are snapshots, with timestamps retained in the accom
 | [#67472](https://github.com/vllm-project/vllm/pull/67472) | [Bugfix][Model] Initialize configured ColBERT projections after module setup | ordinary_open | `c04161eda9e574dc5d5b6d0182bbba661830bf21` | [run 43412052619](https://github.com/Afloat16/vllm/actions/runs/43412052619) [run 43415980870](https://github.com/Afloat16/vllm/actions/runs/43415980870) |
 | [#67473](https://github.com/vllm-project/vllm/pull/67473) | [Perf][Pooling] Bound reference MaxSim matrices for long inference pairs | ordinary_open | `11c0abf92f2b6237cb731050b9617c58da79f4c8` | [run 43417250570](https://github.com/Afloat16/vllm/actions/runs/43417250570) [run 43417368801](https://github.com/Afloat16/vllm/actions/runs/43417368801) |
 | [#67475](https://github.com/vllm-project/vllm/pull/67475) | [Bugfix] Preserve lanes when packing narrow integer quantized weights | ordinary_open | `2e7c853b3b6af28d8fb66923b71a67c74d08d84a` | [run 43418160015](https://github.com/Afloat16/vllm/actions/runs/43418160015) |
-| [#67477](https://github.com/vllm-project/vllm/pull/67477) | [Bugfix][CPU] Preserve token logprobs under large shared logit offsets | ordinary_open | `a1d104587bcf4b86592fe988ac05f4b6cd47ede4` | [run 43414866395](https://github.com/Afloat16/vllm/actions/runs/43414866395) [run 43419952030](https://github.com/Afloat16/vllm/actions/runs/43419952030) |
+| [#67477](https://github.com/vllm-project/vllm/pull/67477) | [Bugfix][CPU] Preserve token logprobs under large shared logit offsets | ordinary_open | `8bbeadccf7f90a349582461d1631bd1473a21a22` | [run 43419952030](https://github.com/Afloat16/vllm/actions/runs/43419952030) [run 43425207334](https://github.com/Afloat16/vllm/actions/runs/43425207334) |
+| [#67479](https://github.com/vllm-project/vllm/pull/67479) | [Bugfix][Multimodal] Preserve values from non-native-endian NumPy embeddings | ordinary_open | `e4ffb1f7a6e2f582cf62d567753b7a658ca86354` | [run 43423892421](https://github.com/Afloat16/vllm/actions/runs/43423892421) [run 43423896475](https://github.com/Afloat16/vllm/actions/runs/43423896475) |
+| [#67481](https://github.com/vllm-project/vllm/pull/67481) | [Bugfix][Pooling] Honor configured precision in BERT MLM and SPLADE heads | draft_open | `06988e1701c08a617a19a582bb58d0915f9db2b9` | [run 43424033592](https://github.com/Afloat16/vllm/actions/runs/43424033592) [run 43424810234](https://github.com/Afloat16/vllm/actions/runs/43424810234) [run 43426040940](https://github.com/Afloat16/vllm/actions/runs/43426040940) |
+| [#67482](https://github.com/vllm-project/vllm/pull/67482) | [Bugfix][Model] Load standard tied SPLADE checkpoint aliases | draft_open | `a7e2892b3a8e0984bc76d8faf04215640ffdca51` | [run 43426563639](https://github.com/Afloat16/vllm/actions/runs/43426563639) [run 43426569716](https://github.com/Afloat16/vllm/actions/runs/43426569716) |
 
 ## Evidence indexes
 
 - https://github.com/Afloat16/cvat/blob/11017f36f29c054927b45467b4da7429474531c2/manifest/data-90-plus-transformers-2.json
 - https://github.com/Afloat16/lm-evaluation-harness/blob/3387d04972829adf230517baf672c37c6d3e9986/contribution-receipts/eval70_manifest.json
 - https://github.com/Afloat16/OpenRLHF/blob/f284dea4d19f1ca8303c89d2812823ea1db3d4ee/contribution-receipts/eval74_addendum.json
-- https://github.com/Afloat16/OpenRLHF/blob/audit/training-seventy-status-20261113/training_70_manifest.json
+- https://github.com/Afloat16/OpenRLHF/blob/c1eb264891931166e9e49ee56a853d8cbe7a8b83/training_70_manifest.json
 
 ## Excluded from the target count
 

@@ -24,6 +24,12 @@ STAGES = {
     "Evaluation and monitoring": ["EleutherAI/lm-evaluation-harness", "evidentlyai/evidently", "rasbt/mlxtend"],
     "Inference and deployment": ["vllm-project/vllm", "sgl-project/sglang", "microsoft/onnxruntime"],
 }
+EXCLUDED_PRS = {
+    ("huggingface/datasets", 9017),
+    ("huggingface/accelerate", 4528),
+    ("lucidrains/denoising-diffusion-pytorch", 399),
+    ("lucidrains/denoising-diffusion-pytorch", 400),
+}
 
 
 def read(path):
@@ -66,6 +72,11 @@ def build():
         repo = project_names[repo.lower()]
         url = row.get("pr_url") or row.get("url")
         number = row.get("pr_number") or row.get("pr")
+        if isinstance(number, str):
+            if number.isdecimal():
+                number = int(number)
+            elif "/pull/" in number:
+                url = url or number
         if not isinstance(number, int) and url:
             match = re.search(r"/pull/(\d+)$", url)
             number = int(match[1]) if match else None
@@ -74,6 +85,8 @@ def build():
                 pending.append({"repository": repo, "slot": row["slot"], "status": row.get("status"), "source": source})
             continue
         key = (repo.lower(), number)
+        if key in EXCLUDED_PRS:
+            continue
         entry = records.setdefault(key, {
             "repository": repo,
             "pr_number": number,
@@ -132,20 +145,30 @@ def build():
     for project in sorted(projects, key=lambda item: item["repository"].lower()):
         repo_rows = per_repo[project["repository"]]
         repo_counts = Counter(item["counting_status"] for item in repo_rows)
-        project_summary.append({**project, "target": 10, "created": len(repo_rows), "remaining_to_create": max(0, 10 - len(repo_rows)), "counts": dict(repo_counts)})
+        project_summary.append({
+            **project,
+            "target": 10,
+            "created": len(repo_rows),
+            "remaining_to_create": max(0, 10 - len(repo_rows)),
+            "remaining_to_merge": max(0, 10 - repo_counts.get("merged", 0)),
+            "merge_target_complete": repo_counts.get("merged", 0) >= 10,
+            "counts": dict(repo_counts),
+        })
     result = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "target": {"projects": 30, "contributions_per_project": 10, "total": 300, "minimum_stars_exclusive": 3000},
+        "target": {"projects": 30, "contributions_per_project": 10, "total": 300, "upstream_merged": 300, "minimum_stars_exclusive": 3000},
         "counting_rule": "Only a non-null current upstream merged_at counts as merged. PRs, drafts, commits, tests and closed-unmerged work are not merges.",
         "evidence_rule": "Validation URLs retain their actual coverage. An absent hosted run does not imply a fabricated hosted validation; consult the preserved published validation text and source receipts.",
-        "counts": {"created": len(entries), "remaining_to_create": max(0, 300 - len(entries)), **dict(counts)},
+        "counts": {"created": len(entries), "remaining_to_create": max(0, 300 - len(entries)), "remaining_to_merge": max(0, 300 - counts.get("merged", 0)), **dict(counts)},
+        "submission_complete": len(entries) == 300 and all(project["created"] == 10 for project in project_summary),
+        "merge_target_complete": all(project["merge_target_complete"] for project in project_summary),
         "projects": project_summary,
         "stage_grouping": {"note": "Functional grouping for navigation; some projects span several stages.", "groups": STAGES},
         "evidence_indexes": [
             "https://github.com/Afloat16/cvat/blob/11017f36f29c054927b45467b4da7429474531c2/manifest/data-90-plus-transformers-2.json",
             "https://github.com/Afloat16/lm-evaluation-harness/blob/3387d04972829adf230517baf672c37c6d3e9986/contribution-receipts/eval70_manifest.json",
             "https://github.com/Afloat16/OpenRLHF/blob/f284dea4d19f1ca8303c89d2812823ea1db3d4ee/contribution-receipts/eval74_addendum.json",
-            "https://github.com/Afloat16/OpenRLHF/blob/audit/training-seventy-status-20261113/training_70_manifest.json",
+            "https://github.com/Afloat16/OpenRLHF/blob/c1eb264891931166e9e49ee56a853d8cbe7a8b83/training_70_manifest.json",
         ],
         "pending_source_entries": pending,
         "entries": entries,
@@ -156,6 +179,8 @@ def build():
         ],
     }
     assert len(project_summary) == 30
+    assert len(STAGES) == 10 and all(len(repositories) == 3 for repositories in STAGES.values())
+    assert {repo for repositories in STAGES.values() for repo in repositories} == {project["repository"] for project in project_summary}
     assert all(project["stars"] > 3000 for project in project_summary)
     assert all(project["created"] <= 10 for project in project_summary), [(project["repository"], project["created"]) for project in project_summary if project["created"] > 10]
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
@@ -170,10 +195,12 @@ def write_report(result):
         "",
         f"Generated: {result['generated_at']}",
         "",
-        "Target: 30 projects, 10 distinct contributions each, all projects above 3,000 stars at the recorded metadata check.",
+        f"User target: **{result['target']['upstream_merged']} actual upstream merges**, across 30 projects with 10 distinct contributions each. All projects were above 3,000 stars at the recorded metadata check.",
         "",
         f"Created upstream PRs: **{counts['created']} / 300**. Remaining to create: **{counts['remaining_to_create']}**.",
-        f"Actual upstream merges: **{counts.get('merged', 0)}**. Ordinary Open: **{counts.get('ordinary_open', 0)}**. Draft Open: **{counts.get('draft_open', 0)}**. Closed without merging: **{counts.get('closed_unmerged', 0)}**.",
+        f"Actual upstream merges: **{counts.get('merged', 0)} / {result['target']['upstream_merged']}**. Remaining to merge: **{counts['remaining_to_merge']}**.",
+        f"Ordinary Open: **{counts.get('ordinary_open', 0)}**. Draft Open: **{counts.get('draft_open', 0)}**. Closed without merging: **{counts.get('closed_unmerged', 0)}**. Created PRs and drafts record submission progress toward the merge target.",
+        f"Every project has 10 submitted PRs: **{'yes' if result['submission_complete'] else 'no'}**. Every project has 10 merged PRs: **{'yes' if result['merge_target_complete'] else 'no'}**.",
         "",
         result["counting_rule"],
         "",
@@ -183,15 +210,15 @@ def write_report(result):
         "",
         "## Projects",
         "",
-        "| Stage | Project | Stars | Created | Actual merged | Open | Draft | Closed unmerged |",
-        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Stage | Project | Stars | Created | Actual merged | Remaining merges | Open | Draft | Closed unmerged |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     by_name = {item["repository"]: item for item in result["projects"]}
     for stage, repositories in STAGES.items():
         for repo in repositories:
             project = by_name[repo]
             status = project["counts"]
-            lines.append(f"| {stage} | [{repo}]({project['url']}) | {project['stars']:,} | {project['created']}/10 | {status.get('merged', 0)} | {status.get('ordinary_open', 0)} | {status.get('draft_open', 0)} | {status.get('closed_unmerged', 0)} |")
+            lines.append(f"| {stage} | [{repo}]({project['url']}) | {project['stars']:,} | {project['created']}/10 | {status.get('merged', 0)} | {project['remaining_to_merge']} | {status.get('ordinary_open', 0)} | {status.get('draft_open', 0)} | {status.get('closed_unmerged', 0)} |")
     lines.extend(["", "## Actual merges", ""])
     for entry in result["entries"]:
         if entry.get("merged_at"):
