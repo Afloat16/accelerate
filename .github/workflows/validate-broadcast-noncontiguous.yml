@@ -1,0 +1,46 @@
+name: Validate broadcasts with strided tensor views
+on:
+  push:
+    branches: [validation/broadcast-noncontiguous-views-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      PYTHONPATH: src
+      HF_HUB_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install official CPU dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python -e '.[test_prod,quality]' torchdata transformers
+          uv pip freeze --python .venv/bin/python > installed-dependencies.txt
+      - name: Compare real two-rank broadcasts and dispatched training
+        run: .venv/bin/python validation/run_broadcast_noncontiguous.py
+      - name: Check source and tests
+        if: always()
+        run: |
+          .venv/bin/ruff check src/accelerate/utils/operations.py tests/test_broadcast_strided.py
+          .venv/bin/ruff format --check src/accelerate/utils/operations.py tests/test_broadcast_strided.py
+          git diff --check f5cc53877677eb7fa0ef7091fe41536a777fee6a
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: broadcast-noncontiguous-native-evidence
+          path: |
+            *.log
+            *.xml
+            native-report.json
+            installed-dependencies.txt
