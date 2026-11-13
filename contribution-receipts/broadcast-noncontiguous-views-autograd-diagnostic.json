@@ -1,0 +1,14 @@
+{
+  "run": "https://github.com/Afloat16/accelerate/actions/runs/43425059757",
+  "source_commit": "d6327f6f2ef2db05771eca872bdd0aa2eb6f4a90",
+  "torch": "2.9.0+cpu",
+  "findings": [
+    "The raw collective writes receiver storage without increasing the tensor version.",
+    "An ordinary no_grad copy_ and detached copy_ both increment the receiver version.",
+    "In PyTorch 2.9, a requires-grad leaf that is itself a view of a non-grad base can lose the old child view's edge to that intermediate leaf after any normal in-place copy. The no-collective plain-copy control reproduces this behavior.",
+    "Owned leaves and base leaves retain their local gradients under all normal copy variants.",
+    "The implementation preserves the source version and saved graph by avoiding copy-back on the source rank.",
+    "Final tests recreate receiver forward views after an update to a non-owning leaf, and also verify existing views of nn.Parameter leaves. This is not differentiation through the collective.",
+    "The data-copy diagnostic preserves the old version, but was rejected for production because it bypasses ordinary autograd mutation tracking."
+  ]
+}

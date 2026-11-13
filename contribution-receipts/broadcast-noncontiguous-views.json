@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "repository": "huggingface/accelerate",
+  "pr": 4546,
+  "url": "https://github.com/huggingface/accelerate/pull/4546",
+  "title": "Preserve logical tensor values when broadcasting noncontiguous views",
+  "branch": "fix/broadcast-noncontiguous-views-20261113",
+  "base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a",
+  "head": "133b0409368afe8dc1751094d462efb4823176e6",
+  "tree": "b866df8184d5faf4446648121f919e6ba4f79556",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "verified_at": "2026-11-13T12:36:50.684Z",
+  "native_run": "https://github.com/Afloat16/accelerate/actions/runs/43425632071",
+  "native_job": 131886250064,
+  "native_validation_commit": "b5f9a8e5ac53ac2c034494e85303dc771b05e689",
+  "before": {
+    "tests": 35,
+    "failures": 13,
+    "errors": 0,
+    "skipped": 0,
+    "returncode": 1
+  },
+  "after": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "returncode": 0
+  },
+  "existing": {
+    "tests": 92,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 6,
+    "returncode": 0
+  },
+  "existing_distributed_ops_returncode": 0,
+  "environment": {
+    "python": "3.12",
+    "torch": "2.9.0+cpu",
+    "backend": "Gloo",
+    "ranks": 2
+  },
+  "scope": "Contiguous transport for non-overlapping strided tensor views; receiver-only copy-back preserves original leaf identity and aliases. Twelve actual DDP training cases compare gradients, updates and optimizer state to a full global-batch reference.",
+  "limitations": {
+    "run": "https://github.com/Afloat16/accelerate/actions/runs/43425059757",
+    "source_commit": "d6327f6f2ef2db05771eca872bdd0aa2eb6f4a90",
+    "torch": "2.9.0+cpu",
+    "findings": [
+      "The raw collective writes receiver storage without increasing the tensor version.",
+      "An ordinary no_grad copy_ and detached copy_ both increment the receiver version.",
+      "In PyTorch 2.9, a requires-grad leaf that is itself a view of a non-grad base can lose the old child view's edge to that intermediate leaf after any normal in-place copy. The no-collective plain-copy control reproduces this behavior.",
+      "Owned leaves and base leaves retain their local gradients under all normal copy variants.",
+      "The implementation preserves the source version and saved graph by avoiding copy-back on the source rank.",
+      "Final tests recreate receiver forward views after an update to a non-owning leaf, and also verify existing views of nn.Parameter leaves. This is not differentiation through the collective.",
+      "The data-copy diagnostic preserves the old version, but was rejected for production because it bypasses ordinary autograd mutation tracking."
+    ]
+  },
+  "peer_review": "existing_prs and eval_contributions reviewed the production diff, training tests and source/receiver autograd behavior. existing_prs independently read the final exact-source native log; no remaining blocker in the stated scope.",
+  "dedup_review": {
+    "all_states": true,
+    "queries": [
+      {
+        "query": "repo:huggingface/accelerate is:pull-request broadcast contiguous",
+        "total_count": 1,
+        "results": [
+          {
+            "number": 4390,
+            "title": "Fix FSDP2 cpu_ram_efficient_loading for models with persistent buffers",
+            "state": "open"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request broadcast strided",
+        "total_count": 0,
+        "results": []
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request reduce noncontiguous",
+        "total_count": 0,
+        "results": []
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request dl_state_dict",
+        "total_count": 1,
+        "results": [
+          {
+            "number": 4234,
+            "title": "Capture stateful dataloader state lazily so prepare() does not draw the shuffle permutation",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request gather_tensor_shape",
+        "total_count": 1,
+        "results": [
+          {
+            "number": 4357,
+            "title": "Fix `gather_tensor_shape` discarding zero-sized dimensions and crash in `copy_tensor_to_devices`",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request copy_tensor_to_devices",
+        "total_count": 2,
+        "results": [
+          {
+            "number": 4245,
+            "title": "Fix shape metadata when copying tensors across devices",
+            "state": "open"
+          },
+          {
+            "number": 4357,
+            "title": "Fix `gather_tensor_shape` discarding zero-sized dimensions and crash in `copy_tensor_to_devices`",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request pad_input_tensors",
+        "total_count": 2,
+        "results": [
+          {
+            "number": 4093,
+            "title": "Fix pad_input_tensors to pad batch to a multiple of num_processes",
+            "state": "closed"
+          },
+          {
+            "number": 4150,
+            "title": "Fix pad_input_tensors to pad the requested dim, not always dim 0",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request LocalSGD",
+        "total_count": 3,
+        "results": [
+          {
+            "number": 3163,
+            "title": "add the missing xpu for local sgd",
+            "state": "closed"
+          },
+          {
+            "number": 2841,
+            "title": "Add DDP Communication Hooks",
+            "state": "closed"
+          },
+          {
+            "number": 2415,
+            "title": "Adding Local SGD support for NPU",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request broadcast",
+        "total_count": 44,
+        "results": [
+          {
+            "number": 4485,
+            "title": "Honor the source rank when broadcasting nested tensors on XLA",
+            "state": "open"
+          },
+          {
+            "number": 4390,
+            "title": "Fix FSDP2 cpu_ram_efficient_loading for models with persistent buffers",
+            "state": "open"
+          },
+          {
+            "number": 4486,
+            "title": "Skip complete dispatched batches without changing grouping or tail padding",
+            "state": "open"
+          },
+          {
+            "number": 4457,
+            "title": "Release first-process ordering barriers when the block raises",
+            "state": "open"
+          },
+          {
+            "number": 4431,
+            "title": "Allow skipping IterableDataset re-sharding via shard_iterable_dataset",
+            "state": "open"
+          },
+          {
+            "number": 4475,
+            "title": "FSDP2 cpu_ram_efficient_loading: honor ignored modules and load buffers",
+            "state": "open"
+          },
+          {
+            "number": 4421,
+            "title": "Fix TP + FSDP2 prepare without the removed ReplicateParallel, refuse cpu_ram_efficient_loading with TP, add numerical parity tests",
+            "state": "open"
+          },
+          {
+            "number": 4375,
+            "title": "Validate strict checkpoint keys across all shards",
+            "state": "closed"
+          },
+          {
+            "number": 4206,
+            "title": "Fix FSDP2/ PEFT/`FULL_STATE_DICT` dropping every rank's adapter shard except rank 0",
+            "state": "closed"
+          },
+          {
+            "number": 4056,
+            "title": "Fix gloo backend error in test_load_checkpoint_and_dispatch_with_broa…",
+            "state": "closed"
+          },
+          {
+            "number": 4000,
+            "title": "Add padded allgather and broadcast for Neuron devices to reduce recompilation",
+            "state": "closed"
+          },
+          {
+            "number": 3982,
+            "title": "fix: use key-based matching in fsdp2_load_full_state_dict",
+            "state": "closed"
+          },
+          {
+            "number": 4025,
+            "title": "Make accelerate work end-to-end on AMD ROCm ",
+            "state": "closed"
+          },
+          {
+            "number": 4023,
+            "title": "fix train deepseek V4 with fsdp2:  AttributeError: 'Tensor' object has no attribute 'device_mesh'",
+            "state": "closed"
+          },
+          {
+            "number": 3921,
+            "title": "Fix FSDP2 + cpu_ram_efficient_loading for models with buffers (Fixes #3898)",
+            "state": "closed"
+          },
+          {
+            "number": 3981,
+            "title": "Fix: Adds missing model_has_params4bit guard to match the existing guard pattern in the same function.",
+            "state": "closed"
+          },
+          {
+            "number": 3823,
+            "title": "Fix typo in broadcast_object_list docstring",
+            "state": "closed"
+          },
+          {
+            "number": 3740,
+            "title": "fix: CPU RAM efficient loading for nd or HSDP parallelisms",
+            "state": "closed"
+          },
+          {
+            "number": 3835,
+            "title": "[Bug] Update torch.optim.Optimizer parameter states after tensor parallelism",
+            "state": "closed"
+          },
+          {
+            "number": 3671,
+            "title": "Bunch of FSDP improvements",
+            "state": "closed"
+          },
+          {
+            "number": 3579,
+            "title": "enable test_load_checkpoint_and_dispatch_with_broadcast cases on XPU",
+            "state": "closed"
+          },
+          {
+            "number": 3629,
+            "title": "Fix: properly error when DDP + Dtensor model",
+            "state": "closed"
+          },
+          {
+            "number": 3432,
+            "title": "Use `torch.distributed.checkpoint.state_dict.set_model_state_dict` in `load_checkpoint_in_model`",
+            "state": "closed"
+          },
+          {
+            "number": 3154,
+            "title": "Models With Tied Weights Need Re-Tieing After FSDP Param Init",
+            "state": "closed"
+          },
+          {
+            "number": 2423,
+            "title": "Make output end up on all GPUs at the end",
+            "state": "closed"
+          },
+          {
+            "number": 2113,
+            "title": "Sync states for npu fsdp",
+            "state": "closed"
+          },
+          {
+            "number": 2133,
+            "title": "[docs] troubleshooting guide",
+            "state": "closed"
+          },
+          {
+            "number": 2093,
+            "title": "Sync states for npu fsdp",
+            "state": "closed"
+          },
+          {
+            "number": 2092,
+            "title": "Sync states for npu fsdp",
+            "state": "closed"
+          },
+          {
+            "number": 2005,
+            "title": "Sync states for xpu fsdp",
+            "state": "closed"
+          },
+          {
+            "number": 1531,
+            "title": "Raise ValueError on iterable dataset if we've hit the end and attempting to go beyond it",
+            "state": "closed"
+          },
+          {
+            "number": 1728,
+            "title": "fix the bug in npu",
+            "state": "closed"
+          },
+          {
+            "number": 2123,
+            "title": "device agnostic testing",
+            "state": "closed"
+          },
+          {
+            "number": 1748,
+            "title": "Rework new constant for operations",
+            "state": "closed"
+          },
+          {
+            "number": 1833,
+            "title": "Change CUDA check",
+            "state": "closed"
+          },
+          {
+            "number": 1709,
+            "title": "Fix the bug where DataLoaderDispatcher gets stuck in an infinite wait…",
+            "state": "closed"
+          },
+          {
+            "number": 1654,
+            "title": "Update dataloader",
+            "state": "closed"
+          },
+          {
+            "number": 1508,
+            "title": "fix the bug in xpu",
+            "state": "closed"
+          },
+          {
+            "number": 1393,
+            "title": "Support TPU v4 with new PyTorch/XLA TPU runtime",
+            "state": "closed"
+          },
+          {
+            "number": 1385,
+            "title": "Support TPU v2 and v3 on new PyTorch/XLA TPU runtime",
+            "state": "closed"
+          },
+          {
+            "number": 682,
+            "title": "Fix skip in dispatch dataloaders",
+            "state": "closed"
+          },
+          {
+            "number": 269,
+            "title": "Don't use dispatch_batches when torch is < 1.8.0",
+            "state": "closed"
+          },
+          {
+            "number": 264,
+            "title": "Basic fixes for DeepSpeed",
+            "state": "closed"
+          },
+          {
+            "number": 164,
+            "title": "Central dataloader",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request noncontiguous",
+        "total_count": 1,
+        "results": [
+          {
+            "number": 4426,
+            "title": "Preserve distinct shared-storage views in safetensors checkpoints",
+            "state": "open"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:pull-request \"non-contiguous\"",
+        "total_count": 4,
+        "results": [
+          {
+            "number": 4390,
+            "title": "Fix FSDP2 cpu_ram_efficient_loading for models with persistent buffers",
+            "state": "open"
+          },
+          {
+            "number": 4539,
+            "title": "Reserve balanced memory for the largest instance of each no-split class",
+            "state": "open"
+          },
+          {
+            "number": 4318,
+            "title": "Use actual GPU ids for balanced_low_0",
+            "state": "closed"
+          },
+          {
+            "number": 1734,
+            "title": "Make balanced memory able to work with non continguous GPUs ids",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:issue \"broadcast\" \"contiguous\"",
+        "total_count": 5,
+        "results": [
+          {
+            "number": 3898,
+            "title": "FSDP 2 + cpu_ram_efficient_loading=True fails for models with buffers (e.g. DS 3.1)",
+            "state": "closed"
+          },
+          {
+            "number": 3413,
+            "title": "Resuming from checkpoint (multi-node) causing NCCL issue",
+            "state": "closed"
+          },
+          {
+            "number": 1764,
+            "title": "RuntimeError('Tensors must be contiguous') ",
+            "state": "closed"
+          },
+          {
+            "number": 1984,
+            "title": "Trainer throws \"IndexError: list index out of range\" when use TrainingArguments",
+            "state": "closed"
+          },
+          {
+            "number": 1258,
+            "title": "AcceleratorState(realeased 0.15version) with deepspeed plugin(>0.6.5) ingores timeout kwargs",
+            "state": "closed"
+          }
+        ]
+      },
+      {
+        "query": "repo:huggingface/accelerate is:issue \"broadcast\" \"stride\"",
+        "total_count": 0,
+        "results": []
+      }
+    ],
+    "file_history_commits_inspected": 74,
+    "file_history_errors": 0,
+    "author_prs": [
+      {
+        "number": 4545,
+        "title": "Avoid quadratic traversal in maximum-layer scanning",
+        "state": "open"
+      },
+      {
+        "number": 4544,
+        "title": "Avoid retaining full batches in the dispatcher padding cache",
+        "state": "open"
+      },
+      {
+        "number": 4543,
+        "title": "Honor direct tensor offload entries on split modules",
+        "state": "open"
+      },
+      {
+        "number": 4542,
+        "title": "Support uneven-input joining for CPU DDP training",
+        "state": "open"
+      },
+      {
+        "number": 4541,
+        "title": "Avoid quadratic name lookups when loading safetensors with CPU fallback",
+        "state": "open"
+      },
+      {
+        "number": 4540,
+        "title": "Preserve all model parameters when preparing multiple models on XLA",
+        "state": "open"
+      },
+      {
+        "number": 4539,
+        "title": "Reserve balanced memory for the largest instance of each no-split class",
+        "state": "open"
+      },
+      {
+        "number": 4533,
+        "title": "Delegate native optimizer hooks to the wrapped optimizer",
+        "state": "open"
+      },
+      {
+        "number": 4531,
+        "title": "Include direct parameters in maximum layer memory reservations",
+        "state": "open"
+      },
+      {
+        "number": 4528,
+        "title": "fix(modeling): resolve unindexed CUDA device against active context",
+        "state": "open"
+      },
+      {
+        "number": 4379,
+        "title": "Handle empty tensors in disk offload",
+        "state": "open"
+      }
+    ],
+    "related_patches": [
+      {
+        "pr": 1771,
+        "scope": "Makes gather transport contiguous; does not modify broadcast."
+      },
+      {
+        "pr": 4390,
+        "scope": "FSDP2 checkpoint-loading buffers; not the public nested broadcast helper."
+      },
+      {
+        "pr": 4426,
+        "scope": "Safetensors shared-storage checkpoint serialization; not communication."
+      },
+      {
+        "pr": 4485,
+        "scope": "Preserves the nested XLA source rank; does not modify the torch distributed branch."
+      }
+    ],
+    "rejected_candidates": [
+      {
+        "prs": [
+          4245,
+          4357
+        ],
+        "reason": "copy_tensor_to_devices/gather_tensor_shape metadata fixes already submitted."
+      },
+      {
+        "prs": [
+          4093,
+          4150
+        ],
+        "reason": "pad_input_tensors padding amount/dimension fixes already submitted."
+      }
+    ]
+  },
+  "files": [
+    "src/accelerate/utils/operations.py",
+    "tests/test_broadcast_strided.py"
+  ],
+  "body": "## What does this PR do?\n\nUse a contiguous transport buffer for the torch-distributed broadcast helper, then copy received values back through the destination view. The source rank keeps its original tensor untouched.\n\nThe current helper passes strided storage directly to the collective. On Gloo, a transposed or sliced source can therefore arrive with different logical values on a contiguous receiver, and a sliced receiver can overwrite unrelated elements of its backing storage. This also affects `DataLoaderDispatcher`: source batches can be transposed or channels-last while other ranks allocate contiguous receive buffers.\n\nThe returned tensor leaves retain their identity, shape, stride, storage offset and aliases. Already contiguous tensors use their existing storage.\n\n## Validation\n\n[Native CPU before/after run](https://github.com/Afloat16/accelerate/actions/runs/43425632071), exact source `133b0409368afe8dc1751094d462efb4823176e6`, based on `f5cc53877677eb7fa0ef7091fe41536a777fee6a`, with Python 3.12 and official PyTorch 2.9.0+cpu:\n\n- Baseline: 13 failures, 22 passing controls. Fixed: all 35 new cases pass.\n- The complete existing utility/data-loader groups: 86 passed, 6 existing conditional skips.\n- The existing distributed operations script passes on two real Gloo processes, including gather, broadcast, padding, reductions and shape checks.\n- Communication tests cover source ranks 0 and 1, FP16/BF16/FP32/FP64/int64, transposes, strided slices with nonzero offsets, channels-last layouts, nested containers, scalars and empty tensors. They check logical values and unchanged backing elements outside each receiving view.\n- Twelve real two-process DDP training cases cover contiguous/transposed/channels-last batches, SGD with momentum and AdamW, and FP32/FP64. Three updates match an independent global-batch reference for every gradient, parameter and optimizer state; sample identities and final rank agreement are checked.\n- Eight source/receiver autograd controls cover both source ranks and FP32/FP64. The source's pre-existing forward graph and version remain intact. Receiver forwards cover parameter leaves and views created after state updates.\n- Ruff check, Ruff format and whitespace checks pass.\n\nThis remains an in-place state-update collective, not a differentiable cross-rank operation. Receiver write-back follows ordinary PyTorch `no_grad()` / `copy_()` semantics. In particular, when a requires-grad leaf itself views a non-grad storage base, recreate receiver forward views after the update; an existing child view can otherwise lose its edge to that intermediate leaf, as it does with a plain PyTorch copy. The [native diagnostic](https://github.com/Afloat16/accelerate/actions/runs/43425059757) records that boundary. The implementation does not bypass tensor version tracking.\n\nValidation is on native CPU/Gloo; GPU/backend-specific performance is not claimed.\n\n## Prior work checked\n\nAll-state issue/PR searches, the author's prior PRs, and all 74 commits touching `utils/operations.py` were inspected. Actual related patches were checked: #1771 makes gather inputs contiguous, #4390 handles FSDP2 checkpoint buffers, #4426 handles safetensors shared-storage views, and #4485 preserves nested XLA source ranks. None normalizes the public torch-distributed broadcast transport while retaining destination views.\n"
+}
