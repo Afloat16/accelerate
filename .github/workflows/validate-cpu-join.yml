@@ -1,0 +1,45 @@
+name: Validate CPU DDP uneven inputs
+on:
+  push:
+    branches: [validation/cpu-ddp-uneven-inputs-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install official CPU dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python -e '.[test_prod,quality]' torchdata
+      - name: Compare actual two-process Gloo training
+        run: .venv/bin/python validation/run_cpu_join.py
+      - name: Check changed source and tests
+        run: |
+          .venv/bin/ruff check src/accelerate/accelerator.py src/accelerate/test_utils/scripts/test_distributed_data_loop.py tests/test_join_cpu.py
+          .venv/bin/ruff format --check src/accelerate/accelerator.py src/accelerate/test_utils/scripts/test_distributed_data_loop.py tests/test_join_cpu.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cpu-join-native-evidence
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            existing.log
+            existing.xml
+            native-report.json
