@@ -1,0 +1,1609 @@
+﻿2026-11-13T11:16:32.7542870Z Current runner version: '2.338.2'
+2026-11-13T11:16:32.7567900Z ##[group]Runner Image Provisioner
+2026-11-13T11:16:32.7568720Z Hosted Compute Agent
+2026-11-13T11:16:32.7569439Z Version: 20261028.624
+2026-11-13T11:16:32.7570090Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-13T11:16:32.7570857Z Build Date: 2026-10-28T21:51:42Z
+2026-11-13T11:16:32.7571609Z Worker ID: {feb21464-ff46-421f-a210-ee8d5427b958}
+2026-11-13T11:16:32.7572331Z Region: eastus
+2026-11-13T11:16:32.7572921Z Cloud: Azure
+2026-11-13T11:16:32.7573511Z ##[endgroup]
+2026-11-13T11:16:32.7575009Z ##[group]Operating System
+2026-11-13T11:16:32.7575698Z Ubuntu
+2026-11-13T11:16:32.7576436Z 24.04.5
+2026-11-13T11:16:32.7577032Z LTS
+2026-11-13T11:16:32.7577590Z ##[endgroup]
+2026-11-13T11:16:32.7578178Z ##[group]Runner Image
+2026-11-13T11:16:32.7578836Z Image: ubuntu-24.04
+2026-11-13T11:16:32.7579408Z Version: 20261101.360.1
+2026-11-13T11:16:32.7581136Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T11:16:32.7582734Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-13T11:16:32.7583753Z ##[endgroup]
+2026-11-13T11:16:32.7584901Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:16:32.7587427Z Contents: read
+2026-11-13T11:16:32.7588274Z Metadata: read
+2026-11-13T11:16:32.7588914Z ##[endgroup]
+2026-11-13T11:16:32.7591036Z Secret source: Actions
+2026-11-13T11:16:32.7592094Z Cache mode: write
+2026-11-13T11:16:32.7593025Z Prepare workflow directory
+2026-11-13T11:16:32.7991873Z Prepare all required actions
+2026-11-13T11:16:32.8043109Z Getting action download info
+2026-11-13T11:16:33.0221416Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:16:33.1468183Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:16:33.2895209Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-11-13T11:16:33.4904029Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:16:33.7895524Z Complete job name: native-cpu
+2026-11-13T11:16:33.8843192Z ##[group]Run actions/checkout@v4
+2026-11-13T11:16:33.8844266Z with:
+2026-11-13T11:16:33.8844757Z   fetch-depth: 0
+2026-11-13T11:16:33.8845272Z   repository: Afloat16/accelerate
+2026-11-13T11:16:33.8849644Z   token: ***
+2026-11-13T11:16:33.8850135Z   ssh-strict: true
+2026-11-13T11:16:33.8850616Z   ssh-user: git
+2026-11-13T11:16:33.8851102Z   persist-credentials: true
+2026-11-13T11:16:33.8851631Z   clean: true
+2026-11-13T11:16:33.8852133Z   sparse-checkout-cone-mode: true
+2026-11-13T11:16:33.8852713Z   fetch-tags: false
+2026-11-13T11:16:33.8853198Z   show-progress: true
+2026-11-13T11:16:33.8853688Z   lfs: false
+2026-11-13T11:16:33.8854151Z   submodules: false
+2026-11-13T11:16:33.8854657Z   set-safe-directory: true
+2026-11-13T11:16:33.8855221Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:16:33.8856289Z env:
+2026-11-13T11:16:33.8856779Z   OMP_NUM_THREADS: 1
+2026-11-13T11:16:33.8857281Z   MKL_NUM_THREADS: 1
+2026-11-13T11:16:33.8857771Z   PYTHONPATH: src
+2026-11-13T11:16:33.8858304Z ##[endgroup]
+2026-11-13T11:16:34.5399067Z Syncing repository: Afloat16/accelerate
+2026-11-13T11:16:34.5402338Z ##[group]Getting Git version info
+2026-11-13T11:16:34.5404743Z Working directory is '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:16:34.5407695Z [command]/usr/bin/git version
+2026-11-13T11:16:34.5503354Z git version 2.56.0
+2026-11-13T11:16:34.5528594Z ##[endgroup]
+2026-11-13T11:16:34.5543525Z Temporarily overriding HOME='/home/runner/work/_temp/2d2d46c9-1e9d-42dc-8174-cf30c25a3a53' before making global git config changes
+2026-11-13T11:16:34.5548722Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:16:34.5553288Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:16:34.5771340Z Deleting the contents of '/home/runner/work/accelerate/accelerate'
+2026-11-13T11:16:34.5776934Z ##[group]Initializing the repository
+2026-11-13T11:16:34.5781496Z [command]/usr/bin/git init /home/runner/work/accelerate/accelerate
+2026-11-13T11:16:34.5939288Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:16:34.5943902Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:16:34.5948660Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:16:34.5951767Z hint: call:
+2026-11-13T11:16:34.5953530Z hint:
+2026-11-13T11:16:34.5955762Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:16:34.5958661Z hint:
+2026-11-13T11:16:34.5961147Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:16:34.5965026Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:16:34.5968519Z hint:
+2026-11-13T11:16:34.5970221Z hint: 	git branch -m <name>
+2026-11-13T11:16:34.5971658Z hint:
+2026-11-13T11:16:34.5974282Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:16:34.5978777Z Initialized empty Git repository in /home/runner/work/accelerate/accelerate/.git/
+2026-11-13T11:16:34.5985582Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/accelerate
+2026-11-13T11:16:34.6251061Z ##[endgroup]
+2026-11-13T11:16:34.6254236Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:16:34.6257328Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:16:34.6302498Z ##[endgroup]
+2026-11-13T11:16:34.6305400Z ##[group]Setting up auth
+2026-11-13T11:16:34.6309883Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:16:34.6365026Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:16:34.7102397Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:16:34.7153252Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:16:34.7419098Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:16:34.7466913Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:16:34.7740536Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:16:34.7794889Z ##[endgroup]
+2026-11-13T11:16:34.7798802Z ##[group]Fetching the repository
+2026-11-13T11:16:34.7811506Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-13T11:16:36.0305566Z From https://github.com/Afloat16/accelerate
+2026-11-13T11:16:36.0308062Z  * [new branch]        audit/balanced-memory-largest-block-20261112 -> origin/audit/balanced-memory-largest-block-20261112
+2026-11-13T11:16:36.0309385Z  * [new branch]        audit/multiple-model-parameter-mapping-20261113 -> origin/audit/multiple-model-parameter-mapping-20261113
+2026-11-13T11:16:36.0310746Z  * [new branch]        fix-empty-disk-offload-20261008 -> origin/fix-empty-disk-offload-20261008
+2026-11-13T11:16:36.0312154Z  * [new branch]        fix/balanced-memory-largest-block-20261112 -> origin/fix/balanced-memory-largest-block-20261112
+2026-11-13T11:16:36.0313286Z  * [new branch]        fix/cpu-ddp-uneven-inputs-20261113 -> origin/fix/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.0314520Z  * [new branch]        fix/cuda-unindexed-device-current-context-20261112 -> origin/fix/cuda-unindexed-device-current-context-20261112
+2026-11-13T11:16:36.0316372Z  * [new branch]        fix/maximum-layer-direct-parameters-20261112 -> origin/fix/maximum-layer-direct-parameters-20261112
+2026-11-13T11:16:36.0318009Z  * [new branch]        fix/multiple-model-parameter-mapping-20261113 -> origin/fix/multiple-model-parameter-mapping-20261113
+2026-11-13T11:16:36.0319198Z  * [new branch]        fix/optimizer-hook-delegation-20261112 -> origin/fix/optimizer-hook-delegation-20261112
+2026-11-13T11:16:36.0320017Z  * [new branch]        main       -> origin/main
+2026-11-13T11:16:36.0320887Z  * [new branch]        perf/safetensors-fallback-membership-20261113 -> origin/perf/safetensors-fallback-membership-20261113
+2026-11-13T11:16:36.0322214Z  * [new branch]        validation/balanced-memory-largest-block-20261112 -> origin/validation/balanced-memory-largest-block-20261112
+2026-11-13T11:16:36.0323419Z  * [new branch]        validation/cpu-ddp-uneven-inputs-20261113 -> origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.0324623Z  * [new branch]        validation/multiple-model-parameter-mapping-20261113 -> origin/validation/multiple-model-parameter-mapping-20261113
+2026-11-13T11:16:36.0326928Z  * [new branch]        validation/probe-multiple-model-parameters-20261113 -> origin/validation/probe-multiple-model-parameters-20261113
+2026-11-13T11:16:36.0328615Z  * [new branch]        validation/safetensors-fallback-membership-20261113 -> origin/validation/safetensors-fallback-membership-20261113
+2026-11-13T11:16:36.0329766Z  * [new branch]        validation/xla-multiple-optimizer-probe-20261113 -> origin/validation/xla-multiple-optimizer-probe-20261113
+2026-11-13T11:16:36.0331786Z [command]/usr/bin/git branch --list --remote origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.0361837Z   origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.0372164Z [command]/usr/bin/git rev-parse refs/remotes/origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.0408598Z 8531588c8a96db802b9d791a470ea9d854181ec2
+2026-11-13T11:16:36.0413317Z ##[endgroup]
+2026-11-13T11:16:36.0480389Z ##[group]Determining the checkout info
+2026-11-13T11:16:36.0482017Z ##[endgroup]
+2026-11-13T11:16:36.0482705Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:16:36.0498705Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:16:36.0540375Z ##[group]Checking out the ref
+2026-11-13T11:16:36.0545104Z [command]/usr/bin/git checkout --progress --force -B validation/cpu-ddp-uneven-inputs-20261113 refs/remotes/origin/validation/cpu-ddp-uneven-inputs-20261113
+2026-11-13T11:16:36.1392713Z Switched to a new branch 'validation/cpu-ddp-uneven-inputs-20261113'
+2026-11-13T11:16:36.1401999Z branch 'validation/cpu-ddp-uneven-inputs-20261113' set up to track 'origin/validation/cpu-ddp-uneven-inputs-20261113'.
+2026-11-13T11:16:36.1411894Z ##[endgroup]
+2026-11-13T11:16:36.1469888Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:16:36.1512423Z 8531588c8a96db802b9d791a470ea9d854181ec2
+2026-11-13T11:16:36.1808536Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:16:36.1808942Z with:
+2026-11-13T11:16:36.1809200Z   python-version: 3.12
+2026-11-13T11:16:36.1809477Z   check-latest: false
+2026-11-13T11:16:36.1812018Z   token: ***
+2026-11-13T11:16:36.1812286Z   update-environment: true
+2026-11-13T11:16:36.1812590Z   allow-prereleases: false
+2026-11-13T11:16:36.1812892Z   freethreaded: false
+2026-11-13T11:16:36.1813152Z env:
+2026-11-13T11:16:36.1813384Z   OMP_NUM_THREADS: 1
+2026-11-13T11:16:36.1813663Z   MKL_NUM_THREADS: 1
+2026-11-13T11:16:36.1813924Z   PYTHONPATH: src
+2026-11-13T11:16:36.1814182Z ##[endgroup]
+2026-11-13T11:16:36.3337530Z ##[group]Installed versions
+2026-11-13T11:16:36.3475116Z (node:2110) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:16:36.3476423Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:16:36.3477385Z Successfully set up CPython (3.12.16)
+2026-11-13T11:16:36.3478485Z ##[endgroup]
+2026-11-13T11:16:36.3719115Z ##[group]Run astral-sh/setup-uv@v6
+2026-11-13T11:16:36.3719662Z with:
+2026-11-13T11:16:36.3719927Z   activate-environment: false
+2026-11-13T11:16:36.3720307Z   working-directory: /home/runner/work/accelerate/accelerate
+2026-11-13T11:16:36.3720744Z   server-url: https://github.com
+2026-11-13T11:16:36.3723434Z   github-token: ***
+2026-11-13T11:16:36.3723699Z   enable-cache: auto
+2026-11-13T11:16:36.3724315Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-13T11:16:36.3724971Z   restore-cache: true
+2026-11-13T11:16:36.3725228Z   save-cache: true
+2026-11-13T11:16:36.3725481Z   prune-cache: true
+2026-11-13T11:16:36.3725751Z   ignore-nothing-to-cache: false
+2026-11-13T11:16:36.3726443Z   ignore-empty-workdir: false
+2026-11-13T11:16:36.3726748Z   add-problem-matchers: true
+2026-11-13T11:16:36.3727024Z env:
+2026-11-13T11:16:36.3727252Z   OMP_NUM_THREADS: 1
+2026-11-13T11:16:36.3727543Z   MKL_NUM_THREADS: 1
+2026-11-13T11:16:36.3727938Z   PYTHONPATH: src
+2026-11-13T11:16:36.3728267Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:36.3728789Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:16:36.3729268Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:36.3729697Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:36.3730126Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:36.3730782Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:16:36.3731401Z ##[endgroup]
+2026-11-13T11:16:36.6028621Z (node:2119) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:16:36.6029841Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:16:36.6187586Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:16:36.6188883Z Could not find file: /home/runner/work/accelerate/accelerate/uv.toml
+2026-11-13T11:16:36.6190227Z Trying to find version for uv in: /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:16:36.6226936Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-13T11:16:36.6266821Z Getting latest version from GitHub API...
+2026-11-13T11:16:36.8840687Z manifest-file not provided, reading from local file.
+2026-11-13T11:16:36.8905369Z manifest-file does not contain version 0.13.8, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+2026-11-13T11:16:36.8907440Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-13T11:16:37.0977940Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/335ce8a4-227f-4172-9790-f045d484779b -f /home/runner/work/_temp/4b6cc9b8-edd4-4aba-98b7-c5aa755419a9
+2026-11-13T11:16:37.4058464Z Added /home/runner/.local/bin to the path
+2026-11-13T11:16:37.4061414Z Added /opt/hostedtoolcache/uv/0.13.8/x86_64 to the path
+2026-11-13T11:16:37.4071888Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:16:37.4072702Z Successfully installed uv version 0.13.8
+2026-11-13T11:16:37.4076279Z Searching files using cache dependency glob: /home/runner/work/accelerate/accelerate/**/*requirements*.txt,/home/runner/work/accelerate/accelerate/**/*requirements*.in,/home/runner/work/accelerate/accelerate/**/*constraints*.txt,/home/runner/work/accelerate/accelerate/**/*constraints*.in,/home/runner/work/accelerate/accelerate/**/pyproject.toml,/home/runner/work/accelerate/accelerate/**/uv.lock,/home/runner/work/accelerate/accelerate/**/*.py.lock
+2026-11-13T11:16:37.4568006Z /home/runner/work/accelerate/accelerate/examples/requirements.txt
+2026-11-13T11:16:37.4621923Z /home/runner/work/accelerate/accelerate/pyproject.toml
+2026-11-13T11:16:37.4819094Z Found 2 files to hash.
+2026-11-13T11:16:37.6202882Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:16:37.6724056Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:16:37.6895581Z ##[group]Run uv venv .venv
+2026-11-13T11:16:37.6896292Z [36;1muv venv .venv[0m
+2026-11-13T11:16:37.6896838Z [36;1muv pip install --python .venv/bin/python torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:16:37.6897504Z [36;1muv pip install --python .venv/bin/python -e '.[test_prod,quality]' torchdata[0m
+2026-11-13T11:16:37.6922436Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:16:37.6922696Z env:
+2026-11-13T11:16:37.6922889Z   OMP_NUM_THREADS: 1
+2026-11-13T11:16:37.6923109Z   MKL_NUM_THREADS: 1
+2026-11-13T11:16:37.6923313Z   PYTHONPATH: src
+2026-11-13T11:16:37.6923599Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:37.6924070Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:16:37.6924508Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:37.6924898Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:37.6925325Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:37.6925718Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:16:37.6926454Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:16:37.6926750Z ##[endgroup]
+2026-11-13T11:16:37.7065683Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-13T11:16:37.7066446Z Creating virtual environment at: .venv
+2026-11-13T11:16:37.7072134Z Activate with: .venv/bin/activate
+2026-11-13T11:16:37.9695390Z Resolved 10 packages in 207ms
+2026-11-13T11:16:37.9726006Z Downloading networkx (2.0MiB)
+2026-11-13T11:16:37.9760029Z Downloading sympy (6.0MiB)
+2026-11-13T11:16:37.9947253Z Downloading setuptools (1.2MiB)
+2026-11-13T11:16:38.0073256Z Downloading torch (175.8MiB)
+2026-11-13T11:16:38.0988818Z  Downloaded setuptools
+2026-11-13T11:16:38.0990051Z  Downloaded networkx
+2026-11-13T11:16:38.2083600Z  Downloaded sympy
+2026-11-13T11:16:40.0668893Z  Downloaded torch
+2026-11-13T11:16:40.0671794Z Prepared 10 packages in 2.09s
+2026-11-13T11:16:40.2827275Z Installed 10 packages in 215ms
+2026-11-13T11:16:40.2827851Z  + filelock==4.2.4
+2026-11-13T11:16:40.2828272Z  + fsspec==2026.9.0
+2026-11-13T11:16:40.2828747Z  + jinja2==3.1.6
+2026-11-13T11:16:40.2829150Z  + markupsafe==3.0.3
+2026-11-13T11:16:40.2829577Z  + mpmath==1.3.0
+2026-11-13T11:16:40.2829973Z  + networkx==3.7
+2026-11-13T11:16:40.2830304Z  + setuptools==78.1.0
+2026-11-13T11:16:40.2830670Z  + sympy==1.14.0
+2026-11-13T11:16:40.2831064Z  + torch==2.9.0+cpu
+2026-11-13T11:16:40.2831445Z  + typing-extensions==4.16.0
+2026-11-13T11:16:41.3247843Z Resolved 42 packages in 976ms
+2026-11-13T11:16:41.3274059Z    Building accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:16:41.3393297Z Downloading numpy (16.0MiB)
+2026-11-13T11:16:41.3458102Z Downloading pygments (1.2MiB)
+2026-11-13T11:16:41.3528245Z Downloading hf-xet (4.1MiB)
+2026-11-13T11:16:41.3586486Z Downloading ruff (12.6MiB)
+2026-11-13T11:16:41.4799066Z  Downloaded hf-xet
+2026-11-13T11:16:41.4816782Z  Downloaded pygments
+2026-11-13T11:16:41.5586808Z  Downloaded ruff
+2026-11-13T11:16:41.6862607Z  Downloaded numpy
+2026-11-13T11:16:41.7332560Z       Built accelerate @ file:///home/runner/work/accelerate/accelerate
+2026-11-13T11:16:41.7351861Z Prepared 32 packages in 409ms
+2026-11-13T11:16:41.7766438Z Installed 32 packages in 41ms
+2026-11-13T11:16:41.7767264Z  + accelerate==1.16.0.dev0 (from file:///home/runner/work/accelerate/accelerate)
+2026-11-13T11:16:41.7767947Z  + anyio==4.16.0
+2026-11-13T11:16:41.7768289Z  + attrs==26.1.0
+2026-11-13T11:16:41.7768627Z  + certifi==2026.10.23
+2026-11-13T11:16:41.7769006Z  + charset-normalizer==3.5.2
+2026-11-13T11:16:41.7769408Z  + click==8.5.1
+2026-11-13T11:16:41.7770061Z  + execnet==2.1.2
+2026-11-13T11:16:41.7770388Z  + h11==0.16.0
+2026-11-13T11:16:41.7770713Z  + hf-xet==1.8.0
+2026-11-13T11:16:41.7771044Z  + httpcore2==2.16.0
+2026-11-13T11:16:41.7771389Z  + httpx2==2.16.0
+2026-11-13T11:16:41.7771740Z  + huggingface-hub==2.4.0
+2026-11-13T11:16:41.7772344Z  + idna==3.20
+2026-11-13T11:16:41.7772685Z  + iniconfig==2.3.1
+2026-11-13T11:16:41.7773022Z  + numpy==2.5.4
+2026-11-13T11:16:41.7773355Z  + packaging==26.3
+2026-11-13T11:16:41.7773713Z  + parameterized==0.9.0
+2026-11-13T11:16:41.7774089Z  + pluggy==1.7.0
+2026-11-13T11:16:41.7774557Z  + psutil==7.2.2
+2026-11-13T11:16:41.7774969Z  + pygments==2.21.0
+2026-11-13T11:16:41.7775490Z  + pytest==9.2.0
+2026-11-13T11:16:41.7776238Z  + pytest-order==1.5.0
+2026-11-13T11:16:41.7776645Z  + pytest-subtests==0.15.0
+2026-11-13T11:16:41.7777069Z  + pytest-xdist==3.8.0
+2026-11-13T11:16:41.7777629Z  + pyyaml==6.0.3
+2026-11-13T11:16:41.7778140Z  + requests==2.34.2
+2026-11-13T11:16:41.7778614Z  + ruff==0.13.1
+2026-11-13T11:16:41.7779227Z  + safetensors==0.8.0
+2026-11-13T11:16:41.7779748Z  + torchdata==0.11.0
+2026-11-13T11:16:41.7780257Z  + tqdm==4.70.1
+2026-11-13T11:16:41.7780779Z  + truststore==0.10.5
+2026-11-13T11:16:41.7781287Z  + urllib3==2.8.0
+2026-11-13T11:16:41.7964993Z ##[group]Run .venv/bin/python validation/run_cpu_join.py
+2026-11-13T11:16:41.7965459Z [36;1m.venv/bin/python validation/run_cpu_join.py[0m
+2026-11-13T11:16:41.7986463Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:16:41.7986710Z env:
+2026-11-13T11:16:41.7986895Z   OMP_NUM_THREADS: 1
+2026-11-13T11:16:41.7987108Z   MKL_NUM_THREADS: 1
+2026-11-13T11:16:41.7987312Z   PYTHONPATH: src
+2026-11-13T11:16:41.7987589Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:41.7988024Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:16:41.7988460Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:41.7988841Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:41.7989244Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:16:41.7989623Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:16:41.7990022Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:16:41.7990315Z ##[endgroup]
+2026-11-13T11:17:13.8332617Z FFFFFFFF.                                                                [100%]
+2026-11-13T11:17:13.8336422Z =================================== FAILURES ===================================
+2026-11-13T11:17:13.8337453Z _________ test_join_uneven_cpu_ddp_matches_training_reference[None-1] __________
+2026-11-13T11:17:13.8338103Z 
+2026-11-13T11:17:13.8338270Z size = 1, override = None
+2026-11-13T11:17:13.8338530Z 
+2026-11-13T11:17:13.8338723Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8339305Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8340345Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8341507Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8342236Z 
+2026-11-13T11:17:13.8342410Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8342952Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8343969Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8344784Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8345419Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8346564Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8347378Z     while not context.join():
+2026-11-13T11:17:13.8347790Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8348378Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8349132Z 
+2026-11-13T11:17:13.8349541Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8baa360>
+2026-11-13T11:17:13.8350288Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8350599Z 
+2026-11-13T11:17:13.8350747Z     def join(
+2026-11-13T11:17:13.8351306Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8351933Z     ):
+2026-11-13T11:17:13.8352324Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8352844Z     
+2026-11-13T11:17:13.8353303Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8354040Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8354802Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8355582Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8356454Z     
+2026-11-13T11:17:13.8356919Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8357662Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8358215Z     
+2026-11-13T11:17:13.8358507Z         Args:
+2026-11-13T11:17:13.8359323Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8360217Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8361109Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8361911Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8362515Z         """
+2026-11-13T11:17:13.8362955Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8363543Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8363972Z             return True
+2026-11-13T11:17:13.8364311Z     
+2026-11-13T11:17:13.8364714Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8365341Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8366414Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8366894Z             timeout=timeout,
+2026-11-13T11:17:13.8367292Z         )
+2026-11-13T11:17:13.8367591Z     
+2026-11-13T11:17:13.8367896Z         error_index = None
+2026-11-13T11:17:13.8368294Z         for sentinel in ready:
+2026-11-13T11:17:13.8368736Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8369275Z             process = self.processes[index]
+2026-11-13T11:17:13.8369748Z             process.join()
+2026-11-13T11:17:13.8370154Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8370619Z                 error_index = index
+2026-11-13T11:17:13.8371042Z                 break
+2026-11-13T11:17:13.8371374Z     
+2026-11-13T11:17:13.8371704Z         # Return if there was no error.
+2026-11-13T11:17:13.8372165Z         if error_index is None:
+2026-11-13T11:17:13.8372682Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8373282Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8373877Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8374637Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8375272Z         if grace_period is not None:
+2026-11-13T11:17:13.8375766Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8376801Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8377518Z         for process in self.processes:
+2026-11-13T11:17:13.8377990Z             if process.is_alive():
+2026-11-13T11:17:13.8378634Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8379312Z                 process.terminate()
+2026-11-13T11:17:13.8379721Z     
+2026-11-13T11:17:13.8380224Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8381268Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8382006Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8382757Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8383391Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8384064Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8384780Z         for process in self.processes:
+2026-11-13T11:17:13.8385246Z             if process.is_alive():
+2026-11-13T11:17:13.8385672Z                 log.warning(
+2026-11-13T11:17:13.8386708Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8387458Z                     process.pid,
+2026-11-13T11:17:13.8387860Z                 )
+2026-11-13T11:17:13.8388209Z                 process.kill()
+2026-11-13T11:17:13.8388627Z             process.join()
+2026-11-13T11:17:13.8389013Z     
+2026-11-13T11:17:13.8389425Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8390047Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8390897Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8391574Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8392115Z             if exitcode < 0:
+2026-11-13T11:17:13.8392494Z                 try:
+2026-11-13T11:17:13.8392941Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8393467Z                 except ValueError:
+2026-11-13T11:17:13.8393946Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8394500Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8395139Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8395785Z                     error_index=error_index,
+2026-11-13T11:17:13.8396581Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8397099Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8397559Z                     signal_name=name,
+2026-11-13T11:17:13.8398008Z                 )
+2026-11-13T11:17:13.8398381Z             else:
+2026-11-13T11:17:13.8398767Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8399450Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8400161Z                     error_index=error_index,
+2026-11-13T11:17:13.8400694Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8401228Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8401738Z                 )
+2026-11-13T11:17:13.8402080Z     
+2026-11-13T11:17:13.8402506Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8403112Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8403785Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8404488Z         msg += original_trace
+2026-11-13T11:17:13.8405092Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8406211Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8406830Z E       
+2026-11-13T11:17:13.8407249Z E       -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8407866Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8409094Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8410205Z E           fn(i, *args)
+2026-11-13T11:17:13.8411003Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8412120Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8412927Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8413737Z E       AssertionError
+2026-11-13T11:17:13.8413983Z 
+2026-11-13T11:17:13.8414495Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8415508Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8416715Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8417761Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8418687Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8419963Z W1113 11:16:52.422000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2368 via signal SIGTERM
+2026-11-13T11:17:13.8421263Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8422286Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2368 via signal SIGTERM
+2026-11-13T11:17:13.8423368Z _________ test_join_uneven_cpu_ddp_matches_training_reference[None-3] __________
+2026-11-13T11:17:13.8424152Z 
+2026-11-13T11:17:13.8424351Z size = 3, override = None
+2026-11-13T11:17:13.8424628Z 
+2026-11-13T11:17:13.8424858Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8425467Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8426509Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8427569Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8428302Z 
+2026-11-13T11:17:13.8428475Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8429032Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8429864Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8430839Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8431631Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8432524Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8433343Z     while not context.join():
+2026-11-13T11:17:13.8433751Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8434243Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8434683Z 
+2026-11-13T11:17:13.8435114Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b58d40>
+2026-11-13T11:17:13.8436168Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8436481Z 
+2026-11-13T11:17:13.8436624Z     def join(
+2026-11-13T11:17:13.8437190Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8437872Z     ):
+2026-11-13T11:17:13.8438326Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8438876Z     
+2026-11-13T11:17:13.8439338Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8440197Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8440984Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8441809Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8442467Z     
+2026-11-13T11:17:13.8442964Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8443751Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8444334Z     
+2026-11-13T11:17:13.8444624Z         Args:
+2026-11-13T11:17:13.8445175Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8446396Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8447575Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8448466Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8449112Z         """
+2026-11-13T11:17:13.8449583Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8450204Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8450657Z             return True
+2026-11-13T11:17:13.8451012Z     
+2026-11-13T11:17:13.8451448Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8452118Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8452692Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8453161Z             timeout=timeout,
+2026-11-13T11:17:13.8453564Z         )
+2026-11-13T11:17:13.8453873Z     
+2026-11-13T11:17:13.8454195Z         error_index = None
+2026-11-13T11:17:13.8454612Z         for sentinel in ready:
+2026-11-13T11:17:13.8455107Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8455662Z             process = self.processes[index]
+2026-11-13T11:17:13.8456387Z             process.join()
+2026-11-13T11:17:13.8457153Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8457662Z                 error_index = index
+2026-11-13T11:17:13.8458096Z                 break
+2026-11-13T11:17:13.8458435Z     
+2026-11-13T11:17:13.8458771Z         # Return if there was no error.
+2026-11-13T11:17:13.8459255Z         if error_index is None:
+2026-11-13T11:17:13.8459789Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8460419Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8461046Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8461872Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8462759Z         if grace_period is not None:
+2026-11-13T11:17:13.8463301Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8464012Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8464706Z         for process in self.processes:
+2026-11-13T11:17:13.8465193Z             if process.is_alive():
+2026-11-13T11:17:13.8466088Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8466823Z                 process.terminate()
+2026-11-13T11:17:13.8467254Z     
+2026-11-13T11:17:13.8467765Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8468602Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8469378Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8470140Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8470780Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8471467Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8472197Z         for process in self.processes:
+2026-11-13T11:17:13.8472687Z             if process.is_alive():
+2026-11-13T11:17:13.8473147Z                 log.warning(
+2026-11-13T11:17:13.8473834Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8474621Z                     process.pid,
+2026-11-13T11:17:13.8475056Z                 )
+2026-11-13T11:17:13.8475432Z                 process.kill()
+2026-11-13T11:17:13.8476081Z             process.join()
+2026-11-13T11:17:13.8476472Z     
+2026-11-13T11:17:13.8476892Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8477565Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8478252Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8478953Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8479745Z             if exitcode < 0:
+2026-11-13T11:17:13.8480139Z                 try:
+2026-11-13T11:17:13.8480562Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8481113Z                 except ValueError:
+2026-11-13T11:17:13.8481619Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8482213Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8482857Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8483505Z                     error_index=error_index,
+2026-11-13T11:17:13.8484043Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8484582Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8485071Z                     signal_name=name,
+2026-11-13T11:17:13.8485499Z                 )
+2026-11-13T11:17:13.8486102Z             else:
+2026-11-13T11:17:13.8486516Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8487252Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8487958Z                     error_index=error_index,
+2026-11-13T11:17:13.8488496Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8489437Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8489924Z                 )
+2026-11-13T11:17:13.8490261Z     
+2026-11-13T11:17:13.8490706Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8491329Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8492071Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8492792Z         msg += original_trace
+2026-11-13T11:17:13.8493435Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8494337Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8494968Z E       
+2026-11-13T11:17:13.8495409Z E       -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8496325Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8497489Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8498650Z E           fn(i, *args)
+2026-11-13T11:17:13.8499477Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8500652Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8501495Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8502091Z E       AssertionError
+2026-11-13T11:17:13.8502343Z 
+2026-11-13T11:17:13.8502882Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8503898Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8504833Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8506147Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8507143Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8508565Z W1113 11:16:55.669000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2384 via signal SIGTERM
+2026-11-13T11:17:13.8509904Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8510945Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2384 via signal SIGTERM
+2026-11-13T11:17:13.8512005Z _________ test_join_uneven_cpu_ddp_matches_training_reference[None-7] __________
+2026-11-13T11:17:13.8512561Z 
+2026-11-13T11:17:13.8512727Z size = 7, override = None
+2026-11-13T11:17:13.8512996Z 
+2026-11-13T11:17:13.8513204Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8514077Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8514853Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8516247Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8516999Z 
+2026-11-13T11:17:13.8517193Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8517744Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8518610Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8519583Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8520380Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8521306Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8522152Z     while not context.join():
+2026-11-13T11:17:13.8522567Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8523070Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8523521Z 
+2026-11-13T11:17:13.8524181Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b5a7b0>
+2026-11-13T11:17:13.8525002Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8525342Z 
+2026-11-13T11:17:13.8525499Z     def join(
+2026-11-13T11:17:13.8526337Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8527044Z     ):
+2026-11-13T11:17:13.8527474Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8528034Z     
+2026-11-13T11:17:13.8528524Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8529323Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8530140Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8530993Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8531655Z     
+2026-11-13T11:17:13.8532163Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8532912Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8533494Z     
+2026-11-13T11:17:13.8533783Z         Args:
+2026-11-13T11:17:13.8534321Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8535213Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8536305Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8537142Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8537761Z         """
+2026-11-13T11:17:13.8538241Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8538906Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8539394Z             return True
+2026-11-13T11:17:13.8539758Z     
+2026-11-13T11:17:13.8540201Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8540852Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8541390Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8541831Z             timeout=timeout,
+2026-11-13T11:17:13.8542207Z         )
+2026-11-13T11:17:13.8542496Z     
+2026-11-13T11:17:13.8542801Z         error_index = None
+2026-11-13T11:17:13.8543195Z         for sentinel in ready:
+2026-11-13T11:17:13.8543656Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8544190Z             process = self.processes[index]
+2026-11-13T11:17:13.8544665Z             process.join()
+2026-11-13T11:17:13.8545081Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8545539Z                 error_index = index
+2026-11-13T11:17:13.8546200Z                 break
+2026-11-13T11:17:13.8547079Z     
+2026-11-13T11:17:13.8547408Z         # Return if there was no error.
+2026-11-13T11:17:13.8547897Z         if error_index is None:
+2026-11-13T11:17:13.8548473Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8549133Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8549795Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8550593Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8551289Z         if grace_period is not None:
+2026-11-13T11:17:13.8551848Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8552581Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8553265Z         for process in self.processes:
+2026-11-13T11:17:13.8553739Z             if process.is_alive():
+2026-11-13T11:17:13.8554389Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8555099Z                 process.terminate()
+2026-11-13T11:17:13.8555522Z     
+2026-11-13T11:17:13.8556293Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8557293Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8558079Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8558874Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8559553Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8560245Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8560986Z         for process in self.processes:
+2026-11-13T11:17:13.8561471Z             if process.is_alive():
+2026-11-13T11:17:13.8561934Z                 log.warning(
+2026-11-13T11:17:13.8562612Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8563385Z                     process.pid,
+2026-11-13T11:17:13.8563802Z                 )
+2026-11-13T11:17:13.8564445Z                 process.kill()
+2026-11-13T11:17:13.8564897Z             process.join()
+2026-11-13T11:17:13.8565310Z     
+2026-11-13T11:17:13.8565760Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8566665Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8567312Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8567966Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8568514Z             if exitcode < 0:
+2026-11-13T11:17:13.8568928Z                 try:
+2026-11-13T11:17:13.8569364Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8569915Z                 except ValueError:
+2026-11-13T11:17:13.8570441Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8571012Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8571659Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8572302Z                     error_index=error_index,
+2026-11-13T11:17:13.8572835Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8573342Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8573793Z                     signal_name=name,
+2026-11-13T11:17:13.8574211Z                 )
+2026-11-13T11:17:13.8574528Z             else:
+2026-11-13T11:17:13.8574902Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8575601Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8576575Z                     error_index=error_index,
+2026-11-13T11:17:13.8577099Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8577608Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8578056Z                 )
+2026-11-13T11:17:13.8578398Z     
+2026-11-13T11:17:13.8579103Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8579747Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8580501Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8581237Z         msg += original_trace
+2026-11-13T11:17:13.8581895Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8582751Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8583386Z E       
+2026-11-13T11:17:13.8583819Z E       -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8584401Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8585518Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8586867Z E           fn(i, *args)
+2026-11-13T11:17:13.8587674Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8588800Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8589850Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8590474Z E       AssertionError
+2026-11-13T11:17:13.8590735Z 
+2026-11-13T11:17:13.8591252Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8592281Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8593220Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8594267Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8595214Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8596776Z W1113 11:16:58.464000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2394 via signal SIGTERM
+2026-11-13T11:17:13.8598120Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8599165Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2394 via signal SIGTERM
+2026-11-13T11:17:13.8600257Z _________ test_join_uneven_cpu_ddp_matches_training_reference[False-1] _________
+2026-11-13T11:17:13.8600842Z 
+2026-11-13T11:17:13.8601031Z size = 1, override = False
+2026-11-13T11:17:13.8601314Z 
+2026-11-13T11:17:13.8601543Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8602184Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8602980Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8604104Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8604878Z 
+2026-11-13T11:17:13.8605070Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8605615Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8606738Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8607739Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8608623Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8609537Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8610358Z     while not context.join():
+2026-11-13T11:17:13.8610766Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8611259Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8611699Z 
+2026-11-13T11:17:13.8612120Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b48440>
+2026-11-13T11:17:13.8612912Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8613506Z 
+2026-11-13T11:17:13.8613656Z     def join(
+2026-11-13T11:17:13.8614248Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8614934Z     ):
+2026-11-13T11:17:13.8615362Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8616130Z     
+2026-11-13T11:17:13.8616608Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8617416Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8618246Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8619070Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8619722Z     
+2026-11-13T11:17:13.8620208Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8620964Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8621528Z     
+2026-11-13T11:17:13.8621823Z         Args:
+2026-11-13T11:17:13.8622372Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8623524Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8624479Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8625367Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8626243Z         """
+2026-11-13T11:17:13.8626730Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8627361Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8627855Z             return True
+2026-11-13T11:17:13.8628227Z     
+2026-11-13T11:17:13.8628673Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8629340Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8629906Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8630390Z             timeout=timeout,
+2026-11-13T11:17:13.8630796Z         )
+2026-11-13T11:17:13.8631112Z     
+2026-11-13T11:17:13.8631446Z         error_index = None
+2026-11-13T11:17:13.8631877Z         for sentinel in ready:
+2026-11-13T11:17:13.8632361Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8632932Z             process = self.processes[index]
+2026-11-13T11:17:13.8633424Z             process.join()
+2026-11-13T11:17:13.8633858Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8634326Z                 error_index = index
+2026-11-13T11:17:13.8634751Z                 break
+2026-11-13T11:17:13.8635161Z     
+2026-11-13T11:17:13.8635484Z         # Return if there was no error.
+2026-11-13T11:17:13.8636189Z         if error_index is None:
+2026-11-13T11:17:13.8636726Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8637340Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8637955Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8638739Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8639406Z         if grace_period is not None:
+2026-11-13T11:17:13.8639918Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8640612Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8641293Z         for process in self.processes:
+2026-11-13T11:17:13.8641753Z             if process.is_alive():
+2026-11-13T11:17:13.8642392Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8643089Z                 process.terminate()
+2026-11-13T11:17:13.8643500Z     
+2026-11-13T11:17:13.8643998Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8644795Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8645519Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8646723Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8647368Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8648051Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8648766Z         for process in self.processes:
+2026-11-13T11:17:13.8649233Z             if process.is_alive():
+2026-11-13T11:17:13.8649661Z                 log.warning(
+2026-11-13T11:17:13.8650324Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8651078Z                     process.pid,
+2026-11-13T11:17:13.8651471Z                 )
+2026-11-13T11:17:13.8651814Z                 process.kill()
+2026-11-13T11:17:13.8652221Z             process.join()
+2026-11-13T11:17:13.8652588Z     
+2026-11-13T11:17:13.8652995Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8653634Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8654193Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8654810Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8655504Z             if exitcode < 0:
+2026-11-13T11:17:13.8656083Z                 try:
+2026-11-13T11:17:13.8656463Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8656914Z                 except ValueError:
+2026-11-13T11:17:13.8657355Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8657879Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8658520Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8659176Z                     error_index=error_index,
+2026-11-13T11:17:13.8659690Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8660200Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8660667Z                     signal_name=name,
+2026-11-13T11:17:13.8661101Z                 )
+2026-11-13T11:17:13.8661424Z             else:
+2026-11-13T11:17:13.8661813Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8662477Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8663116Z                     error_index=error_index,
+2026-11-13T11:17:13.8663622Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8664157Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8664609Z                 )
+2026-11-13T11:17:13.8664959Z     
+2026-11-13T11:17:13.8665394Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8666238Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8666931Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8667629Z         msg += original_trace
+2026-11-13T11:17:13.8668244Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8669110Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8669706Z E       
+2026-11-13T11:17:13.8670133Z E       -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8670721Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8671850Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8672964Z E           fn(i, *args)
+2026-11-13T11:17:13.8673799Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8674952Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8675747Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8676552Z E       AssertionError
+2026-11-13T11:17:13.8676795Z 
+2026-11-13T11:17:13.8677540Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8678574Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8679538Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8680582Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8681522Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8682844Z W1113 11:17:01.296000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2403 via signal SIGTERM
+2026-11-13T11:17:13.8684170Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8685218Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2403 via signal SIGTERM
+2026-11-13T11:17:13.8686568Z _________ test_join_uneven_cpu_ddp_matches_training_reference[False-3] _________
+2026-11-13T11:17:13.8687132Z 
+2026-11-13T11:17:13.8687295Z size = 3, override = False
+2026-11-13T11:17:13.8687553Z 
+2026-11-13T11:17:13.8687985Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8688607Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8689359Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8690432Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8691203Z 
+2026-11-13T11:17:13.8691384Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8691937Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8692808Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8693783Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8694593Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8695464Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8696533Z     while not context.join():
+2026-11-13T11:17:13.8696955Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8697478Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8697933Z 
+2026-11-13T11:17:13.8698358Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b4a750>
+2026-11-13T11:17:13.8699147Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8699463Z 
+2026-11-13T11:17:13.8699609Z     def join(
+2026-11-13T11:17:13.8700191Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8700886Z     ):
+2026-11-13T11:17:13.8701318Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8701854Z     
+2026-11-13T11:17:13.8702322Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8703126Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8703949Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8704783Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8705413Z     
+2026-11-13T11:17:13.8706127Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8706892Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8707463Z     
+2026-11-13T11:17:13.8707751Z         Args:
+2026-11-13T11:17:13.8708360Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8709254Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8710142Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8711282Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8711906Z         """
+2026-11-13T11:17:13.8712359Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8712963Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8713405Z             return True
+2026-11-13T11:17:13.8713757Z     
+2026-11-13T11:17:13.8714175Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8714815Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8715386Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8716094Z             timeout=timeout,
+2026-11-13T11:17:13.8716523Z         )
+2026-11-13T11:17:13.8716825Z     
+2026-11-13T11:17:13.8717147Z         error_index = None
+2026-11-13T11:17:13.8717556Z         for sentinel in ready:
+2026-11-13T11:17:13.8718036Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8718572Z             process = self.processes[index]
+2026-11-13T11:17:13.8719068Z             process.join()
+2026-11-13T11:17:13.8719500Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8719990Z                 error_index = index
+2026-11-13T11:17:13.8720436Z                 break
+2026-11-13T11:17:13.8721071Z     
+2026-11-13T11:17:13.8721465Z         # Return if there was no error.
+2026-11-13T11:17:13.8721931Z         if error_index is None:
+2026-11-13T11:17:13.8722454Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8723088Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8723736Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8724518Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8725170Z         if grace_period is not None:
+2026-11-13T11:17:13.8725709Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8726610Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8727037Z         for process in self.processes:
+2026-11-13T11:17:13.8727313Z             if process.is_alive():
+2026-11-13T11:17:13.8727692Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8728095Z                 process.terminate()
+2026-11-13T11:17:13.8728336Z     
+2026-11-13T11:17:13.8728634Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8729145Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8729668Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8730241Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8730801Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8731287Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8731909Z         for process in self.processes:
+2026-11-13T11:17:13.8732310Z             if process.is_alive():
+2026-11-13T11:17:13.8732657Z                 log.warning(
+2026-11-13T11:17:13.8733190Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8733707Z                     process.pid,
+2026-11-13T11:17:13.8734056Z                 )
+2026-11-13T11:17:13.8734432Z                 process.kill()
+2026-11-13T11:17:13.8746732Z             process.join()
+2026-11-13T11:17:13.8747040Z     
+2026-11-13T11:17:13.8747310Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8747690Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8748058Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8748435Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8748756Z             if exitcode < 0:
+2026-11-13T11:17:13.8748989Z                 try:
+2026-11-13T11:17:13.8749229Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8749761Z                 except ValueError:
+2026-11-13T11:17:13.8750044Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8750369Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8750729Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8751090Z                     error_index=error_index,
+2026-11-13T11:17:13.8751388Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8751686Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8751950Z                     signal_name=name,
+2026-11-13T11:17:13.8752193Z                 )
+2026-11-13T11:17:13.8752378Z             else:
+2026-11-13T11:17:13.8752607Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8753004Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8753393Z                     error_index=error_index,
+2026-11-13T11:17:13.8753692Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8753979Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8754223Z                 )
+2026-11-13T11:17:13.8754402Z     
+2026-11-13T11:17:13.8754758Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8755098Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8755489Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8756171Z         msg += original_trace
+2026-11-13T11:17:13.8756526Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8756996Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8757342Z E       
+2026-11-13T11:17:13.8757582Z E       -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8757902Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8758504Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8759100Z E           fn(i, *args)
+2026-11-13T11:17:13.8759543Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8760162Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8760586Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8760899Z E       AssertionError
+2026-11-13T11:17:13.8761040Z 
+2026-11-13T11:17:13.8761325Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8761875Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8762378Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8762920Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8763408Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8764088Z W1113 11:17:04.100000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2414 via signal SIGTERM
+2026-11-13T11:17:13.8764765Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8765290Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2414 via signal SIGTERM
+2026-11-13T11:17:13.8766125Z _________ test_join_uneven_cpu_ddp_matches_training_reference[False-7] _________
+2026-11-13T11:17:13.8766434Z 
+2026-11-13T11:17:13.8766525Z size = 7, override = False
+2026-11-13T11:17:13.8766677Z 
+2026-11-13T11:17:13.8766798Z     @pytest.mark.parametrize("size", [1, 3, 7])
+2026-11-13T11:17:13.8767140Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8767555Z     def test_join_uneven_cpu_ddp_matches_training_reference(size, override):
+2026-11-13T11:17:13.8768340Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), size, override, False), nprocs=2)
+2026-11-13T11:17:13.8768742Z 
+2026-11-13T11:17:13.8768841Z tests/test_join_cpu.py:112: 
+2026-11-13T11:17:13.8769133Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8769587Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8770096Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8770508Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8770971Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8771415Z     while not context.join():
+2026-11-13T11:17:13.8771648Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8771918Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8772159Z 
+2026-11-13T11:17:13.8772376Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b4b770>
+2026-11-13T11:17:13.8772789Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8773079Z 
+2026-11-13T11:17:13.8773163Z     def join(
+2026-11-13T11:17:13.8773477Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8773846Z     ):
+2026-11-13T11:17:13.8774083Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8774388Z     
+2026-11-13T11:17:13.8774645Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8775061Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8775483Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8776260Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8776617Z     
+2026-11-13T11:17:13.8776893Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8777302Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8777617Z     
+2026-11-13T11:17:13.8777792Z         Args:
+2026-11-13T11:17:13.8778101Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8778594Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8779077Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8779534Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8779884Z         """
+2026-11-13T11:17:13.8780141Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8780478Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8780728Z             return True
+2026-11-13T11:17:13.8780924Z     
+2026-11-13T11:17:13.8781164Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8781520Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8781818Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8782070Z             timeout=timeout,
+2026-11-13T11:17:13.8782287Z         )
+2026-11-13T11:17:13.8782457Z     
+2026-11-13T11:17:13.8782643Z         error_index = None
+2026-11-13T11:17:13.8782870Z         for sentinel in ready:
+2026-11-13T11:17:13.8783129Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8783419Z             process = self.processes[index]
+2026-11-13T11:17:13.8783688Z             process.join()
+2026-11-13T11:17:13.8783926Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8784186Z                 error_index = index
+2026-11-13T11:17:13.8784424Z                 break
+2026-11-13T11:17:13.8784614Z     
+2026-11-13T11:17:13.8784798Z         # Return if there was no error.
+2026-11-13T11:17:13.8785065Z         if error_index is None:
+2026-11-13T11:17:13.8785511Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8786029Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8786382Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8786807Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8787169Z         if grace_period is not None:
+2026-11-13T11:17:13.8787458Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8787851Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8788227Z         for process in self.processes:
+2026-11-13T11:17:13.8788496Z             if process.is_alive():
+2026-11-13T11:17:13.8788855Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8789241Z                 process.terminate()
+2026-11-13T11:17:13.8789471Z     
+2026-11-13T11:17:13.8789754Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8790198Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8790728Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8791151Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8791501Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8791881Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8792273Z         for process in self.processes:
+2026-11-13T11:17:13.8792529Z             if process.is_alive():
+2026-11-13T11:17:13.8792769Z                 log.warning(
+2026-11-13T11:17:13.8793143Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8793553Z                     process.pid,
+2026-11-13T11:17:13.8793788Z                 )
+2026-11-13T11:17:13.8793992Z                 process.kill()
+2026-11-13T11:17:13.8794238Z             process.join()
+2026-11-13T11:17:13.8794448Z     
+2026-11-13T11:17:13.8794695Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8795065Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8795426Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8795945Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8796265Z             if exitcode < 0:
+2026-11-13T11:17:13.8796489Z                 try:
+2026-11-13T11:17:13.8796725Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8797020Z                 except ValueError:
+2026-11-13T11:17:13.8797296Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8797623Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8797978Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8798338Z                     error_index=error_index,
+2026-11-13T11:17:13.8798630Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8798917Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8799185Z                     signal_name=name,
+2026-11-13T11:17:13.8799424Z                 )
+2026-11-13T11:17:13.8799615Z             else:
+2026-11-13T11:17:13.8799831Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8800201Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8800580Z                     error_index=error_index,
+2026-11-13T11:17:13.8800860Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8801138Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8801377Z                 )
+2026-11-13T11:17:13.8801554Z     
+2026-11-13T11:17:13.8801790Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8802120Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8802640Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8803021Z         msg += original_trace
+2026-11-13T11:17:13.8803366Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8803819Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8804147Z E       
+2026-11-13T11:17:13.8804378Z E       -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8804697Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8805306Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8806166Z E           fn(i, *args)
+2026-11-13T11:17:13.8806607Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8807228Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8807666Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8807973Z E       AssertionError
+2026-11-13T11:17:13.8808110Z 
+2026-11-13T11:17:13.8808609Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8809168Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8809673Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8810226Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8810711Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8811390Z W1113 11:17:06.909000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2427 via signal SIGTERM
+2026-11-13T11:17:13.8812058Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8812596Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2427 via signal SIGTERM
+2026-11-13T11:17:13.8813153Z ___________ test_join_cpu_ddp_restores_sampler_after_exception[None] ___________
+2026-11-13T11:17:13.8813446Z 
+2026-11-13T11:17:13.8813533Z override = None
+2026-11-13T11:17:13.8813651Z 
+2026-11-13T11:17:13.8813794Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8814187Z     def test_join_cpu_ddp_restores_sampler_after_exception(override):
+2026-11-13T11:17:13.8814754Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), 3, override, True), nprocs=2)
+2026-11-13T11:17:13.8815149Z 
+2026-11-13T11:17:13.8815243Z tests/test_join_cpu.py:117: 
+2026-11-13T11:17:13.8815533Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8816293Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8816830Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8817240Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8817709Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8818159Z     while not context.join():
+2026-11-13T11:17:13.8818389Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8818656Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8818887Z 
+2026-11-13T11:17:13.8819109Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f8b4a540>
+2026-11-13T11:17:13.8819520Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8819697Z 
+2026-11-13T11:17:13.8819772Z     def join(
+2026-11-13T11:17:13.8820091Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8820461Z     ):
+2026-11-13T11:17:13.8820692Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8821127Z     
+2026-11-13T11:17:13.8821382Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8821797Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8822220Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8822658Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8823001Z     
+2026-11-13T11:17:13.8823270Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8823682Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8823996Z     
+2026-11-13T11:17:13.8824158Z         Args:
+2026-11-13T11:17:13.8824461Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8824962Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8825451Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8826096Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8826569Z         """
+2026-11-13T11:17:13.8826836Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8827173Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8827424Z             return True
+2026-11-13T11:17:13.8827625Z     
+2026-11-13T11:17:13.8827859Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8828215Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8828512Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8828760Z             timeout=timeout,
+2026-11-13T11:17:13.8828976Z         )
+2026-11-13T11:17:13.8829148Z     
+2026-11-13T11:17:13.8829336Z         error_index = None
+2026-11-13T11:17:13.8829567Z         for sentinel in ready:
+2026-11-13T11:17:13.8829834Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8830130Z             process = self.processes[index]
+2026-11-13T11:17:13.8830403Z             process.join()
+2026-11-13T11:17:13.8830647Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8830905Z                 error_index = index
+2026-11-13T11:17:13.8831142Z                 break
+2026-11-13T11:17:13.8831333Z     
+2026-11-13T11:17:13.8831518Z         # Return if there was no error.
+2026-11-13T11:17:13.8831779Z         if error_index is None:
+2026-11-13T11:17:13.8832077Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8832414Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8832753Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8833180Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8833546Z         if grace_period is not None:
+2026-11-13T11:17:13.8833830Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8834223Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8834595Z         for process in self.processes:
+2026-11-13T11:17:13.8834865Z             if process.is_alive():
+2026-11-13T11:17:13.8835233Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8835622Z                 process.terminate()
+2026-11-13T11:17:13.8836037Z     
+2026-11-13T11:17:13.8836323Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8836759Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8837163Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8837577Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8837929Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8838312Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8838840Z         for process in self.processes:
+2026-11-13T11:17:13.8839101Z             if process.is_alive():
+2026-11-13T11:17:13.8839349Z                 log.warning(
+2026-11-13T11:17:13.8839717Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8840131Z                     process.pid,
+2026-11-13T11:17:13.8840356Z                 )
+2026-11-13T11:17:13.8840553Z                 process.kill()
+2026-11-13T11:17:13.8840786Z             process.join()
+2026-11-13T11:17:13.8840997Z     
+2026-11-13T11:17:13.8841240Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8841599Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8841953Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8842322Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8842629Z             if exitcode < 0:
+2026-11-13T11:17:13.8842856Z                 try:
+2026-11-13T11:17:13.8843095Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8843390Z                 except ValueError:
+2026-11-13T11:17:13.8843781Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8844105Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8844467Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8844819Z                     error_index=error_index,
+2026-11-13T11:17:13.8845105Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8845390Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8845643Z                     signal_name=name,
+2026-11-13T11:17:13.8846048Z                 )
+2026-11-13T11:17:13.8846232Z             else:
+2026-11-13T11:17:13.8846446Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8846813Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8847206Z                     error_index=error_index,
+2026-11-13T11:17:13.8847482Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8847771Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8848010Z                 )
+2026-11-13T11:17:13.8848188Z     
+2026-11-13T11:17:13.8848423Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8848752Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8849132Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8849513Z         msg += original_trace
+2026-11-13T11:17:13.8849861Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8850339Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8850669Z E       
+2026-11-13T11:17:13.8850906Z E       -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8851240Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8851854Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8852455Z E           fn(i, *args)
+2026-11-13T11:17:13.8852891Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8853492Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8853937Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8854253Z E       AssertionError
+2026-11-13T11:17:13.8854386Z 
+2026-11-13T11:17:13.8854667Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8855220Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8855729Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8856938Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8857537Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8858350Z W1113 11:17:10.586000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2437 via signal SIGTERM
+2026-11-13T11:17:13.8859053Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8859599Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2437 via signal SIGTERM
+2026-11-13T11:17:13.8860162Z __________ test_join_cpu_ddp_restores_sampler_after_exception[False] ___________
+2026-11-13T11:17:13.8860464Z 
+2026-11-13T11:17:13.8860546Z override = False
+2026-11-13T11:17:13.8860674Z 
+2026-11-13T11:17:13.8860812Z     @pytest.mark.parametrize("override", [None, False])
+2026-11-13T11:17:13.8861232Z     def test_join_cpu_ddp_restores_sampler_after_exception(override):
+2026-11-13T11:17:13.8861791Z >       torch.multiprocessing.spawn(_join_cpu_worker, args=(_free_port(), 3, override, True), nprocs=2)
+2026-11-13T11:17:13.8862174Z 
+2026-11-13T11:17:13.8862411Z tests/test_join_cpu.py:117: 
+2026-11-13T11:17:13.8862706Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8863164Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:364: in spawn
+2026-11-13T11:17:13.8863678Z     return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+2026-11-13T11:17:13.8864083Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8864546Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:320: in start_processes
+2026-11-13T11:17:13.8864992Z     while not context.join():
+2026-11-13T11:17:13.8865229Z               ^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8865499Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T11:17:13.8865735Z 
+2026-11-13T11:17:13.8866164Z self = <torch.multiprocessing.spawn.ProcessContext object at 0x7fe2f9114380>
+2026-11-13T11:17:13.8866605Z timeout = None, grace_period = None
+2026-11-13T11:17:13.8866792Z 
+2026-11-13T11:17:13.8866865Z     def join(
+2026-11-13T11:17:13.8867181Z         self, timeout: Optional[float] = None, grace_period: Optional[float] = None
+2026-11-13T11:17:13.8867551Z     ):
+2026-11-13T11:17:13.8867784Z         r"""Join one or more processes within spawn context.
+2026-11-13T11:17:13.8868091Z     
+2026-11-13T11:17:13.8868346Z         Attempt to join one or more processes in this spawn context.
+2026-11-13T11:17:13.8868762Z         If one of them exited with a non-zero exit status, this function
+2026-11-13T11:17:13.8869185Z         kills the remaining processes (optionally with a grace period)
+2026-11-13T11:17:13.8869628Z         and raises an exception with the cause of the first process exiting.
+2026-11-13T11:17:13.8869983Z     
+2026-11-13T11:17:13.8870248Z         Returns ``True`` if all processes have been joined successfully,
+2026-11-13T11:17:13.8870662Z         ``False`` if there are more processes that need to be joined.
+2026-11-13T11:17:13.8870986Z     
+2026-11-13T11:17:13.8871161Z         Args:
+2026-11-13T11:17:13.8871469Z             timeout (float): Wait this long (in seconds) before giving up on waiting.
+2026-11-13T11:17:13.8871968Z             grace_period (float): When any processes fail, wait this long (in seconds)
+2026-11-13T11:17:13.8872458Z                 for others to shutdown gracefully before terminating them. If they
+2026-11-13T11:17:13.8872917Z                 still don't exit, wait another grace period before killing them.
+2026-11-13T11:17:13.8873259Z         """
+2026-11-13T11:17:13.8873515Z         # Ensure this function can be called even when we're done.
+2026-11-13T11:17:13.8873854Z         if len(self.sentinels) == 0:
+2026-11-13T11:17:13.8874111Z             return True
+2026-11-13T11:17:13.8874445Z     
+2026-11-13T11:17:13.8874681Z         # Wait for any process to fail or all of them to succeed.
+2026-11-13T11:17:13.8875046Z         ready = multiprocessing.connection.wait(
+2026-11-13T11:17:13.8875345Z             self.sentinels.keys(),
+2026-11-13T11:17:13.8875597Z             timeout=timeout,
+2026-11-13T11:17:13.8876068Z         )
+2026-11-13T11:17:13.8876246Z     
+2026-11-13T11:17:13.8876423Z         error_index = None
+2026-11-13T11:17:13.8876653Z         for sentinel in ready:
+2026-11-13T11:17:13.8876909Z             index = self.sentinels.pop(sentinel)
+2026-11-13T11:17:13.8877201Z             process = self.processes[index]
+2026-11-13T11:17:13.8877479Z             process.join()
+2026-11-13T11:17:13.8877716Z             if process.exitcode != 0:
+2026-11-13T11:17:13.8877972Z                 error_index = index
+2026-11-13T11:17:13.8878211Z                 break
+2026-11-13T11:17:13.8878403Z     
+2026-11-13T11:17:13.8878588Z         # Return if there was no error.
+2026-11-13T11:17:13.8878856Z         if error_index is None:
+2026-11-13T11:17:13.8879149Z             # Return whether or not all processes have been joined.
+2026-11-13T11:17:13.8879485Z             return len(self.sentinels) == 0
+2026-11-13T11:17:13.8879947Z         # An error occurred. Clean-up all processes before returning.
+2026-11-13T11:17:13.8880382Z         # First, allow a grace period for processes to shutdown themselves.
+2026-11-13T11:17:13.8880748Z         if grace_period is not None:
+2026-11-13T11:17:13.8881037Z             self._join_procs_with_timeout(grace_period)
+2026-11-13T11:17:13.8881429Z         # Then, terminate processes that are still alive. Try SIGTERM first.
+2026-11-13T11:17:13.8881804Z         for process in self.processes:
+2026-11-13T11:17:13.8882070Z             if process.is_alive():
+2026-11-13T11:17:13.8882431Z                 log.warning("Terminating process %s via signal SIGTERM", process.pid)
+2026-11-13T11:17:13.8882822Z                 process.terminate()
+2026-11-13T11:17:13.8883051Z     
+2026-11-13T11:17:13.8883349Z         # Try SIGKILL if the process isn't going down after another grace_period.
+2026-11-13T11:17:13.8883785Z         # The reason is related to python signal handling is limited
+2026-11-13T11:17:13.8884197Z         # to main thread and if that is in c/c++ land and stuck it won't
+2026-11-13T11:17:13.8884620Z         # to handle it. We have seen processes getting stuck not handling
+2026-11-13T11:17:13.8884974Z         # SIGTERM for the above reason.
+2026-11-13T11:17:13.8885347Z         self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+2026-11-13T11:17:13.8885744Z         for process in self.processes:
+2026-11-13T11:17:13.8886374Z             if process.is_alive():
+2026-11-13T11:17:13.8886630Z                 log.warning(
+2026-11-13T11:17:13.8887001Z                     "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+2026-11-13T11:17:13.8887413Z                     process.pid,
+2026-11-13T11:17:13.8887641Z                 )
+2026-11-13T11:17:13.8887845Z                 process.kill()
+2026-11-13T11:17:13.8888083Z             process.join()
+2026-11-13T11:17:13.8888290Z     
+2026-11-13T11:17:13.8888524Z         # The file will only be created if the process crashed.
+2026-11-13T11:17:13.8888885Z         failed_process = self.processes[error_index]
+2026-11-13T11:17:13.8889248Z         if not os.access(self.error_files[error_index], os.R_OK):
+2026-11-13T11:17:13.8889626Z             exitcode = self.processes[error_index].exitcode
+2026-11-13T11:17:13.8889935Z             if exitcode < 0:
+2026-11-13T11:17:13.8890155Z                 try:
+2026-11-13T11:17:13.8890391Z                     name = signal.Signals(-exitcode).name
+2026-11-13T11:17:13.8890687Z                 except ValueError:
+2026-11-13T11:17:13.8890957Z                     name = f"<Unknown signal {-exitcode}>"
+2026-11-13T11:17:13.8891273Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8891625Z                     f"process {error_index:d} terminated with signal {name}",
+2026-11-13T11:17:13.8892146Z                     error_index=error_index,
+2026-11-13T11:17:13.8892438Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8892722Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8892988Z                     signal_name=name,
+2026-11-13T11:17:13.8893224Z                 )
+2026-11-13T11:17:13.8893408Z             else:
+2026-11-13T11:17:13.8893621Z                 raise ProcessExitedException(
+2026-11-13T11:17:13.8893992Z                     f"process {error_index:d} terminated with exit code {exitcode:d}",
+2026-11-13T11:17:13.8894377Z                     error_index=error_index,
+2026-11-13T11:17:13.8894657Z                     error_pid=failed_process.pid,
+2026-11-13T11:17:13.8894939Z                     exit_code=exitcode,
+2026-11-13T11:17:13.8895183Z                 )
+2026-11-13T11:17:13.8895361Z     
+2026-11-13T11:17:13.8895502Z         with open(self.error_files[error_index], "rb") as fh:
+2026-11-13T11:17:13.8895610Z             original_trace = pickle.load(fh)
+2026-11-13T11:17:13.8896077Z         msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+2026-11-13T11:17:13.8896212Z         msg += original_trace
+2026-11-13T11:17:13.8896607Z >       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+2026-11-13T11:17:13.8896791Z E       torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8896872Z E       
+2026-11-13T11:17:13.8897007Z E       -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8897115Z E       Traceback (most recent call last):
+2026-11-13T11:17:13.8897543Z E         File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8897634Z E           fn(i, *args)
+2026-11-13T11:17:13.8897942Z E         File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8898149Z E           assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8898290Z E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8898373Z E       AssertionError
+2026-11-13T11:17:13.8898384Z 
+2026-11-13T11:17:13.8898670Z .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:220: ProcessRaisedException
+2026-11-13T11:17:13.8898856Z ----------------------------- Captured stdout call -----------------------------
+2026-11-13T11:17:13.8899090Z [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8899321Z [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-11-13T11:17:13.8899490Z ----------------------------- Captured stderr call -----------------------------
+2026-11-13T11:17:13.8899921Z W1113 11:17:13.440000 2342 .venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py:174] Terminating process 2475 via signal SIGTERM
+2026-11-13T11:17:13.8900097Z ------------------------------ Captured log call -------------------------------
+2026-11-13T11:17:13.8900362Z WARNING  torch.multiprocessing.spawn:spawn.py:174 Terminating process 2475 via signal SIGTERM
+2026-11-13T11:17:13.8900516Z =========================== short test summary info ============================
+2026-11-13T11:17:13.8901062Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[None-1] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8901068Z 
+2026-11-13T11:17:13.8901199Z -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8901313Z Traceback (most recent call last):
+2026-11-13T11:17:13.8908669Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8908806Z     fn(i, *args)
+2026-11-13T11:17:13.8909188Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8909625Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8909753Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8909844Z AssertionError
+2026-11-13T11:17:13.8910341Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[None-3] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8910350Z 
+2026-11-13T11:17:13.8910487Z -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8910589Z Traceback (most recent call last):
+2026-11-13T11:17:13.8911045Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8911126Z     fn(i, *args)
+2026-11-13T11:17:13.8911456Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8911670Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8911791Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8911879Z AssertionError
+2026-11-13T11:17:13.8912478Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[None-7] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8912488Z 
+2026-11-13T11:17:13.8912616Z -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8912717Z Traceback (most recent call last):
+2026-11-13T11:17:13.8913143Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8913226Z     fn(i, *args)
+2026-11-13T11:17:13.8913539Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8913735Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8913852Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8913935Z AssertionError
+2026-11-13T11:17:13.8914410Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[False-1] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8914417Z 
+2026-11-13T11:17:13.8914540Z -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8914633Z Traceback (most recent call last):
+2026-11-13T11:17:13.8915096Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8915178Z     fn(i, *args)
+2026-11-13T11:17:13.8915482Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8915680Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8915791Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8916091Z AssertionError
+2026-11-13T11:17:13.8916554Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[False-3] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8916565Z 
+2026-11-13T11:17:13.8916683Z -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8916780Z Traceback (most recent call last):
+2026-11-13T11:17:13.8917193Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8917276Z     fn(i, *args)
+2026-11-13T11:17:13.8917583Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8917775Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8917892Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8917974Z AssertionError
+2026-11-13T11:17:13.8918423Z FAILED tests/test_join_cpu.py::test_join_uneven_cpu_ddp_matches_training_reference[False-7] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8918560Z 
+2026-11-13T11:17:13.8918690Z -- Process 1 terminated with the following error:
+2026-11-13T11:17:13.8918782Z Traceback (most recent call last):
+2026-11-13T11:17:13.8919216Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8919297Z     fn(i, *args)
+2026-11-13T11:17:13.8919596Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8919792Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8919901Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8919985Z AssertionError
+2026-11-13T11:17:13.8920443Z FAILED tests/test_join_cpu.py::test_join_cpu_ddp_restores_sampler_after_exception[None] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8920454Z 
+2026-11-13T11:17:13.8920573Z -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8920786Z Traceback (most recent call last):
+2026-11-13T11:17:13.8921220Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8921297Z     fn(i, *args)
+2026-11-13T11:17:13.8921604Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8921796Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8921912Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8921993Z AssertionError
+2026-11-13T11:17:13.8922445Z FAILED tests/test_join_cpu.py::test_join_cpu_ddp_restores_sampler_after_exception[False] - torch.multiprocessing.spawn.ProcessRaisedException: 
+2026-11-13T11:17:13.8922456Z 
+2026-11-13T11:17:13.8922580Z -- Process 0 terminated with the following error:
+2026-11-13T11:17:13.8922672Z Traceback (most recent call last):
+2026-11-13T11:17:13.8923103Z   File "/home/runner/work/accelerate/accelerate/.venv/lib/python3.12/site-packages/torch/multiprocessing/spawn.py", line 95, in _wrap
+2026-11-13T11:17:13.8923185Z     fn(i, *args)
+2026-11-13T11:17:13.8923492Z   File "/home/runner/work/accelerate/accelerate/tests/test_join_cpu.py", line 70, in _join_cpu_worker
+2026-11-13T11:17:13.8923699Z     assert not any("will have no effect" in str(item.message) for item in caught)
+2026-11-13T11:17:13.8923816Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:17:13.8923892Z AssertionError
+2026-11-13T11:17:13.8923994Z 8 failed, 1 passed in 30.56s
+2026-11-13T11:17:13.8923999Z 
+2026-11-13T11:17:13.8924190Z before {'tests': 9, 'failures': 8, 'errors': 0, 'skipped': 0, 'returncode': 1}
+2026-11-13T11:17:39.1472882Z .........                                                                [100%]
+2026-11-13T11:17:39.1473924Z 9 passed in 24.63s
+2026-11-13T11:17:39.1474729Z 
+2026-11-13T11:17:39.1475193Z after {'tests': 9, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0}
+2026-11-13T11:17:42.6206046Z ss......                                                                 [100%]
+2026-11-13T11:17:42.6206775Z 6 passed, 2 skipped, 48 deselected in 2.58s
+2026-11-13T11:17:42.6207157Z 
+2026-11-13T11:17:42.6207554Z existing {'tests': 8, 'failures': 0, 'errors': 0, 'skipped': 2, 'returncode': 0}
+2026-11-13T11:17:42.6228295Z {
+2026-11-13T11:17:42.6228724Z   "base": "3bd795f7cfb763b994b4ba8ba59e5a305a7c528a",
+2026-11-13T11:17:42.6229313Z   "source_head": "8531588c8a96db802b9d791a470ea9d854181ec2",
+2026-11-13T11:17:42.6229791Z   "before": {
+2026-11-13T11:17:42.6230070Z     "tests": 9,
+2026-11-13T11:17:42.6230354Z     "failures": 8,
+2026-11-13T11:17:42.6230639Z     "errors": 0,
+2026-11-13T11:17:42.6230926Z     "skipped": 0,
+2026-11-13T11:17:42.6231605Z     "returncode": 1
+2026-11-13T11:17:42.6231945Z   },
+2026-11-13T11:17:42.6232213Z   "after": {
+2026-11-13T11:17:42.6232515Z     "tests": 9,
+2026-11-13T11:17:42.6232833Z     "failures": 0,
+2026-11-13T11:17:42.6233127Z     "errors": 0,
+2026-11-13T11:17:42.6233443Z     "skipped": 0,
+2026-11-13T11:17:42.6233762Z     "returncode": 0
+2026-11-13T11:17:42.6234051Z   },
+2026-11-13T11:17:42.6234312Z   "existing": {
+2026-11-13T11:17:42.6234598Z     "tests": 8,
+2026-11-13T11:17:42.6234920Z     "failures": 0,
+2026-11-13T11:17:42.6235217Z     "errors": 0,
+2026-11-13T11:17:42.6235515Z     "skipped": 2,
+2026-11-13T11:17:42.6236042Z     "returncode": 0
+2026-11-13T11:17:42.6236356Z   }
+2026-11-13T11:17:42.6236619Z }
+2026-11-13T11:17:42.6338831Z ##[group]Run .venv/bin/ruff check src/accelerate/accelerator.py src/accelerate/test_utils/scripts/test_distributed_data_loop.py tests/test_join_cpu.py
+2026-11-13T11:17:42.6339949Z [36;1m.venv/bin/ruff check src/accelerate/accelerator.py src/accelerate/test_utils/scripts/test_distributed_data_loop.py tests/test_join_cpu.py[0m
+2026-11-13T11:17:42.6341034Z [36;1m.venv/bin/ruff format --check src/accelerate/accelerator.py src/accelerate/test_utils/scripts/test_distributed_data_loop.py tests/test_join_cpu.py[0m
+2026-11-13T11:17:42.6361684Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:17:42.6361934Z env:
+2026-11-13T11:17:42.6362125Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:42.6362336Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:42.6362535Z   PYTHONPATH: src
+2026-11-13T11:17:42.6362812Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6363267Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:17:42.6363745Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6364139Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6364528Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6364907Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:17:42.6365286Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:42.6365593Z ##[endgroup]
+2026-11-13T11:17:42.6570733Z All checks passed!
+2026-11-13T11:17:42.6751364Z 3 files already formatted
+2026-11-13T11:17:42.6846642Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T11:17:42.6846964Z with:
+2026-11-13T11:17:42.6847176Z   name: cpu-join-native-evidence
+2026-11-13T11:17:42.6847624Z   path: before.log
+before.xml
+after.log
+after.xml
+existing.log
+existing.xml
+native-report.json
+
+2026-11-13T11:17:42.6848084Z   if-no-files-found: warn
+2026-11-13T11:17:42.6848323Z   compression-level: 6
+2026-11-13T11:17:42.6848536Z   overwrite: false
+2026-11-13T11:17:42.6848752Z   include-hidden-files: false
+2026-11-13T11:17:42.6848981Z env:
+2026-11-13T11:17:42.6849158Z   OMP_NUM_THREADS: 1
+2026-11-13T11:17:42.6849367Z   MKL_NUM_THREADS: 1
+2026-11-13T11:17:42.6849564Z   PYTHONPATH: src
+2026-11-13T11:17:42.6849835Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6850287Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:17:42.6850711Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6851123Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6851503Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:17:42.6851880Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:17:42.6852249Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:42.6852537Z ##[endgroup]
+2026-11-13T11:17:42.8649996Z (node:2587) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:17:42.8651224Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:17:42.8805444Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T11:17:42.8816563Z The least common ancestor is /home/runner/work/accelerate/accelerate. This will be the root directory of the artifact
+2026-11-13T11:17:42.8818318Z With the provided path, there will be 7 files uploaded
+2026-11-13T11:17:42.8822717Z Artifact name is valid!
+2026-11-13T11:17:42.8824252Z Root directory input is valid!
+2026-11-13T11:17:43.1212136Z Beginning upload of artifact content to blob storage
+2026-11-13T11:17:43.1581086Z (node:2587) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:17:43.2035108Z Uploaded bytes 7856
+2026-11-13T11:17:43.2242752Z Finished uploading artifact content to blob storage!
+2026-11-13T11:17:43.2244291Z SHA256 digest of uploaded artifact zip is 5a4069976bed10b11116e8e423f5ff1c3fbe32df41d7de6530b5d23a1e41cc56
+2026-11-13T11:17:43.2246558Z Finalizing artifact upload
+2026-11-13T11:17:43.5917636Z Artifact cpu-join-native-evidence.zip successfully finalized. Artifact ID 14030664160
+2026-11-13T11:17:43.5919111Z Artifact cpu-join-native-evidence has been successfully uploaded! Final size is 7856 bytes. Artifact ID is 14030664160
+2026-11-13T11:17:43.5926174Z Artifact download URL: https://github.com/Afloat16/accelerate/actions/runs/43415250636/artifacts/14030664160
+2026-11-13T11:17:43.6142180Z Post job cleanup.
+2026-11-13T11:17:43.7496892Z Pruning cache...
+2026-11-13T11:17:43.7511782Z (node:2600) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:17:43.7513148Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:17:43.7569181Z [command]/opt/hostedtoolcache/uv/0.13.8/x86_64/uv cache prune --ci
+2026-11-13T11:17:43.7690426Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:44.0542147Z Removed 17314 files (5.8MiB)
+2026-11-13T11:17:44.0571352Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T11:17:44.0757596Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/accelerate/accelerate --files-from manifest.txt --use-compress-program zstdmt
+2026-11-13T11:17:44.2078627Z (node:2600) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:17:44.3814228Z Sent 3074050 of 3074050 (100.0%), 16.1 MBs/sec
+2026-11-13T11:17:44.4812052Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-01c394f8559796d98a036c22ff191ffdc9f81ad6ac7f060b94badd63fc5bb69e
+2026-11-13T11:17:44.4986306Z Post job cleanup.
+2026-11-13T11:17:44.6303157Z (node:2623) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:17:44.6304110Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:17:44.6466522Z Post job cleanup.
+2026-11-13T11:17:44.7470746Z [command]/usr/bin/git version
+2026-11-13T11:17:44.7536740Z git version 2.56.0
+2026-11-13T11:17:44.7608474Z Temporarily overriding HOME='/home/runner/work/_temp/9286f528-3f74-48f8-88d1-defb31f88e6b' before making global git config changes
+2026-11-13T11:17:44.7612719Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:17:44.7618962Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/accelerate/accelerate
+2026-11-13T11:17:44.7710155Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:17:44.7757206Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:17:44.8131575Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:17:44.8204549Z http.https://github.com/.extraheader
+2026-11-13T11:17:44.8248241Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T11:17:44.8321122Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:17:44.8639028Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:17:44.8686673Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:17:44.9121603Z Cleaning up orphan processes
+2026-11-13T11:17:44.9677079Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

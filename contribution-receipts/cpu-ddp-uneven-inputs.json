@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "repository": "huggingface/accelerate",
+  "title": "Support uneven-input joining for CPU DDP training",
+  "pr": "https://github.com/huggingface/accelerate/pull/4542",
+  "number": 4542,
+  "head": "3a2f7b6b5679d34c41f3ff56a3ccde7ca436425d",
+  "base": "3bd795f7cfb763b994b4ba8ba59e5a305a7c528a",
+  "branch": "fix/cpu-ddp-uneven-inputs-20261113",
+  "created_at": "2026-11-13T11:24:29Z",
+  "verified_at": "2026-11-13T11:26:00Z",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "validation": {
+    "head": "8531588c8a96db802b9d791a470ea9d854181ec2",
+    "run": "https://github.com/Afloat16/accelerate/actions/runs/43415250636",
+    "job": 131851391165,
+    "conclusion": "success",
+    "before": {
+      "failed": 8,
+      "passed": 1
+    },
+    "after": {
+      "passed": 9
+    },
+    "existing": {
+      "passed": 6,
+      "skipped": 2
+    },
+    "runtime": "Python 3.12, official PyTorch 2.9.0 CPU",
+    "style": "Ruff check and format passed"
+  },
+  "review": {
+    "status": "peer review passed",
+    "scope": "CPU Gloo DDP including empty ranks, initial-world-size SGD normalization, sampler cleanup and single-process no-op"
+  },
+  "deduplication": {
+    "search_scope": "All-state upstream and Afloat16 pull requests; related patches read",
+    "related": [
+      820,
+      3962,
+      4040
+    ]
+  },
+  "body": "# What does this PR do?\n\nEnable `Accelerator.join_uneven_inputs` for CPU DistributedDataParallel training.\n\nThe existing guard excludes `MULTI_CPU`, so a CPU DDP run receives a no-op warning instead of entering PyTorch Join. With uneven per-rank data, the remaining rank cannot complete its gradient collectives. The same Join mechanism supports CPU DDP with Gloo.\n\nInclude distributed CPU runs in this method's local eligibility check. Keep the existing accelerator paths and single-process no-op behavior, and update the method documentation and unsupported-backend warning.\n\n## Validation\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43415250636), Python 3.12 and official PyTorch 2.9.0 CPU:\n\n- Original source: 8 new distributed cases fail at the unsupported-path assertion; the single-process control passes. The assertion prevents the baseline from entering unmatched collectives.\n- Patched source: all 9 new cases pass.\n- Existing selected Accelerator tests: 6 pass, 2 opt-in suite skips.\n- Ruff checks and formatting pass.\n\nSix cases run actual two-process Gloo DDP training with 1, 3, or 7 samples, including an empty rank, both configured uneven batching and an explicit override. They check exact sample coverage without padding, compare the final model with direct SGD using Join's initial-world-size normalization, and verify identical final weights on both ranks. Two additional cases check sampler restoration after an exception.\n\nThis is CPU/Gloo validation; no accelerator performance claim is made.\n\n## Before submitting\n\n- [x] Read the contributor guideline.\n- [x] Updated the method's supported configurations and warning.\n- [x] Added native distributed training and cleanup regression tests.\n- [x] Verified related existing tests.\n"
+}
