@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ba037d6dd8459a96edd0f245e34b9930a62aa9cd
+          ref: 5efd4dce672fed6add98fe4c17d027210c7affe1
           fetch-depth: 4
           persist-credentials: false
       - uses: actions/setup-python@v5
@@ -34,7 +34,7 @@ jobs:
           test = Path("tests/test_cuda_device_comparison.py")
           original = source.read_bytes()
           test_hash = hashlib.sha256(test.read_bytes()).hexdigest()
-          assert subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip() == "ba037d6dd8459a96edd0f245e34b9930a62aa9cd"
+          assert subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip() == "5efd4dce672fed6add98fe4c17d027210c7affe1"
           rows = []
           try:
               for phase, content, expected_failed in [
@@ -59,10 +59,9 @@ jobs:
               Path("validation-results.json").write_text(json.dumps(rows, indent=2))
               print(json.dumps(rows, indent=2), flush=True)
           PY
-      - name: Verify changed-file quality
+      - name: Verify repository quality
         run: |
-          ruff check src/accelerate/utils/modeling.py tests/test_cuda_device_comparison.py
-          ruff format --check src/accelerate/utils/modeling.py tests/test_cuda_device_comparison.py
+          make quality
           git diff --check HEAD^ HEAD
       - uses: actions/upload-artifact@v4
         if: always()
