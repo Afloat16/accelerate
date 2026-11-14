@@ -1,0 +1,53 @@
+name: Accelerate round 8 repository quality
+on:
+  push:
+    branches: [validation/accelerate-quality-round8-20261114]
+permissions:
+  contents: read
+jobs:
+  exact-head-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install project-pinned Ruff
+        run: python -m pip install ruff==0.13.1
+      - name: Verify repository quality for each exact PR head
+        env:
+          HEADS_JSON: '{"4528":"ba037d6dd8459a96edd0f245e34b9930a62aa9cd","4531":"afff12fe664b31fea12a049a4580ed7d9aecd583","4533":"53946e5cd4b5615ab9c9f8a10a141939f90dcd89","4539":"c100d247a46ab16429e58ff654fa641a4addc8f2","4540":"04023a70f672c058cf0f3a9128550e38b80780a9","4541":"d31250bad01c8fb0d3b0357a976721daa5dd63dd","4542":"3a2f7b6b5679d34c41f3ff56a3ccde7ca436425d","4543":"dc6600f6dc7fbc2b9536072ff802663df6ce74e3","4544":"a95ee5bdda6c74e93e59878a5e5e5db69d554950","4545":"be20c6e91fa30f31b7546a163e5ff7e2f8e119fd","4546":"133b0409368afe8dc1751094d462efb4823176e6"}'
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          root = Path.cwd()
+          results = []
+          for number, sha in json.loads(os.environ["HEADS_JSON"]).items():
+              subprocess.run(["git", "fetch", "--no-tags", "--depth=1", "origin", sha], check=True)
+              target = Path(os.environ["RUNNER_TEMP"]) / ("accelerate-quality-" + number)
+              subprocess.run(["git", "worktree", "add", "--detach", str(target), sha], check=True)
+              assert subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=target, text=True).strip() == sha
+              before = subprocess.check_output(["git", "status", "--porcelain"], cwd=target)
+              assert before == b""
+              run = subprocess.run(["make", "quality"], cwd=target, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+              print("QUALITY_PR", number, sha, flush=True)
+              print(run.stdout, flush=True)
+              Path("quality-" + number + ".log").write_text(run.stdout)
+              assert subprocess.check_output(["git", "status", "--porcelain"], cwd=target) == b""
+              results.append({"pr": int(number), "sha": sha, "command": "make quality", "returncode": run.returncode})
+              Path("quality-results.json").write_text(json.dumps(results, indent=2))
+          print("QUALITY_RESULTS " + json.dumps(results), flush=True)
+          assert all(row["returncode"] == 0 for row in results)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accelerate-round8-quality
+          path: |
+            quality-*.log
+            quality-results.json
