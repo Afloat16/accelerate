@@ -1,0 +1,75 @@
+name: Accelerate 4379 exact-source validation
+on:
+  push:
+    branches: [validation/accelerate4379-round8-20261114]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 5060b4884756556a4e0b7fc2bbb039728f0a7eaf
+          fetch-depth: 3
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install native CPU dependencies
+        run: |
+          python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[test_prod,quality]'
+          python -c 'import sys, torch, numpy; print(sys.version); print(torch.__version__); print(numpy.__version__)'
+      - name: Verify baseline zero-byte reads and exact-head offload suite
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, subprocess, sys, xml.etree.ElementTree as ET
+          source = Path("src/accelerate/utils/offload.py")
+          test = Path("tests/test_offload.py")
+          original = source.read_bytes()
+          test_hash = hashlib.sha256(test.read_bytes()).hexdigest()
+          assert subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip() == "5060b4884756556a4e0b7fc2bbb039728f0a7eaf"
+          rows = []
+          try:
+              for phase, content, selection, expected_total, expected_failed in [
+                  ("baseline", subprocess.check_output(["git", "show", "f47439c1fb24721ea71ab98f9b512726b5a97828:src/accelerate/utils/offload.py"]), "load_existing_zero_byte_empty_weight or load_nonempty_weight_from_empty_file_fails", 5, 4),
+                  ("candidate", original, None, 80, 0),
+              ]:
+                  source.write_bytes(content)
+                  command = [sys.executable, "-m", "pytest", "-q", str(test), "--junitxml=" + phase + ".xml"]
+                  if selection:
+                      command += ["-k", selection]
+                  result = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                  print(result.stdout, flush=True)
+                  Path(phase + ".log").write_text(result.stdout)
+                  cases = list(ET.parse(phase + ".xml").getroot().iter("testcase"))
+                  failures = [c for c in cases if c.find("failure") is not None]
+                  assert len(cases) == expected_total and len(failures) == expected_failed
+                  assert all(c.find("error") is None and c.find("skipped") is None for c in cases)
+                  assert result.returncode == (1 if expected_failed else 0)
+                  rows.append({"phase": phase, "command": command, "passed": expected_total - expected_failed, "failed": expected_failed, "skipped": 0})
+          finally:
+              source.write_bytes(original)
+              assert hashlib.sha256(test.read_bytes()).hexdigest() == test_hash
+              subprocess.run(["git", "diff", "--exit-code"], check=True)
+              Path("validation-results.json").write_text(json.dumps(rows, indent=2))
+              print(json.dumps(rows, indent=2), flush=True)
+          PY
+      - name: Repository quality checks
+        run: make quality
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accelerate4379-exact
+          path: |
+            baseline.log
+            baseline.xml
+            candidate.log
+            candidate.xml
+            validation-results.json
