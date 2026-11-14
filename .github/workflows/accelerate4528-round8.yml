@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 58d33c39ec7e7407127fce7fa9ae262056dafa34
-          fetch-depth: 3
+          ref: ba037d6dd8459a96edd0f245e34b9930a62aa9cd
+          fetch-depth: 4
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
@@ -34,7 +34,7 @@ jobs:
           test = Path("tests/test_cuda_device_comparison.py")
           original = source.read_bytes()
           test_hash = hashlib.sha256(test.read_bytes()).hexdigest()
-          assert subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip() == "58d33c39ec7e7407127fce7fa9ae262056dafa34"
+          assert subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip() == "ba037d6dd8459a96edd0f245e34b9930a62aa9cd"
           rows = []
           try:
               for phase, content, expected_failed in [
