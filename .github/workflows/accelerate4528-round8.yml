@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: 58d33c39ec7e7407127fce7fa9ae262056dafa34
-          fetch-depth: 2
+          fetch-depth: 3
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
@@ -38,7 +38,7 @@ jobs:
           rows = []
           try:
               for phase, content, expected_failed in [
-                  ("baseline", subprocess.check_output(["git", "show", "4ad89e673a90c03109311cd20b2a1ca0fd59a1f5:src/accelerate/utils/modeling.py"]), 1),
+                  ("baseline", subprocess.check_output(["git", "show", "f47439c1fb24721ea71ab98f9b512726b5a97828:src/accelerate/utils/modeling.py"]), 1),
                   ("candidate", original, 0),
               ]:
                   source.write_bytes(content)
