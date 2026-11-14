@@ -1,0 +1,86 @@
+name: Verify PR 4540 regressions on current upstream
+on:
+  push:
+    branches: [validation/accelerate4540-upstream-0aca80e-20261114]
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime: [cpu, xla-cpu]
+    env:
+      PJRT_DEVICE: CPU
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      VALIDATION_RUNTIME: ${{ matrix.runtime }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install native CPU environment
+        run: |
+          mkdir -p evidence
+          python -m pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[test_prod,quality]'
+          if [ "$VALIDATION_RUNTIME" = 'xla-cpu' ]; then
+            python -m pip install torch_xla==2.9.0
+          fi
+          python -m pip freeze > evidence/installed-dependencies.txt
+      - name: Verify unchanged upstream source and original PR regressions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, importlib.metadata, json, os, platform, subprocess, sys
+          import xml.etree.ElementTree as ET
+          import torch
+          upstream = '0aca80e511a60b6735ec22dc1062b22f35c2fa15'
+          original_pr = '04023a70f672c058cf0f3a9128550e38b80780a9'
+          runtime = os.environ['VALIDATION_RUNTIME']
+          evidence = Path('evidence')
+          test = Path('tests/test_multiple_model_parameters.py')
+          assert subprocess.check_output(['git', 'rev-parse', 'HEAD^'], text=True).strip() == upstream
+          subprocess.run(['git', 'diff', '--exit-code', upstream, '--', 'src'], check=True)
+          assert hashlib.sha256(test.read_bytes()).hexdigest() == '564244cbc34b306d6b45e91d3b8bb21ba14e7562e2e3b2c312dd295a3f1acdb1'
+          metadata = {'upstream': upstream, 'original_pr': original_pr, 'runtime': runtime,
+                      'python': platform.python_version(), 'torch': torch.__version__,
+                      'cuda_available': torch.cuda.is_available(), 'results': []}
+          if runtime == 'xla-cpu':
+              metadata['torch_xla'] = importlib.metadata.version('torch_xla')
+          print(json.dumps(metadata, indent=2), flush=True)
+          try:
+              for name, paths in [('regression', [str(test)]), ('existing', ['tests/test_optimizer.py'])]:
+                  command = [sys.executable, '-m', 'pytest', '-q', *paths, '--junitxml=' + str(evidence / (name + '.xml'))]
+                  result = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                  print(result.stdout, flush=True)
+                  (evidence / (name + '.log')).write_text(result.stdout)
+                  cases = list(ET.parse(evidence / (name + '.xml')).getroot().iter('testcase'))
+                  counts = {'tests': len(cases), 'failures': sum(c.find('failure') is not None for c in cases),
+                            'errors': sum(c.find('error') is not None for c in cases),
+                            'skipped': sum(c.find('skipped') is not None for c in cases)}
+                  counts['passed'] = counts['tests'] - counts['failures'] - counts['errors'] - counts['skipped']
+                  metadata['results'].append({'name': name, 'command': command, 'exit': result.returncode, **counts})
+                  assert result.returncode == 0 and counts['failures'] == 0 and counts['errors'] == 0
+                  if name == 'regression':
+                      assert counts['tests'] == 28
+                      assert counts['skipped'] == (12 if runtime == 'cpu' else 0)
+              subprocess.run(['git', 'diff', '--exit-code'], check=True)
+          finally:
+              (evidence / 'results.json').write_text(json.dumps(metadata, indent=2))
+              print(json.dumps(metadata, indent=2), flush=True)
+          PY
+      - name: Repository quality checks
+        run: make quality
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr4540-upstream-${{ matrix.runtime }}
+          path: evidence/
